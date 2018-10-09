@@ -1,0 +1,365 @@
+/*!
+Theme Name: Asheville
+Theme URI: http://underscores.me/
+Author: Kyle Kirkpatrick
+Author URI: http://www.ashevillenc.gov/
+Description: City of Asheville custom theme
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: avl
+Tags: responsive, bootstrap
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Asheville is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+*/
+
+/* City Colors */
+
+.bg-avl-blue {
+	background-color: #004987;
+}
+
+.bg-avl-blue-75 {
+	background-color: #4077A5;
+}
+
+.bg-avl-blue-35 {
+	background-color: #A6BFD5;
+}
+
+.bg-avl-green {
+	background-color: #AAAD00;
+}
+
+.bg-avl-green-75 {
+	background-color: #BFC240;
+}
+
+.bg-avl-green-35 {
+	background-color: #E1E2A6;
+}
+
+.text-avl-blue,
+.icon-avl-blue {
+	color: #004987;
+}
+
+.text-avl-blue:hover,
+.icon-avl-blue:hover {
+	color: #003A6C;
+}
+
+.text-avl-blue-75,
+.icon-avl-blue-75 {
+	color: #4077A5;
+}
+
+.text-avl-blue-35,
+.icon-avl-blue-35 {
+	color: #A6BFD5;
+}
+
+.text-avl-green,
+.icon-avl-green {
+	color: #AAAD00;
+}
+
+.text-avl-green:hover,
+.icon-avl-green:hover {
+	color: #888A00;
+}
+
+.text-avl-green-75,
+.icon-avl-green-75 {
+	color: #BFC240;
+}
+
+.text-avl-green-35,
+.icon-avl-green-35 {
+	color: #E1E2A6;
+}
+
+/* General */
+
+.badge + .badge {
+	margin-left: .25rem;
+}
+
+.menu-item-break {
+	width: 100%;
+}
+
+.menu-item-break .nav-link {
+	display: none;
+}
+
+/* Header */
+
+/*
+body.home #masthead .navbar {
+	background-color: rgba(0, 73, 135, 0.8);
+}
+*/
+
+#masthead .custom-logo {
+	width: 162px;
+	height: 40px; /* 2.5rem; */
+}
+
+#masthead .search-field {
+	min-width: 225px;
+}
+
+#masthead .search-field,
+#colophon .form-control {
+	background-color: rgba(255, 255, 255, .85);
+	transition: background-color 0.5s ease;
+}
+
+#masthead .search-field:focus,
+#colophon .form-control:focus {
+	background-color: rgba(255, 255, 255, 1);
+}
+
+#menu-popular .icon {
+	margin-right: .25rem;
+}
+
+#menu-popular .card-header:hover {
+	text-decoration: none;
+}
+
+/* Main Menu */
+
+#primary-menu .nav-link {
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	border: 1px solid transparent;
+}
+
+/* Splash */
+
+#splash {
+	background-size: cover;
+}
+
+#splash .entry-title,
+.site-title a, .site-description {
+	text-shadow: 2px 3px 0 rgba(0, 0, 0, .2);
+}
+
+#splash .jumbotron {
+	border: 2px solid #AAAD00;
+	background-color: rgba(0, 73, 135, .5);
+}
+
+#splash .jumbotron p {
+	font-weight: bold;
+}
+
+#splash .nav-tabs .nav-link:not(.active) {
+	color: #fff;
+	background-color: rgba(0, 0, 0, .5);
+}
+/*
+#splash .nav-tabs .nav-link.active {
+	color: #495057;
+	background-color: #fff;
+}
+*/
+
+/* Footer */
+
+#colophon {
+	border-top: 4px solid #AAAD00;
+}
+
+#footer-social .nav-link {
+	color: #A6BFD5;
+}
+
+#footer-social .nav-link:hover {
+	color: #FFF;
+}
+
+/* Posts */
+
+figcaption {
+	padding: .5rem;
+	font-size: 80%;
+	font-weight: 400;
+	background-color: #A6BFD5;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 1rem;
+	margin-bottom: .5rem;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1rem;
+	margin-bottom: .5rem;
+}
+
+/* Algolia Search */
+
+.aa-dropdown-menu {
+	font-family: inherit;
+	display: -ms-flexbox !important;
+	display: flex !important;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.aa-dropdown-menu > div[class^="aa-dataset"] {
+	-ms-flex-preferred-size: 0;
+	flex-basis: 0;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	min-width: 225px;
+	max-width: 100%;
+}
+
+.aa-dropdown-menu > div[class^="aa-dataset"]:empty {
+	display: none;
+}
+
+.aa-dropdown-menu .autocomplete-header-title {
+	float: none;
+	text-transform: none;
+	letter-spacing: normal;
+	font-size: 1rem;
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-top: .5rem;
+}
+
+.aa-dropdown-menu .aa-suggestion.aa-cursor {
+	background-color: #A6BFD5;
+}
+
+.aa-dropdown-menu .aa-suggestion .suggestion-post-title {
+	white-space: normal;
+}
+
+.aa-dropdown-menu .aa-suggestion .suggestion-post-content {
+	white-space: normal;
+}
+
+.aa-dropdown-menu .aa-suggestion .badge {
+	font-size: 100%;
+}
+
+.aa-dropdown-menu .aa-suggestion .badge em {
+	color: #212529;
+	background: rgba(255, 255, 0, .9);
+}
+
+/* Media Queries */
+
+/* Extra Small + Small */
+
+@media (max-width: 767.98px) {
+	#masthead {
+		position: relative;
+		padding-top: 66px;
+	}
+
+	#masthead .navbar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 3;
+	}
+	
+	#masthead .site-description {
+		font-size: 4rem;
+	}
+}
+
+/* Small */
+
+@media (min-width: 576px) {
+	
+}
+
+/* Medium */
+
+@media (min-width: 768px) {
+	#masthead .custom-logo {
+		width: 226px;
+		height: 56px; /* 4rem; */
+	}
+	
+	/* Main Menu */
+	
+	#primary-menu .show .nav-link,
+	#primary-menu .nav-link:hover {
+		border: 1px solid #fff;
+		background-color: #004987;
+	}
+
+	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show {
+		width: 640px;
+		left: -250px;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+
+	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show > .nav-item {
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+}
+
+/* Large */
+
+@media (min-width: 992px) {
+	#masthead .custom-logo {
+		height: 88px; /* 5.5rem; */
+		width: 356px;
+	}
+	
+	#splash .jumbotron {
+		width: 50%;
+	}
+}
+
+/* Extra Large */
+
+@media (min-width: 1200px) {
+	
+}
+
+/* Sticky footer */
+
+@media (min-width: 768px) {
+	html {
+		position: relative;
+		min-height: 100%;
+	}
+
+	body {
+		margin-bottom: 325px;
+	}
+
+	#colophon {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+}
