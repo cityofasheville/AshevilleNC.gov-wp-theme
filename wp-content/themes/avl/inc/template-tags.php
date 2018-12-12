@@ -118,9 +118,27 @@ if ( ! function_exists( 'avl_entry_footer' ) ) :
 				}
 			}
 			
-			// KRK: need to show tags on is_single
+			// KRK: Use bootstrap badges for department terms
+			$terms = get_the_terms(get_the_ID(), 'avl_department');
 			
+			if ( ! empty($terms) ) {
+				foreach ($terms as $term) {
+					echo '<a href="'. get_term_link($term) .'" rel="category tag" class="badge badge-info bg-avl-green-75">'. $term->name .'</a>';
+				}
+			}
 			
+			// KRK: Use bootstrap badges for tags
+			// Only show on single post
+			
+			if ( is_single() ) {
+				$tags = get_the_tags();
+				
+				if ( ! empty($tags) ) {
+					foreach ($tags as $tag) {
+						echo '<a href="'. get_tag_link($tag) .'" rel="category tag" class="badge badge-secondary">'. $tag->name .'</a>';
+					}
+				}
+			}
 			
 		} else if ( 'avl_service' == get_post_type() ) {
 			// KRK: Use bootstrap badges for terms
@@ -139,10 +157,10 @@ if ( ! function_exists( 'avl_entry_footer' ) ) :
 				'1 <i class="icon icon-bubble-text"></i>',
 				'% <i class="icon icon-bubbles"></i>',
 				'badge badge-info'
-				
 			);
 		}
-
+		
+		if ( is_single() ) {
 		edit_post_link(
 			sprintf(
 				wp_kses(
@@ -159,8 +177,9 @@ if ( ! function_exists( 'avl_entry_footer' ) ) :
 			'',
 			'',
 			0,
-			'badge badge-secondary'
+			'badge badge-dark'
 		);
+		}
 	}
 endif;
 
@@ -176,17 +195,23 @@ if ( ! function_exists( 'avl_post_thumbnail' ) ) :
 			return;
 		}
 
-		if ( is_singular() ) :
+		if ( is_singular() ) {
 		?>
-
-			<div class="post-thumbnail mb-3">
+			<figure class="post-thumbnail d-inline-block mb-3">
 			<?php
-				the_post_thumbnail('large', array('id' => 'featured-image', 'class' => 'img-fluid'));
+				$featured_image = get_post( get_post_thumbnail_id() );
+				the_post_thumbnail('medium_large', array('id' => 'featured-image', 'class' => 'img-fluid'));
+				
+				if ($featured_image->post_excerpt) {
+					echo '<figcaption>';
+					echo $featured_image->post_excerpt;
+					echo '</figcaption>';
+				}
 			?>
-			</div>
-
-		<?php else : ?>
-
+			</figure>
+		<?php
+		} else {
+		?>
 			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 			<?php
 			the_post_thumbnail( 'post-thumbnail', array(
@@ -196,9 +221,8 @@ if ( ! function_exists( 'avl_post_thumbnail' ) ) :
 			) );
 			?>
 			</a>
-
 		<?php
-		endif; // End is_singular().
+		}
 	}
 endif;
 ?>

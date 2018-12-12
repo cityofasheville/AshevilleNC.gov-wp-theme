@@ -22,7 +22,7 @@
 	<header id="masthead" class="site-header">
 		<nav class="navbar navbar-expand-md navbar-dark bg-avl-blue shadow-sm">
 			<div class="container">
-				<a class="navbar-brand" href="<?= home_url( '/' ) ?>">
+				<a class="navbar-brand align-self-end" href="<?= home_url( '/' ) ?>">
 				<?php
 					if ( $custom_logo_id = get_theme_mod( 'custom_logo' ) ) {
 						$custom_logo_attr = array(
@@ -103,7 +103,7 @@
 			
 			if ($thumbnail_id = get_post_thumbnail_id( $parent_id )) {
 				$image_data = wp_get_attachment_image_src( $thumbnail_id, 'full' );
-				$style = "min-height: ". (100*($image_data[2]/$image_data[1])) ."vw; background-image: url('". $image_data[0] ."');";
+				$style = "min-height: ". (100 * ( $image_data[2] / ($image_data[1] + 17) )) ."vw; background-image: url('". $image_data[0] ."');";
 			} else {
 				$style = '';
 			}
@@ -113,7 +113,9 @@
 			<?php
 				//the_title( '<h1 class="entry-title display-1 text-center">', '</h1>' );
 				echo '<h1 class="entry-title display-1 text-center">'. apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1>';
-				echo apply_filters( 'the_excerpt', get_the_excerpt( $parent_id ) );
+				
+				if ( has_excerpt( $parent_id ) )
+					echo apply_filters( 'the_excerpt', get_the_excerpt( $parent_id ) );
 			?>
 			</div>
 			<?php
@@ -156,6 +158,12 @@
 	</div>
 	<?php
 		}
+		/*
+		KRK: yoast breadcrumbs... disabled for now
+		if ( function_exists('yoast_breadcrumb') && (! ( is_front_page() && is_home() ) ) ) {
+			yoast_breadcrumb( '<div id="breadcrumbs-container" class="my-3"><div class="container">','</div></div>' );
+		}
+		*/
 	?>
 
 	<div id="content" class="site-content">

@@ -34,7 +34,7 @@ function avl_header_style() {
 	
 	// KRK: Add support for header background image.
 	if ( has_header_image() ) {
-		$style .= '#splash { min-height: '. (100*(get_custom_header()->height/get_custom_header()->width)) .'vw; background-image: url("'. get_header_image() .'"); }';
+		$style .= '#splash { min-height: '. (100*(get_custom_header()->height/(get_custom_header()->width + 17))) .'vw; background-image: url("'. get_header_image() .'"); }';
 	}
 	
 	if ( display_header_text() )

@@ -29,7 +29,7 @@ get_header();
 		</main>
 	</div>
 <?php
-	get_sidebar();
+	get_sidebar('post');
 ?>
 	</div>
 </div>

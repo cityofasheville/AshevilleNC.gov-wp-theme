@@ -11,10 +11,7 @@
 <div class="row">
 	<div class="col-md-8">
 		<header class="entry-header">
-			<h2 class="entry-title">What we do</h2>
-			<div class="entry-meta">
-				
-			</div>
+			<h2 class="entry-title mb-3">What we do</h2>
 		</header>
 		<div class="entry-content">
 			<?php
@@ -42,7 +39,7 @@
 	<div class="col-md-4">
 		<?php
 		if ( have_rows('connect_info') || have_rows('connect_social') ) {
-			echo '<div class="card">';
+			echo '<div class="card entry-meta">';
 			echo '<h3 class="card-header">Connect</h3>';
 			
 			if ( have_rows('connect_info') ) {
@@ -52,10 +49,8 @@
 					the_row();
 					
 					echo '<li class="list-group-item">';
-					
 					echo '<h6>'. get_sub_field('title') .'</h6>';
 					the_sub_field('details');
-					
 					echo '</li>';
 				}
 				
@@ -67,10 +62,6 @@
 			
 				while ( have_rows('connect_social') ) {
 					the_row();
-					
-					$test = get_sub_field_object('network');
-					
-					//print_r($test);
 					
 					echo '<a href="'. get_sub_field('link') .'" target="_blank" class="card-link"><i class="fab fa-'. get_sub_field('network') .' fa-2x"></i></a>';
 				}
@@ -85,8 +76,11 @@
 </div>
 	<?php
 		global $post;
-		$terms = get_the_terms($post, 'avl_department');
-		$term_ids = wp_list_pluck($terms, 'term_id');
+		
+		if ( $terms = get_the_terms($post, 'avl_department') )
+			$term_ids = wp_list_pluck($terms, 'term_id');
+		else
+			$term_ids = array();
 		
 		$args = array(
 			'post_type' => 'avl_service',
@@ -97,13 +91,14 @@
 					'terms'		=> $term_ids,
 				)
 			),
-			'posts_per_page' => -1,
+			'posts_per_page' => 12,
 		);
 		
 		$services = new WP_Query($args);
 		
 		if ( $services->have_posts() ) {
-			echo '<h2>Services</h2>';
+			echo '<section>';
+			echo '<h2 class="mb-3">Services</h2>';
 			echo '<div class="row">';
 			
 			while ( $services->have_posts() ) {
@@ -117,6 +112,14 @@
 			echo '</div>';
 			
 			wp_reset_postdata();
+			
+			$archive_link = get_post_type_archive_link( 'avl_service' ) .'department/'. $post->post_name .'/';
+			
+			echo '<div class="d-flex justify-content-end mb-3">';
+			echo '<a href="'. $archive_link .'" role="button" class="btn btn-outline-info">View '. $post->post_title .' Services <i class="icon icon-chevron-right"></i></a>';
+			echo '</div>';
+			
+			echo '</section>';
 		}
 		
 		$args = array(
@@ -128,13 +131,14 @@
 					'terms'		=> $term_ids,
 				)
 			),
-			'posts_per_page' => -1,
+			'posts_per_page' => 3,
 		);
 		
 		$news = new WP_Query($args);
 		
 		if ( $news->have_posts() ) {
-			echo '<h2>News</h2>';
+			echo '<section>';
+			echo '<h2 class="mb-3">News</h2>';
 			echo '<div class="row">';
 			
 			while ( $news->have_posts() ) {
@@ -148,10 +152,20 @@
 			echo '</div>';
 			
 			wp_reset_postdata();
+			
+			$archive_link = get_post_type_archive_link( 'post' ) .'department/'. $post->post_name .'/';
+			
+			echo '<div class="d-flex justify-content-end mb-3">';
+			echo '<a href="'. $archive_link .'" role="button" class="btn btn-outline-info">View '. $post->post_title .' News <i class="icon icon-chevron-right"></i></a>';
+			echo '</div>';
+			
+			echo '</section>';
 		}
 	?>
 	
 	<footer class="entry-footer">
-		<?php avl_entry_footer(); ?>
+		<?php
+		//avl_entry_footer();
+		?>
 	</footer>
 </article>

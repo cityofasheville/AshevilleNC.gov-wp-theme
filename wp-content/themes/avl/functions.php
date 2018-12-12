@@ -35,9 +35,6 @@ function avl_custom_upload_mimes($mimes) {
 }
 add_action('upload_mimes', 'avl_custom_upload_mimes');
 
-// Disable srcset on frontend
-//add_filter('max_srcset_image_width', create_function('', 'return 1;'));
-
 if ( ! function_exists( 'avl_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -125,7 +122,7 @@ function avl_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'avl_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'avl_content_width', 730 );
 }
 add_action( 'after_setup_theme', 'avl_content_width', 0 );
 
@@ -139,10 +136,40 @@ function avl_widgets_init() {
 		'name'          => esc_html__( 'Sidebar', 'avl' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	
+	register_sidebar( array(
+		'name'          => esc_html__( 'Services Sidebar', 'avl' ),
+		'id'            => 'sidebar-services',
+		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	
+	register_sidebar( array(
+		'name'          => esc_html__( 'News Sidebar', 'avl' ),
+		'id'            => 'sidebar-news',
+		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	
+	register_sidebar( array(
+		'name'          => esc_html__( 'Events Block', 'avl' ),
+		'id'            => 'block-events',
+		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s mb-3">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'avl_widgets_init' );

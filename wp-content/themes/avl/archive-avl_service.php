@@ -11,7 +11,7 @@ get_header();
 ?>
 <div class="container">
 	<div class="row">
-	<div id="primary" class="content-area col-sm-12">
+	<div id="primary" class="content-area col-md-8">
 		<main id="main" class="site-main">
 
 		<?php if ( have_posts() ) : ?>
@@ -19,10 +19,16 @@ get_header();
 			<header class="page-header">
 				<h1 class="page-title"><i class="icon icon-drawer-full"></i> Services Directory</h1>
 				<?php
-				//the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
+				if ( get_query_var( 'avl_department' ) ) {
+					$term = get_queried_object();
+					
+					echo '<h2>Department: '. $term->name .'</h2>';
+				} else {
+					//the_archive_title( '<h1 class="page-title">', '</h1>' );
+					the_archive_description( '<div class="archive-description">', '</div>' );
+				}
 				?>
-			</header><!-- .page-header -->
+			</header>
 
 			<?php
 			$az = array();
@@ -67,7 +73,7 @@ get_header();
 		</main><!-- #main -->
 	</div><!-- #primary -->
 <?php
-//get_sidebar();
+get_sidebar('services');
 ?>
 	</div>
 </div>

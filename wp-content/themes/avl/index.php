@@ -30,6 +30,7 @@ get_header();
 			</div>
 		</section>
 		
+		<!--
 		<section class="bg-light py-5">
 			<div class="container">
 				<h2 class="mb-4"><i class="icon icon-traffic-lights icon-3x icon-avl-green"></i> Service Updates</h2>
@@ -63,6 +64,7 @@ get_header();
 				</div>
 			</div>
 		</section>
+		-->
 		
 		<section class="bg-white py-5">
 			<div class="container">
@@ -107,7 +109,7 @@ get_header();
 				</div>
 				<div class="row">
 					<div class="col-auto ml-auto">
-						<a href="#" role="button" class="btn btn-outline-primary">Read More Stories <i class="icon icon-chevron-right"></i></a>
+						<a href="<?= get_post_type_archive_link( 'post' ); ?>" role="button" class="btn btn-outline-primary">Read More Stories <i class="icon icon-chevron-right"></i></a>
 					</div>
 				</div>
 				<?php
@@ -117,6 +119,44 @@ get_header();
 				?>
 			</div>
 		</main>
+		
+		<section class="bg-white py-5">
+			<div class="container">
+				<h2 class="mb-4"><i class="icon icon-calendar icon-3x icon-avl-green-75"></i> Upcoming Events</h2>
+				<?php
+					if ( is_active_sidebar( 'block-events' ) ) {
+						dynamic_sidebar( 'block-events' );
+					}
+				?>
+			</div>
+		</section>
+		
+		<section class="bg-light py-5">
+			<div class="container">
+				<h2 class="mb-4"><i class="icon icon-bubbles2 icon-3x icon-avl-blue"></i> Engage</h2>
+				<div class="row">
+					<div class="col-sm-12 col-md-4">
+						<a href="http://www.ashevillenc.gov/departments/comm_public/open_city_hall_new.htm" class="open-city-hall d-block py-5 bg-avl-green-75 mb-4 rounded shadow">
+							<h4 class="text-white text-center mb-3">Open City Hall</h4>
+							<img src="http://avlbeta.site/wp-content/uploads/2018/09/city-of-asheville-dome-white.svg" class="d-block w-50 mx-auto mb-3" alt="The City of Asheville Dome">
+							<h5 class="text-white text-center mb-3">Join the discussion</h5>
+						</a>
+					</div>
+					<div class="col-sm-12 col-md-4">
+						<div class="row">
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="fab fa-facebook fa-5x"></i></a></div>
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="fab fa-twitter fa-5x"></i></a></div>
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="fab fa-instagram fa-5x"></i></a></div>
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="fab fa-youtube fa-5x"></i></a></div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-4">
+						<a class="twitter-timeline" data-height="460" href="https://twitter.com/CityofAsheville">Tweets by CityofAsheville</a>
+						<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+					</div>
+				</div>
+			</div>
+		</section>
 		
 		<section class="bg-white py-5">
 			<div class="container">
