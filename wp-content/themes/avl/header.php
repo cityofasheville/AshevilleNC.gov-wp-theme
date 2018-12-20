@@ -16,6 +16,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-16340971-17"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-16340971-17');
+	</script>
 </head>
 <body <?php body_class(); ?>>
 <div id="page" class="site">

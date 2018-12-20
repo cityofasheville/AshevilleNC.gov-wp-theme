@@ -138,21 +138,20 @@ get_header();
 					<div class="col-sm-12 col-md-4">
 						<a href="http://www.ashevillenc.gov/departments/comm_public/open_city_hall_new.htm" class="open-city-hall d-block py-5 bg-avl-green-75 mb-4 rounded shadow">
 							<h4 class="text-white text-center mb-3">Open City Hall</h4>
-							<img src="http://avlbeta.site/wp-content/uploads/2018/09/city-of-asheville-dome-white.svg" class="d-block w-50 mx-auto mb-3" alt="The City of Asheville Dome">
+							<?= wp_get_attachment_image( 109, 'full', false, array('class' => 'd-block w-50 mx-auto mb-3') ); ?>
 							<h5 class="text-white text-center mb-3">Join the discussion</h5>
 						</a>
 					</div>
 					<div class="col-sm-12 col-md-4">
 						<div class="row">
-							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="fab fa-facebook fa-5x"></i></a></div>
-							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="fab fa-twitter fa-5x"></i></a></div>
-							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="fab fa-instagram fa-5x"></i></a></div>
-							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="fab fa-youtube fa-5x"></i></a></div>
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="icomoon icomoon-facebook icon-5x"></i></a></div>
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="icomoon icomoon-twitter icon-5x"></i></a></div>
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="icomoon icomoon-instagram icon-5x"></i></a></div>
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="icomoon icomoon-youtube icon-5x"></i></a></div>
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-4">
-						<a class="twitter-timeline" data-height="460" href="https://twitter.com/CityofAsheville">Tweets by CityofAsheville</a>
-						<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						<a class="twitter-timeline" data-height="460" href="https://twitter.com/CityofAsheville" tabindex="-1">Tweets by CityofAsheville</a>
 					</div>
 				</div>
 			</div>
@@ -166,7 +165,7 @@ get_header();
 						<h3>About the redesign</h3>
 						<p>We're in the process of creating a new website for Asheville from the ground-up with simple, mobile-friendly designs, more intuitive organization, and clear content.</p>
 						<p>Throughout the redesign process, we've been collaborating with people like you to inform the direction and usability of the site. Please continue to send us your thoughts.</p>
-						<div class="alert alert-info" role="alert"><i class="icon icon-lamp-bright icon-2x float-left mr-2"></i> Use the site's feedback links to alert us to content errors and design feedback.</div>
+						<div class="alert alert-info" role="alert"><i class="icon icon-lamp-bright icon-2x float-left mr-2"></i> Use the site's feedback button to alert us to content errors and design feedback.</div>
 					</div>
 					<div class="col-sm-12 col-lg-6">
 						<h3>Where are we in the process?</h3>

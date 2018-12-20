@@ -19,11 +19,14 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 /* City Colors */
 
-.bg-avl-blue {
+.bg-avl-blue,
+.bg-avl-blue[href]:hover,
+.bg-avl-blue-75[href]:hover {
 	background-color: #004987;
 }
 
-.bg-avl-blue-75 {
+.bg-avl-blue-75,
+.bg-avl-blue-35[href]:hover {
 	background-color: #4077A5;
 }
 
@@ -31,7 +34,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	background-color: #A6BFD5;
 }
 
-.bg-avl-green {
+.bg-avl-green,
+.bg-avl-green-75[href]:hover {
 	background-color: #AAAD00;
 }
 
@@ -114,7 +118,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	background-color: #004987;
 }
 
-.social-network .fab {
+.social-network .icomoon {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -137,12 +141,8 @@ body.home #masthead .navbar {
 */
 
 #masthead .custom-logo {
-	width: 162px;
-	height: 40px; /* 2.5rem; */
-}
-
-#masthead .search-field {
-	min-width: 225px;
+	width: 154px;
+	height: 38px;
 }
 
 #masthead .search-field,
@@ -154,6 +154,31 @@ body.home #masthead .navbar {
 #masthead .search-field:focus,
 #colophon .form-control:focus {
 	background-color: rgba(255, 255, 255, 1);
+}
+
+#masthead .search-field {
+	padding-right: 38px;
+}
+
+.search-form {
+	position: relative;
+}
+
+#search-button {
+	position: absolute;
+	padding: 0;
+	border: none;
+	width: 38px;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	cursor: pointer;
+	color: #555;
+	background-color: transparent;
+}
+
+#search-button:hover {
+	background-color: rgba(0, 0, 0, .15);
 }
 
 #menu-popular .icon {
@@ -172,6 +197,12 @@ body.home #masthead .navbar {
 	border: 1px solid transparent;
 }
 
+.dropdown-item {
+	max-width: 325px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 /* Splash */
 
 #splash {
@@ -184,12 +215,14 @@ body.home #masthead .navbar {
 }
 
 #splash .jumbotron {
+	width: 90%;
 	border: 2px solid #AAAD00;
-	background-color: rgba(0, 73, 135, .5);
+	background-color: rgba(0, 73, 135, .65);
 }
 
 #splash .jumbotron p {
-	font-weight: bold;
+	font-weight: 300;
+	font-size: 1.25rem;
 }
 
 #splash .nav-tabs .nav-link:not(.active) {
@@ -207,6 +240,11 @@ body.home #masthead .navbar {
 
 #colophon {
 	border-top: 4px solid #AAAD00;
+}
+
+#feedback-button:hover .icon-lamp-bright,
+#feedback-button:focus .icon-lamp-bright {
+	color: yellow;
 }
 
 #footer-social .nav-link {
@@ -286,9 +324,12 @@ figcaption {
 
 .aa-dropdown-menu .aa-suggestion .badge {
 	font-size: 100%;
+	white-space: normal;
+	text-align: left;
 }
 
 .aa-dropdown-menu .aa-suggestion .badge em {
+	padding: 0 3px;
 	color: #212529;
 	background: rgba(255, 255, 0, .9);
 }
@@ -314,7 +355,7 @@ figcaption {
 @media (max-width: 767.98px) {
 	#masthead {
 		position: relative;
-		padding-top: 66px;
+		padding-top: 64px;
 	}
 
 	#masthead .navbar {
@@ -324,16 +365,21 @@ figcaption {
 		right: 0;
 		z-index: 3;
 	}
-	
+	/*
 	#masthead .site-description {
 		font-size: 4rem;
+	}
+	*/
+	
+	.display-1 {
+		font-size: 3.5rem;
 	}
 }
 
 /* Small */
 
 @media (min-width: 576px) {
-	
+
 }
 
 /* Medium */
@@ -346,17 +392,21 @@ figcaption {
 	}
 	*/
 	
+	#masthead .search-field {
+		min-width: 450px;
+	}
+	
 	/* Main Menu */
 	
 	#primary-menu .show .nav-link,
 	#primary-menu .nav-link:hover {
-		border: 1px solid #fff;
+		border: 1px solid #A6BFD5;
 		background-color: #004987;
 	}
 
 	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show {
-		width: 660px;
-		left: -250px;
+		width: 652px;
+		left: -210px;
 		display: -ms-flexbox;
 		display: flex;
 		-ms-flex-direction: row;
@@ -370,6 +420,10 @@ figcaption {
 		flex: 0 0 50%;
 		max-width: 50%;
 	}
+	
+	.display-1 {
+		font-size: 4.5rem;
+	}
 }
 
 /* Large */
@@ -381,14 +435,20 @@ figcaption {
 	}
 	
 	#splash .jumbotron {
-		width: 50%;
+		width: 60%;
 	}
 }
 
 /* Extra Large */
 
 @media (min-width: 1200px) {
+	#masthead .search-field {
+		min-width: 225px;
+	}
 	
+	.display-1 {
+		font-size: 5.5rem;
+	}
 }
 
 /* Sticky footer */
@@ -400,7 +460,7 @@ figcaption {
 	}
 
 	body {
-		margin-bottom: 325px;
+		margin-bottom: 367px;
 	}
 
 	#colophon {

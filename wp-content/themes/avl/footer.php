@@ -10,12 +10,33 @@
  */
 ?>
 	</div>
-	<footer id="colophon" class="site-footer bg-avl-blue-75 pt-5">
+	<footer id="colophon" class="site-footer bg-avl-blue-75">
+
+		<div class="collapse" id="toggle-feedback">
+			<div class="bg-dark p-4">
+				<div class="container">
+					<h5 class="text-white h4">Website Feedback</h5>
+					<span class="text-muted">Feedback text and link.</span>
+				</div>
+			</div>
+		</div>
+		
+		<nav class="navbar navbar-dark bg-avl-blue mb-5">
+			<div class="container">
+				<button id="feedback-button" class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#toggle-feedback" aria-controls="toggle-feedback" aria-expanded="false" aria-label="Toggle Feedback">
+					<i class="icon icon-lamp-bright"></i> Feedback
+				</button>
+				<span class="navbar-text text-white small ml-2 mr-auto">
+					We're still working on this page's design and content. How can we make it better?
+				</span>
+			</div>
+		</nav>
+		
 		<div class="container">
 			<div class="row">
 				<div class="col-3 col-sm-2 col-md-2 col-lg-1 pb-4">
 					<a href="<?= home_url( '/' ); ?>">
-						<img src="http://avlbeta.site/wp-content/uploads/2018/09/city-of-asheville-dome-white.svg" class="img-fluid" alt="The City of Asheville Dome">
+						<?= wp_get_attachment_image( 109, 'full', false, array('class' => 'img-fluid') ); ?>
 					</a>
 				</div>
 				<div class="col-12 col-sm-5 col-md-6 col-lg-4 col-xl-3 pb-4">

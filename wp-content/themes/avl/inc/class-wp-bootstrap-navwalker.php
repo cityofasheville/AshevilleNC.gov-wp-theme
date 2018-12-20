@@ -415,6 +415,10 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 					$linkmod_classes[] = $class;
 					unset( $classes[ $key ] );
 				} elseif ( preg_match( '/^icon-(\S*)?|^icon(\s?)$/i', $class ) ) {
+					// Lindua
+					$icon_classes[] = $class;
+					unset( $classes[ $key ] );
+				} elseif ( preg_match( '/^icomoon-(\S*)?|^icomoon(\s?)$/i', $class ) ) {
 					// IcoMoon
 					$icon_classes[] = $class;
 					unset( $classes[ $key ] );

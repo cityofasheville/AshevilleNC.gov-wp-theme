@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'Lindua';
-  src:
-    url('../fonts/Lindua.ttf?j5y9ew') format('truetype'),
-    url('../fonts/Lindua.woff?j5y9ew') format('woff'),
-    url('../fonts/Lindua.svg?j5y9ew#Lindua') format('svg');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'Lindua';
+	src:
+		url('../fonts/Lindua.ttf?j5y9ew') format('truetype'),
+		url('../fonts/Lindua.woff?j5y9ew') format('woff'),
+		url('../fonts/Lindua.svg?j5y9ew#Lindua') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 .icon {
