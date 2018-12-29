@@ -1,7 +1,11 @@
 
- ### v3.3.1 - 2018-12-06 
+ ### v3.3.2 - 2018-12-22 
  **Changes:** 
- * Tested with WP 5.0
+ * Option to handle HTTP images in the shortcode
+* Option to specify nofollow for links in the shortcode
+* Fix Gutenberg block
+* Add video tutorials under Help menu
+* Add support for extracting price from custom feed tags
  
  ### v3.3.1 - 2018-11-05 
  **Changes:** 

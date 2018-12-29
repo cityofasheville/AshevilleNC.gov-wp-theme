@@ -11,16 +11,13 @@
 ?>
 	</div>
 	<footer id="colophon" class="site-footer bg-avl-blue-75">
-
 		<div class="collapse" id="toggle-feedback">
-			<div class="bg-dark p-4">
+			<div class="text-white bg-secondary py-3">
 				<div class="container">
-					<h5 class="text-white h4">Website Feedback</h5>
-					<span class="text-muted">Feedback text and link.</span>
+					<?= do_shortcode('[ninja_form id=1]'); ?>
 				</div>
 			</div>
 		</div>
-		
 		<nav class="navbar navbar-dark bg-avl-blue mb-5">
 			<div class="container">
 				<button id="feedback-button" class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#toggle-feedback" aria-controls="toggle-feedback" aria-expanded="false" aria-label="Toggle Feedback">
@@ -31,7 +28,6 @@
 				</span>
 			</div>
 		</nav>
-		
 		<div class="container">
 			<div class="row">
 				<div class="col-3 col-sm-2 col-md-2 col-lg-1 pb-4">
@@ -66,13 +62,19 @@
 				</div>
 				<div class="offset-sm-2 col-lg-4 offset-lg-0 pb-4">
 					<h5 class="text-white">Stay in the loop</h5>
-					<p class="text-white">Sign up for our weekly newsletter!</p>
-					<div class="input-group mb-3">
-						<input type="email" class="form-control" placeholder="Email address" aria-label="Email address" aria-describedby="button-newsletter">
-						<div class="input-group-append">
-							<button class="btn btn-secondary" type="button" id="button-newsletter">Subscribe</button>
+					<p class="text-white">Sign up for our newsletter!</p>
+					<form action="https://app.e2ma.net/app2/audience/signup/1890202/1778805/?r=signup" id="signup" method="post" name="signup">
+						<input id="id_source" name="source" type="hidden">
+						<input id="id_group_2578549" name="group_2578549" type="hidden" value="2578549">
+						<input name="prev_member_email" type="hidden" value="">
+						<input id="id_prev_member_email" name="prev_member_email" type="hidden">
+						<div class="input-group mb-3">
+							<input id="id_email" name="email" type="email" class="form-control" placeholder="Email address" aria-label="Email address" aria-describedby="button-newsletter" required>
+							<div class="input-group-append">
+								<button class="btn btn-outline-light" type="submit" name="Submit" value="Submit" id="button-newsletter">Subscribe</button>
+							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>

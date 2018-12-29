@@ -242,6 +242,14 @@ body.home #masthead .navbar {
 	border-top: 4px solid #AAAD00;
 }
 
+#feedback-button {
+	border-color: #A6BFD5;
+}
+
+#feedback-button:hover {
+	border-color: yellow;
+}
+
 #feedback-button:hover .icon-lamp-bright,
 #feedback-button:focus .icon-lamp-bright {
 	color: yellow;
