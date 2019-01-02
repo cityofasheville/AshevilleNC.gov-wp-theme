@@ -58,7 +58,7 @@ jQuery(function () {
 
 		var config = {
 			//debug: algolia.debug,
-			debug: true,
+			debug: false,
 			hint: false,
 			openOnFocus: true,
 			minLength: 3,

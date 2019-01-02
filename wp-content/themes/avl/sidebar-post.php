@@ -11,6 +11,6 @@ if ( ! is_active_sidebar( 'sidebar-post' ) ) {
 	return;
 }
 ?>
-	<aside id="secondary" class="widget-area col-md-4">
+	<aside id="secondary" class="widget-area col-sm-12 col-lg-4">
 		<?php dynamic_sidebar( 'sidebar-post' ); ?>
 	</aside>

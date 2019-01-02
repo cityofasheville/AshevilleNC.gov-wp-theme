@@ -134,12 +134,6 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 /* Header */
 
-/*
-body.home #masthead .navbar {
-	background-color: rgba(0, 73, 135, 0.8);
-}
-*/
-
 #masthead .custom-logo {
 	width: 154px;
 	height: 38px;
@@ -197,10 +191,14 @@ body.home #masthead .navbar {
 	border: 1px solid transparent;
 }
 
-.dropdown-item {
+#primary-menu .dropdown-item {
 	max-width: 325px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+#primary-menu .nav-item.active > .dropdown-item {
+	background-color: #A6BFD5;
 }
 
 /* Splash */
@@ -373,11 +371,6 @@ figcaption {
 		right: 0;
 		z-index: 3;
 	}
-	/*
-	#masthead .site-description {
-		font-size: 4rem;
-	}
-	*/
 	
 	.display-1 {
 		font-size: 3.5rem;
@@ -393,13 +386,6 @@ figcaption {
 /* Medium */
 
 @media (min-width: 768px) {
-	/*
-	#masthead .custom-logo {
-		width: 226px;
-		height: 56px;
-	}
-	*/
-	
 	#masthead .search-field {
 		min-width: 450px;
 	}
@@ -432,6 +418,24 @@ figcaption {
 	.display-1 {
 		font-size: 4.5rem;
 	}
+	
+	/* Sticky footer */
+	
+	html {
+		position: relative;
+		min-height: 100%;
+	}
+
+	body {
+		margin-bottom: 520px;
+	}
+
+	#colophon {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
 }
 
 /* Large */
@@ -445,6 +449,12 @@ figcaption {
 	#splash .jumbotron {
 		width: 60%;
 	}
+	
+	/* Sticky footer */
+	
+	body {
+		margin-bottom: 370px;
+	}
 }
 
 /* Extra Large */
@@ -456,25 +466,5 @@ figcaption {
 	
 	.display-1 {
 		font-size: 5.5rem;
-	}
-}
-
-/* Sticky footer */
-
-@media (min-width: 768px) {
-	html {
-		position: relative;
-		min-height: 100%;
-	}
-
-	body {
-		margin-bottom: 367px;
-	}
-
-	#colophon {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
 	}
 }

@@ -63,7 +63,7 @@
 				while ( have_rows('connect_social') ) {
 					the_row();
 					
-					echo '<a href="'. get_sub_field('link') .'" target="_blank" class="card-link"><i class="fab fa-'. get_sub_field('network') .' fa-2x"></i></a>';
+					echo '<a href="'. get_sub_field('link') .'" target="_blank" class="card-link"><i class="icomoon icomoon-'. get_sub_field('network') .' icon-2x"></i></a>';
 				}
 				
 				echo '</div>';

@@ -13,6 +13,15 @@ show_admin_bar(false);
 // Hide Pantheon update nag
 remove_action( 'admin_init', '_pantheon_register_upstream_update_notice' );
 
+// Disable annoying Yoast SEO admin notifications
+add_action( 'admin_init', function() {
+	if ( class_exists( 'Yoast_Notification_Center' ) ) {
+		$yoast_nc = Yoast_Notification_Center::get();
+		remove_action( 'admin_notices', array( $yoast_nc, 'display_notifications' ) );
+		remove_action( 'all_admin_notices', array( $yoast_nc, 'display_notifications' ) );
+	}
+});
+
 // Remove bloat
 function avl_remove_bloat() {
 	// emoji
@@ -72,6 +81,9 @@ if ( ! function_exists( 'avl_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+		
+		// Add small image size for images from old city source blog
+		add_image_size( 'small', 300, 300 );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -194,13 +206,10 @@ function avl_scripts() {
 	// CSS
 	wp_enqueue_style( 'lindua-style', get_template_directory_uri() . '/css/lindua.css', array(), null );
 	wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . '/css/icomoon.css', array(), null );
-	//wp_enqueue_style( 'bootstrap-style', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', array(), null );
 	wp_enqueue_style( 'bootstrap-style', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css', array(), null );
 	wp_enqueue_style( 'avl-style', get_stylesheet_uri(), array( 'bootstrap-style', 'lindua-style', 'icomoon-style', 'algolia-autocomplete' ), null );
 	
 	// JavaScript
-	//wp_enqueue_script( 'popper-js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'), null, true );
-	//wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery', 'popper-js'), null, true );
 	wp_enqueue_script( 'popper-js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js', array('jquery', 'popper-js'), null, true );
 	wp_enqueue_script( 'custom-algolia-js', get_template_directory_uri() . '/js/custom-algolia.js', array('jquery'), '1.0', true );
@@ -209,7 +218,7 @@ function avl_scripts() {
 	if ( is_front_page() && is_home() ) {
 		wp_enqueue_style( 'header-style', admin_url('admin-ajax.php') .'?action=get_header_style', array( 'avl-style' ), null );
 		wp_enqueue_script( 'twitter-widget-js', 'https://platform.twitter.com/widgets.js', array('jquery'), null, true );
-		wp_enqueue_script( 'custom-home-js', get_template_directory_uri() . '/js/custom_home.js', array('jquery'), '0.1', true );
+		wp_enqueue_script( 'custom-home-js', get_template_directory_uri() . '/js/custom-home.js', array('jquery'), '0.1', true );
 	}
 	
 	//wp_enqueue_script( 'avl-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
