@@ -423,10 +423,12 @@ figcaption {
 	
 	html {
 		position: relative;
+		height: auto !important;
 		min-height: 100%;
 	}
 
 	body {
+		position: static !important;
 		margin-bottom: 520px;
 	}
 
