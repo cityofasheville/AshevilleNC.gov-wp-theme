@@ -90,7 +90,6 @@
 					'walker'			=> new WP_Bootstrap_Navwalker(),
 				));
 				?>
-				<div id="google-translate"><span class="sr-only">Google Translate</span></div>
 			</div>
 		</nav>
 	</footer>

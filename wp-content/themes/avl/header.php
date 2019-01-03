@@ -45,25 +45,29 @@
 				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#toggle-container" aria-controls="toggle-container" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div id="toggle-container" class="collapse navbar-collapse align-self-end flex-md-column-reverse flex-xl-row">
-				<?php
-				// flex-column-reverse
-				wp_nav_menu(array(
-					'depth'			=> 2,
-					'theme_location'	=> 'primary',
-					'container'		=> 'div',
-					'container_id'		=> 'site-navigation',
-					'container_class'	=> 'main-navigation mr-auto',
-					'menu_class'		=> 'navbar-nav',
-					'menu_id'			=> 'primary-menu',
-					'fallback_cb'		=> 'WP_Bootstrap_Navwalker::fallback',
-					'walker'			=> new WP_Bootstrap_Navwalker(),
-				));
-				
-				if (! ( is_front_page() && is_home() ) ) {
-					get_template_part( 'searchform-header' );
-				}
-				?>
+				<div id="toggle-container" class="collapse navbar-collapse flex-md-column-reverse">
+					<?php
+					// flex-column-reverse
+					wp_nav_menu(array(
+						'depth'			=> 2,
+						'theme_location'	=> 'primary',
+						'container'		=> 'div',
+						'container_id'		=> 'site-navigation',
+						'container_class'	=> 'main-navigation mr-auto',
+						'menu_class'		=> 'navbar-nav',
+						'menu_id'			=> 'primary-menu',
+						'fallback_cb'		=> 'WP_Bootstrap_Navwalker::fallback',
+						'walker'			=> new WP_Bootstrap_Navwalker(),
+					));
+					?>
+					<div class="d-flex w-100 mb-1">
+						<?php
+						if (! ( is_front_page() && is_home() ) ) {
+							get_template_part( 'searchform-header' );
+						}
+						?>
+						<div id="google-translate" class="ml-auto"></div>
+					</div>
 				</div>
 			</div>
 		</nav>
