@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="col-3 col-sm-2 col-md-2 col-lg-1 pb-4">
 					<a href="<?= home_url( '/' ); ?>">
-						<?= wp_get_attachment_image( 109, 'full', false, array('class' => 'img-fluid') ); ?>
+						<?= wp_get_attachment_image( 109, 'full', false, array('class' => 'avl-dome img-fluid') ); ?>
 					</a>
 				</div>
 				<div class="col-12 col-sm-5 col-md-6 col-lg-4 col-xl-3 pb-4">
