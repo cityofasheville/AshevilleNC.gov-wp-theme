@@ -39,7 +39,7 @@
 	<div class="col-md-4">
 		<?php
 		if ( have_rows('connect_info') || have_rows('connect_social') ) {
-			echo '<div class="card entry-meta">';
+			echo '<div class="card entry-meta mb-3">';
 			echo '<h3 class="card-header">Connect</h3>';
 			
 			if ( have_rows('connect_info') ) {
