@@ -11,7 +11,7 @@
 	<?php
 	if ( has_post_thumbnail() ) {
 	?>
-	<a class="post-thumbnail" href="<?php the_permalink(); ?>">
+	<a class="post-thumbnail flex-shrink-0" href="<?php the_permalink(); ?>">
 		<?php the_post_thumbnail('medium', array('class' => 'card-img-top h-auto')); ?>
 	</a>
 	<?php
