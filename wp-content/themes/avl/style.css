@@ -210,6 +210,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 #splash {
 	background-size: cover;
+	max-height: 50vh;
 }
 
 #splash .entry-title,
@@ -399,14 +400,13 @@ nav.navbar {
 	}
 
 	.display-1 {
-		font-size: 3.5rem;
+		font-size: 2.5rem;
 	}
 }
 
 /* Small */
 
 @media (min-width: 576px) {
-
 }
 
 /* Medium */
@@ -446,7 +446,7 @@ nav.navbar {
 	}
 
 	.display-1 {
-		font-size: 4.5rem;
+		font-size: 3rem;
 	}
 
 	/* Google translate */
@@ -501,7 +501,7 @@ nav.navbar {
 
 /* Extra Large */
 
-@media (min-width: 1200px) {
+@media (min-width: 2000px) {
 	.display-1 {
 		font-size: 5.5rem;
 	}

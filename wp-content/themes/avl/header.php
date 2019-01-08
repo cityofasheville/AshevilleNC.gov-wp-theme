@@ -113,7 +113,7 @@
 
 			if ($thumbnail_id = get_post_thumbnail_id( $parent_id )) {
 				$image_data = wp_get_attachment_image_src( $thumbnail_id, 'full' );
-				$style = "min-height: ". (100 * ( $image_data[2] / ($image_data[1] + 17) )) ."vw; background-image: url('". $image_data[0] ."');";
+				$style = "height: ". (100 * ( $image_data[2] / ($image_data[1] + 17) )) ."vw; background-image: url('". $image_data[0] ."');";
 			} else {
 				$style = '';
 			}
