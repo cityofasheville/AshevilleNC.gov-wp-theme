@@ -28,14 +28,7 @@
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
 
-		<div class="bg-avl-blue">
-			<?php
-			if (! ( is_front_page() && is_home() ) ) {
-				get_template_part( 'searchform-header' );
-			}
-			?>
-			<div id="google-translate" class=""></div>
-		</div>
+		<div id="google-translate"></div>
 
 		<nav class="navbar navbar-expand-md navbar-dark bg-avl-blue shadow-sm">
 			<div class="container-fluid">
@@ -57,7 +50,6 @@
 				</button>
 				<div id="toggle-container" class="collapse navbar-collapse justify-content-end">
 					<?php
-					// flex-column-reverse
 					wp_nav_menu(array(
 						'depth'			=> 2,
 						'theme_location'	=> 'primary',
@@ -69,6 +61,11 @@
 						'fallback_cb'		=> 'WP_Bootstrap_Navwalker::fallback',
 						'walker'			=> new WP_Bootstrap_Navwalker(),
 					));
+					?>
+					<?php
+					if (! ( is_front_page() && is_home() ) ) {
+						get_template_part( 'searchform-header' );
+					}
 					?>
 				</div>
 			</div>
