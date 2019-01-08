@@ -211,6 +211,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 #splash {
 	background-size: cover;
 	max-height: 50vh;
+	min-height: 10em;
 }
 
 #splash .entry-title,
@@ -221,7 +222,11 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 #splash .jumbotron {
 	width: 90%;
 	border: 2px solid #AAAD00;
-	background-color: rgba(0, 73, 135, .65);
+	background-color: transparent;
+}
+
+#splash h1 {
+	color: #212529;
 }
 
 #splash .jumbotron p {
