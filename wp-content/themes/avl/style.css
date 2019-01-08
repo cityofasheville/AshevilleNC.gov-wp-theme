@@ -428,7 +428,7 @@ figcaption {
 		right: 0;
 		z-index: 3;
 	}
-	
+
 	.display-1 {
 		font-size: 3.5rem;
 	}
@@ -444,7 +444,7 @@ figcaption {
 
 @media (min-width: 768px) {
 	/* Main Menu */
-	
+
 	#primary-menu .show .nav-link,
 	#primary-menu .nav-link:hover {
 		border: 1px solid #A6BFD5;
@@ -467,20 +467,20 @@ figcaption {
 		flex: 0 0 50%;
 		max-width: 50%;
 	}
-	
+
 	.display-1 {
 		font-size: 4.5rem;
 	}
-	
+
 	/* Google translate */
 
 	html.translated-ltr body,
 	html.translated-rtl body {
 		margin-top: 39px;
 	}
-	
+
 	/* Sticky footer */
-	
+
 	html {
 		position: relative;
 		height: auto !important;
@@ -504,16 +504,14 @@ figcaption {
 
 @media (min-width: 992px) {
 	#masthead .custom-logo {
-		height: 76px;
-		width: 307px;
 	}
-	
+
 	#splash .jumbotron {
 		width: 60%;
 	}
-	
+
 	/* Sticky footer */
-	
+
 	body {
 		margin-bottom: 370px;
 	}

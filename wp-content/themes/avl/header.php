@@ -28,14 +28,14 @@
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
 		<nav class="navbar navbar-expand-md navbar-dark bg-avl-blue shadow-sm">
-			<div class="container">
+			<div class="container-fluid">
 				<a class="navbar-brand align-self-end" href="<?= home_url( '/' ) ?>">
 				<?php
 					if ( $custom_logo_id = get_theme_mod( 'custom_logo' ) ) {
 						$custom_logo_attr = array(
 							'class' => 'custom-logo',
 						);
-						
+
 						echo wp_get_attachment_image( $custom_logo_id, 'full', false, $custom_logo_attr );
 					} else {
 						bloginfo( 'name' );
@@ -71,7 +71,7 @@
 				</div>
 			</div>
 		</nav>
-		
+
 		<?php
 			if ( is_front_page() && is_home() ) {
 		?>
@@ -82,7 +82,7 @@
 				if ( $avl_description || is_customize_preview() ) {
 			?>
 				<h1 class="site-description display-1 text-center"><?php echo $avl_description; ?></h1>
-				
+
 				<div class="row">
 					<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
 						<div class="my-5 shadow">
@@ -99,10 +99,10 @@
 		</div>
 		<?php
 		}
-		
+
 		if ( is_singular('avl_department_page') ) {
 			$post = get_queried_object();
-			
+
 			if ( $post->post_parent == 0 ) {
 				$parent_id = $post->ID;
 			} else {
@@ -111,7 +111,7 @@
 				$ancestors = $post->ancestors;
 				$parent_id = end( $ancestors );
 			}
-			
+
 			if ($thumbnail_id = get_post_thumbnail_id( $parent_id )) {
 				$image_data = wp_get_attachment_image_src( $thumbnail_id, 'full' );
 				$style = "min-height: ". (100 * ( $image_data[2] / ($image_data[1] + 17) )) ."vw; background-image: url('". $image_data[0] ."');";
@@ -124,7 +124,7 @@
 			<?php
 				//the_title( '<h1 class="entry-title display-1 text-center">', '</h1>' );
 				echo '<h1 class="entry-title display-1 text-center">'. apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1>';
-				
+
 				if ( has_excerpt( $parent_id ) )
 					echo apply_filters( 'the_excerpt', get_the_excerpt( $parent_id ) );
 			?>
@@ -137,15 +137,15 @@
 					'orderby' => 'menu_order',
 					'order' => 'ASC'
 				) );
-				
+
 				if (! empty( $child_pages )) {
 					echo '<nav class="nav nav-tabs justify-content-center mt-auto">';
 					echo '<a class="nav-item nav-link'. (($post->ID == $parent_id)?' active':'') .'" href="'. get_permalink( $parent_id ) .'">Home</a>';
-					
+
 					foreach ($child_pages as $page) {
 						echo '<a class="nav-item nav-link'. (($post->ID == $page->ID)?' active':'') .'" href="'. get_permalink( $page ) .'">'. $page->post_title .'</a>';
 					}
-					
+
 					echo '</nav>';
 				}
 			?>
@@ -154,7 +154,7 @@
 		}
 		?>
 	</header>
-	
+
 	<?php
 		if ( function_exists('bcn_display') && (! ( is_front_page() && is_home() ) ) ) {
 	?>
