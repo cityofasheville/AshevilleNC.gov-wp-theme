@@ -27,6 +27,16 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
+
+		<div class="bg-avl-blue">
+			<?php
+			if (! ( is_front_page() && is_home() ) ) {
+				get_template_part( 'searchform-header' );
+			}
+			?>
+			<div id="google-translate" class=""></div>
+		</div>
+
 		<nav class="navbar navbar-expand-md navbar-dark bg-avl-blue shadow-sm">
 			<div class="container-fluid">
 				<a class="navbar-brand align-self-end" href="<?= home_url( '/' ) ?>">
@@ -45,7 +55,7 @@
 				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#toggle-container" aria-controls="toggle-container" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div id="toggle-container" class="collapse navbar-collapse flex-md-column-reverse">
+				<div id="toggle-container" class="collapse navbar-collapse justify-content-end">
 					<?php
 					// flex-column-reverse
 					wp_nav_menu(array(
@@ -53,21 +63,13 @@
 						'theme_location'	=> 'primary',
 						'container'		=> 'div',
 						'container_id'		=> 'site-navigation',
-						'container_class'	=> 'main-navigation mr-auto',
+						'container_class'	=> 'main-navigation',
 						'menu_class'		=> 'navbar-nav',
 						'menu_id'			=> 'primary-menu',
 						'fallback_cb'		=> 'WP_Bootstrap_Navwalker::fallback',
 						'walker'			=> new WP_Bootstrap_Navwalker(),
 					));
 					?>
-					<div class="d-flex w-100 mb-1">
-						<?php
-						if (! ( is_front_page() && is_home() ) ) {
-							get_template_part( 'searchform-header' );
-						}
-						?>
-						<div id="google-translate" class="ml-auto"></div>
-					</div>
 				</div>
 			</div>
 		</nav>

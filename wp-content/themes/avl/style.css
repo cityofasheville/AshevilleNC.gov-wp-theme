@@ -357,6 +357,17 @@ figcaption {
 /* Google translate */
 
 #google-translate {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 99;
+}
+
+nav.navbar {
+	padding-top: 2em;
+}
+
+/* #google-translate {
 	width: 4rem;
 	height: 2.375rem;
 	position: relative;
@@ -409,7 +420,7 @@ figcaption {
 #google-translate .goog-te-gadget-simple > span,
 #google-translate .goog-te-gadget-simple .goog-te-gadget-icon {
 	display: none;
-}
+} */
 
 /* Media Queries */
 
@@ -442,7 +453,7 @@ figcaption {
 
 /* Medium */
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
 	/* Main Menu */
 
 	#primary-menu .show .nav-link,
@@ -504,6 +515,8 @@ figcaption {
 
 @media (min-width: 992px) {
 	#masthead .custom-logo {
+		/* height: 80px; */
+		/* width: 307px */
 	}
 
 	#splash .jumbotron {
