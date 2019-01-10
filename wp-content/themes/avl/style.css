@@ -223,7 +223,7 @@ nav.navbar {
 
 #splash {
 	background-size: cover;
-	height: 25em;
+	height: 22.5em;
 	overflow: hidden;
 }
 
@@ -312,7 +312,7 @@ footer .feedback-container {
 
 #colophon img.footer-city-logo {
 	/* Maybe this will fix the eiffel tower issue on IE */
-	max-height: 5em;
+	max-height: 3em;
 }
 
 /* Posts */
