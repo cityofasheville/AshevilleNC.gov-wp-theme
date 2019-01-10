@@ -43,7 +43,7 @@
 			),
 			get_the_title()
 		) );
-		
+
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'avl' ),
 			'after'  => '</div>',
@@ -51,7 +51,5 @@
 		?>
 	</div>
 
-	<footer class="entry-footer">
-		<?php avl_entry_footer(); ?>
-	</footer>
+	<footer class="entry-footer"><?php avl_entry_footer(); ?></footer>
 </article>
