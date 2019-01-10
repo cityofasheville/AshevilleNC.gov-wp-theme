@@ -113,12 +113,13 @@
 
 			if ($thumbnail_id = get_post_thumbnail_id( $parent_id )) {
 				$image_data = wp_get_attachment_image_src( $thumbnail_id, 'full' );
-				$style = "opacity: 0.25; background-image: url('". $image_data[0] ."');";
+				$style = " width: 100%; height: inherit; display: table-cell; opacity: 0.15; position: absolute; background-image: url('". $image_data[0] ."');";
 			} else {
 				$style = '';
 			}
 		?>
-		<div id="splash" class="d-flex flex-column mb-3" style="<?= $style; ?>">
+		<div id="splash" class="d-flex flex-column mb-3">
+			<div class="header-background-image" style="<?= $style; ?>"></div>
 			<div class="jumbotron mx-auto my-4">
 			<?php
 				//the_title( '<h1 class="entry-title display-1 text-center">', '</h1>' );

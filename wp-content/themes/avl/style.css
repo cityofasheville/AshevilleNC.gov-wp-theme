@@ -210,22 +210,21 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 #splash {
 	background-size: cover;
-	max-height: 50vh;
-	min-height: 10em;
+	height: 20em;
 }
 
 #splash .entry-title,
 .site-title a, .site-description {
-	text-shadow: 2px 3px 0 rgba(0, 0, 0, .2);
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
 }
 
 #splash .jumbotron {
 	width: 90%;
-	border: 2px solid #AAAD00;
+	/* border: 2px solid #AAAD00; */
 	background-color: transparent;
 }
 
-#splash h1 {
+.single-avl_department_page #splash h1 {
 	color: #212529;
 }
 
@@ -238,6 +237,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	color: #fff;
 	background-color: rgba(0, 0, 0, .5);
 }
+
 /*
 #splash .nav-tabs .nav-link.active {
 	color: #495057;
@@ -422,6 +422,13 @@ nav.navbar {
 
 	.display-1 {
 		font-size: 1.75rem;
+	}
+
+	#splash {
+		background-size: cover;
+		height: 12.5em;
+		/* THIS IS KIND OF HACKY - MM */
+		margin-top: -1em;
 	}
 }
 
