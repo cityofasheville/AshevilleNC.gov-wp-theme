@@ -311,7 +311,7 @@ footer .feedback-container {
 }
 
 #colophon img.footer-city-logo {
-	/* Maybe this will fix the eiffel tower issue on IE? */
+	/* Maybe this will fix the eiffel tower issue on IE */
 	max-height: 5em;
 }
 
