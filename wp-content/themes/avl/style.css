@@ -261,16 +261,6 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	content: "Tags: ";
 }
 
-
-/* TODO: GET THERE TO BE NO TAGS SECTION WHEN EMPTY */
-.entry-footer:empty {
-	border: none;
-}
-
-.entry-footer:empty::before {
-	content: "";
-}
-
 /* Footer */
 
 #content {
