@@ -210,7 +210,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 #splash {
 	background-size: cover;
-	height: 20em;
+	height: 25em;
+	overflow: hidden;
 }
 
 #splash .entry-title,

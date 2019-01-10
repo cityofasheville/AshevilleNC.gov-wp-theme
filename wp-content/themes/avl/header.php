@@ -113,7 +113,7 @@
 
 			if ($thumbnail_id = get_post_thumbnail_id( $parent_id )) {
 				$image_data = wp_get_attachment_image_src( $thumbnail_id, 'full' );
-				$style = " width: 100%; height: inherit; display: table-cell; opacity: 0.15; position: absolute; background-image: url('". $image_data[0] ."');";
+				$style = "background-size: cover; width: 100%; height: inherit; display: table-cell; opacity: 0.15; position: absolute; background-position: center; background-image: url('". $image_data[0] ."');";
 			} else {
 				$style = '';
 			}
