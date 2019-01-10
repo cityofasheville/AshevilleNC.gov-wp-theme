@@ -447,11 +447,17 @@ figcaption {
 /* Medium */
 
 @media (min-width: 768px) {
+
+	#masthead .custom-logo {
+		margin-top: -1em;
+	}
+
 	/* Main Menu */
 	nav.navbar {
 		padding-right: 1em;
 		padding-left: 1em;
 	}
+
 	#primary-menu .nav-link {
 		padding: 0 0.25em;
 		font-size: 1em;
@@ -516,11 +522,6 @@ figcaption {
 @media (min-width: 992px) {
 	#primary-menu .nav-link {
 		padding: 0 1em;
-	}
-
-	#masthead .custom-logo {
-		/* height: 80px; */
-		/* width: 307px */
 	}
 
 	#splash .jumbotron {
