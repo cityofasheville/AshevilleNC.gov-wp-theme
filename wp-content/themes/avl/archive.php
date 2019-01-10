@@ -9,8 +9,9 @@
 
 get_header();
 ?>
-
-	<div id="primary" class="content-area">
+<div class="container">
+	<div class="row">
+	<div id="primary" class="content-area col-sm-12">
 		<main id="main" class="site-main">
 
 		<?php if ( have_posts() ) : ?>
@@ -21,7 +22,8 @@ get_header();
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
-
+			
+			<div class="card-columns">
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
@@ -35,8 +37,12 @@ get_header();
 				get_template_part( 'template-parts/content', get_post_type() );
 
 			endwhile;
-
-			the_posts_navigation();
+			?>
+			</div>
+			
+			<?php
+			//the_posts_navigation();
+			avl_content_pagination();
 
 		else :
 
@@ -47,7 +53,8 @@ get_header();
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
+	</div>
+</div>
 <?php
-get_sidebar();
 get_footer();
+?>

@@ -324,18 +324,6 @@ figcaption {
 	background-color: #A6BFD5;
 }
 
-.alignleft {
-	float: left;
-	margin-right: 1rem;
-	margin-bottom: .5rem;
-}
-
-.alignright {
-	float: right;
-	margin-left: 1rem;
-	margin-bottom: .5rem;
-}
-
 /* Algolia Search */
 
 .aa-dropdown-menu {
