@@ -270,18 +270,6 @@ figcaption {
 	background-color: #A6BFD5;
 }
 
-.alignleft {
-	float: left;
-	margin-right: 1rem;
-	margin-bottom: .5rem;
-}
-
-.alignright {
-	float: right;
-	margin-left: 1rem;
-	margin-bottom: .5rem;
-}
-
 /* Algolia Search */
 
 .aa-dropdown-menu {
@@ -386,9 +374,12 @@ nav.navbar {
 	font-family: 'Lindua';
 	content: '\ed1a';
 	width: 2.5rem;
-	line-height: 2.375rem;
+	height: 1rem;
+	line-height: 1;
+	margin: auto 0;
 	text-align: center;
 	position: absolute;
+	top: 0;
 	left: 0;
 	bottom: 0;
 }
@@ -397,9 +388,12 @@ nav.navbar {
 	font-family: 'Lindua';
 	content: '\ee04';
 	width: 2.5rem;
-	line-height: 2.375rem;
+	height: 1rem;
+	line-height: 1;
+	margin: auto 0;
 	text-align: center;
 	position: absolute;
+	top: 0;
 	right: 0;
 	bottom: 0;
 }
@@ -448,7 +442,19 @@ nav.navbar {
 /* Small */
 
 @media (min-width: 576px) {
+	/* Posts */
+	
+	.alignleft {
+		float: left;
+		margin-right: 1rem;
+		margin-bottom: .5rem;
+	}
 
+	.alignright {
+		float: right;
+		margin-left: 1rem;
+		margin-bottom: .5rem;
+	}
 }
 
 /* Medium */
