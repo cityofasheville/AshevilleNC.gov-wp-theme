@@ -187,6 +187,19 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	text-decoration: none;
 }
 
+/* Google translate */
+
+#google-translate {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 99;
+}
+
+nav.navbar {
+	padding-top: 2em;
+}
+
 /* Main Menu */
 
 #primary-menu .nav-link {
@@ -297,6 +310,11 @@ footer .feedback-container {
 	color: #FFF;
 }
 
+#colophon img.footer-city-logo {
+	/* Maybe this will fix the eiffel tower issue on IE? */
+	max-height: 5em;
+}
+
 /* Posts */
 
 figcaption {
@@ -390,18 +408,6 @@ figcaption {
 	padding-bottom: 0 !important;
 }
 
-/* Google translate */
-
-#google-translate {
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: 99;
-}
-
-nav.navbar {
-	padding-top: 2em;
-}
 
 /* Media Queries */
 
