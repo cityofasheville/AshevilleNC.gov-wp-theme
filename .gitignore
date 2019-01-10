@@ -1,3 +1,7 @@
+wp-content/themes/twentyseventeen
+.htaccess
+
+
 # WordPress #
 ############
 wp-config-local.php

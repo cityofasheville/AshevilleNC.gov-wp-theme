@@ -134,6 +134,10 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 /* Header */
 
+#masthead nav > .container-fluid {
+	padding: 0;
+}
+
 #masthead .custom-logo {
 	width: 154px;
 	height: 38px;
@@ -183,12 +187,26 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	text-decoration: none;
 }
 
+/* Google translate */
+
+#google-translate {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 99;
+}
+
+nav.navbar {
+	padding-top: 2em;
+}
+
 /* Main Menu */
 
 #primary-menu .nav-link {
 	font-size: 1.25rem;
 	text-transform: uppercase;
 	border: 1px solid transparent;
+	white-space: nowrap;
 }
 
 #primary-menu .dropdown-item {
@@ -205,17 +223,23 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 #splash {
 	background-size: cover;
+	height: 22.5em;
+	overflow: hidden;
 }
 
 #splash .entry-title,
 .site-title a, .site-description {
-	text-shadow: 2px 3px 0 rgba(0, 0, 0, .2);
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
 }
 
 #splash .jumbotron {
 	width: 90%;
-	border: 2px solid #AAAD00;
-	background-color: rgba(0, 73, 135, .65);
+	/* border: 2px solid #AAAD00; */
+	background-color: transparent;
+}
+
+.single-avl_department_page #splash h1 {
+	color: #212529;
 }
 
 #splash .jumbotron p {
@@ -227,6 +251,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	color: #fff;
 	background-color: rgba(0, 0, 0, .5);
 }
+
 /*
 #splash .nav-tabs .nav-link.active {
 	color: #495057;
@@ -234,10 +259,34 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 }
 */
 
+
+/* Element footers */
+
+.card-footer {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.entry-footer:not(:empty) {
+	border-top: 1px solid gray;
+}
+
+.entry-footer::before {
+	content: "Tags: ";
+}
+
 /* Footer */
+
+#content {
+	min-height: 60vh;
+}
 
 #colophon {
 	border-top: 4px solid #AAAD00;
+}
+
+footer .feedback-container {
+	padding: 1em 0;
 }
 
 #feedback-button {
@@ -259,6 +308,11 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 #footer-social .nav-link:hover {
 	color: #FFF;
+}
+
+#colophon img.footer-city-logo {
+	/* Maybe this will fix the eiffel tower issue on IE */
+	max-height: 3em;
 }
 
 /* Posts */
@@ -342,68 +396,6 @@ figcaption {
 	padding-bottom: 0 !important;
 }
 
-/* Google translate */
-
-#google-translate {
-	width: 4rem;
-	height: 2.375rem;
-	position: relative;
-	font-size: 1rem;
-	color: rgba(255,255,255,.5);
-	border: 1px solid #A6BFD5;
-	border-radius: .25rem;
-}
-
-#google-translate:hover {
-	color: rgba(255,255,255,.75);
-	border: 1px solid #fff;
-}
-
-#google-translate:before {
-	font-family: 'Lindua';
-	content: '\ed1a';
-	width: 2.5rem;
-	height: 1rem;
-	line-height: 1;
-	margin: auto 0;
-	text-align: center;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-}
-
-#google-translate:after {
-	font-family: 'Lindua';
-	content: '\ee04';
-	width: 2.5rem;
-	height: 1rem;
-	line-height: 1;
-	margin: auto 0;
-	text-align: center;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-}
-
-#google-translate .goog-te-gadget-simple {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	z-index: 1;
-	display: block;
-	padding: 0;
-	border: none;
-	background-color: transparent;
-}
-
-#google-translate .goog-te-gadget-simple > span,
-#google-translate .goog-te-gadget-simple .goog-te-gadget-icon {
-	display: none;
-}
 
 /* Media Queries */
 
@@ -412,7 +404,7 @@ figcaption {
 @media (max-width: 767.98px) {
 	#masthead {
 		position: relative;
-		padding-top: 64px;
+		padding-top: 6em;
 	}
 
 	#masthead .navbar {
@@ -422,35 +414,43 @@ figcaption {
 		right: 0;
 		z-index: 3;
 	}
-	
+
 	.display-1 {
-		font-size: 3.5rem;
+		font-size: 1.75rem;
+	}
+
+	#splash {
+		background-size: cover;
+		height: 12.5em;
+		/* THIS IS KIND OF HACKY - MM */
+		margin-top: -1em;
 	}
 }
 
 /* Small */
 
 @media (min-width: 576px) {
-	/* Posts */
-	
-	.alignleft {
-		float: left;
-		margin-right: 1rem;
-		margin-bottom: .5rem;
-	}
-
-	.alignright {
-		float: right;
-		margin-left: 1rem;
-		margin-bottom: .5rem;
-	}
 }
 
 /* Medium */
 
 @media (min-width: 768px) {
+
+	#masthead .custom-logo {
+		margin-top: -1em;
+	}
+
 	/* Main Menu */
-	
+	nav.navbar {
+		padding-right: 1em;
+		padding-left: 1em;
+	}
+
+	#primary-menu .nav-link {
+		padding: 0 0.25em;
+		font-size: 1em;
+	}
+
 	#primary-menu .show .nav-link,
 	#primary-menu .nav-link:hover {
 		border: 1px solid #A6BFD5;
@@ -473,20 +473,20 @@ figcaption {
 		flex: 0 0 50%;
 		max-width: 50%;
 	}
-	
+
 	.display-1 {
-		font-size: 4.5rem;
+		font-size: 3rem;
 	}
-	
+
 	/* Google translate */
 
 	html.translated-ltr body,
 	html.translated-rtl body {
 		margin-top: 39px;
 	}
-	
+
 	/* Sticky footer */
-	
+
 	html {
 		position: relative;
 		height: auto !important;
@@ -500,7 +500,6 @@ figcaption {
 
 	#colophon {
 		position: absolute;
-		bottom: 0;
 		left: 0;
 		right: 0;
 	}
@@ -509,17 +508,16 @@ figcaption {
 /* Large */
 
 @media (min-width: 992px) {
-	#masthead .custom-logo {
-		height: 76px;
-		width: 307px;
+	#primary-menu .nav-link {
+		padding: 0 1em;
 	}
-	
+
 	#splash .jumbotron {
 		width: 60%;
 	}
-	
+
 	/* Sticky footer */
-	
+
 	body {
 		margin-bottom: 370px;
 	}
@@ -527,7 +525,7 @@ figcaption {
 
 /* Extra Large */
 
-@media (min-width: 1200px) {
+@media (min-width: 2000px) {
 	.display-1 {
 		font-size: 5.5rem;
 	}

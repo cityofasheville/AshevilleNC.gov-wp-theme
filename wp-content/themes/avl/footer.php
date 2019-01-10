@@ -18,21 +18,21 @@
 				</div>
 			</div>
 		</div>
-		<nav class="navbar navbar-dark bg-avl-blue mb-5">
-			<div class="container">
+		<div class="bg-avl-blue mb-5">
+			<div class="container feedback-container">
 				<button id="feedback-button" class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#toggle-feedback" aria-controls="toggle-feedback" aria-expanded="false" aria-label="Toggle Feedback">
 					<i class="icon icon-lamp-bright"></i> Feedback
 				</button>
-				<span class="navbar-text text-white small ml-2 mr-auto">
+				<span class="navbar-text text-white ml-2 mr-auto">
 					We're still working on this page's design and content. How can we make it better?
 				</span>
 			</div>
-		</nav>
+		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-3 col-sm-2 col-md-2 col-lg-1 pb-4">
 					<a href="<?= home_url( '/' ); ?>">
-						<?= wp_get_attachment_image( 109, 'full', false, array('class' => 'avl-dome img-fluid') ); ?>
+						<?= wp_get_attachment_image( 109, 'full', false, array('class' => 'img-fluid footer-city-logo') ); ?>
 					</a>
 				</div>
 				<div class="col-12 col-sm-5 col-md-6 col-lg-4 col-xl-3 pb-4">

@@ -12,7 +12,7 @@ function avl_content_pagination() {
 	$big = 999999999;
 	$ppp = get_query_var('posts_per_page');
 	$current = get_query_var('paged') ? get_query_var('paged') : 1;
-	
+
 	$args = array(
 		'base'		=> str_replace( $big, '%#%', get_pagenum_link( $big ) ),
 		'format'		=> '?paged=%#%',
@@ -22,14 +22,14 @@ function avl_content_pagination() {
 		'next_text'	=> 'Next&nbsp;<i class="icon icon-chevron-right"></i>',
 		'type'		=> 'list'
 	);
-	
+
 	if ($links = paginate_links( $args )) {
 		$links = str_replace("<ul class='page-numbers'>", "<ul class='pagination'>", $links);
 		$links = str_replace("<li><span aria-current='page' class='page-numbers current'>", "<li class='page-item active'><span class='page-link'>", $links);
 		$links = str_replace("<li>", "<li class='page-item'>", $links);
 		$links = str_replace("page-numbers", "page-link", $links);
 	}
-	
+
 	echo '<nav class="mb-4">'. $links .'</nav>';
 }
 
@@ -37,7 +37,7 @@ function avl_content_pagination_place() {
 	global $wp_query;
 	$ppp = get_query_var('posts_per_page');
 	$current = get_query_var('paged') ? get_query_var('paged') : 1;
-	
+
 	echo '<h6>Showing '. ($ppp*($current - 1) + 1) .'-'. ($ppp*($current - 1) + $wp_query->post_count) .' of '. $wp_query->found_posts .' results</h6>';
 }
 
@@ -90,11 +90,11 @@ if ( ! function_exists( 'avl_entry_footer' ) ) :
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function avl_entry_footer() {
-		
+
 		// Post Type name badge
 		$post_type = get_post_type_object( get_post_type() );
 		echo '<a href="'. get_post_type_archive_link( get_post_type() ) .'" class="badge badge-primary bg-avl-blue">'. $post_type->labels->singular_name .'</a>';
-		
+
 		// Hide category and tag text for pages.
 		if ( 'post' == get_post_type() ) {
 			/*
@@ -102,48 +102,48 @@ if ( ! function_exists( 'avl_entry_footer' ) ) :
 			if ( $categories_list ) {
 				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'avl' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 			}
-			
+
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'avl' ) );
 			if ( $tags_list ) {
 				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'avl' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 			*/
-			
+
 			// KRK: Use bootstrap badges for categories
 			$cats = get_the_category();
-		
+
 			if ( ! empty($cats) ) {
 				foreach ($cats as $cat) {
 					echo '<a href="'. get_category_link($cat->term_id) .'" rel="category tag" class="badge badge-info bg-avl-blue-75">'. $cat->name .'</a>';
 				}
 			}
-			
+
 			// KRK: Use bootstrap badges for department terms
 			$terms = get_the_terms(get_the_ID(), 'avl_department');
-			
+
 			if ( ! empty($terms) ) {
 				foreach ($terms as $term) {
 					echo '<a href="'. get_term_link($term) .'" rel="category tag" class="badge badge-info bg-avl-green-75">'. $term->name .'</a>';
 				}
 			}
-			
+
 			// KRK: Use bootstrap badges for tags
 			// Only show on single post
-			
+
 			if ( is_single() ) {
 				$tags = get_the_tags();
-				
+
 				if ( ! empty($tags) ) {
 					foreach ($tags as $tag) {
 						echo '<a href="'. get_tag_link($tag) .'" rel="category tag" class="badge badge-secondary">'. $tag->name .'</a>';
 					}
 				}
 			}
-			
+
 		} else if ( 'avl_service' == get_post_type() ) {
 			// KRK: Use bootstrap badges for terms
 			$terms = get_the_terms(get_the_ID(), 'avl_service_type');
-			
+
 			if ( ! empty($terms) ) {
 				foreach ($terms as $term) {
 					echo '<a href="'. get_term_link($term) .'" rel="category tag" class="badge badge-info bg-avl-blue-75">'. $term->name .'</a>';
@@ -159,27 +159,27 @@ if ( ! function_exists( 'avl_entry_footer' ) ) :
 				'badge badge-info'
 			);
 		}
-		
-		if ( is_single() ) {
-		edit_post_link(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit<span class="sr-only"> %s</span>', 'avl' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			),
-			'',
-			'',
-			0,
-			'badge badge-dark'
-		);
-		}
+
+		// if ( is_single() ) {
+		// 	edit_post_link(
+		// 		sprintf(
+		// 			wp_kses(
+		// 				/* translators: %s: Name of current post. Only visible to screen readers */
+		// 				__( 'Edit<span class="sr-only"> %s</span>', 'avl' ),
+		// 				array(
+		// 					'span' => array(
+		// 						'class' => array(),
+		// 					),
+		// 				)
+		// 			),
+		// 			get_the_title()
+		// 		),
+		// 		'',
+		// 		'',
+		// 		0,
+		// 		'badge badge-dark'
+		// 	);
+		// }
 	}
 endif;
 
@@ -201,7 +201,7 @@ if ( ! function_exists( 'avl_post_thumbnail' ) ) :
 			<?php
 				$featured_image = get_post( get_post_thumbnail_id() );
 				the_post_thumbnail('medium_large', array('id' => 'featured-image', 'class' => 'img-fluid'));
-				
+
 				if ($featured_image->post_excerpt) {
 					echo '<figcaption>';
 					echo $featured_image->post_excerpt;

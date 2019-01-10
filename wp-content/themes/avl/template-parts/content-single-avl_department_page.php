@@ -13,7 +13,7 @@
 			the_title( '<h2 class="entry-title">', '</h2>' );
 		?>
 		<div class="entry-meta">
-			
+
 		</div>
 	</header>
 	<div class="entry-content">
@@ -30,7 +30,7 @@
 			),
 			get_the_title()
 		) );
-		
+
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'avl' ),
 			'after'  => '</div>',
