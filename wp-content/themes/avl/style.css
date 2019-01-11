@@ -161,6 +161,7 @@ iframe.goog-te-banner-frame{
 .goog-te-gadget-simple {
 	border-top: white !important;
 	overflow-x: scroll;
+	border-radius: 0 0 0 6px;
 }
 
 /* For the dropdownonly option */
