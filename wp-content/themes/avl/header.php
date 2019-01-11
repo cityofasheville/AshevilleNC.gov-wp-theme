@@ -76,6 +76,7 @@
 			if ( is_front_page() && is_home() ) {
 		?>
 		<div id="splash" class="site-branding jumbotron jumbotron-fluid bg-transparent mb-0">
+			<div id="site-branding-background-image"></div>
 			<div class="container">
 			<?php
 				$avl_description = get_bloginfo( 'description', 'display' );
@@ -114,7 +115,7 @@
 
 			if ($thumbnail_id = get_post_thumbnail_id( $parent_id )) {
 				$image_data = wp_get_attachment_image_src( $thumbnail_id, 'full' );
-				$style = "background-size: cover; width: 100%; height: inherit; display: table-cell; opacity: 0.15; position: absolute; background-position: center; z-index: -1; background-image: url('". $image_data[0] ."');";
+				$style = "background-image: url('". $image_data[0] ."');";
 			} else {
 				$style = '';
 			}
@@ -125,9 +126,6 @@
 			<?php
 				//the_title( '<h1 class="entry-title display-1 text-center">', '</h1>' );
 				echo '<h1 class="entry-title display-1 text-center">'. apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1>';
-
-				if ( has_excerpt( $parent_id ) )
-					echo apply_filters( 'the_excerpt', get_the_excerpt( $parent_id ) );
 			?>
 			</div>
 			<?php

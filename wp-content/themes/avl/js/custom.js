@@ -1,5 +1,4 @@
 function initGoogleTranslateElement() {
-	console.log('ADDING GOOGLE TRANSLATE')
 	new google.translate.TranslateElement(
 		{
 			pageLanguage: 'en',

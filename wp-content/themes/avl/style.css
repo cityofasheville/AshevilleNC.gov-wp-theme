@@ -231,11 +231,20 @@ iframe.goog-te-banner-frame{
 }
 
 /* Splash */
-
 #splash {
-	background-size: cover;
-	height: 22.5em;
+	height: 25em;
 	overflow: hidden;
+}
+
+#splash .header-background-image {
+	background-size: cover;
+	width: 100%;
+	height: inherit;
+	display: table-cell;
+	opacity: 0.15;
+	position: absolute;
+	margin-top: -2em;
+	background-position: center; z-index: -1;
 }
 
 #splash .entry-title,
