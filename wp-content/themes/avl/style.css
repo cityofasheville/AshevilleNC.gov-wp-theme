@@ -468,21 +468,8 @@ figcaption {
 /* Extra Small + Small */
 
 @media (max-width: 767.98px) {
-	/* #masthead {
-		position: relative;
-		padding-top: 6em;
-	}
-
-	#masthead .navbar {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 3;
-	} */
-
 	.display-1 {
-		font-size: 1.75rem;
+		font-size: 2rem;
 	}
 
 	#splash {
