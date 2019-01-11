@@ -160,7 +160,14 @@ iframe.goog-te-banner-frame{
 
 .goog-te-gadget-simple {
 	border-top: white !important;
+	overflow-x: scroll;
 }
+
+/* For the dropdownonly option */
+/* .goog-te-gadget {
+	background-color: white;
+	color: gray;
+} */
 
 #masthead nav {
 	border-bottom: 0.25px solid white;
