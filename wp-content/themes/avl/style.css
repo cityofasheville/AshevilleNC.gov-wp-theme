@@ -269,6 +269,7 @@ iframe.goog-te-banner-frame{
 	opacity: 0.15;
 	position: absolute;
 	background-position: center; z-index: -1;
+	border-bottom: 1px solid black;
 }
 
 #splash .entry-title,
@@ -532,7 +533,7 @@ figcaption {
 	}
 
 	.display-1 {
-		font-size: 3rem;
+		font-size: 4em;
 	}
 
 	/* Google translate */
