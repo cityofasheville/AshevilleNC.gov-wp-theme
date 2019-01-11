@@ -155,7 +155,7 @@
 	<?php
 		if ( function_exists('bcn_display') && (! ( is_front_page() && is_home() ) ) ) {
 	?>
-	<div id="breadcrumbs-container" class="my-3">
+	<div id="breadcrumbs-container" class="my-4">
 		<div class="container">
 			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 			<?php
