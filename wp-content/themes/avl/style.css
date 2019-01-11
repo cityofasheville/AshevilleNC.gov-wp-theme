@@ -147,16 +147,24 @@ iframe.goog-te-banner-frame{
 	color: transparent !important;
 }
 
-/* Position actual google translate button */
+/* Style actual google translate button */
 
 #translate-parent {
 	background-color: transparent;
+	height: 0px;
 }
 
 #google-translate {
 	z-index: 99;
 }
 
+.goog-te-gadget-simple {
+	border-top: white !important;
+}
+
+#masthead nav {
+	border-bottom: 0.25px solid white;
+}
 
 #masthead nav > .container-fluid {
 	padding: 0;
@@ -243,13 +251,20 @@ iframe.goog-te-banner-frame{
 	display: table-cell;
 	opacity: 0.15;
 	position: absolute;
-	margin-top: -2em;
 	background-position: center; z-index: -1;
 }
 
 #splash .entry-title,
 .site-title a, .site-description {
 	text-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
+}
+
+#splash.site-branding {
+	background-position: center;
+}
+
+#splash .site-description {
+	margin-top: 1.5em;
 }
 
 #splash .jumbotron {
