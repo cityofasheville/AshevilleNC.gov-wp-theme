@@ -147,6 +147,17 @@ iframe.goog-te-banner-frame{
 	color: transparent !important;
 }
 
+/* Position actual google translate button */
+
+#translate-parent {
+	background-color: transparent;
+}
+
+#google-translate {
+	z-index: 99;
+}
+
+
 #masthead nav > .container-fluid {
 	padding: 0;
 }
@@ -198,19 +209,6 @@ iframe.goog-te-banner-frame{
 
 #menu-popular .card-header:hover {
 	text-decoration: none;
-}
-
-/* Google translate */
-
-#google-translate {
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: 99;
-}
-
-nav.navbar {
-	padding-top: 2em;
 }
 
 /* Main Menu */
@@ -470,10 +468,6 @@ figcaption {
 /* Medium */
 
 @media (min-width: 768px) {
-
-	#masthead .custom-logo {
-		margin-top: -1em;
-	}
 
 	/* Main Menu */
 	nav.navbar {

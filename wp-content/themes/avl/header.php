@@ -28,7 +28,6 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
-		<div id="google-translate"></div>
 		<nav class="navbar navbar-expand-md navbar-dark bg-avl-blue shadow-sm">
 			<div class="container-fluid">
 				<a class="navbar-brand align-self-end" href="<?= home_url( '/' ) ?>">
@@ -69,6 +68,9 @@
 				</div>
 			</div>
 		</nav>
+		<div id="translate-parent" class="d-flex flex-row-reverse">
+			<div id="google-translate" class="p-0"></div>
+		</div>
 
 		<?php
 			if ( is_front_page() && is_home() ) {
