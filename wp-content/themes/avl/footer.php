@@ -20,7 +20,7 @@
 		</div>
 		<div class="bg-avl-blue mb-5">
 			<div class="container feedback-container">
-				<button id="feedback-button" class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#toggle-feedback" aria-controls="toggle-feedback" aria-expanded="false" aria-label="Toggle Feedback">
+				<button id="feedback-button" class="navbar-toggler text-white ml-2 mr-auto" type="button" data-toggle="collapse" data-target="#toggle-feedback" aria-controls="toggle-feedback" aria-expanded="false" aria-label="Toggle Feedback">
 					<i class="icon icon-lamp-bright"></i> Feedback
 				</button>
 				<span class="navbar-text text-white ml-2 mr-auto">
