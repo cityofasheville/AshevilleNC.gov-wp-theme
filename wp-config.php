@@ -76,8 +76,8 @@ else:
             $scheme = 'https';
             $_SERVER['HTTPS'] = 'on';
         // }
-        // define('WP_HOME', $scheme . '://' . $_SERVER['HTTP_HOST']);
-        // define('WP_SITEURL', $scheme . '://' . $_SERVER['HTTP_HOST']);
+        define('WP_HOME', $scheme . '://' . $_SERVER['HTTP_HOST']);
+        define('WP_SITEURL', $scheme . '://' . $_SERVER['HTTP_HOST']);
     // }
 
     // Don't show deprecations; useful under PHP 5.5
