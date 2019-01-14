@@ -28,9 +28,6 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
-
-		<div id="google-translate"></div>
-
 		<nav class="navbar navbar-expand-md navbar-dark bg-avl-blue shadow-sm">
 			<div class="container-fluid">
 				<a class="navbar-brand align-self-end" href="<?= home_url( '/' ) ?>">
@@ -71,6 +68,9 @@
 				</div>
 			</div>
 		</nav>
+		<div id="translate-parent" class="d-flex flex-row-reverse">
+			<div id="google-translate" class="p-0"></div>
+		</div>
 
 		<?php
 			if ( is_front_page() && is_home() ) {
@@ -82,7 +82,6 @@
 				if ( $avl_description || is_customize_preview() ) {
 			?>
 				<h1 class="site-description display-1 text-center"><?php echo $avl_description; ?></h1>
-
 				<div class="row">
 					<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
 						<div class="my-5 shadow">
@@ -114,7 +113,7 @@
 
 			if ($thumbnail_id = get_post_thumbnail_id( $parent_id )) {
 				$image_data = wp_get_attachment_image_src( $thumbnail_id, 'full' );
-				$style = "background-size: cover; width: 100%; height: inherit; display: table-cell; opacity: 0.15; position: absolute; background-position: center; z-index: -1; background-image: url('". $image_data[0] ."');";
+				$style = "background-image: url('". $image_data[0] ."');";
 			} else {
 				$style = '';
 			}
@@ -125,9 +124,6 @@
 			<?php
 				//the_title( '<h1 class="entry-title display-1 text-center">', '</h1>' );
 				echo '<h1 class="entry-title display-1 text-center">'. apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1>';
-
-				if ( has_excerpt( $parent_id ) )
-					echo apply_filters( 'the_excerpt', get_the_excerpt( $parent_id ) );
 			?>
 			</div>
 			<?php
@@ -159,7 +155,7 @@
 	<?php
 		if ( function_exists('bcn_display') && (! ( is_front_page() && is_home() ) ) ) {
 	?>
-	<div id="breadcrumbs-container" class="my-3">
+	<div id="breadcrumbs-container" class="my-4">
 		<div class="container">
 			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 			<?php
