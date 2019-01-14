@@ -66,19 +66,19 @@ else:
     /**#@-*/
 
     /** A couple extra tweaks to help things run well on Pantheon. **/
-    if (isset($_SERVER['HTTP_HOST'])) {
+    // if (isset($_SERVER['HTTP_HOST'])) {
         // HTTP is still the default scheme for now.
-        $scheme = 'http';
+        // $scheme = 'http';
         // If we have detected that the end use is HTTPS, make sure we pass that
         // through here, so <img> tags and the like don't generate mixed-mode
         // content warnings.
-        if (isset($_SERVER['HTTP_USER_AGENT_HTTPS']) && $_SERVER['HTTP_USER_AGENT_HTTPS'] == 'ON') {
+        // if (isset($_SERVER['HTTP_USER_AGENT_HTTPS']) && $_SERVER['HTTP_USER_AGENT_HTTPS'] == 'ON') {
             $scheme = 'https';
             $_SERVER['HTTPS'] = 'on';
-        }
+        // }
         define('WP_HOME', $scheme . '://' . $_SERVER['HTTP_HOST']);
         define('WP_SITEURL', $scheme . '://' . $_SERVER['HTTP_HOST']);
-    }
+    // }
 
     // Don't show deprecations; useful under PHP 5.5
     error_reporting(E_ALL ^ E_DEPRECATED);
@@ -151,14 +151,14 @@ if ( ! defined( 'WP_DEBUG' ) ) {
 // From https://pantheon.io/docs/http-to-https/ - MM
 if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
   // Redirect to https://$primary_domain in the Live environment
-  if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
-    /** Your registered domain name */
-    $primary_domain = 'beta.ashevillenc.gov';
-  }
-  else {
-    // Redirect to HTTPS on every Pantheon environment.
-    $primary_domain = $_SERVER['HTTP_HOST'];
-  }
+  // if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
+  //   /** Your registered domain name */
+  //   $primary_domain = 'beta.ashevillenc.gov';
+  // }
+  // else {
+  //   // Redirect to HTTPS on every Pantheon environment.
+  // }
+  $primary_domain = $_SERVER['HTTP_HOST'];
 
   if ($_SERVER['HTTP_HOST'] != $primary_domain
       || !isset($_SERVER['HTTP_USER_AGENT_HTTPS'])
