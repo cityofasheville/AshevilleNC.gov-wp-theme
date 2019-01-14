@@ -29,7 +29,7 @@ get_header();
 				?>
 			</div>
 		</section>
-		
+
 		<!--
 		<section class="bg-light py-5">
 			<div class="container">
@@ -65,7 +65,7 @@ get_header();
 			</div>
 		</section>
 		-->
-		
+
 		<section class="bg-white py-5">
 			<div class="container">
 				<div class="row">
@@ -90,7 +90,7 @@ get_header();
 				</div>
 			</div>
 		</section>
-		
+
 		<main id="main" class="site-main bg-light py-5">
 			<div class="container">
 				<h2 class="page-title mb-4"><i class="icon icon-news icon-3x icon-avl-blue"></i> Latest News</h2>
@@ -119,7 +119,7 @@ get_header();
 				?>
 			</div>
 		</main>
-		
+
 		<section class="bg-white py-5">
 			<div class="container">
 				<h2 class="mb-4"><i class="icon icon-calendar icon-3x icon-avl-green-75"></i> Upcoming Events</h2>
@@ -130,13 +130,13 @@ get_header();
 				?>
 			</div>
 		</section>
-		
+
 		<section class="bg-light py-5">
 			<div class="container">
 				<h2 class="mb-4"><i class="icon icon-bubbles2 icon-3x icon-avl-blue"></i> Engage</h2>
 				<div class="row">
 					<div class="col-sm-12 col-md-4">
-						<a href="http://www.ashevillenc.gov/departments/comm_public/open_city_hall_new.htm" class="open-city-hall d-block py-5 bg-avl-green-75 mb-4 rounded shadow">
+						<a href="https://www.ashevillenc.gov/departments/comm_public/open_city_hall_new.htm" class="open-city-hall d-block py-5 bg-avl-green-75 mb-4 rounded shadow">
 							<h4 class="text-white text-center mb-3">Open City Hall</h4>
 							<?= wp_get_attachment_image( 109, 'full', false, array('class' => 'd-block w-50 mx-auto mb-3') ); ?>
 							<h5 class="text-white text-center mb-3">Join the discussion</h5>
@@ -156,7 +156,7 @@ get_header();
 				</div>
 			</div>
 		</section>
-		
+
 		<section class="bg-white py-5">
 			<div class="container">
 				<h2 class="mb-4"><i class="icon icon-self-timer2 icon-3x icon-avl-green-75"></i> Redesign Process</h2>
@@ -180,7 +180,7 @@ get_header();
 				</div>
 			</div>
 		</section>
-		
+
 	</div>
 <?php
 //get_sidebar();
