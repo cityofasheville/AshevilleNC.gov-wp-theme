@@ -17,6 +17,13 @@ Asheville is based on Underscores https://underscores.me/, (C) 2012-2017 Automat
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
 
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	overflow-x: hidden;
+}
+
 /* City Colors */
 
 .bg-avl-blue,
@@ -135,7 +142,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 /* Header */
 
 /* Hide hideous Google Translate duplicate bar */
-iframe.goog-te-banner-frame{
+/* iframe.goog-te-banner-frame{
 	display: none !important;
 }
 
@@ -145,7 +152,7 @@ iframe.goog-te-banner-frame{
 
 .goog-te-gadget{
 	color: transparent !important;
-}
+} */
 
 /* Style actual google translate button */
 
@@ -160,7 +167,7 @@ iframe.goog-te-banner-frame{
 
 .goog-te-gadget-simple {
 	border-top: white !important;
-	overflow-x: scroll;
+	overflow: hidden;
 	border-radius: 0 0 0 6px;
 }
 
