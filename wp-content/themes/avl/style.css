@@ -325,8 +325,7 @@ html, body {
 
 /* Post text should not overflow, but tables should scroll */
 
-.entry-content p, .entry-content a, .entry-content h1, .entry-content h2,
-.entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
+.entry-content a {
 	/* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -361,11 +360,12 @@ html, body {
 	content: "Tags: ";
 }
 
-/* Footer */
-
 #content {
 	min-height: 60vh;
 }
+
+/* Footer */
+
 
 #colophon {
 	border-top: 4px solid #AAAD00;
@@ -501,6 +501,20 @@ figcaption {
 
 	#splash .nav-tabs .nav-item {
 		margin-top: -0.5em;
+	}
+
+	.entry-content p, .entry-content a, .entry-content h1, .entry-content h2,
+	.entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
+		/* Maybe not necessary if we just wrap links */
+	  /* overflow-wrap: break-word;
+	  word-wrap: break-word;
+	  -ms-word-break: break-all;
+	  word-break: break-all;
+	  word-break: break-word;
+	  -ms-hyphens: auto;
+	  -moz-hyphens: auto;
+	  -webkit-hyphens: auto;
+	  hyphens: auto; */
 	}
 }
 
