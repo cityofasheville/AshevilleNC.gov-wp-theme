@@ -209,7 +209,7 @@ html, body {
 	position: relative;
 }
 
-#search-button {
+.search-button {
 	position: absolute;
 	padding: 0;
 	border: none;
@@ -222,7 +222,7 @@ html, body {
 	background-color: transparent;
 }
 
-#search-button:hover {
+.search-button:hover {
 	background-color: rgba(0, 0, 0, .15);
 }
 
