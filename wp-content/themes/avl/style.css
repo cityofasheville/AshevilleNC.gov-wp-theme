@@ -342,6 +342,29 @@ html, body {
 	color: #42474c;
 }
 
+.btn-outline-info, .btn-outline-primary {
+	color: #004987;
+	border-color: #004987;
+}
+
+.btn-outline-info:hover, .btn-outline-primary:hover, .btn-outline-info:focus, .btn-outline-primary:focus {
+	color: white;
+	background-color: #004987;
+}
+
+a {
+	color: #004987;
+}
+
+.entry-content a, p a {
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #006dcc;
+	text-decoration: underline;
+}
+
 /* Post text should not overflow, but tables should scroll */
 
 .entry-content a {
