@@ -38,7 +38,7 @@
 				<div class="col-12 col-sm-5 col-md-6 col-lg-4 col-xl-3 pb-4">
 					<div class="text-white site-info">
 						<address>
-						<strong class="h5 d-block">The City of Asheville</strong>
+						<strong class="span d-block card-title">The City of Asheville</strong>
 						70 Court Plaza<br>
 						P.O. Box 7148<br>
 						Asheville, NC 28802
@@ -48,7 +48,7 @@
 					</div>
 				</div>
 				<div class="col-sm-5 col-md-4 col-lg-3 col-xl-4 pb-4">
-					<h5 class="text-white">Follow Us</h5>
+					<span class="text-white card-title">Follow Us</span>
 					<?php
 					wp_nav_menu(array(
 						'depth'			=> 2,
@@ -61,7 +61,7 @@
 					?>
 				</div>
 				<div class="offset-sm-2 col-lg-4 offset-lg-0 pb-4">
-					<h5 class="text-white">Stay in the loop</h5>
+					<span class="text-white card-title">Stay in the loop</span>
 					<p class="text-white">Sign up for our newsletter!</p>
 					<form action="https://app.e2ma.net/app2/audience/signup/1890202/1778805/?r=signup" id="signup" method="post" name="signup">
 						<input id="id_source" name="source" type="hidden">
