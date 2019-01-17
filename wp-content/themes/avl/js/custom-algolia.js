@@ -87,4 +87,7 @@ jQuery(function () {
 			}
 		});
 	});
+
+	jQuery('.algolia-autocomplete .aa-dropdown-menu').attr('title', 'Search results');
+
 });
