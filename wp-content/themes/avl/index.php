@@ -17,7 +17,7 @@ get_header();
 	<div id="primary" class="content-area">
 		<section class="bg-white py-5">
 			<div class="container">
-				<h2 class="mb-4"><i class="icon icon-settings-icons icon-3x icon-avl-blue"></i> Popular Services &amp; Information</h2>
+				<h2 class="mb-4"><span class="icon icon-settings-icons icon-3x icon-avl-blue"></span> Popular Services &amp; Information</h2>
 				<?php
 					wp_nav_menu( array(
 						'menu'		=> 'popular',
@@ -33,25 +33,25 @@ get_header();
 		<!--
 		<section class="bg-light py-5">
 			<div class="container">
-				<h2 class="mb-4"><i class="icon icon-traffic-lights icon-3x icon-avl-green"></i> Service Updates</h2>
+				<h2 class="mb-4"><span class="icon icon-traffic-lights icon-3x icon-avl-green"></span> Service Updates</h2>
 				<div class="list-group mb-4">
 					<a href="#" class="list-group-item list-group-item-action list-group-item-warning flex-column align-items-start">
 						<div class="d-flex w-100 justify-content-between">
-							<h3 class="mb-1"><i class="icon icon-bus2 icon-2x"></i> Transit</h3>
+							<h3 class="mb-1"><span class="icon icon-bus2 icon-2x"></span> Transit</h3>
 							<small>Last updated 3 days ago</small>
 						</div>
 						<p class="mb-1">The buses are running behind schedule due to inclimant weather.</p>
 					</a>
 					<a href="#" class="list-group-item list-group-item-action list-group-item-success flex-column align-items-start">
 						<div class="d-flex w-100 justify-content-between">
-							<h3 class="mb-1"><i class="icon icon-city icon-2x"></i> City</h3>
+							<h3 class="mb-1"><span class="icon icon-city icon-2x"></span> City</h3>
 							<small>Last updated 4 days ago</small>
 						</div>
 						<p class="mb-1">City buildings are open for regular business hours..</p>
 					</a>
 					<a href="#" class="list-group-item list-group-item-action list-group-item-success flex-column align-items-start">
 						<div class="d-flex w-100 justify-content-between">
-							<h3 class="mb-1"><i class="icon icon-trash icon-2x"></i> Trash</h3>
+							<h3 class="mb-1"><span class="icon icon-trash icon-2x"></span> Trash</h3>
 							<small>Last updated 5 days ago</small>
 						</div>
 						<p class="mb-1">Trash and recycling is being picked up on a normal schedule.</p>
@@ -59,7 +59,7 @@ get_header();
 				</div>
 				<div class="row">
 					<div class="col-auto ml-auto">
-						<a href="#" role="button" class="btn btn-outline-dark">View Service Updates <i class="icon icon-chevron-right"></i></a>
+						<a href="#" role="button" class="btn btn-outline-dark">View Service Updates <span class="icon icon-chevron-right"></span></a>
 					</div>
 				</div>
 			</div>
@@ -70,12 +70,12 @@ get_header();
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 col-lg-5">
-						<h2><i class="icon icon-warning icon-3x icon-avl-blue"></i> Receive Alerts</h2>
+						<h2><span class="icon icon-warning icon-3x icon-avl-blue"></span> Receive Alerts</h2>
 						<p>If you live, work, travel through or have family/friends in the City of Asheville, sign up to receive up-to-date information on emergency and non-emergency events. Receive alerts via email, phone calls, voice or text messages. Decide what types of information you would like to receive, and unsubscribe at any time!</p>
-						<a href="https://member.everbridge.net/index/453003085611892#/login" target="_blank" role="button" class="btn btn-outline-info float-right mb-4">Learn More at AVL Alert <i class="icon icon-chevron-right"></i></a>
+						<a href="https://member.everbridge.net/index/453003085611892#/login" target="_blank" role="button" class="btn btn-outline-info float-right mb-4">Learn More at AVL Alert <span class="icon icon-chevron-right"></span></a>
 					</div>
 					<div class="col-sm-12 col-lg-7">
-						<h2><i class="icon icon-smartphone-warning icon-3x icon-avl-blue"></i> Report Issues</h2>
+						<h2><span class="icon icon-smartphone-warning icon-3x icon-avl-blue"></span> Report Issues</h2>
 						<p>Use The Asheville App to let us know about common issues such as:</p>
 						<ul>
 							<li>Abandoned Vehicles, injured or deceased animals, hazardous waste</li>
@@ -85,7 +85,7 @@ get_header();
 							<li>Planning &amp; zoning, code, or short term rental violations</li>
 							<li>Trash collection, litter, trees and right of way</li>
 						</ul>
-						<a href="https://iframe.publicstuff.com/#?client_id=819" target="_blank" role="button" class="btn btn-outline-info float-right mb-4">Use The Asheville App <i class="icon icon-chevron-right"></i></a>
+						<a href="https://iframe.publicstuff.com/#?client_id=819" target="_blank" role="button" class="btn btn-outline-info float-right mb-4">Use The Asheville App <span class="icon icon-chevron-right"></span></a>
 					</div>
 				</div>
 			</div>
@@ -93,7 +93,7 @@ get_header();
 
 		<main id="main" class="site-main bg-light py-5">
 			<div class="container">
-				<h2 class="page-title mb-4"><i class="icon icon-news icon-3x icon-avl-blue"></i> Latest News</h2>
+				<h2 class="page-title mb-4"><span class="icon icon-news icon-3x icon-avl-blue"></span> Latest News</h2>
 				<?php
 				if ( have_posts() ) :
 				?>
@@ -109,7 +109,7 @@ get_header();
 				</div>
 				<div class="row">
 					<div class="col-auto ml-auto">
-						<a href="<?= get_post_type_archive_link( 'post' ); ?>" role="button" class="btn btn-outline-primary">Read More Stories <i class="icon icon-chevron-right"></i></a>
+						<a href="<?= get_post_type_archive_link( 'post' ); ?>" role="button" class="btn btn-outline-primary">Read More Stories <span class="icon icon-chevron-right"></span></a>
 					</div>
 				</div>
 				<?php
@@ -122,7 +122,7 @@ get_header();
 
 		<section class="bg-white py-5">
 			<div class="container">
-				<h2 class="mb-4"><i class="icon icon-calendar icon-3x icon-avl-green-75"></i> Upcoming Events</h2>
+				<h2 class="mb-4"><span class="icon icon-calendar icon-3x icon-avl-green-75"></span> Upcoming Events</h2>
 				<?php
 					if ( is_active_sidebar( 'block-events' ) ) {
 						dynamic_sidebar( 'block-events' );
@@ -133,7 +133,7 @@ get_header();
 
 		<section class="bg-light py-5">
 			<div class="container">
-				<h2 class="mb-4"><i class="icon icon-bubbles2 icon-3x icon-avl-blue"></i> Engage</h2>
+				<h2 class="mb-4"><span class="icon icon-bubbles2 icon-3x icon-avl-blue"></span> Engage</h2>
 				<div class="row">
 					<div class="col-sm-12 col-md-4">
 						<a href="https://www.ashevillenc.gov/departments/comm_public/open_city_hall_new.htm" class="open-city-hall d-block py-5 bg-avl-green-75 mb-4 rounded shadow">
@@ -144,10 +144,10 @@ get_header();
 					</div>
 					<div class="col-sm-12 col-md-4">
 						<div class="row">
-							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="icomoon icomoon-facebook icon-5x"></i></a></div>
-							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="icomoon icomoon-twitter icon-5x"></i></a></div>
-							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="icomoon icomoon-instagram icon-5x"></i></a></div>
-							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><i class="icomoon icomoon-youtube icon-5x"></i></a></div>
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-facebook icon-5x"></span></a></div>
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-twitter icon-5x"></span></a></div>
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-instagram icon-5x"></span></a></div>
+							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-youtube icon-5x"></span></a></div>
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-4">
@@ -159,20 +159,20 @@ get_header();
 
 		<section class="bg-white py-5">
 			<div class="container">
-				<h2 class="mb-4"><i class="icon icon-self-timer2 icon-3x icon-avl-green-75"></i> Redesign Process</h2>
+				<h2 class="mb-4"><span class="icon icon-self-timer2 icon-3x icon-avl-green-75"></span> Redesign Process</h2>
 				<div class="row">
 					<div class="col-sm-12 col-lg-6">
 						<h3>About the redesign</h3>
 						<p>We're in the process of creating a new website for Asheville from the ground-up with simple, mobile-friendly designs, more intuitive organization, and clear content.</p>
 						<p>Throughout the redesign process, we've been collaborating with people like you to inform the direction and usability of the site. Please continue to send us your thoughts.</p>
-						<div class="alert alert-info" role="alert"><i class="icon icon-lamp-bright icon-2x float-left mr-2"></i> Use the site's feedback button to alert us to content errors and design feedback.</div>
+						<div class="alert alert-info" role="alert"><span class="icon icon-lamp-bright icon-2x float-left mr-2"></span> Use the site's feedback button to alert us to content errors and design feedback.</div>
 					</div>
 					<div class="col-sm-12 col-lg-6">
 						<h3>Where are we in the process?</h3>
 						<p>For the past few months, we've been working closely with content creators, City colleagues, and the public to rewrite service information and to design features that better meet your needs.</p>
 						<div class="progress" style="height: 40px;">
-							<div class="progress-bar bg-avl-blue-35" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">Alpha<i class="icon icon-check"></i></div>
-							<div class="progress-bar bg-avl-blue-75" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Beta<i class="icon icon-game"></i></div>
+							<div class="progress-bar bg-avl-blue-35" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">Alpha<span class="icon icon-check"></span></div>
+							<div class="progress-bar bg-avl-blue-75" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Beta<span class="icon icon-game"></span></div>
 							<div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Launch</div>
 							<div class="progress-bar bg-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Migration</div>
 						</div>

@@ -17,7 +17,7 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title"><i class="icon icon-drawer-full"></i> Services Directory</h1>
+				<h1 class="page-title"><span class="icon icon-drawer-full"></span> Services Directory</h1>
 				<?php
 				if ( get_query_var( 'avl_department' ) ) {
 					$term = get_queried_object();

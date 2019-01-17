@@ -63,7 +63,7 @@
 				while ( have_rows('connect_social') ) {
 					the_row();
 
-					echo '<a href="'. get_sub_field('link') .'" target="_blank" class="card-link"><i class="icomoon icomoon-'. get_sub_field('network') .' icon-2x"></i></a>';
+					echo '<a href="'. get_sub_field('link') .'" target="_blank" class="card-link"><span class="icomoon icomoon-'. get_sub_field('network') .' icon-2x"></span></a>';
 				}
 
 				echo '</div>';
@@ -116,7 +116,7 @@
 			$archive_link = get_post_type_archive_link( 'avl_service' ) .'department/'. $post->post_name .'/';
 
 			echo '<div class="d-flex justify-content-end mb-3">';
-			echo '<a href="'. $archive_link .'" role="button" class="btn btn-outline-info">View '. $post->post_title .' Services <i class="icon icon-chevron-right"></i></a>';
+			echo '<a href="'. $archive_link .'" role="button" class="btn btn-outline-info">View '. $post->post_title .' Services <span class="icon icon-chevron-right"></span></a>';
 			echo '</div>';
 
 			echo '</section>';
@@ -156,7 +156,7 @@
 			$archive_link = get_post_type_archive_link( 'post' ) .'department/'. $post->post_name .'/';
 
 			echo '<div class="d-flex justify-content-end mb-3">';
-			echo '<a href="'. $archive_link .'" role="button" class="btn btn-outline-info">View '. $post->post_title .' News <i class="icon icon-chevron-right"></i></a>';
+			echo '<a href="'. $archive_link .'" role="button" class="btn btn-outline-info">View '. $post->post_title .' News <span class="icon icon-chevron-right"></span></a>';
 			echo '</div>';
 
 			echo '</section>';

@@ -102,7 +102,7 @@ if ( $posts ) : ?>
 	</div><!-- .tribe-list-widget -->
 
 	<div class="d-flex justify-content-end">
-		<a href="<?php echo esc_url( tribe_get_events_link() ); ?>" role="button" class="btn btn-outline-info"><?php printf( esc_html__( 'View All %s', 'the-events-calendar' ), $events_label_plural ); ?> <i class="icon icon-chevron-right"></i></a>
+		<a href="<?php echo esc_url( tribe_get_events_link() ); ?>" role="button" class="btn btn-outline-info"><?php printf( esc_html__( 'View All %s', 'the-events-calendar' ), $events_label_plural ); ?> <span class="icon icon-chevron-right"></span></a>
 	</div>
 
 <?php

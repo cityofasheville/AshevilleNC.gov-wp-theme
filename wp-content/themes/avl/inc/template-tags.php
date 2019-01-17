@@ -18,8 +18,8 @@ function avl_content_pagination() {
 		'format'		=> '?paged=%#%',
 		'current'		=> $current,
 		'total'		=> $wp_query->max_num_pages,
-		'prev_text'	=> '<i class="icon icon-chevron-left"></i>&nbsp;Previous',
-		'next_text'	=> 'Next&nbsp;<i class="icon icon-chevron-right"></i>',
+		'prev_text'	=> '<span class="icon icon-chevron-left"></span>&nbsp;Previous',
+		'next_text'	=> 'Next&nbsp;<span class="icon icon-chevron-right"></span>',
 		'type'		=> 'list'
 	);
 
@@ -154,8 +154,8 @@ if ( ! function_exists( 'avl_entry_footer' ) ) :
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			comments_popup_link(
 				'',
-				'1 <i class="icon icon-bubble-text"></i>',
-				'% <i class="icon icon-bubbles"></i>',
+				'1 <span class="icon icon-bubble-text"></span>',
+				'% <span class="icon icon-bubbles"></span>',
 				'badge badge-info'
 			);
 		}
