@@ -323,6 +323,18 @@ html, body {
 }
 */
 
+/* Style like an h5, don't use headers for styling */
+.card-title {
+	font-size: 1.25rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-block-start: 0.25em;
+	margin-block-end: 0.75em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	display: block;
+}
+
 /* Post text should not overflow, but tables should scroll */
 
 .entry-content a {

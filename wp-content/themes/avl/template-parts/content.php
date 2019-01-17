@@ -18,7 +18,7 @@
 	}
 	?>
 	<div class="card-body">
-		<?php the_title( '<h5 class="card-title entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h5>' ); ?>
+		<?php the_title( '<span class="card-title entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></span>' ); ?>
 		<div class="card-subtitle mb-2 text-muted small entry-meta">
 			<?php
 			avl_posted_on();

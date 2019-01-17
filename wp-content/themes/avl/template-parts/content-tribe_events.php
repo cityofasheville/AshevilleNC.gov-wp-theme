@@ -26,7 +26,7 @@
 		if ( $featured_image_link ) {
 			$post_thumbnail = '<a href="' . esc_url( tribe_get_event_link() ) . '">' . $post_thumbnail . '</a>';
 		}
-		
+
 		// not escaped because it contains markup
 		echo $post_thumbnail;
 
@@ -36,15 +36,15 @@
 		do_action( 'tribe_events_list_widget_after_the_event_image' );
 	}
 	?>
-	
+
 	<div class="card-body">
 		<!-- Event Title -->
 		<?php do_action( 'tribe_events_list_widget_before_the_event_title' ); ?>
-		<h5 class="card-title">
+		<span class="card-title">
 			<a href="<?php echo esc_url( tribe_get_event_link() ); ?>" rel="bookmark"><?php the_title(); ?></a>
-		</h5>
+		</span>
 		<?php do_action( 'tribe_events_list_widget_after_the_event_title' ); ?>
-		
+
 		<!-- Event Time -->
 		<?php do_action( 'tribe_events_list_widget_before_the_meta' ) ?>
 		<div class="card-subtitle mb-2 text-muted small">
