@@ -114,7 +114,7 @@ if ( ! function_exists( 'avl_entry_footer' ) ) :
 
 			if ( ! empty($cats) ) {
 				foreach ($cats as $cat) {
-					echo '<a href="'. get_category_link($cat->term_id) .'" rel="category tag" class="badge badge-info bg-avl-blue-75">'. $cat->name .'</a>';
+					echo '<a aria-label="'. $cat->name .' category" href="'. get_category_link($cat->term_id) .'" rel="category tag" class="badge badge-info bg-avl-blue-75">'. $cat->name .'</a>';
 				}
 			}
 
@@ -123,7 +123,7 @@ if ( ! function_exists( 'avl_entry_footer' ) ) :
 
 			if ( ! empty($terms) ) {
 				foreach ($terms as $term) {
-					echo '<a href="'. get_term_link($term) .'" rel="category tag" class="badge badge-info bg-avl-green-75">'. $term->name .'</a>';
+					echo '<a aria-label="'. $term->name .' department" href="'. get_term_link($term) .'" rel="category tag" class="badge badge-info bg-avl-green-75">'. $term->name .'</a>';
 				}
 			}
 
@@ -135,7 +135,7 @@ if ( ! function_exists( 'avl_entry_footer' ) ) :
 
 				if ( ! empty($tags) ) {
 					foreach ($tags as $tag) {
-						echo '<a href="'. get_tag_link($tag) .'" rel="category tag" class="badge badge-secondary">'. $tag->name .'</a>';
+						echo '<a aria-label="'. $tag->name .' tag" href="'. get_tag_link($tag) .'" rel="category tag" class="badge badge-secondary">'. $tag->name .'</a>';
 					}
 				}
 			}
@@ -146,7 +146,7 @@ if ( ! function_exists( 'avl_entry_footer' ) ) :
 
 			if ( ! empty($terms) ) {
 				foreach ($terms as $term) {
-					echo '<a href="'. get_term_link($term) .'" rel="category tag" class="badge badge-info bg-avl-blue-75">'. $term->name .'</a>';
+					echo '<a aria-label="'. $term->name .' service" href="'. get_term_link($term) .'" rel="category tag" class="badge badge-info bg-avl-blue-75">'. $term->name .'</a>';
 				}
 			}
 		}
