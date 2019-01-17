@@ -21,7 +21,7 @@
 		<div class="bg-avl-blue mb-5">
 			<div class="container feedback-container">
 				<button id="feedback-button" class="navbar-toggler text-white ml-2 mr-auto" type="button" data-toggle="collapse" data-target="#toggle-feedback" aria-controls="toggle-feedback" aria-expanded="false" aria-label="Toggle Feedback">
-					<i class="icon icon-lamp-bright"></i> Feedback
+					<span class="icon icon-lamp-bright"></span> Feedback
 				</button>
 				<span class="navbar-text text-white ml-2 mr-auto">
 					We're still working on this page's design and content. How can we make it better?
@@ -43,8 +43,8 @@
 						P.O. Box 7148<br>
 						Asheville, NC 28802
 						</address>
-						<i class="icon icon-telephone"></i> <a href="tel:8282511122" class="text-white">828-251-1122</a><br>
-						<i class="icon icon-envelope"></i> <a href="mailto:webmaster@ashevillenc.gov" class="text-white">Webmaster</a>
+						<span class="icon icon-telephone"></span> <a href="tel:8282511122" class="text-white">828-251-1122</a><br>
+						<span class="icon icon-envelope"></span> <a href="mailto:webmaster@ashevillenc.gov" class="text-white">Webmaster</a>
 					</div>
 				</div>
 				<div class="col-sm-5 col-md-4 col-lg-3 col-xl-4 pb-4">

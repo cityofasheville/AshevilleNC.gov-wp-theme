@@ -8,7 +8,7 @@
  */
 ?>
 <div id="term-<?= $term->term_id; ?>" class="card h-100">
-	<?= '<a href="'. get_term_link($term) .'" class="card-header entry-title text-primary h5"><i class="icon icon-folder text-secondary mr-2"></i>'. $term->name .'</a>'; ?>
+	<?= '<a href="'. get_term_link($term) .'" class="card-header entry-title text-primary h5"><span class="icon icon-folder text-secondary mr-2"></span>'. $term->name .'</a>'; ?>
 	<div class="card-body">
 		<p class="card-text entry-content"><?= $term->description; ?></p>
 		<h6 class="card-subtitle entry-meta accessible-text-muted"><?= $term->count; ?> Services</h6>

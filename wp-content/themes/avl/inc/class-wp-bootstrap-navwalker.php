@@ -172,7 +172,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 
 			// Set title from item to the $atts array - if title is empty then
 			// default to item title.
-			
+
 			// KRK: removed annoying title attribute
 			/*
 			if ( empty( $item->attr_title ) ) {
@@ -245,7 +245,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			$icon_html = '';
 			if ( ! empty( $icon_class_string ) ) {
 				// append an <i> with the icon classes to what is output before links.
-				$icon_html = '<i class="' . esc_attr( $icon_class_string ) . '" aria-hidden="true"></i> ';
+				$icon_html = '<span class="' . esc_attr( $icon_class_string ) . '" aria-hidden="true"></span> ';
 			}
 
 			/** This filter is documented in wp-includes/post-template.php */
