@@ -259,7 +259,7 @@ html, body {
 }
 
 #primary-menu .nav-item.active > .dropdown-item {
-	background-color: #A6BFD5;
+	background-color: #edf3f8;
 }
 
 /* Splash */
@@ -356,13 +356,17 @@ a {
 	color: #004987;
 }
 
-.entry-content a, p a {
+.entry-content a, p a, .card-subtitle a {
 	text-decoration: underline;
 }
 
-a:hover {
+a:hover, a:focus {
 	color: #006dcc;
 	text-decoration: underline;
+}
+
+.list-group-item.active {
+	background-color: #4077A5;
 }
 
 /* Post text should not overflow, but tables should scroll */
