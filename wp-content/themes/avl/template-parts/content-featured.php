@@ -19,7 +19,7 @@
 	?>
 	<div class="card-body">
 		<?php the_title( '<span class="card-title entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></span>' ); ?>
-		<div class="card-subtitle mb-2 text-muted small entry-meta">
+		<div class="card-subtitle mb-2 accessible-text-muted small entry-meta">
 			<?php
 			avl_posted_on();
 			//avl_posted_by();

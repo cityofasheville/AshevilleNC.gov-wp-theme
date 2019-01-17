@@ -18,7 +18,7 @@
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta text-muted">
+			<div class="entry-meta accessible-text-muted">
 				<?php
 				avl_posted_on();
 				avl_posted_by();
