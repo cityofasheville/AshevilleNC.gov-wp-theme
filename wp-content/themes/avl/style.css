@@ -323,6 +323,9 @@ html, body {
 }
 */
 
+
+/* Accessibility fixes from 1/17/19 */
+
 /* Style like an h5, don't use headers for styling */
 .card-title {
 	font-size: 1.25rem;
@@ -333,6 +336,10 @@ html, body {
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
 	display: block;
+}
+
+.accessible-text-muted {
+	color: #42474c;
 }
 
 /* Post text should not overflow, but tables should scroll */

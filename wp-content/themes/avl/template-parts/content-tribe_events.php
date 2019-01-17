@@ -47,7 +47,7 @@
 
 		<!-- Event Time -->
 		<?php do_action( 'tribe_events_list_widget_before_the_meta' ) ?>
-		<div class="card-subtitle mb-2 text-muted small">
+		<div class="card-subtitle mb-2 accessible-text-muted small">
 			<?php echo tribe_events_event_schedule_details(); ?>
 		</div>
 		<?php do_action( 'tribe_events_list_widget_after_the_meta' ) ?>
