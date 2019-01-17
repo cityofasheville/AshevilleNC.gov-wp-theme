@@ -137,7 +137,7 @@ get_header();
 				<div class="row">
 					<div class="col-sm-12 col-md-4">
 						<a href="https://www.ashevillenc.gov/departments/comm_public/open_city_hall_new.htm" class="open-city-hall d-block py-5 bg-avl-green-75 mb-4 rounded shadow">
-							<span class="text-white text-center mb-3 card-title">Open City Hall</span>
+							<span class="text-white text-center h3 d-block">Open City Hall</span>
 							<?= wp_get_attachment_image( 109, 'full', false, array('class' => 'd-block w-50 mx-auto mb-3') ); ?>
 							<span class="text-white text-center mb-3 card-title">Join the discussion</span>
 						</a>
