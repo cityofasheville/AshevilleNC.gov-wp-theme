@@ -39,19 +39,20 @@ html, body {
 
 .bg-avl-blue-35 {
 	background-color: #A6BFD5;
+	color: black;
 }
 
 .bg-avl-green,
-.bg-avl-green-75[href]:hover {
-	background-color: #AAAD00;
+.bg-avl-green-75[href]:hover, .bg-avl-green-75[href]:focus {
+	background-color: #50601f;
 }
 
 .bg-avl-green-75 {
-	background-color: #BFC240;
+	background-color: #607425;
 }
 
 .bg-avl-green-35 {
-	background-color: #E1E2A6;
+	background-color: #c6da8b;
 }
 
 .text-avl-blue,
@@ -367,6 +368,18 @@ a:hover, a:focus {
 
 .list-group-item.active {
 	background-color: #4077A5;
+}
+
+.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: white;
 }
 
 /* Post text should not overflow, but tables should scroll */
