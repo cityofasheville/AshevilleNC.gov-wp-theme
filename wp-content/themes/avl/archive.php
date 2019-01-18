@@ -12,7 +12,7 @@ get_header();
 <div class="container">
 	<div class="row">
 	<div id="primary" class="content-area col-sm-12">
-		<main id="main" class="site-main">
+		<div class="site-main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -22,7 +22,7 @@ get_header();
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
-			
+
 			<div class="card-columns">
 			<?php
 			/* Start the Loop */
@@ -39,7 +39,7 @@ get_header();
 			endwhile;
 			?>
 			</div>
-			
+
 			<?php
 			//the_posts_navigation();
 			avl_content_pagination();
@@ -51,7 +51,7 @@ get_header();
 		endif;
 		?>
 
-		</main><!-- #main -->
+	</div><!-- #main -->
 	</div><!-- #primary -->
 	</div>
 </div>

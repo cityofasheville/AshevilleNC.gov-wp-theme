@@ -12,11 +12,11 @@ global $post;
 <div class="container">
 	<div class="row">
 	<div id="primary" class="content-area col-sm-12">
-		<main id="main" class="site-main">
+		<div class="site-main">
 		<?php
 		while ( have_posts() ) {
 			the_post();
-			
+
 			if ( $post->post_parent == 0 )
 				get_template_part( 'template-parts/content-single-home', get_post_type() );
 			else
@@ -28,7 +28,7 @@ global $post;
 				comments_template();
 		}
 		?>
-		</main>
+	</div>
 	</div>
 <?php
 	//get_sidebar();

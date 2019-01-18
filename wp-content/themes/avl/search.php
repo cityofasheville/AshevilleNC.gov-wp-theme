@@ -12,7 +12,7 @@ get_header();
 <div class="container">
 	<div class="row">
 	<section id="primary" class="content-area col-sm-12">
-		<main id="main" class="site-main">
+		<div class="site-main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -24,17 +24,17 @@ get_header();
 				</h1>
 				<?php avl_content_pagination_place(); ?>
 			</header>
-			
+
 			<div class="card-columns">
 			<?php
-			
+
 			while ( have_posts() ) {
 				the_post();
 				get_template_part( 'template-parts/content', get_post_type() );
 			}
 			?>
 			</div>
-			
+
 			<?php
 			//the_posts_navigation();
 			avl_content_pagination();
@@ -46,7 +46,7 @@ get_header();
 		endif;
 		?>
 
-		</main>
+	</div>
 	</section>
 <?php
 //get_sidebar();

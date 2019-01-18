@@ -27,7 +27,7 @@ $term_children = get_terms( array(
 <div class="container">
 	<div class="row">
 	<div id="primary" class="content-area col-sm-12">
-		<main id="main" class="site-main">
+		<div class="site-main">
 		<?php if ( have_posts() ) { ?>
 			<header class="page-header">
 				<?php
@@ -37,7 +37,7 @@ $term_children = get_terms( array(
 			</header>
 			<div class="row">
 			<?php
-			
+
 			// Loop through child Service Types
 			if (! empty($term_children)) {
 				foreach ($term_children as $term) {
@@ -46,7 +46,7 @@ $term_children = get_terms( array(
 					echo '</div>';
 				}
 			}
-			
+
 			// Loop through Services
 			while ( have_posts() ) {
 				the_post();
@@ -56,14 +56,14 @@ $term_children = get_terms( array(
 			}
 			?>
 			</div>
-			
+
 			<?php
 			//the_posts_navigation();
 		} else {
 			get_template_part( 'template-parts/content', 'none' );
 		}
 		?>
-		</main>
+	</div>
 	</div>
 <?php
 //get_sidebar();
