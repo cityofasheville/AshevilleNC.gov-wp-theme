@@ -129,6 +129,10 @@ html, body {
 	min-height: 13rem;
 }
 
+.open-city-hall img {
+	max-height: 8rem;
+}
+
 .open-city-hall:hover,
 .open-city-hall:focus {
 	text-decoration: none;
