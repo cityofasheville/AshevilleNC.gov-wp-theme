@@ -136,10 +136,12 @@ get_header();
 				<h2 class="mb-4"><span class="icon icon-bubbles2 icon-3x icon-avl-blue"></span> Engage</h2>
 				<div class="row">
 					<div class="col-sm-12 col-md-4">
-						<a href="https://www.ashevillenc.gov/departments/comm_public/open_city_hall_new.htm" class="open-city-hall d-block py-5 bg-avl-green-75 mb-4 rounded shadow">
-							<span class="text-white text-center h3 d-block">Open City Hall</span>
-							<?= wp_get_attachment_image( 109, 'full', false, array('class' => 'd-block w-50 mx-auto mb-3') ); ?>
-							<span class="text-white text-center mb-3 card-title">Join the discussion</span>
+						<a href="https://www.ashevillenc.gov/departments/comm_public/open_city_hall_new.htm" class="open-city-hall d-block bg-avl-green-75 rounded shadow">
+							<div class="row h-100">
+								<span class="text-white text-center h3 my-auto mx-auto w-100">Open City Hall</span>
+								<?= wp_get_attachment_image( 109, 'full', false, array('class' => 'mx-auto my-auto w-28') ); ?>
+								<span class="text-white text-center h4 mx-auto my-auto w-100">Join the discussion</span>
+							</div>
 						</a>
 					</div>
 					<div class="col-sm-12 col-md-4">
@@ -151,7 +153,7 @@ get_header();
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-4">
-						<a class="twitter-timeline" data-height="100%" href="https://twitter.com/CityofAsheville" tabindex="-1">Tweets by CityofAsheville</a>
+						<a class="twitter-timeline" data-height="400" href="https://twitter.com/CityofAsheville" tabindex="-1">Tweets by CityofAsheville</a>
 					</div>
 				</div>
 			</div>

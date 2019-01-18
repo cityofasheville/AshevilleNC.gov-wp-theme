@@ -5,5 +5,7 @@ twttr.events.bind(
 		target.attr('tabindex', '-1');
 		target.css('border', '');
 		target.addClass('rounded');
+		target.css('height', '');
+		target.css('min-height', '');
 	}
 );
