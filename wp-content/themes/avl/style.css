@@ -28,30 +28,35 @@ html, body {
 
 .bg-avl-blue,
 .bg-avl-blue[href]:hover,
-.bg-avl-blue-75[href]:hover {
+.bg-avl-blue-75[href]:hover,
+.bg-avl-blue[href]:focus,
+.bg-avl-blue-75[href]:focus {
 	background-color: #004987;
 }
 
 .bg-avl-blue-75,
-.bg-avl-blue-35[href]:hover {
+.bg-avl-blue-35[href]:hover,
+.bg-avl-blue-35[href]:focus {
 	background-color: #4077A5;
 }
 
 .bg-avl-blue-35 {
 	background-color: #A6BFD5;
+	color: black;
 }
 
 .bg-avl-green,
-.bg-avl-green-75[href]:hover {
-	background-color: #AAAD00;
+.bg-avl-green-75[href]:hover,
+.bg-avl-green-75[href]:focus {
+	background-color: #50601f;
 }
 
 .bg-avl-green-75 {
-	background-color: #BFC240;
+	background-color: #607425;
 }
 
 .bg-avl-green-35 {
-	background-color: #E1E2A6;
+	background-color: #c6da8b;
 }
 
 .text-avl-blue,
@@ -60,7 +65,9 @@ html, body {
 }
 
 .text-avl-blue:hover,
-.icon-avl-blue:hover {
+.icon-avl-blue:hover,
+.text-avl-blue:focus,
+.icon-avl-blue:focus {
 	color: #003A6C;
 }
 
@@ -80,7 +87,9 @@ html, body {
 }
 
 .text-avl-green:hover,
-.icon-avl-green:hover {
+.icon-avl-green:hover,
+.text-avl-green:focus,
+.icon-avl-green:focus {
 	color: #888A00;
 }
 
@@ -108,7 +117,20 @@ html, body {
 	display: none;
 }
 
-.open-city-hall:hover {
+.twitter-timeline-rendered {
+	border: 1px solid #e6e6e6;
+}
+
+.open-city-hall, .twitter-timeline-rendered {
+	height: -webkit-calc(100% - 2rem);
+	height:    -moz-calc(100% - 2rem);
+	height:         calc(100% - 2rem);
+	margin-bottom: 2rem;
+	min-height: 13rem;
+}
+
+.open-city-hall:hover,
+.open-city-hall:focus {
 	text-decoration: none;
 	background-color: #AAAD00;
 }
@@ -121,7 +143,8 @@ html, body {
 	background-color: #4077A5;
 }
 
-.social-network:hover {
+.social-network:hover,
+.social-network:focus {
 	background-color: #004987;
 }
 
@@ -132,10 +155,10 @@ html, body {
 	left: 0;
 	right: 0;
 	margin: auto;
-	width: 90px;
-	height: 90px;
+	width: 5rem;
+	height: 5rem;
 	text-align: center;
-	line-height: 90px;
+	line-height: 5rem;
 	color: #fff;
 }
 
@@ -222,7 +245,8 @@ html, body {
 	background-color: transparent;
 }
 
-.search-button:hover {
+.search-button:hover,
+.search-button:focus {
 	background-color: rgba(0, 0, 0, .15);
 }
 
@@ -230,7 +254,8 @@ html, body {
 	margin-right: .25rem;
 }
 
-#menu-popular .card-header:hover {
+#menu-popular .card-header:hover,
+#menu-popular .card-header:focus {
 	text-decoration: none;
 }
 
@@ -347,7 +372,10 @@ html, body {
 	border-color: #004987;
 }
 
-.btn-outline-info:hover, .btn-outline-primary:hover, .btn-outline-info:focus, .btn-outline-primary:focus {
+.btn-outline-info:hover,
+.btn-outline-primary:hover,
+.btn-outline-info:focus,
+.btn-outline-primary:focus {
 	color: white;
 	background-color: #004987;
 }
@@ -367,6 +395,18 @@ a:hover, a:focus {
 
 .list-group-item.active {
 	background-color: #4077A5;
+}
+
+.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+    position: absolute !important;
+    height: 0px; width: 0px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: white;
 }
 
 /* Post text should not overflow, but tables should scroll */
@@ -425,7 +465,8 @@ footer .feedback-container {
 	border-color: #A6BFD5;
 }
 
-#feedback-button:hover {
+#feedback-button:hover,
+#feedback-button:focus {
 	border-color: yellow;
 }
 
@@ -438,7 +479,8 @@ footer .feedback-container {
 	color: #A6BFD5;
 }
 
-#footer-social .nav-link:hover {
+#footer-social .nav-link:hover,
+#footer-social .nav-link:focus {
 	color: #FFF;
 }
 
@@ -531,9 +573,17 @@ figcaption {
 
 /* Media Queries */
 
+/* Smallest */
+
+@media (max-width: 360px) {
+	.single-avl_department_page #splash h1 {
+		margin-top: 0em;
+	}
+}
+
 /* Extra Small + Small */
 
-@media (max-width: 767.98px) {
+@media (max-width: 767px) {
 	.display-1 {
 		font-size: 2rem;
 	}
@@ -549,26 +599,11 @@ figcaption {
 		margin-top: -0.5em;
 	}
 
-	.entry-content p, .entry-content a, .entry-content h1, .entry-content h2,
-	.entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
-		/* Maybe not necessary if we just wrap links */
-	  /* overflow-wrap: break-word;
-	  word-wrap: break-word;
-	  -ms-word-break: break-all;
-	  word-break: break-all;
-	  word-break: break-word;
-	  -ms-hyphens: auto;
-	  -moz-hyphens: auto;
-	  -webkit-hyphens: auto;
-	  hyphens: auto; */
+	.twitter-timeline-rendered {
+		min-height: 20rem;
 	}
-}
-
-/* Small */
-
-@media (max-width: 360px) {
-	.single-avl_department_page #splash h1 {
-		margin-top: 0em;
+	.open-city-hall {
+		min-height: 50vh;
 	}
 }
 
@@ -588,7 +623,8 @@ figcaption {
 	}
 
 	#primary-menu .show .nav-link,
-	#primary-menu .nav-link:hover {
+	#primary-menu .nav-link:hover,
+	#primary-menu .nav-link:focus {
 		border: 1px solid #A6BFD5;
 		background-color: #004987;
 	}
