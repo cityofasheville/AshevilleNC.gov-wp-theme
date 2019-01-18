@@ -1,6 +1,9 @@
 twttr.events.bind(
 	'rendered',
 	function (event) {
-		jQuery('#'+ event.target.id).attr('tabindex', '-1');
+		var target = jQuery('#'+ event.target.id)
+		target.attr('tabindex', '-1');
+		target.css('border', '');
+		target.addClass('rounded');
 	}
 );

@@ -151,7 +151,7 @@ get_header();
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-4">
-						<a class="twitter-timeline" data-height="460" href="https://twitter.com/CityofAsheville" tabindex="-1">Tweets by CityofAsheville</a>
+						<a class="twitter-timeline" data-height="100%" href="https://twitter.com/CityofAsheville" tabindex="-1">Tweets by CityofAsheville</a>
 					</div>
 				</div>
 			</div>

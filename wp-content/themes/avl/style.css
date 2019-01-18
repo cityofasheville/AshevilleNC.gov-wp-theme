@@ -423,6 +423,10 @@ a:hover, a:focus {
 	min-height: 60vh;
 }
 
+.twitter-timeline-rendered {
+	border: 1px solid #e6e6e6;
+}
+
 /* Footer */
 
 
