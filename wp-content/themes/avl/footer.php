@@ -9,7 +9,7 @@
  * @package Asheville
  */
 ?>
-	</div>
+</main>
 	<footer id="colophon" class="site-footer bg-avl-blue-75">
 		<div class="collapse" id="toggle-feedback">
 			<div class="text-white bg-secondary py-3">

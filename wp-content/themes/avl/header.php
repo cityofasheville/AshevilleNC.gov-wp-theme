@@ -174,4 +174,4 @@
 		*/
 	?>
 
-	<div id="content" class="site-content">
+	<main id="content" class="site-content">

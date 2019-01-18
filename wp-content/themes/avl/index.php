@@ -91,7 +91,7 @@ get_header();
 			</div>
 		</section>
 
-		<main id="main" class="site-main bg-light py-5">
+		<section class="bg-light py-5">
 			<div class="container">
 				<h2 class="page-title mb-4"><span class="icon icon-news icon-3x icon-avl-blue"></span> Latest News</h2>
 				<?php
@@ -118,7 +118,7 @@ get_header();
 				endif;
 				?>
 			</div>
-		</main>
+		</section>
 
 		<section class="bg-white py-5">
 			<div class="container">
