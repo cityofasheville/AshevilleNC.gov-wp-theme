@@ -61,7 +61,7 @@ jQuery(function () {
 	/* Setup dropdown menus */
 	jQuery(algolia.autocomplete.input_selector).each(function (i) {
 		var $searchInput = jQuery(this);
-		console.log("Make this accessible!", this, algolia)
+		// console.log("Make this accessible!", this)
 		// THIS is the input box
 
 		var config = {
