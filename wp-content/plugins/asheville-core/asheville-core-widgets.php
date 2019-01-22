@@ -16,7 +16,7 @@ function avl_register_widgets() {
 add_action('widgets_init', 'avl_register_widgets');
 
 class AVL_Filter_Post_Taxonomy_Widget extends WP_Widget {
-	
+
 	public function __construct() {
 		$widget_ops = array(
 			'classname' => 'widget_avl_filter_post',
@@ -50,58 +50,58 @@ class AVL_Filter_Post_Taxonomy_Widget extends WP_Widget {
 		</p>
 <?php
 	}
-	
+
 	public function update($new_instance, $old_instance) {
 		$instance = $old_instance;
-		
+
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['taxonomy'] = sanitize_text_field( $new_instance['taxonomy'] );
-		
+
 		return $instance;
 	}
-	
+
 	public function widget($args, $instance) {
 		extract($args);
-		
+
 		$tax_slug = array(
 			'avl_department'	=> 'department',
 			'avl_service_type'	=> 'service-type',
 			'category'		=> 'category',
 		);
-		
+
 		if ( empty( $tax_slug[$instance['taxonomy']] ) )
 			return;
-		
+
 		$query_args = array(
 			'taxonomy'	=> $instance['taxonomy'],
 			'hide_empty'	=> false,
 			'parent'		=> 0,
 			'exclude'		=> '1',
 		);
-		
+
 		if ( $terms = get_terms( $query_args ) ) {
 			echo $before_widget;
 			echo $before_title . $instance['title'] . $after_title;
-			
+
 			if ($instance['taxonomy'] == 'category')
 				$term_active = get_query_var( 'category_name' );
 			else
 				$term_active = get_query_var( $instance['taxonomy'] );
-			
+
 			if ( get_query_var('post_type') )
 				$archive_link = get_post_type_archive_link( get_query_var('post_type') );
 			else
 				$archive_link =  site_url( '/' );
-			
+
 			echo '<div class="list-group">';
-			
+
 			foreach ($terms as $term) {
 				$link = $archive_link . $tax_slug[$instance['taxonomy']] .'/'. $term->slug .'/';
 				echo '<a href="'. $link .'" class="list-group-item list-group-item-action'. (($term->slug == $term_active)?' active':'') .'">'. $term->name .'</a>';
 			}
-			
+
 			echo '</div>';
-			
+
 			echo $after_widget;
 		}
 	}
@@ -116,27 +116,27 @@ class AVL_Post_Services_Widget extends WP_Widget {
 
 		parent::__construct('avl_post_services_widget', 'Asheville Post to Services', $widget_ops);
 	}
-	
+
 	public function widget($args, $instance) {
 		extract($args);
 		$services = get_field('services');
-		
+
 		if ( $services ) {
 			global $post;
 			echo $before_widget;
 			echo $before_title .'Related Services'. $after_title;
-			
+
 			foreach ($services as $post) {
 				// override the global $post object
 				setup_postdata($post);
-				
+
 				echo '<div class="mb-3">';
 				get_template_part( 'template-parts/content', get_post_type() );
 				echo '</div>';
 			}
-			
+
 			echo $after_widget;
-			
+
 			wp_reset_postdata();
 		}
 	}
@@ -217,7 +217,7 @@ class AVL_Archives_Widget extends WP_Widget {
 			'format' => 'custom',
 			'show_post_count' => $c
 		));
-		
+
 		wp_get_archives(array(
 			'type' => 'yearly',
 			'format' => 'custom',

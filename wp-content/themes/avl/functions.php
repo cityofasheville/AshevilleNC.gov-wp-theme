@@ -28,9 +28,9 @@ function avl_remove_bloat() {
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
-	remove_action( 'admin_print_styles', 'print_emoji_styles' );	
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
 	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );	
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 	add_filter( 'emoji_svg_url', '__return_false' );
 	// header
@@ -81,7 +81,7 @@ if ( ! function_exists( 'avl_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
-		
+
 		// Add small image size for images from old city source blog
 		add_image_size( 'small', 300, 300 );
 
@@ -153,47 +153,47 @@ function avl_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h3 class="widget-title">Filter by ',
 		'after_title'   => '</h3>',
 	) );
-	
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Services Sidebar', 'avl' ),
 		'id'            => 'sidebar-services',
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h3 class="widget-title">Filter by ',
 		'after_title'   => '</h3>',
 	) );
-	
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'News Sidebar', 'avl' ),
 		'id'            => 'sidebar-news',
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h3 class="widget-title">Filter by ',
 		'after_title'   => '</h3>',
 	) );
-	
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Post Sidebar', 'avl' ),
 		'id'            => 'sidebar-post',
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h3 class="widget-title">Filter by ',
 		'after_title'   => '</h3>',
 	) );
-	
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Events Block', 'avl' ),
 		'id'            => 'block-events',
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s mb-3">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<h3 class="widget-title">',
+		'before_title'  => '<h3 class="widget-title">Filter by ',
 		'after_title'   => '</h3>',
 	) );
 }
@@ -208,27 +208,27 @@ function avl_scripts() {
 	wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . '/css/icomoon.css', array(), null );
 	wp_enqueue_style( 'bootstrap-style', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css', array(), null );
 	wp_enqueue_style( 'avl-style', get_stylesheet_uri(), array( 'bootstrap-style', 'lindua-style', 'icomoon-style', 'algolia-autocomplete' ), null );
-	
+
 	// JavaScript
 	wp_enqueue_script( 'popper-js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js', array('jquery', 'popper-js'), null, true );
 	wp_enqueue_script( 'custom-algolia-js', get_template_directory_uri() . '/js/custom-algolia.js', array('jquery'), '1.0', true );
 	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0', true );
 	wp_enqueue_script( 'google-translate-js', 'https://translate.google.com/translate_a/element.js?cb=initGoogleTranslateElement', array('custom-js'), null, true );
-	
+
 	if ( is_front_page() && is_home() ) {
 		wp_enqueue_style( 'header-style', admin_url('admin-ajax.php') .'?action=get_header_style', array('avl-style'), null );
 		wp_enqueue_script( 'twitter-widget-js', 'https://platform.twitter.com/widgets.js', array('jquery'), null, true );
 		wp_enqueue_script( 'custom-home-js', get_template_directory_uri() . '/js/custom-home.js', array('jquery'), '1.0', true );
 	}
-	
+
 	//wp_enqueue_script( 'avl-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	//wp_enqueue_script( 'avl-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-	
+
 	// Prevent wp-embed.min.js from loading
 	wp_deregister_script( 'wp-embed' );
 }
