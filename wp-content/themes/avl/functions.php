@@ -153,8 +153,8 @@ function avl_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">Filter by ',
-		'after_title'   => '</h3>',
+		'before_title'  => '<div class="widget-title">',
+		'after_title'   => '</div>',
 	) );
 
 	register_sidebar( array(
@@ -163,8 +163,8 @@ function avl_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">Filter by ',
-		'after_title'   => '</h3>',
+		'before_title'  => '<div class="widget-title">',
+		'after_title'   => '</div>',
 	) );
 
 	register_sidebar( array(
@@ -173,8 +173,8 @@ function avl_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">Filter by ',
-		'after_title'   => '</h3>',
+		'before_title'  => '<div class="widget-title">',
+		'after_title'   => '</div>',
 	) );
 
 	register_sidebar( array(
@@ -183,8 +183,8 @@ function avl_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">Filter by ',
-		'after_title'   => '</h3>',
+		'before_title'  => '<div class="widget-title">',
+		'after_title'   => '</div>',
 	) );
 
 	register_sidebar( array(
@@ -193,8 +193,8 @@ function avl_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s mb-3">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<h3 class="widget-title">Filter by ',
-		'after_title'   => '</h3>',
+		'before_title'  => '<div class="widget-title">',
+		'after_title'   => '</div>',
 	) );
 }
 add_action( 'widgets_init', 'avl_widgets_init' );

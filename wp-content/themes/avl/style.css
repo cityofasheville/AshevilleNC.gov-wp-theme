@@ -435,6 +435,22 @@ a:hover, a:focus {
 	overflow-x: scroll;
 }
 
+
+/* Sidebar filters */
+
+.news-title-sidebar {
+	align-items: baseline;
+}
+
+.news-title-sidebar .widget {
+	margin: 0 0 0 1em;
+}
+
+.news-title-sidebar .widget-title {
+	display: none;
+}
+
+
 /* Element footers */
 
 .card-footer {

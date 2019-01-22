@@ -43,7 +43,7 @@ class AVL_Filter_Post_Taxonomy_Widget extends WP_Widget {
 			</p>
 			<p>
 				<label for="<?= $this->get_field_id('taxonomy'); ?>">Taxonomy:</label>
-				<select class="widefat" id="<?= $this->get_field_id('taxonomy'); ?>" name="<?= $this->get_field_name('taxonomy'); ?>">
+				<select class="form-control" class="widefat" id="<?= $this->get_field_id('taxonomy'); ?>" name="<?= $this->get_field_name('taxonomy'); ?>">
 					<option <?php selected( $taxonomy, 'avl_department'); ?> value="avl_department">Department</option>
 					<option <?php selected( $taxonomy, 'avl_service_type'); ?> value="avl_service_type">Service Type</option>
 					<option <?php selected( $taxonomy, 'category'); ?> value="category">Category</option>
@@ -97,8 +97,8 @@ class AVL_Filter_Post_Taxonomy_Widget extends WP_Widget {
 			$dropdown_id = $instance['title'] . '-dropdown-widget';
 
 			echo '<label class="screen-reader-text visually-hidden" for="' . esc_attr( $dropdown_id ) . '">' . $instance['title'] . '</label>';
-			echo '<select id="' . esc_attr( $dropdown_id ) . '" name="post-taxonomy-widget" onchange="document.location.href=this.options[this.selectedIndex].value;">';
-			echo '<option value>Select ' . $instance['title'] . '</option>';
+			echo '<select class="form-control" id="' . esc_attr( $dropdown_id ) . '" name="post-taxonomy-widget" onchange="document.location.href=this.options[this.selectedIndex].value;">';
+			echo '<option value>Filter by ' . $instance['title'] . '</option>';
 
 			foreach ($terms as $term) {
 				$link = $archive_link . $tax_slug[$instance['taxonomy']] .'/'. $term->slug .'/';
@@ -182,7 +182,7 @@ class AVL_Archives_Widget extends WP_Widget {
 			$dropdown_id = "{$this->id_base}-dropdown-{$this->number}";
 			?>
 		<label class="screen-reader-text visually-hidden" for="<?php echo esc_attr( $dropdown_id ); ?>"><?php echo $title; ?></label>
-		<select id="<?php echo esc_attr( $dropdown_id ); ?>" name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'>
+		<select class="form-control" id="<?php echo esc_attr( $dropdown_id ); ?>" name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'>
 			<?php
 			$dropdown_args = apply_filters( 'widget_archives_dropdown_args', array(
 				'type'            => 'monthly',
@@ -192,19 +192,19 @@ class AVL_Archives_Widget extends WP_Widget {
 
 			switch ( $dropdown_args['type'] ) {
 				case 'yearly':
-					$label = __( 'Select Year' );
+					$label = __( 'Filter by Year' );
 					break;
 				case 'monthly':
-					$label = __( 'Select Month' );
+					$label = __( 'Filter by Month' );
 					break;
 				case 'daily':
-					$label = __( 'Select Day' );
+					$label = __( 'Filter by Day' );
 					break;
 				case 'weekly':
-					$label = __( 'Select Week' );
+					$label = __( 'Filter by Week' );
 					break;
 				default:
-					$label = __( 'Select Post' );
+					$label = __( 'Filter by Post' );
 					break;
 			}
 			?>
