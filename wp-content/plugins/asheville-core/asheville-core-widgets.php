@@ -35,20 +35,21 @@ class AVL_Filter_Post_Taxonomy_Widget extends WP_Widget {
 		$instance = wp_parse_args((array) $instance, $defaults);
 		$title = $instance['title'];
 		$taxonomy = $instance['taxonomy'];
-?>
-		<p>
-			<label for="<?= $this->get_field_id('title'); ?>">Title:</label>
-			<input class="widefat" id="<?= $this->get_field_id('title'); ?>" name="<?= $this->get_field_name( 'title' ); ?>" type="text" value="<?= esc_attr( $title ); ?>">
-		</p>
-		<p>
-			<label for="<?= $this->get_field_id('taxonomy'); ?>">Taxonomy:</label>
-			<select class="widefat" id="<?= $this->get_field_id('taxonomy'); ?>" name="<?= $this->get_field_name('taxonomy'); ?>">
-				<option <?php selected( $taxonomy, 'avl_department'); ?> value="avl_department">Department</option>
-				<option <?php selected( $taxonomy, 'avl_service_type'); ?> value="avl_service_type">Service Type</option>
-				<option <?php selected( $taxonomy, 'category'); ?> value="category">Category</option>
-			</select>
-		</p>
-<?php
+
+		?>
+			<p>
+				<label for="<?= $this->get_field_id('title'); ?>">Title:</label>
+				<input class="widefat" id="<?= $this->get_field_id('title'); ?>" name="<?= $this->get_field_name( 'title' ); ?>" type="text" value="<?= esc_attr( $title ); ?>">
+			</p>
+			<p>
+				<label for="<?= $this->get_field_id('taxonomy'); ?>">Taxonomy:</label>
+				<select class="widefat" id="<?= $this->get_field_id('taxonomy'); ?>" name="<?= $this->get_field_name('taxonomy'); ?>">
+					<option <?php selected( $taxonomy, 'avl_department'); ?> value="avl_department">Department</option>
+					<option <?php selected( $taxonomy, 'avl_service_type'); ?> value="avl_service_type">Service Type</option>
+					<option <?php selected( $taxonomy, 'category'); ?> value="category">Category</option>
+				</select>
+			</p>
+		<?php
 	}
 
 	public function update($new_instance, $old_instance) {
@@ -93,14 +94,18 @@ class AVL_Filter_Post_Taxonomy_Widget extends WP_Widget {
 			else
 				$archive_link =  site_url( '/' );
 
-			echo '<div class="list-group">';
+			$dropdown_id = $instance['title'] . '-dropdown-widget';
+
+			echo '<label class="screen-reader-text visually-hidden" for="' . esc_attr( $dropdown_id ) . '">' . $instance['title'] . '</label>';
+			echo '<select id="' . esc_attr( $dropdown_id ) . '" name="post-taxonomy-widget" onchange="document.location.href=this.options[this.selectedIndex].value;">';
+			echo '<option value>Select ' . $instance['title'] . '</option>';
 
 			foreach ($terms as $term) {
 				$link = $archive_link . $tax_slug[$instance['taxonomy']] .'/'. $term->slug .'/';
-				echo '<a href="'. $link .'" class="list-group-item list-group-item-action'. (($term->slug == $term_active)?' active':'') .'">'. $term->name .'</a>';
+				echo '<option value="'. $link .'" class="list-group-item list-group-item-action'. (($term->slug == $term_active)?' active':'') .'">'. $term->name .'</option>';
 			}
 
-			echo '</div>';
+			echo '</select>';
 
 			echo $after_widget;
 		}
@@ -173,10 +178,10 @@ class AVL_Archives_Widget extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
-		if ( $d ) {
+		if ( true ) {
 			$dropdown_id = "{$this->id_base}-dropdown-{$this->number}";
 			?>
-		<label class="screen-reader-text" for="<?php echo esc_attr( $dropdown_id ); ?>"><?php echo $title; ?></label>
+		<label class="screen-reader-text visually-hidden" for="<?php echo esc_attr( $dropdown_id ); ?>"><?php echo $title; ?></label>
 		<select id="<?php echo esc_attr( $dropdown_id ); ?>" name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'>
 			<?php
 			$dropdown_args = apply_filters( 'widget_archives_dropdown_args', array(
