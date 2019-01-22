@@ -7,6 +7,7 @@
 	method="get"
 	action="<?= home_url( '/' ); ?>"
 >
+<!-- TODO: ARIA-OWNS ID IS BAD AND INCONSISTENT -->
 	<input
 		id="site-search-input"
 		type="search"
@@ -14,7 +15,7 @@
 		role="combobox"
 		aria-autocomplete="list"
 		aria-haspopup="true"
-		aria-controls="#algolia-autocomplete-listbox-0"
+		aria-owns="#algolia-autocomplete-listbox-0"
 		name="s"
 		value="<?= get_search_query(); ?>"
 		placeholder="Search"

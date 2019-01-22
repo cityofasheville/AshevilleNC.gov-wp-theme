@@ -1,20 +1,26 @@
 jQuery(function () {
 	/* init Algolia client */
 	var client = algoliasearch(algolia.application_id, algolia.search_api_key);
+	console.log(client)
 
 	/* setup default sources */
 	var sources = [];
 	jQuery.each(algolia.autocomplete.sources, function (i, config) {
 		var suggestion_template = wp.template(config['tmpl_suggestion']);
 		sources.push({
-			source: algoliaAutocomplete.sources.hits(client.initIndex(config['index_name']), {
-				hitsPerPage: config['max_suggestions'],
-				attributesToSnippet: [
-				'content:10'
-				],
-				highlightPreTag: '__ais-highlight__',
-				highlightPostTag: '__/ais-highlight__'
-			}),
+			source: algoliaAutocomplete.sources.hits(
+				client.initIndex(config['index_name']),
+				{
+					hitsPerPage: config['max_suggestions'],
+					attributesToSnippet: [
+					'content:10'
+					],
+					highlightPreTag: '__ais-highlight__',
+					highlightPostTag: '__/ais-highlight__',
+					advancedSyntax: true,
+					removeWordsIfNoResults: 'lastWords',
+				}
+			),
 			templates: {
 				header: function () {
 					return wp.template('autocomplete-header')({
@@ -55,9 +61,11 @@ jQuery(function () {
 	/* Setup dropdown menus */
 	jQuery(algolia.autocomplete.input_selector).each(function (i) {
 		var $searchInput = jQuery(this);
+		console.log("Make this accessible!", this, algolia)
+		// THIS is the input box
 
 		var config = {
-			//debug: algolia.debug,
+			// debug: algolia.debug,
 			debug: false,
 			hint: false,
 			openOnFocus: true,
@@ -68,16 +76,16 @@ jQuery(function () {
 			}
 		};
 
-		if (algolia.powered_by_enabled) {
-			config.templates.footer = wp.template('autocomplete-footer');
-		}
+		// if (algolia.powered_by_enabled) {
+		// 	config.templates.footer = wp.template('autocomplete-footer');
+		// }
 
 		/* Instantiate autocomplete.js */
 		var autocomplete = algoliaAutocomplete($searchInput[0], config, sources)
-		.on('autocomplete:selected', function (e, suggestion) {
-			/* Redirect the user when we detect a suggestion selection. */
-			window.location.href = suggestion.permalink;
-		});
+			.on('autocomplete:selected', function (e, suggestion) {
+				/* Redirect the user when we detect a suggestion selection. */
+				window.location.href = suggestion.permalink;
+			});
 
 		/* Force the dropdown to be re-drawn on scroll to handle fixed containers. */
 		jQuery(window).scroll(function() {
