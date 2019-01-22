@@ -1,7 +1,7 @@
 jQuery(function () {
 	/* init Algolia client */
 	var client = algoliasearch(algolia.application_id, algolia.search_api_key);
-	console.log(client)
+	// This is the admin API key, which should be kept secret
 
 	/* setup default sources */
 	var sources = [];
