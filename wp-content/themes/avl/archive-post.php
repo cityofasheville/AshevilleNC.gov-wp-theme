@@ -130,8 +130,9 @@ get_header();
 
 				if ($news_count == 1) {
 					echo '<div class="row d-flex news-title-sidebar mt-5">';
+					// TODO: ADD COLUMN TO DEAL WITH WEIRD SPACING ON SMALLER SCREENS
 					echo '<h2 class="mr-auto">Latest News</h2>';
-					echo get_sidebar('news');
+						echo get_sidebar('news');
 					echo '</div>';
 					echo '<div class="row">';
 				}
