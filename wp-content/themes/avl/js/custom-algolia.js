@@ -7,6 +7,7 @@ jQuery(function () {
 	var sources = [];
 	jQuery.each(algolia.autocomplete.sources, function (i, config) {
 		var suggestion_template = wp.template(config['tmpl_suggestion']);
+		// Pulls post suggestion or term suggestion as appropriate
 		sources.push({
 			source: algoliaAutocomplete.sources.hits(
 				client.initIndex(config['index_name']),
@@ -58,11 +59,35 @@ jQuery(function () {
 		});
 	});
 
+	// For adding aria-controls to the right input boxes
+	var inputsAndSelectors = [
+		// {
+		// 	searchInputEl:
+		// 	ariaControlsSelector:
+		// }
+	]
+
 	/* Setup dropdown menus */
 	jQuery(algolia.autocomplete.input_selector).each(function (i) {
 		var $searchInput = jQuery(this);
-		// console.log("Make this accessible!", this)
-		// THIS is the input box
+		/*
+		If you press enter on a search and go to the search results page, there are
+		two search boxes.  Each of them should be associated with their own search
+		results via aria-controls.
+
+		See top of footer.php for the location of the two divs to which these
+		respective search results are appended.
+
+		See tink.uk's blog for aria-controls: https://tink.uk/using-the-aria-controls-attribute/
+
+		-MM
+		*/
+		const searchResultsId = '#search-results-' + i;
+
+		inputsAndSelectors.push({
+			searchInputEl: this,
+			ariaControlsSelector: searchResultsId + ' .aa-dropdown-menu'
+		})
 
 		var config = {
 			// debug: algolia.debug,
@@ -70,10 +95,10 @@ jQuery(function () {
 			hint: false,
 			openOnFocus: true,
 			minLength: 3,
-			appendTo: 'body',
+			appendTo: searchResultsId,
 			templates: {
 				empty: wp.template('autocomplete-empty')
-			}
+			},
 		};
 
 		// if (algolia.powered_by_enabled) {
@@ -96,6 +121,9 @@ jQuery(function () {
 		});
 	});
 
-	jQuery('.algolia-autocomplete .aa-dropdown-menu').attr('title', 'Search results');
-
+	inputsAndSelectors.forEach(function(item) {
+		var controlledListbox = jQuery(item.ariaControlsSelector);
+		controlledListbox.attr('title', 'Search results');
+		item.searchInputEl.setAttribute('aria-controls', controlledListbox.attr('id'))
+	})
 });

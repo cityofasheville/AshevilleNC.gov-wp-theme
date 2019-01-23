@@ -10,6 +10,8 @@
  */
 ?>
 </main>
+	<div id="search-results-0"></div>
+	<div id="search-results-1"></div>
 	<footer id="colophon" class="site-footer bg-avl-blue-75">
 		<div class="collapse" id="toggle-feedback">
 			<div class="text-white bg-secondary py-3">
