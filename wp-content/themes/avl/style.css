@@ -168,20 +168,7 @@ html, body {
 
 /* Header */
 
-/* Hide hideous Google Translate duplicate bar */
-/* iframe.goog-te-banner-frame{
-	display: none !important;
-}
-
-.goog-logo-link {
-	display:none !important;
-}
-
-.goog-te-gadget{
-	color: transparent !important;
-} */
-
-/* Style actual google translate button */
+/* Style google translate button */
 
 #translate-parent {
 	background-color: transparent;
@@ -197,12 +184,6 @@ html, body {
 	overflow: hidden;
 	border-radius: 0 0 0 6px;
 }
-
-/* For the dropdownonly option */
-/* .goog-te-gadget {
-	background-color: white;
-	color: gray;
-} */
 
 #masthead nav {
 	border-bottom: 0.25px solid white;
@@ -263,6 +244,7 @@ html, body {
 	text-decoration: none;
 }
 
+
 /* Main Menu */
 
 #primary-menu .nav-link {
@@ -287,9 +269,12 @@ html, body {
 	text-overflow: ellipsis;
 }
 
-#primary-menu .nav-item.active > .dropdown-item {
+#primary-menu .nav-item.active > .dropdown-item,
+.dropdown-item.active,
+.dropdown-item:active {
 	background-color: #edf3f8;
 }
+
 
 /* Splash */
 #splash {
@@ -345,15 +330,8 @@ html, body {
 	background-color: rgba(0, 0, 0, .5);
 }
 
-/*
-#splash .nav-tabs .nav-link.active {
-	color: #495057;
-	background-color: #fff;
-}
-*/
 
-
-/* Accessibility fixes from 1/17/19 */
+/* Accessibility fixes */
 
 /* Style like an h5, don't use headers for styling */
 .card-title {
@@ -371,28 +349,53 @@ html, body {
 	color: #42474c;
 }
 
-.btn-outline-info, .btn-outline-primary {
+.btn-outline-info,
+.btn-outline-primary,
+.page-item,
+.page-link,
+.page-link.dots:hover,
+.page-link.dots:focus {
 	color: #004987;
 	border-color: #004987;
+	background-color: white;
 }
 
 .btn-outline-info:hover,
 .btn-outline-primary:hover,
 .btn-outline-info:focus,
-.btn-outline-primary:focus {
+.btn-outline-primary:focus,
+.page-item.active .page-link,
+.page-link:hover,
+.page-link:focus {
 	color: white;
 	background-color: #004987;
+	border-color: #004987;
+}
+
+.page-link:hover,
+.page-link:focus {
+	border-color: #004987;
 }
 
 a {
 	color: #004987;
 }
 
+a.text-primary {
+	/* To override default, which is also marked important... */
+	color: #004987 !important;
+}
+
 .entry-content a, p a, .card-subtitle a {
 	text-decoration: underline;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus,
+a.text-primary:focus,
+a.text-primary:hover,
+.dropdown-item.active,
+.dropdown-item:active {
 	color: #006dcc;
 	text-decoration: underline;
 }
@@ -401,12 +404,13 @@ a:hover, a:focus {
 	background-color: #4077A5;
 }
 
-.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
-    position: absolute !important;
-    height: 0px; width: 0px;
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
+.visually-hidden {
+	/* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+  position: absolute !important;
+  height: 0px; width: 0px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -434,6 +438,22 @@ a:hover, a:focus {
 .entry-content .table-responsive > * {
 	overflow-x: scroll;
 }
+
+
+/* Sidebar filters */
+
+.news-title-sidebar {
+	align-items: baseline;
+}
+
+.news-title-sidebar .widget {
+	margin: 0 0 0 1em;
+}
+
+.widget-title {
+	display: none;
+}
+
 
 /* Element footers */
 
@@ -609,6 +629,10 @@ figcaption {
 	.open-city-hall {
 		min-height: 50vh;
 	}
+
+	.news-title-sidebar .widget {
+		width: 90%;
+	}
 }
 
 /* Medium */
@@ -661,6 +685,10 @@ figcaption {
 		margin-top: 39px;
 	}
 
+	.news-title-sidebar .widget {
+		width: 90%;
+	}
+
 	/* Sticky footer */
 
 	html {
@@ -684,12 +712,17 @@ figcaption {
 /* Large */
 
 @media (min-width: 992px) {
+
 	#primary-menu .nav-link {
 		padding: 0 1em;
 	}
 
 	#splash .jumbotron {
 		width: 72.5%;
+	}
+
+	.news-title-sidebar .widget {
+		max-width: 25%;
 	}
 
 	/* Sticky footer */

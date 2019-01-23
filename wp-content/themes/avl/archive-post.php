@@ -15,11 +15,11 @@ get_header();
 		<?php
 		if ( get_query_var( 'avl_department' ) ) {
 			$term = get_term_by( 'slug', get_query_var( 'avl_department' ), 'avl_department' );
-			echo '<h2>Department: '. $term->name .'</h2>';
+			echo '<div class="h3">Department: '. $term->name .'</div>';
 		} else if ( is_category('news') ) {
 			the_archive_description( '<div class="archive-description">', '</div>' );
 		} else {
-			the_archive_title( '<h2>', '</h2>' );
+			the_archive_title( '<div class="h3">', '</div>' );
 			the_archive_description( '<div class="archive-description">', '</div>' );
 		}
 		?>
@@ -111,7 +111,7 @@ get_header();
 	}
 	?>
 	<div class="row">
-	<div id="primary" class="content-area col-md-8">
+	<div id="primary" class="content-area col-md-12">
 		<div class="site-main">
 			<?php
 			$news_count = 0;
@@ -129,11 +129,15 @@ get_header();
 				$news_count++;
 
 				if ($news_count == 1) {
-					echo '<h3>Latest News</h3>';
+					echo '<div class="row d-flex news-title-sidebar mt-5">';
+					// TODO: ADD COLUMN TO DEAL WITH WEIRD SPACING ON SMALLER SCREENS
+					echo '<h2 class="mr-auto">Latest News</h2>';
+						echo get_sidebar('news');
+					echo '</div>';
 					echo '<div class="row">';
 				}
 
-				echo '<div class="col-lg-6 pb-4">';
+				echo '<div class="col-lg-4 pb-4">';
 				get_template_part( 'template-parts/content', get_post_type() );
 				echo '</div>';
 			}
@@ -151,9 +155,6 @@ get_header();
 			?>
 		</div>
 	</div>
-<?php
-get_sidebar('news');
-?>
 	</div>
 </div>
 <?php

@@ -10,25 +10,30 @@
 get_header();
 ?>
 <div class="container">
-	<div class="row">
-	<div id="primary" class="content-area col-md-8">
+	<div id="primary" class="content-area">
 		<div class="site-main">
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title"><span class="icon icon-drawer-full"></span> Services Directory</h1>
-				<?php
-				if ( get_query_var( 'avl_department' ) ) {
-					$term = get_queried_object();
+			<div class="row">
+				<header class="page-header col-md-8">
+					<h1 class="page-title"><span class="icon icon-drawer-full"></span> Services Directory</h1>
+					<?php
+					if ( get_query_var( 'avl_department' ) ) {
+						$term = get_queried_object();
 
-					echo '<h2>Department: '. $term->name .'</h2>';
-				} else {
-					//the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
-				}
+						echo '<h2>Department: '. $term->name .'</h2>';
+					} else {
+						//the_archive_title( '<h1 class="page-title">', '</h1>' );
+						the_archive_description( '<div class="archive-description">', '</div>' );
+					}
+					?>
+				</header>
+				<?php
+				get_sidebar('services');
 				?>
-			</header>
+			</div>
+
 
 			<?php
 			$az = array();
@@ -70,12 +75,8 @@ get_header();
 		endif;
 		?>
 
-	</div><!-- #main -->
+		</div><!-- #main -->
 	</div><!-- #primary -->
-<?php
-get_sidebar('services');
-?>
-	</div>
 </div>
 <?php
 get_footer();
