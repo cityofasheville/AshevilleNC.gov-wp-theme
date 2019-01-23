@@ -371,17 +371,32 @@ html, body {
 	color: #42474c;
 }
 
-.btn-outline-info, .btn-outline-primary {
+.btn-outline-info,
+.btn-outline-primary,
+.page-item,
+.page-link,
+.page-link.dots:hover,
+.page-link.dots:focus {
 	color: #004987;
 	border-color: #004987;
+	background-color: white;
 }
 
 .btn-outline-info:hover,
 .btn-outline-primary:hover,
 .btn-outline-info:focus,
-.btn-outline-primary:focus {
+.btn-outline-primary:focus,
+.page-item.active .page-link,
+.page-link:hover,
+.page-link:focus {
 	color: white;
 	background-color: #004987;
+	border-color: #004987;
+}
+
+.page-link:hover,
+.page-link:focus {
+	border-color: #004987;
 }
 
 a {
