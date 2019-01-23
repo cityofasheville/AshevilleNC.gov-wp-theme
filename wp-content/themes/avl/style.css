@@ -168,20 +168,7 @@ html, body {
 
 /* Header */
 
-/* Hide hideous Google Translate duplicate bar */
-/* iframe.goog-te-banner-frame{
-	display: none !important;
-}
-
-.goog-logo-link {
-	display:none !important;
-}
-
-.goog-te-gadget{
-	color: transparent !important;
-} */
-
-/* Style actual google translate button */
+/* Style google translate button */
 
 #translate-parent {
 	background-color: transparent;
@@ -197,12 +184,6 @@ html, body {
 	overflow: hidden;
 	border-radius: 0 0 0 6px;
 }
-
-/* For the dropdownonly option */
-/* .goog-te-gadget {
-	background-color: white;
-	color: gray;
-} */
 
 #masthead nav {
 	border-bottom: 0.25px solid white;
@@ -263,6 +244,7 @@ html, body {
 	text-decoration: none;
 }
 
+
 /* Main Menu */
 
 #primary-menu .nav-link {
@@ -292,6 +274,7 @@ html, body {
 .dropdown-item:active {
 	background-color: #edf3f8;
 }
+
 
 /* Splash */
 #splash {
@@ -347,15 +330,8 @@ html, body {
 	background-color: rgba(0, 0, 0, .5);
 }
 
-/*
-#splash .nav-tabs .nav-link.active {
-	color: #495057;
-	background-color: #fff;
-}
-*/
 
-
-/* Accessibility fixes from 1/17/19 */
+/* Accessibility fixes */
 
 /* Style like an h5, don't use headers for styling */
 .card-title {
@@ -428,12 +404,13 @@ a.text-primary:hover,
 	background-color: #4077A5;
 }
 
-.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
-    position: absolute !important;
-    height: 0px; width: 0px;
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
+.visually-hidden {
+	/* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+  position: absolute !important;
+  height: 0px; width: 0px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -473,7 +450,7 @@ a.text-primary:hover,
 	margin: 0 0 0 1em;
 }
 
-.news-title-sidebar .widget-title {
+.widget-title {
 	display: none;
 }
 
@@ -730,18 +707,7 @@ figcaption {
 		left: 0;
 		right: 0;
 	}
-
-	/* See sidebar on services page - archive-avl_service */
-	.large-screen-hidden {
-		display: none;
-	}
 }
-
-/* @media (max-width: 769px) {
-	.medium-small-screen-hidden {
-		display: none;
-	}
-} */
 
 /* Large */
 
