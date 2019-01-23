@@ -287,7 +287,9 @@ html, body {
 	text-overflow: ellipsis;
 }
 
-#primary-menu .nav-item.active > .dropdown-item {
+#primary-menu .nav-item.active > .dropdown-item,
+.dropdown-item.active,
+.dropdown-item:active {
 	background-color: #edf3f8;
 }
 
@@ -403,11 +405,21 @@ a {
 	color: #004987;
 }
 
+a.text-primary {
+	/* To override default, which is also marked important... */
+	color: #004987 !important;
+}
+
 .entry-content a, p a, .card-subtitle a {
 	text-decoration: underline;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus,
+a.text-primary:focus,
+a.text-primary:hover,
+.dropdown-item.active,
+.dropdown-item:active {
 	color: #006dcc;
 	text-decoration: underline;
 }
