@@ -103,8 +103,23 @@ class AVL_Filter_Post_Taxonomy_Widget extends WP_Widget {
 			echo '<option value>Filter by ' . $instance['title'] . '</option>';
 
 			foreach ($terms as $term) {
+				$args = array(
+					// Get all of them
+					'posts_per_page'   => -1,
+					// Services, news, etc
+			    'post_type' => get_query_var('post_type'),
+			    'tax_query' => array(
+		        array(
+	            'taxonomy' => $instance['taxonomy'],
+	            'terms'    => $term->slug,
+							'field'    => 'slug',
+		        ),
+			    ),
+				);
+				$query = new WP_Query( $args );
+				$post_count = $query->post_count;
 				$link = $archive_link . $tax_slug[$instance['taxonomy']] .'/'. $term->slug .'/';
-				echo '<option ' . (($term->slug == $term_active)?'selected ':'') . '" value="'. $link .'" class="list-group-item list-group-item-action'. (($term->slug == $term_active)?' active':'') .'">'. $term->name . '  (' . $term->count . ')' .'</option>';
+				echo '<option ' . (($term->slug == $term_active)?'selected ':'') . '" value="'. $link .'" class="list-group-item list-group-item-action'. (($term->slug == $term_active)?' active':'') .'">'. $term->name . '  (' . $post_count . ')' .'</option>';
 			}
 
 			echo '</select>';

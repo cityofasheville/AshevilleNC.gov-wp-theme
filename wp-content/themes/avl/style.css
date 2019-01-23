@@ -652,6 +652,10 @@ figcaption {
 	.open-city-hall {
 		min-height: 50vh;
 	}
+
+	.news-title-sidebar .widget {
+		width: 90%;
+	}
 }
 
 /* Medium */
@@ -704,6 +708,10 @@ figcaption {
 		margin-top: 39px;
 	}
 
+	.news-title-sidebar .widget {
+		width: 90%;
+	}
+
 	/* Sticky footer */
 
 	html {
@@ -722,17 +730,33 @@ figcaption {
 		left: 0;
 		right: 0;
 	}
+
+	/* See sidebar on services page - archive-avl_service */
+	.large-screen-hidden {
+		display: none;
+	}
 }
+
+/* @media (max-width: 769px) {
+	.medium-small-screen-hidden {
+		display: none;
+	}
+} */
 
 /* Large */
 
 @media (min-width: 992px) {
+
 	#primary-menu .nav-link {
 		padding: 0 1em;
 	}
 
 	#splash .jumbotron {
 		width: 72.5%;
+	}
+
+	.news-title-sidebar .widget {
+		max-width: 25%;
 	}
 
 	/* Sticky footer */
