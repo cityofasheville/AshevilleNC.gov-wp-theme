@@ -89,10 +89,12 @@ class AVL_Filter_Post_Taxonomy_Widget extends WP_Widget {
 			else
 				$term_active = get_query_var( $instance['taxonomy'] );
 
-			if ( get_query_var('post_type') )
+			if ( get_query_var('post_type') ) {
 				$archive_link = get_post_type_archive_link( get_query_var('post_type') );
-			else
+			}
+			else {
 				$archive_link =  site_url( '/' );
+			}
 
 			$dropdown_id = $instance['title'] . '-dropdown-widget';
 
@@ -102,7 +104,7 @@ class AVL_Filter_Post_Taxonomy_Widget extends WP_Widget {
 
 			foreach ($terms as $term) {
 				$link = $archive_link . $tax_slug[$instance['taxonomy']] .'/'. $term->slug .'/';
-				echo '<option value="'. $link .'" class="list-group-item list-group-item-action'. (($term->slug == $term_active)?' active':'') .'">'. $term->name .'</option>';
+				echo '<option ' . (($term->slug == $term_active)?'selected ':'') . '" value="'. $link .'" class="list-group-item list-group-item-action'. (($term->slug == $term_active)?' active':'') .'">'. $term->name . '  (' . $term->count . ')' .'</option>';
 			}
 
 			echo '</select>';
@@ -182,7 +184,12 @@ class AVL_Archives_Widget extends WP_Widget {
 			$dropdown_id = "{$this->id_base}-dropdown-{$this->number}";
 			?>
 		<label class="screen-reader-text visually-hidden" for="<?php echo esc_attr( $dropdown_id ); ?>"><?php echo $title; ?></label>
-		<select class="form-control" id="<?php echo esc_attr( $dropdown_id ); ?>" name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'>
+		<select
+			class="form-control"
+			id="<?php echo esc_attr( $dropdown_id ); ?>"
+			name="archive-dropdown"
+			onchange='document.location.href=this.options[this.selectedIndex].value;'
+		>
 			<?php
 			$dropdown_args = apply_filters( 'widget_archives_dropdown_args', array(
 				'type'            => 'monthly',
