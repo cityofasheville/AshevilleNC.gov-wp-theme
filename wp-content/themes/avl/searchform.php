@@ -6,8 +6,8 @@
 	action="<?= home_url( '/' ); ?>"
 >
 	<div role="search" id="search-contents">
-		<label for="site-search-input" class="site-description">
-			Search for city services, news, and department information
+		<label for="site-search-input" class="search-label">
+			Search for city services, news, and department information:
 		</label>
 
 		<div
