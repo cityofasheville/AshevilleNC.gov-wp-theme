@@ -296,10 +296,16 @@ html, body {
 }
 
 #splash .entry-title,
-.site-title a, .site-description {
+.site-title a,
+.site-description,
+#splash .search-label {
 	text-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
 	letter-spacing: 0.065em;
 	font-weight: 300;
+}
+
+#splash .search-label {
+	color: white;
 }
 
 #splash.site-branding {
