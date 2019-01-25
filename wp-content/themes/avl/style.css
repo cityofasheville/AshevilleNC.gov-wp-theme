@@ -254,6 +254,8 @@ html, body {
 	border: 1px solid transparent;
 	white-space: nowrap;
 	color: white;
+	font-weight: 200;
+	letter-spacing: 0.05em;
 }
 
 #masthead .navbar-toggler {
@@ -300,7 +302,7 @@ html, body {
 .site-description,
 #splash .search-label {
 	text-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
-	letter-spacing: 0.065em;
+	letter-spacing: 0.05em;
 	font-weight: 300;
 }
 
@@ -637,7 +639,6 @@ figcaption {
 
 	#primary-menu .nav-link {
 		padding: 0 0.25em;
-		font-size: 1em;
 	}
 
 	#primary-menu .show .nav-link,
