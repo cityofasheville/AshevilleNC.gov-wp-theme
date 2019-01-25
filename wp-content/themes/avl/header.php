@@ -81,7 +81,7 @@
 				$avl_description = get_bloginfo( 'description', 'display' );
 				if ( $avl_description || is_customize_preview() ) {
 			?>
-				<h1 class="site-description display-1 text-center"><?php echo $avl_description; ?></h1>
+				<h1 class="site-description display-1 text-center mt-5"><?php echo $avl_description; ?></h1>
 				<div class="row">
 					<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
 						<div class="my-5">
@@ -120,10 +120,10 @@
 		?>
 		<div id="splash" class="d-flex flex-column mb-3">
 			<div class="header-background-image" style="<?= $style; ?>"></div>
-			<div class="jumbotron mx-auto my-4">
+			<div class="my-auto mx-auto entry-title-container">
 			<?php
 				//the_title( '<h1 class="entry-title display-1 text-center">', '</h1>' );
-				echo '<h1 class="entry-title display-1 text-center">'. apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1>';
+				echo '<h1 class="entry-title text-center display-1 well well-sm rounded">'. apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1>';
 			?>
 			</div>
 			<?php
