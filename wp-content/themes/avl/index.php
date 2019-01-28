@@ -167,7 +167,7 @@ get_header();
 						<h3>About the redesign</h3>
 						<p>We're in the process of creating a new website for Asheville from the ground-up with simple, mobile-friendly designs, more intuitive organization, and clear content.</p>
 						<p>Throughout the redesign process, we've been collaborating with people like you to inform the direction and usability of the site. Please continue to send us your thoughts.</p>
-						<div class="alert alert-info" role="alert"><span class="icon icon-lamp-bright icon-2x float-left mr-2"></span> Use the site's feedback button to alert us to content errors and design feedback.</div>
+						<div class="alert alert-info"><span class="icon icon-lamp-bright icon-2x float-left mr-2"></span> Use the site's feedback button to alert us to content errors and design feedback.</div>
 					</div>
 					<div class="col-sm-12 col-lg-6">
 						<h3>Where are we in the process?</h3>
