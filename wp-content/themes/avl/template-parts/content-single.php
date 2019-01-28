@@ -8,7 +8,7 @@
  */
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('mb-5'); ?>>
-	<header class="entry-header mb-3">
+	<header class="entry-header mb-3 text-center">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );

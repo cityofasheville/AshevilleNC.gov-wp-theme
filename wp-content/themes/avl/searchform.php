@@ -5,7 +5,7 @@
 	method="get"
 	action="<?= home_url( '/' ); ?>"
 >
-	<div role="search" id="search-contents">
+	<div role="search">
 		<label for="site-search-input" class="search-label">
 			Search for city services, news, and department information:
 		</label>
@@ -22,6 +22,7 @@
 				name="s"
 				value="<?= get_search_query(); ?>"
 				aria-label="Site search"
+				placeholder="Search"
 			>
 			<div class="input-group-append">
 				<button
