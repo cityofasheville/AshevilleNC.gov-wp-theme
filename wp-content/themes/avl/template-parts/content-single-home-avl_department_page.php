@@ -98,7 +98,7 @@
 
 		if ( $services->have_posts() ) {
 			echo '<section>';
-			echo '<h2 class="mb-3">Services</h2>';
+			echo '<h2 class="mb-3">Related Services</h2>';
 			echo '<div class="row">';
 
 			while ( $services->have_posts() ) {
@@ -116,7 +116,7 @@
 			$archive_link = get_post_type_archive_link( 'avl_service' ) .'department/'. $post->post_name .'/';
 
 			echo '<div class="d-flex justify-content-end mb-3">';
-			echo '<a href="'. $archive_link .'" role="button" class="btn btn-outline-info">View '. $post->post_title .' Services <span class="icon icon-chevron-right"></span></a>';
+			echo '<a href="'. $archive_link .'" role="button" class="btn btn-outline-info">More Related Services <span class="icon icon-chevron-right"></span></a>';
 			echo '</div>';
 
 			echo '</section>';
@@ -138,7 +138,7 @@
 
 		if ( $news->have_posts() ) {
 			echo '<section>';
-			echo '<h2 class="mb-3">News</h2>';
+			echo '<h2 class="mb-3">' . $post->post_title . ' News</h2>';
 			echo '<div class="row">';
 
 			while ( $news->have_posts() ) {
@@ -156,7 +156,7 @@
 			$archive_link = get_post_type_archive_link( 'post' ) .'department/'. $post->post_name .'/';
 
 			echo '<div class="d-flex justify-content-end mb-3">';
-			echo '<a href="'. $archive_link .'" role="button" class="btn btn-outline-info">View '. $post->post_title .' News <span class="icon icon-chevron-right"></span></a>';
+			echo '<a href="'. $archive_link .'" role="button" class="btn btn-outline-info">More '. $post->post_title .' News <span class="icon icon-chevron-right"></span></a>';
 			echo '</div>';
 
 			echo '</section>';
