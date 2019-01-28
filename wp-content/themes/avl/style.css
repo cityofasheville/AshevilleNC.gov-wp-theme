@@ -22,8 +22,8 @@ html, body {
 	height: 100%;
 	margin: 0 auto;
 	overflow: scroll;
-	overflow-x: hidden;
 	-webkit-overflow-scrolling: touch;
+	scroll-behavior: smooth;
 }
 
 /* City Colors */
@@ -710,11 +710,18 @@ figcaption {
 		width: 100%;
 	}
 
-	#primary-menu .show .nav-item,
-	#primary-menu .nav-item:hover,
 	#primary-menu .nav-item:focus {
-		background-color: rgb(255, 255, 255, 0.05);
-		border-radius: 2px;
+		border: 1px solid white;
+	}
+
+	#primary-menu .nav-item:hover,
+	#primary-menu .nav-item.show {
+		background-color: white;
+	}
+
+	#primary-menu .nav-item:hover .nav-link,
+	#primary-menu .nav-item.show .nav-link {
+		color: #004987;
 	}
 
 	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show {
