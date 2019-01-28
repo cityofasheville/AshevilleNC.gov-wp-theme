@@ -28,7 +28,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-avl-blue shadow-sm">
+		<nav class="primary-navbar navbar navbar-expand-lg navbar-dark bg-avl-blue shadow-sm">
 			<div class="container-fluid">
 				<a class="navbar-brand align-self-end" href="<?= home_url( '/' ) ?>">
 				<?php
@@ -129,10 +129,6 @@
 		<div id="splash" class="d-flex flex-column mb-3">
 			<div class="header-background-image" style="<?= $style; ?>"></div>
 			<div class="my-auto mx-auto entry-title-container">
-			<?php
-				//the_title( '<h1 class="entry-title display-1 text-center">', '</h1>' );
-				echo '<h1 class="entry-title text-center display-1 well well-sm rounded">'. apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1>';
-			?>
 			</div>
 			<?php
 				$child_pages = get_children( array(
@@ -143,16 +139,26 @@
 					'order' => 'ASC'
 				) );
 
+				echo '<nav class="nav navbar-expand-sm" aria-label="Department page navigation"><div class="container"><div class="row">';
+				echo '<h1 class="department-title">' . apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1>';
+
 				if (! empty( $child_pages )) {
-					echo '<nav class="nav nav-tabs justify-content-center mt-auto">';
-					echo '<a class="nav-item nav-link'. (($post->ID == $parent_id)?' active':'') .'" href="'. get_permalink( $parent_id ) .'">Home</a>';
+
+					echo '<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#child-pages-nav" aria-controls="child-pages-nav" aria-expanded="false" aria-label="Toggle navigation">';
+						echo '<span class="dropdown-toggle"></span>';
+					echo '</button>';
+
+					echo '<div class="collapse navbar-collapse" id="child-pages-nav"><ul class="navbar-nav ml-auto">';
+					echo '<li class="nav-item ' . (($post->ID == $parent_id)?'active':'') .'"><a class="nav-link" href="'. get_permalink( $parent_id ) .'">Home</a></li>';
 
 					foreach ($child_pages as $page) {
-						echo '<a class="nav-item nav-link'. (($post->ID == $page->ID)?' active':'') .'" href="'. get_permalink( $page ) .'">'. $page->post_title .'</a>';
+						echo '<li class="nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="nav-link" href="'. get_permalink( $page ) .'">'. $page->post_title .'</a></li>';
 					}
 
-					echo '</nav>';
+					echo '<ul></div>';
 				}
+				echo '</div></div></nav>';
+
 			?>
 		</div>
 		<?php

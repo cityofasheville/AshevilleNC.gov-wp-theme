@@ -224,24 +224,6 @@ html, body {
 	padding: 0.25rem 0.5rem;
 }
 
-.search-button {
-	position: absolute;
-	padding: 0;
-	border: none;
-	width: 38px;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	cursor: pointer;
-	color: #555;
-	background-color: rgba(255, 255, 255, .85);
-}
-
-.search-button:hover,
-.search-button:focus {
-	background-color: rgba(255, 255, 255, 1);
-}
-
 #menu-popular .icon {
 	margin-right: .25rem;
 }
@@ -263,7 +245,7 @@ html, body {
 	letter-spacing: 0.05em;
 }
 
-#masthead .navbar-toggler {
+#masthead .primary-nav .navbar-toggler {
 	border-color: white;
 }
 
@@ -286,7 +268,7 @@ html, body {
 
 /* Splash */
 #splash {
-	height: 20em;
+	height: 22em;
 	overflow: hidden;
 }
 
@@ -297,18 +279,6 @@ html, body {
 	display: table-cell;
 	position: absolute;
 	background-position: center; z-index: -1;
-	border-bottom: 2px solid black;
-	-webkit-filter: grayscale(10%); /* Safari 6.0 - 9.0 */
-	filter: grayscale(10%);
-}
-
-#splash .entry-title,
-.site-title a,
-.site-description,
-#splash .search-label {
-	text-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
-	letter-spacing: 0.05em;
-	font-weight: 300;
 }
 
 #splash .search-label {
@@ -320,15 +290,43 @@ html, body {
 	border-bottom: 0.5px solid gray;
 }
 
-.single-avl_department_page #splash h1 {
-	color: #fff;
-	text-shadow: 1px 1px 0 rgba(0, 0, 0, .3);
+#splash .navbar-toggler {
+	border-left: 0.5px solid #e6e6e6;
+	border-bottom: 0.5px solid #e6e6e6;
 }
 
-#splash .nav-tabs .nav-link:not(.active) {
-	color: #fff;
-	background-color: rgba(0, 0, 0, .5);
+#splash nav {
+	background-color: white;
+	/* color: #004987; */
+	border-top: 2px solid #AAAD00;
+	border-bottom: 0.5px solid #e6e6e6;
+	padding-top: 0.5em;
 }
+
+#splash nav .department-title {
+	padding: 0.25em 0 0 0;
+	word-spacing: 0.15em;
+}
+
+#splash nav .nav-item {
+	border-left: 0.5px solid #e6e6e6;
+}
+
+#splash nav .nav-item .nav-link {
+	padding: 0 1em;
+}
+
+#splash nav .nav-item .nav-link:hover,
+#splash nav .nav-item .nav-link:focus {
+	text-decoration: underline;
+}
+
+/* #splash .nav-tabs .nav-link:not(.active) {
+	color: #fff;
+	background-color: rgba(0, 0, 0, .75);
+	border: 1px solid white;
+	border-bottom: 1px solid black;
+} */
 
 /* Main pages */
 
@@ -337,9 +335,6 @@ html, body {
 	margin-bottom: 0.125em;
 	border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
 }
-
-
-/* Accessibility fixes */
 
 /* Style like an h5, don't use headers for styling */
 .card-title {
@@ -374,7 +369,10 @@ html, body {
 .btn-outline-primary:focus,
 .page-item.active .page-link,
 .page-link:hover,
-.page-link:focus {
+.page-link:focus,
+#content .btn-outline-info:not(:disabled):not(.disabled).active,
+#content .btn-outline-info:not(:disabled):not(.disabled):active,
+#content .show>.btn-outline-info.dropdown-toggle {
 	color: white;
 	background-color: #004987;
 	border-color: #004987;
@@ -398,12 +396,33 @@ a.text-primary {
 	text-decoration: underline;
 }
 
+.search-button {
+	position: absolute;
+	padding: 0;
+	border: none;
+	width: 38px;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	cursor: pointer;
+	color: #555;
+	background-color: rgba(255, 255, 255, .85);
+}
+
+.search-button:hover,
+.search-button:focus {
+	background-color: rgba(255, 255, 255, 1);
+}
+
 a:hover,
 a:focus,
 a.text-primary:focus,
 a.text-primary:hover,
 .dropdown-item.active,
-.dropdown-item:active {
+.dropdown-item:active,
+.btn-outline-info:not(:disabled):not(.disabled).active:focus a,
+.btn-outline-info:not(:disabled):not(.disabled):active:focus a,
+.show>.btn-outline-info.dropdown-toggle:focus a {
 	color: #006dcc;
 	text-decoration: underline;
 }
@@ -419,10 +438,6 @@ a.text-primary:hover,
   overflow: hidden;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
-}
-
-.navbar-dark .navbar-nav .nav-link {
-	color: white;
 }
 
 /* Post text should not overflow, but tables should scroll */
@@ -624,8 +639,14 @@ figcaption {
 		height: 15em;
 	}
 
-	#splash .nav-tabs .nav-item {
-		margin-top: -0.5em;
+	#splash nav .container {
+		margin: 0 15px;
+	}
+
+	#splash nav .nav-item {
+		border-left: 0.5px solid #e6e6e6;
+		border-top: 0.5px solid #e6e6e6;
+		padding: 0.5em 0;
 	}
 
 	.twitter-timeline-rendered {
@@ -696,7 +717,7 @@ figcaption {
 
 @media (min-width: 992px) {
 	/* Main Menu */
-	nav.navbar {
+	nav.navbar.primary-navbar {
 		padding: 0 1em;
 	}
 
