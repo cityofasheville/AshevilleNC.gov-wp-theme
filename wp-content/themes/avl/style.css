@@ -245,7 +245,7 @@ html, body {
 	letter-spacing: 0.05em;
 }
 
-#masthead .navbar-toggler {
+#masthead .primary-nav .navbar-toggler {
 	border-color: white;
 }
 
@@ -268,7 +268,7 @@ html, body {
 
 /* Splash */
 #splash {
-	height: 20em;
+	height: 22em;
 	overflow: hidden;
 }
 
@@ -279,18 +279,6 @@ html, body {
 	display: table-cell;
 	position: absolute;
 	background-position: center; z-index: -1;
-	border-bottom: 2px solid black;
-	-webkit-filter: grayscale(10%); /* Safari 6.0 - 9.0 */
-	filter: grayscale(10%);
-}
-
-#splash .entry-title,
-.site-title a,
-.site-description,
-#splash .search-label {
-	text-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
-	letter-spacing: 0.05em;
-	font-weight: 300;
 }
 
 #splash .search-label {
@@ -302,15 +290,43 @@ html, body {
 	border-bottom: 0.5px solid gray;
 }
 
-.single-avl_department_page #splash h1 {
-	color: #fff;
-	text-shadow: 1px 1px 0 rgba(0, 0, 0, .3);
+#splash .navbar-toggler {
+	border-left: 0.5px solid #e6e6e6;
+	border-bottom: 0.5px solid #e6e6e6;
 }
 
-#splash .nav-tabs .nav-link:not(.active) {
-	color: #fff;
-	background-color: rgba(0, 0, 0, .5);
+#splash nav {
+	background-color: white;
+	/* color: #004987; */
+	border-top: 2px solid #AAAD00;
+	border-bottom: 0.5px solid #e6e6e6;
+	padding-top: 0.5em;
 }
+
+#splash nav .department-title {
+	padding: 0.25em 0 0 0;
+	word-spacing: 0.15em;
+}
+
+#splash nav .nav-item {
+	border-left: 0.5px solid #e6e6e6;
+}
+
+#splash nav .nav-item .nav-link {
+	padding: 0 1em;
+}
+
+#splash nav .nav-item .nav-link:hover,
+#splash nav .nav-item .nav-link:focus {
+	text-decoration: underline;
+}
+
+/* #splash .nav-tabs .nav-link:not(.active) {
+	color: #fff;
+	background-color: rgba(0, 0, 0, .75);
+	border: 1px solid white;
+	border-bottom: 1px solid black;
+} */
 
 /* Main pages */
 
@@ -422,10 +438,6 @@ a.text-primary:hover,
   overflow: hidden;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
-}
-
-.navbar-dark .navbar-nav .nav-link {
-	color: white;
 }
 
 /* Post text should not overflow, but tables should scroll */
@@ -627,8 +639,14 @@ figcaption {
 		height: 15em;
 	}
 
-	#splash .nav-tabs .nav-item {
-		margin-top: -0.5em;
+	#splash nav .container {
+		margin: 0 15px;
+	}
+
+	#splash nav .nav-item {
+		border-left: 0.5px solid #e6e6e6;
+		border-top: 0.5px solid #e6e6e6;
+		padding: 0.5em 0;
 	}
 
 	.twitter-timeline-rendered {
@@ -699,7 +717,7 @@ figcaption {
 
 @media (min-width: 992px) {
 	/* Main Menu */
-	nav.navbar {
+	nav.navbar.primary-navbar {
 		padding: 0 1em;
 	}
 
