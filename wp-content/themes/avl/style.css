@@ -619,14 +619,6 @@ figcaption {
 
 /* Media Queries */
 
-/* Smallest */
-
-@media (max-width: 360px) {
-	.single-avl_department_page #splash h1 {
-		margin-top: 0em;
-	}
-}
-
 /* Extra Small + Small */
 
 @media (max-width: 767px) {
@@ -637,16 +629,6 @@ figcaption {
 	#splash {
 		background-size: cover;
 		height: 15em;
-	}
-
-	#splash nav .container {
-		margin: 0 15px;
-	}
-
-	#splash nav .nav-item {
-		border-left: 0.5px solid #e6e6e6;
-		border-top: 0.5px solid #e6e6e6;
-		padding: 0.5em 0;
 	}
 
 	.twitter-timeline-rendered {
@@ -660,6 +642,10 @@ figcaption {
 		width: 90%;
 	}
 
+	#splash nav .container {
+		margin: 0 15px;
+	}
+
 }
 
 /* Up to large */
@@ -671,6 +657,16 @@ figcaption {
 
 	#header-site-search {
 		padding: 0.25em 0;
+	}
+
+	#splash nav h1 {
+		margin: 0 15px;
+	}
+
+	#splash nav .nav-item {
+		border-left: 0.5px solid #e6e6e6;
+		border-top: 0.5px solid #e6e6e6;
+		padding: 0.5em 0;
 	}
 }
 

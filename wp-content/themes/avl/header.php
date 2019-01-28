@@ -139,7 +139,7 @@
 					'order' => 'ASC'
 				) );
 
-				echo '<nav class="nav navbar-expand-sm" aria-label="Department page navigation"><div class="container"><div class="row">';
+				echo '<nav class="nav navbar-expand-lg" aria-label="Department page navigation"><div class="container"><div class="row">';
 				echo '<h1 class="department-title">' . apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1>';
 
 				if (! empty( $child_pages )) {
@@ -157,7 +157,7 @@
 
 					echo '<ul></div>';
 				}
-				echo '</div></div></nav>';
+				echo '</div></nav>';
 
 			?>
 		</div>
