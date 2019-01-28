@@ -224,24 +224,6 @@ html, body {
 	padding: 0.25rem 0.5rem;
 }
 
-.search-button {
-	position: absolute;
-	padding: 0;
-	border: none;
-	width: 38px;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	cursor: pointer;
-	color: #555;
-	background-color: rgba(255, 255, 255, .85);
-}
-
-.search-button:hover,
-.search-button:focus {
-	background-color: rgba(255, 255, 255, 1);
-}
-
 #menu-popular .icon {
 	margin-right: .25rem;
 }
@@ -338,9 +320,6 @@ html, body {
 	border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 
-
-/* Accessibility fixes */
-
 /* Style like an h5, don't use headers for styling */
 .card-title {
 	font-size: 1.25rem;
@@ -374,7 +353,10 @@ html, body {
 .btn-outline-primary:focus,
 .page-item.active .page-link,
 .page-link:hover,
-.page-link:focus {
+.page-link:focus,
+#content .btn-outline-info:not(:disabled):not(.disabled).active,
+#content .btn-outline-info:not(:disabled):not(.disabled):active,
+#content .show>.btn-outline-info.dropdown-toggle {
 	color: white;
 	background-color: #004987;
 	border-color: #004987;
@@ -398,12 +380,33 @@ a.text-primary {
 	text-decoration: underline;
 }
 
+.search-button {
+	position: absolute;
+	padding: 0;
+	border: none;
+	width: 38px;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	cursor: pointer;
+	color: #555;
+	background-color: rgba(255, 255, 255, .85);
+}
+
+.search-button:hover,
+.search-button:focus {
+	background-color: rgba(255, 255, 255, 1);
+}
+
 a:hover,
 a:focus,
 a.text-primary:focus,
 a.text-primary:hover,
 .dropdown-item.active,
-.dropdown-item:active {
+.dropdown-item:active,
+.btn-outline-info:not(:disabled):not(.disabled).active:focus a,
+.btn-outline-info:not(:disabled):not(.disabled):active:focus a,
+.show>.btn-outline-info.dropdown-toggle:focus a {
 	color: #006dcc;
 	text-decoration: underline;
 }
