@@ -1,5 +1,6 @@
 <form
 	id="header-site-search"
+	class="nav-link"
 	class="search-form ml-2 mr-3"
 	aria-haspopup="listbox"
 	method="get"
@@ -19,7 +20,7 @@
 			<input
 				id="header-site-search-input"
 				type="text"
-				class="form-control form-control-sm search-field"
+				class="form-control form-control-md search-field"
 				aria-autocomplete="list"
 				name="s"
 				value="<?= get_search_query(); ?>"

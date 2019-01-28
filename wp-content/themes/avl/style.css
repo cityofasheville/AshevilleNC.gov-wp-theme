@@ -639,54 +639,23 @@ figcaption {
 		width: 90%;
 	}
 
-	#primary-menu li {
+}
+
+/* Up to large */
+
+@media (max-width: 992px) {
+	#primary-menu .nav-item, #header-site-search {
 		border-top: 0.5px solid rgb(255, 255, 255, 0.35);
+	}
+
+	#header-site-search {
+		padding: 0.25em 0;
 	}
 }
 
-/* Medium */
+/* Medium and large */
 
 @media (min-width: 768px) {
-
-	/* Main Menu */
-	nav.navbar {
-		padding: 0 1em;
-	}
-
-	#primary-menu > .nav-item {
-		border-left: 0.25px solid rgb(255, 255, 255, 0.35);
-		padding: 0.25em 0.25em;
-	}
-
-	#primary-menu > .nav-item a {
-		height: 100%;
-		width: 100%;
-	}
-
-	#primary-menu .show .nav-item,
-	#primary-menu .nav-item:hover,
-	#primary-menu .nav-item:focus {
-		background-color: rgb(255, 255, 255, 0.05);
-		border-radius: 2px;
-	}
-
-	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show {
-		width: 652px;
-		left: -210px;
-		display: -ms-flexbox;
-		display: flex;
-		-ms-flex-direction: row;
-		flex-direction: row;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-		margin: -.125rem 0 0;
-	}
-
-	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show > .nav-item {
-		-ms-flex: 0 0 50%;
-		flex: 0 0 50%;
-		max-width: 50%;
-	}
 
 	.display-1 {
 		font-size: 4em;
@@ -726,6 +695,45 @@ figcaption {
 /* Large */
 
 @media (min-width: 992px) {
+	/* Main Menu */
+	nav.navbar {
+		padding: 0 1em;
+	}
+
+	#primary-menu > .nav-item, #header-site-search {
+		border-left: 0.25px solid rgb(255, 255, 255, 0.35);
+		padding: 0.25em 0.25em;
+	}
+
+	#primary-menu > .nav-item a {
+		height: 100%;
+		width: 100%;
+	}
+
+	#primary-menu .show .nav-item,
+	#primary-menu .nav-item:hover,
+	#primary-menu .nav-item:focus {
+		background-color: rgb(255, 255, 255, 0.05);
+		border-radius: 2px;
+	}
+
+	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show {
+		width: 652px;
+		left: -210px;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		margin: -.125rem 0 0;
+	}
+
+	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show > .nav-item {
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
 
 	.news-title-sidebar .widget {
 		max-width: 25%;
