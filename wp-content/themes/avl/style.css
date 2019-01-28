@@ -197,7 +197,11 @@ html, body {
 
 #masthead .custom-logo {
 	width: 154px;
-	height: 38px;
+	height: 44px;
+}
+
+#masthead .custom-logo:hover, #masthead .custom-logo:focus {
+	opacity: 0.9;
 }
 
 #masthead .search-field,
@@ -253,10 +257,9 @@ html, body {
 #primary-menu .nav-link {
 	font-size: 1.25rem;
 	text-transform: uppercase;
-	border: 1px solid transparent;
 	white-space: nowrap;
 	color: white;
-	font-weight: 240;
+	font-weight: 200;
 	letter-spacing: 0.05em;
 }
 
@@ -269,7 +272,7 @@ html, body {
 }
 
 #primary-menu .dropdown-item {
-	max-width: 325px;
+	max-width: 90vw;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
@@ -314,6 +317,7 @@ html, body {
 
 #splash.site-branding {
 	background-position: center;
+	border-bottom: 0.5px solid gray;
 }
 
 .single-avl_department_page #splash h1 {
@@ -324,6 +328,14 @@ html, body {
 #splash .nav-tabs .nav-link:not(.active) {
 	color: #fff;
 	background-color: rgba(0, 0, 0, .5);
+}
+
+/* Main pages */
+
+.site-main .entry-header h1 {
+	padding-bottom: 0.125em;
+	margin-bottom: 0.125em;
+	border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 
 
@@ -515,7 +527,6 @@ figcaption {
 	padding: .5rem;
 	font-size: 80%;
 	font-weight: 400;
-	background-color: #A6BFD5;
 }
 
 /* Algolia Search */
@@ -627,6 +638,10 @@ figcaption {
 	.news-title-sidebar .widget {
 		width: 90%;
 	}
+
+	#primary-menu li {
+		border-top: 0.25px solid rgb(255, 255, 255, 0.35);
+	}
 }
 
 /* Medium */
@@ -635,19 +650,24 @@ figcaption {
 
 	/* Main Menu */
 	nav.navbar {
-		padding-right: 1em;
-		padding-left: 1em;
+		padding: 0 1em;
 	}
 
-	#primary-menu .nav-link {
-		padding: 0 0.25em;
+	#primary-menu > .nav-item {
+		border-left: 0.25px solid rgb(255, 255, 255, 0.35);
+		padding: 0.25em 0.25em;
 	}
 
-	#primary-menu .show .nav-link,
-	#primary-menu .nav-link:hover,
-	#primary-menu .nav-link:focus {
-		border: 1px solid #A6BFD5;
-		background-color: #004987;
+	#primary-menu > .nav-item a {
+		height: 100%;
+		width: 100%;
+	}
+
+	#primary-menu .show .nav-item,
+	#primary-menu .nav-item:hover,
+	#primary-menu .nav-item:focus {
+		background-color: rgb(255, 255, 255, 0.05);
+		border-radius: 2px;
 	}
 
 	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show {
@@ -659,6 +679,7 @@ figcaption {
 		flex-direction: row;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
+		margin: -.125rem 0 0;
 	}
 
 	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show > .nav-item {
@@ -705,10 +726,6 @@ figcaption {
 /* Large */
 
 @media (min-width: 992px) {
-
-	#primary-menu .nav-link {
-		padding: 0 1em;
-	}
 
 	.news-title-sidebar .widget {
 		max-width: 25%;

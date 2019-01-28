@@ -198,7 +198,7 @@ if ( ! function_exists( 'avl_post_thumbnail' ) ) :
 
 		if ( is_singular() ) {
 		?>
-			<figure class="post-thumbnail d-inline-block mb-3">
+			<figure class="post-thumbnail text-center">
 			<?php
 				$featured_image = get_post( get_post_thumbnail_id() );
 				the_post_thumbnail('medium_large', array('id' => 'featured-image', 'class' => 'img-fluid'));

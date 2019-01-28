@@ -19,22 +19,24 @@
 			<input
 				id="header-site-search-input"
 				type="text"
-				class="form-control search-field rounded"
+				class="form-control form-control-sm search-field"
 				aria-autocomplete="list"
 				name="s"
 				value="<?= get_search_query(); ?>"
 				placeholder="Search"
 				aria-label="Site search"
 			>
-			<button
-				class="btn search-button"
-				type="submit"
-			>
-				<span class="visually-hidden">
-					Search
-				</span>
-				<span class="icomoon icomoon-search"></span>
-			</button>
+			<div class="input-group-append">
+				<button
+					class="btn search-button"
+					type="submit"
+				>
+					<span class="visually-hidden">
+						Search
+					</span>
+					<span class="icomoon icomoon-search"></span>
+				</button>
+			</div>
 		</div>
 	</div>
 </form>

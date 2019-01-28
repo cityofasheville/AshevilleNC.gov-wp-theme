@@ -29,7 +29,7 @@
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
 		<nav class="navbar navbar-expand-md navbar-dark bg-avl-blue shadow-sm">
-			<div class="container-fluid">
+			<!-- <div class="container-fluid"> -->
 				<a class="navbar-brand align-self-end" href="<?= home_url( '/' ) ?>">
 				<?php
 					if ( $custom_logo_id = get_theme_mod( 'custom_logo' ) ) {
@@ -66,7 +66,7 @@
 					}
 					?>
 				</div>
-			</div>
+			<!-- </div> -->
 		</nav>
 		<div id="translate-parent" class="d-flex flex-row-reverse">
 			<div id="google-translate" class="p-0"></div>
