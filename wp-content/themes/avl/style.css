@@ -132,7 +132,8 @@ html, body {
 }
 
 .open-city-hall img {
-	max-height: 8rem;
+	max-height: 7rem;
+	max-width: 7rem
 }
 
 .open-city-hall:hover,
