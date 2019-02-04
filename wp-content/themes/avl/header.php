@@ -89,7 +89,7 @@
 				$avl_description = get_bloginfo( 'description', 'display' );
 				if ( $avl_description || is_customize_preview() ) {
 			?>
-				<h1 class="site-description display-1 text-center mt-5"><?php echo $avl_description; ?></h1>
+				<h1 class="site-description display-1 text-center mt-4"><?php echo $avl_description; ?></h1>
 				<div class="row">
 					<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
 						<div class="my-5">
