@@ -626,6 +626,13 @@ figcaption {
 	padding-bottom: 0 !important;
 }
 
+/* Delete this and the text in search.php after we decommission old site */
+#old-search-iframe {
+	/* border: none; */
+	height: 50vh;
+	overflow: hidden;
+}
+
 
 /* Media Queries */
 
