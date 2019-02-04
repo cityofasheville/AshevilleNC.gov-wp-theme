@@ -52,9 +52,13 @@ get_header();
 	</div>
 	<div class="row mt-5 mb-5">
 		<div class="col-md-12">
-			<p>Didn't find what you were looking for?  Search the old website:</p>
+			<div class="h4">Didn't find what you were looking for?</div>
+			<label>Use the box below to search the old website.</label>
 		</div>
-		<iframe class="col-md-12" src="https://s3.amazonaws.com/council-search.ashevillenc.gov/mainSearchTest.html" id="old-search-iframe"></iframe>
+		<div class="input-group-prepend">
+				<span class="input-group-text">Search:</span>
+		</div>
+		<script src="https://addsearch.com/js/?key=6a1fe1ca3441a659c41360b0529a8baa&amp;categories=0xwww.ashevillenc.gov"></script>
 	</div>
 </div>
 <?php
