@@ -627,10 +627,9 @@ figcaption {
 }
 
 /* Delete this and the text in search.php after we decommission old site */
-#old-search-iframe {
-	/* border: none; */
-	height: 50vh;
-	overflow: hidden;
+#old-civica-search ~ input {
+	border-top-right-radius: .25rem;
+	border-bottom-right-radius: .25rem;
 }
 
 
@@ -716,7 +715,7 @@ figcaption {
 
 	body {
 		position: static !important;
-		margin-bottom: 520px;
+		/* margin-bottom: 520px; */
 	}
 
 	#colophon {
@@ -783,7 +782,7 @@ figcaption {
 	/* Sticky footer */
 
 	body {
-		margin-bottom: 370px;
+		/* margin-bottom: 370px; */
 	}
 }
 

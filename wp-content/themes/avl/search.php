@@ -58,7 +58,7 @@ get_header();
 				<div class="input-group-prepend">
 					<span class="input-group-text">Search:</span>
 				</div>
-				<script src="https://addsearch.com/js/?key=6a1fe1ca3441a659c41360b0529a8baa&amp;categories=0xwww.ashevillenc.gov"></script>
+				<script id="old-civica-search" src="https://addsearch.com/js/?key=6a1fe1ca3441a659c41360b0529a8baa&amp;categories=0xwww.ashevillenc.gov"></script>
 			</div>
 		</div>
 	</div>

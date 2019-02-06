@@ -67,7 +67,7 @@ jQuery(function () {
 		// }
 	]
 
-	/* Setup dropdown menus */
+	/* Setup dropdown menus-- fires once */
 	jQuery(algolia.autocomplete.input_selector).each(function (i) {
 		var $searchInput = jQuery(this);
 		/*
@@ -82,7 +82,7 @@ jQuery(function () {
 
 		-MM
 		*/
-		const searchResultsId = '#search-results-' + i;
+		var searchResultsId = '#search-results-' + i;
 
 		inputsAndSelectors.push({
 			searchInputEl: this,
@@ -120,6 +120,49 @@ jQuery(function () {
 			}
 		});
 	});
+
+	var page = document.getElementsByTagName('html')[0];
+	var content = document.getElementById('content');
+
+	// TODO: IS HEIGHT THING COMPATIBLE CROSS BROWSER? (NO)
+	var initialPageBottom = page.getBoundingClientRect().height;
+	var initialContentHeight = content.getBoundingClientRect().height;
+
+	function onSearchEnter() {
+		var searchResultsBoxHeights = [
+			jQuery('#search-results-0 .aa-dropdown-menu'),
+			jQuery('#search-results-1 .aa-dropdown-menu'),
+			// jQuery('#addsearch-results')
+		].map(function(searchBox) {
+			if (searchBox.get().length === 0) {
+				return 0;
+			}
+			return searchBox.offset().top;
+		}).sort(function(a, b) {
+			return b - a;
+		})
+
+		var searchResultsBottom = searchResultsBoxHeights[0];
+		var newContentHeight = initialContentHeight;
+		var newDomHeight = initialPageBottom;
+
+		if (searchResultsBottom > initialPageBottom) {
+			var delta = (searchResultsBottom - initialPageBottom);
+			newContentHeight += delta;
+			newDomHeight += delta;
+		}
+
+		console.log(initialPageBottom, initialContentHeight, searchResultsBottom, newContentHeight)
+
+		jQuery('#content').css('height', newContentHeight + 'px')
+		jQuery('html,body,#page').css('height', newDomHeight + 'px')
+	}
+
+	// TODO: on keyup or blur, for algolia search or addsearch
+	jQuery('.aa-input').keyup(onSearchEnter);
+	jQuery('.aa-input').blur(onSearchEnter);
+
+	// jQuery('input.addsearch.addsearch-written').change(onSearchEnter)
 
 	inputsAndSelectors.forEach(function(item) {
 		var controlledListbox = jQuery(item.ariaControlsSelector);
