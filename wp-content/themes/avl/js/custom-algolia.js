@@ -143,15 +143,17 @@ jQuery(function () {
 		var searchResultsBottom = searchResultsBoxHeights[0];
 		var delta = 0;
 		if (searchResultsBottom > initialFooterBottom) {
-			delta = (searchResultsBottom - initialFooterBottom);
+			delta = (searchResultsBottom - initialFooterBottom) + 50;
 		}
 		jQuery('#colophon').css('top', (initialFooterPos + delta) + 'px')
 	}
 
 	jQuery('.aa-input').keyup(onSearchEnter);
 	jQuery('.aa-input').blur(onSearchEnter);
-	jQuery('input.addsearch.addsearch-written').keyup(onSearchEnter)
-	jQuery('input.addsearch.addsearch-written').blur(onSearchEnter)
+	jQuery('.aa-input').click(onSearchEnter);
+	jQuery('input.addsearch.addsearch-written').keyup(onSearchEnter);
+	jQuery('input.addsearch.addsearch-written').blur(onSearchEnter);
+	jQuery('input.addsearch.addsearch-written').click(onSearchEnter);
 
 
 	/*  Associate the right aria-controls with the right box ids */
