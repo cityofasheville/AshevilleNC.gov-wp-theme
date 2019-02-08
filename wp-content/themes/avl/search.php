@@ -50,7 +50,7 @@ get_header();
 	</div>
 	</section>
 	</div>
-	<div class="row mt-5 mb-5">
+	<!-- <div class="row mt-5 mb-5">
 		<div class="col-md-12">
 			<div class="h4">Didn't find what you were looking for?</div>
 			<label>Use the box below to search the old website.</label>
@@ -61,7 +61,7 @@ get_header();
 				<script id="old-civica-search" src="https://addsearch.com/js/?key=6a1fe1ca3441a659c41360b0529a8baa&amp;categories=0xwww.ashevillenc.gov"></script>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
 <?php
 get_footer();

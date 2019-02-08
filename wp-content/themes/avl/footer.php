@@ -13,24 +13,73 @@
 	<div id="search-results-0"></div>
 	<div id="search-results-1"></div>
 	<footer id="colophon" class="site-footer bg-avl-blue-75">
-		<div class="collapse" id="toggle-feedback">
-			<div class="text-white bg-secondary py-3">
-				<div class="container">
-					<?= do_shortcode('[ninja_form id=1]'); ?>
+
+		<div class="footer-toggle-bar">
+			<div class="bg-avl-blue">
+				<div class="container feedback-container">
+					<button
+						id="feedback-button"
+						class="navbar-toggler text-white ml-2 mr-auto footer-toggle-button"
+						type="button"
+						data-toggle="collapse"
+						data-target="#toggle-feedback"
+						aria-controls="toggle-feedback"
+						aria-expanded="false"
+						aria-label="Open feedback form"
+						>
+						<span class="icon icon-lamp-bright"></span> Feedback
+					</button>
+					<span class="navbar-text text-white ml-2 mr-auto">
+						We're still working on this page's design and content. How can we make it better?
+					</span>
+				</div>
+			</div>
+			<div class="collapse" id="toggle-feedback">
+				<div class="text-white bg-secondary py-3">
+					<div class="container">
+						<?= do_shortcode('[ninja_form id=1]'); ?>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="bg-avl-blue mb-5">
-			<div class="container feedback-container">
-				<button id="feedback-button" class="navbar-toggler text-white ml-2 mr-auto" type="button" data-toggle="collapse" data-target="#toggle-feedback" aria-controls="toggle-feedback" aria-expanded="false" aria-label="Toggle Feedback">
-					<span class="icon icon-lamp-bright"></span> Feedback
-				</button>
-				<span class="navbar-text text-white ml-2 mr-auto">
-					We're still working on this page's design and content. How can we make it better?
-				</span>
+
+		<div class="footer-toggle-bar">
+			<div class="bg-avl-blue">
+				<div class="container feedback-container">
+					<button
+						id="old-search-button"
+						class="navbar-toggler text-white ml-2 mr-auto footer-toggle-button"
+						type="button"
+						data-toggle="collapse"
+						data-target="#toggle-old-search"
+						aria-controls="toggle-old-search"
+						aria-expanded="false"
+						aria-label="Open old search"
+					>
+						<span class="icomoon icomoon-search"></span> Search the old site
+					</button>
+					<span class="navbar-text text-white ml-2 mr-auto">
+						Didn't find what you were looking for?
+					</span>
+				</div>
+
+			</div>
+			<div class="collapse bg-avl-blue" id="toggle-old-search">
+				<div class="text-white py-3">
+					<div class="container">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<label class="input-group-text">Search:</label>
+							</div>
+							<script id="old-civica-search" src="https://addsearch.com/js/?key=6a1fe1ca3441a659c41360b0529a8baa&amp;categories=0xwww.ashevillenc.gov"></script>
+							<script>jQuery('input.addsearch.addsearch-written').addClass('form-control')</script>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="container">
+
+		<div class="container mt-5">
 			<div class="row">
 				<div class="col-3 col-sm-2 col-md-2 col-lg-1 pb-4">
 					<a href="<?= home_url( '/' ); ?>">

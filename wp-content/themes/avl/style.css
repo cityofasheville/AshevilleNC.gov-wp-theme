@@ -517,6 +517,7 @@ a.text-primary:hover,
 
 
 #colophon {
+	margin-top: 5em;
 	border-top: 4px solid #50601f;
 }
 
@@ -524,17 +525,21 @@ footer .feedback-container {
 	padding: 1em 0;
 }
 
-#feedback-button {
+.footer-toggle-bar {
+		border-bottom: 1px solid rgb(255, 255, 255, 0.5);
+}
+
+.footer-toggle-button {
 	border-color: #A6BFD5;
 }
 
-#feedback-button:hover,
-#feedback-button:focus {
+.footer-toggle-button:hover,
+.footer-toggle-button:focus {
 	border-color: yellow;
 }
 
-#feedback-button:hover .icon-lamp-bright,
-#feedback-button:focus .icon-lamp-bright {
+.footer-toggle-button:hover .icon-lamp-bright,
+.footer-toggle-button:focus .icon-lamp-bright {
 	color: yellow;
 }
 
@@ -632,12 +637,18 @@ figcaption {
 	padding-bottom: 0 !important;
 }
 
-/* Delete this and the text in search.php after we decommission old site */
+/* Delete this and the text in footer.php after we decommission old site */
+
+#toggle-old-search label {
+	border: 1px solid #ced4da;
+	color: #555;
+	background-color: rgba(255, 255, 255, .85);
+}
+
 #old-civica-search ~ input {
 	border-top-right-radius: .25rem;
 	border-bottom-right-radius: .25rem;
 }
-
 
 /* Media Queries */
 
@@ -728,6 +739,12 @@ figcaption {
 		position: absolute;
 		left: 0;
 		right: 0;
+	}
+
+	/* Delete this and the text in search.php after we decommission old site */
+
+	#toggle-old-search {
+		padding-bottom: 15em;
 	}
 }
 
