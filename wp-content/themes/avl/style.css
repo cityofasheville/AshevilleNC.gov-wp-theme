@@ -415,7 +415,7 @@ a.text-primary {
 .search-button {
 	position: absolute;
 	padding: 0;
-	border: none;
+	border: 1px solid #ced4da;
 	width: 38px;
 	top: 0;
 	bottom: 0;
