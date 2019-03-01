@@ -79,7 +79,7 @@
 
 		<div class="content">
 
-			<div class="mr-2 col-sm-12 text-center text-avl-blue" id="sub-nav-beta-msg"><span class="icon icon-self-timer2 icon-1x icon-avl-green mr-2"></span>This website is new and still under construction.  Please <a href="#feedback-button">tell us what's missing</a>!  In the meantime you can still <a href="#old-search-button">search</a> or <a href="https://ashevillenc.gov" target="_blank" rel="noopener noreferrer">visit</a> the old site.</div>
+			<div class="mr-2 col-sm-12 text-center text-avl-blue" id="sub-nav-beta-msg"><span class="icon icon-self-timer2 icon-1x icon-avl-green mr-2"></span>This website is under construction.  Please <a href="#feedback-button">tell us what's missing</a>!  You can still <a href="#old-search-button">search</a> or <a href="https://ashevillenc.gov" target="_blank" rel="noopener noreferrer">visit</a> the old site.</div>
 
 			<div id="translate-parent" class="d-flex">
 				<div id="google-translate" class="p-0 ml-auto"></div>
