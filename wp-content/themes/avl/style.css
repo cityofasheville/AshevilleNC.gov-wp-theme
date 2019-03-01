@@ -177,6 +177,8 @@ html, body {
 
 /* Header */
 
+/* TEMPORARY FOR BETA */
+
 #sub-nav-beta-msg {
 	font-size: 0.9em;
 	border-bottom: 0.25px solid #d5d5d5;
@@ -187,6 +189,10 @@ html, body {
 #sub-nav-beta-msg a {
 	color: inherit;
 	text-decoration: underline;
+}
+
+#beta-on-title {
+	position: absolute;
 }
 
 
@@ -246,8 +252,8 @@ html, body {
 }
 
 #splash .well {
-	background-color: rgba(0, 0, 0, 0.5);
-	padding: 0.25rem 0.5rem;
+	background-color: rgba(220, 220, 220, 0.45);
+	padding: 2rem;
 }
 
 #menu-popular .icon {
@@ -308,8 +314,8 @@ html, body {
 }
 
 #splash .search-label {
-	color: white;
-	font-size: 1.15em;
+	/* color: white; */
+	font-size: 2em;
 	letter-spacing: 0.025em;
 }
 
