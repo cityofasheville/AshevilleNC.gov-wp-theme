@@ -76,8 +76,14 @@
 				</div>
 			</div>
 		</nav>
-		<div id="translate-parent" class="d-flex flex-row-reverse">
-			<div id="google-translate" class="p-0"></div>
+
+		<div class="content">
+			<div id="translate-parent" class="d-flex">
+				<div id="google-translate" class="p-0 ml-auto"></div>
+			</div>
+
+			<div class="mr-2 col-sm-12">This website is new and still needs work.  <a href="#feedback-button">Tell us what's missing</a> or <a href=>visit the old site</a>.</div>
+
 		</div>
 
 		<?php
