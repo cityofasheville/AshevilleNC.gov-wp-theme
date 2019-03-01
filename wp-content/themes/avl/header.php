@@ -78,12 +78,12 @@
 		</nav>
 
 		<div class="content">
+
+			<div class="mr-2 col-sm-12 text-center text-avl-blue" id="sub-nav-beta-msg">This website is new and still needs work.  Please <a href="#feedback-button">tell us what's missing</a>!  In the meantime you can still <a href="#old-search-button">search</a> or <a href="https://ashevillenc.gov" target="_blank" rel="noopener noreferrer">visit</a> the old site.</div>
+
 			<div id="translate-parent" class="d-flex">
 				<div id="google-translate" class="p-0 ml-auto"></div>
 			</div>
-
-			<div class="mr-2 col-sm-12">This website is new and still needs work.  <a href="#feedback-button">Tell us what's missing</a> or <a href=>visit the old site</a>.</div>
-
 		</div>
 
 		<?php
