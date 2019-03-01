@@ -222,8 +222,9 @@ html, body {
 }
 
 #masthead .custom-logo {
-	width: 154px;
-	height: 44px;
+	height: 54px;
+	padding: 2px;
+	max-height: 100%;
 }
 
 #masthead .custom-logo:hover, #masthead .custom-logo:focus {
@@ -252,8 +253,8 @@ html, body {
 }
 
 #splash .well {
-	background-color: rgba(220, 220, 220, 0.65);
-	padding: 2rem;
+	background-color: rgba(235, 235, 235, 0.8);
+	padding: 0.45rem;
 }
 
 #menu-popular .icon {
@@ -313,15 +314,20 @@ html, body {
 	background-position: center; z-index: -1;
 }
 
+#site-search {
+	margin-top: 5em;
+}
+
 #splash .search-label {
 	color: #004987;
-	font-size: 1.75em;
+	font-size: 1.15em;
 	letter-spacing: 0.025em;
+	margin-bottom: 0;
 }
 
 #splash.site-branding {
 	background-position: center;
-	border-bottom: 4px solid #607425;
+	border-bottom: 8px solid #607425;
 }
 
 #splash .navbar-toggler {
@@ -777,7 +783,7 @@ figcaption {
 
 	#primary-menu > .nav-item, #header-site-search {
 		border-left: 0.25px solid rgb(255, 255, 255, 0.35);
-		padding: 0.25em 0.25em;
+		padding: 0.5rem 0.25rem;
 	}
 
 	#primary-menu > .nav-item a {

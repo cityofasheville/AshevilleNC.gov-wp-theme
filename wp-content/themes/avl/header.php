@@ -79,7 +79,7 @@
 
 		<div class="content">
 
-			<div class="mr-2 col-sm-12 text-center text-avl-blue" id="sub-nav-beta-msg">This website is new and still under construction.  Please <a href="#feedback-button">tell us what's missing</a>!  In the meantime you can still <a href="#old-search-button">search</a> or <a href="https://ashevillenc.gov" target="_blank" rel="noopener noreferrer">visit</a> the old site.</div>
+			<div class="mr-2 col-sm-12 text-center text-avl-blue" id="sub-nav-beta-msg"><span class="icon icon-self-timer2 icon-1x icon-avl-green mr-2"></span>This website is new and still under construction.  Please <a href="#feedback-button">tell us what's missing</a>!  In the meantime you can still <a href="#old-search-button">search</a> or <a href="https://ashevillenc.gov" target="_blank" rel="noopener noreferrer">visit</a> the old site.</div>
 
 			<div id="translate-parent" class="d-flex">
 				<div id="google-translate" class="p-0 ml-auto"></div>
@@ -96,15 +96,9 @@
 				if ( $avl_description || is_customize_preview() ) {
 			?>
 				<!-- <h1 class="site-description display-1 text-center mt-4"><?php echo $avl_description; ?></h1> -->
-				<div class="row">
-					<div class="col-12">
-						<div class="my-5">
-						<?php
-							get_search_form();
-						?>
-						</div>
-					</div>
-				</div>
+				<?php
+					get_search_form();
+				?>
 			<?php
 				}
 			?>

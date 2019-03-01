@@ -1,13 +1,13 @@
 <form
 	id="site-search"
-	class="search-form well well-sm rounded"
+	class="search-form well well-sm rounded mx-auto"
 	aria-haspopup="listbox"
 	method="get"
 	action="<?= home_url( '/' ); ?>"
 >
 	<div role="search">
 		<label for="site-search-input" class="search-label">
-			Search for city services, news, and department information:
+			Search for city services, news, or department information
 		</label>
 
 		<div

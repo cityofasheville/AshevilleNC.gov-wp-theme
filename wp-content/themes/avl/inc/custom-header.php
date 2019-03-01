@@ -34,7 +34,7 @@ function avl_header_style() {
 
 	// KRK: Add support for header background image.
 	if ( has_header_image() ) {
-		$style .= '#splash { min-height: 30em; background-image: url("'. get_header_image() .'"); }';
+		$style .= '#splash { min-height: 22.5em; background-image: url("'. get_header_image() .'"); }';
 	}
 
 	if ( display_header_text() )
