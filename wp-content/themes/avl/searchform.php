@@ -1,6 +1,6 @@
 <form
 	id="site-search"
-	class="search-form well well-sm rounded mx-auto"
+	class="search-form well well-sm rounded mx-auto col-lg-10"
 	aria-haspopup="listbox"
 	method="get"
 	action="<?= home_url( '/' ); ?>"
@@ -22,7 +22,6 @@
 				name="s"
 				value="<?= get_search_query(); ?>"
 				aria-label="Site search"
-				placeholder="Search"
 			>
 			<div class="input-group-append">
 				<button

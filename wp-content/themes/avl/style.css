@@ -253,7 +253,7 @@ html, body {
 }
 
 #splash .well {
-	background-color: rgba(235, 235, 235, 0.8);
+	background-color: rgba(235, 235, 235, 0.85);
 	padding: 0.45rem;
 }
 
@@ -320,9 +320,10 @@ html, body {
 
 #splash .search-label {
 	color: #004987;
-	font-size: 1.15em;
+	font-size: 1em;
 	letter-spacing: 0.025em;
 	margin-bottom: 0;
+	font-weight: 200;
 }
 
 #splash.site-branding {
