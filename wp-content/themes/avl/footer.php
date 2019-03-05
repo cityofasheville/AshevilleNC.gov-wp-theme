@@ -71,8 +71,16 @@
 							<div class="input-group-prepend">
 								<label class="input-group-text">Search:</label>
 							</div>
+							<input type="text" class="addsearch form-control" disabled="disabled" id="addsearch-input" />
+							<script>
+								window.addsearch_settings = {
+									link_target: '_blank'
+								}
+								jQuery('#addsearch-input').on('blur', function() {
+									history.replaceState({}, '', window.location.href.replace(window.location.hash, ''));
+								})
+							</script>
 							<script id="old-civica-search" src="https://addsearch.com/js/?key=6a1fe1ca3441a659c41360b0529a8baa&amp;categories=0xwww.ashevillenc.gov"></script>
-							<script>jQuery('input.addsearch.addsearch-written').addClass('form-control')</script>
 						</div>
 					</div>
 				</div>
