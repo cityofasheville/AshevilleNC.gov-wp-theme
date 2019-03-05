@@ -312,6 +312,7 @@ html, body {
 	display: table-cell;
 	position: absolute;
 	background-position: center; z-index: -1;
+	background-attachment: fixed;
 }
 
 #site-search {
@@ -329,6 +330,7 @@ html, body {
 #splash.site-branding {
 	background-position: center;
 	border-bottom: 8px solid #607425;
+	background-attachment: fixed;
 }
 
 #splash .navbar-toggler {
