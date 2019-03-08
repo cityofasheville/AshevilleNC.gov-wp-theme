@@ -25,10 +25,6 @@ get_header();
 				<?php avl_content_pagination_place(); ?>
 			</header>
 
-			<?php
-				get_sidebar();
-			?>
-
 			<div class="card-columns">
 			<?php
 
