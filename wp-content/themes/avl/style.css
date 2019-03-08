@@ -345,7 +345,7 @@ html, body {
 }
 
 #splash nav .department-title {
-	padding: 0.5em 0 0.25em 0;
+	padding: 0.15em 0 0.15em 0;
 	word-spacing: 0.15em;
 	text-shadow: 1px 1px 0 #c6da8b;
 	letter-spacing: 0.025em;
@@ -583,6 +583,12 @@ footer .feedback-container {
 #colophon img.footer-city-logo {
 	/* Maybe this will fix the eiffel tower issue on IE */
 	max-height: 3em;
+}
+
+/* TEMPORARY - REMOVE AFTER REMOVING ADDSEARCH */
+#addsearch-results {
+	position: relative !important;
+	top: 0 !important;
 }
 
 /* Posts */

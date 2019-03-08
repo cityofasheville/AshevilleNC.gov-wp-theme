@@ -76,10 +76,15 @@
 					</div>
 					<script>
 						window.addsearch_settings = {
-							link_target: '_blank'
+							link_target: '_blank',
+							results_box_css_classname: 'addsearch-results',
 						}
 						jQuery('#addsearch-input').on('blur', function() {
 							history.replaceState({}, '', window.location.href.replace(window.location.hash, ''));
+						})
+						jQuery('#addsearch-input').on('keyup', function() {
+							var results = jQuery('#addsearch-results');
+							jQuery(this).after(results);
 						})
 					</script>
 					<script id="old-civica-search" src="https://addsearch.com/js/?key=6a1fe1ca3441a659c41360b0529a8baa&amp;categories=0xwww.ashevillenc.gov"></script>

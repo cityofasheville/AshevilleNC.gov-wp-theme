@@ -131,7 +131,6 @@ jQuery(function () {
 		var searchResultsBoxHeights = [
 			jQuery('#search-results-0 .aa-dropdown-menu'),
 			jQuery('#search-results-1 .aa-dropdown-menu'),
-			jQuery('#addsearch-results')
 		].map(function(searchBox) {
 			if (searchBox.get().length === 0) {
 				return 0;
