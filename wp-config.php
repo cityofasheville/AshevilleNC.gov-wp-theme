@@ -182,3 +182,7 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
+
+// Fix search results maybe?
+define( 'ALGOLIA_SPLIT_POSTS', false );
