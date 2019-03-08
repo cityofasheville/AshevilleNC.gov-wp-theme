@@ -1,7 +1,6 @@
 <?php get_header(); ?>
   <!-- Copied from plugins/search-by-algolia.../templates/instantsearch -->
 	<div id="ais-wrapper" class="container">
-
 		<div class="row">
 			<header class="page-header mb-3 col-sm-12">
 				<h1 class="page-title">
@@ -26,7 +25,8 @@
 						<div id="algolia-stats"></div>
 						<svg class="search-icon" width="25" height="25" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M24.828 31.657a16.76 16.76 0 0 1-7.992 2.015C7.538 33.672 0 26.134 0 16.836 0 7.538 7.538 0 16.836 0c9.298 0 16.836 7.538 16.836 16.836 0 3.22-.905 6.23-2.475 8.79.288.18.56.395.81.645l5.985 5.986A4.54 4.54 0 0 1 38 38.673a4.535 4.535 0 0 1-6.417-.007l-5.986-5.986a4.545 4.545 0 0 1-.77-1.023zm-7.992-4.046c5.95 0 10.775-4.823 10.775-10.774 0-5.95-4.823-10.775-10.774-10.775-5.95 0-10.775 4.825-10.775 10.776 0 5.95 4.825 10.775 10.776 10.775z" fill-rule="evenodd"></path></svg>
 					</div>
-					<div id="algolia-hits"></div>
+					<div id="algolia-hits" class="card-columns">
+					</div>
 					<div id="algolia-pagination"></div>
 				</div>
 			</section>
@@ -36,30 +36,36 @@
 	</div>
 
 	<script type="text/html" id="tmpl-instantsearch-hit">
-		<article itemtype="http://schema.org/Article">
+		<article id="post-{{ data.post_id }}" class="card h-100 format-standard has-thumbnail">
+			<div class="ais-hits--content entry-header">
 
-			<header class="entry-header">
-				<h2 itemprop="name headline"><a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}</a></h2>
-			</header><!-- .entry-header -->
+			</div>
 
-			<# if ( data.images.thumbnail ) { #>
-			<div class="ais-hits--thumbnail">
-				<a href="{{ data.permalink }}" title="{{ data.post_title }}">
+			<!-- <# if ( data.images.thumbnail ) { #>
+				<a href="{{ data.permalink }}" title="{{ data.post_title }}" class="post-thumbnail flex-shrink-0">
 					<img src="{{ data.images.thumbnail.url }}" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" />
 				</a>
-			</div>
-			<# } #>
-
-			<div class="entry-summary">
-				<div class="excerpt">
-					<p>
-			<# if ( data._snippetResult['content'] ) { #>
-			  <span class="suggestion-post-content">{{{ data._snippetResult['content'].value }}}</span>
-			<# } #>
-					</p>
+			<# } #> -->
+			<div class="card-body">
+				<span class="card-title entry-title">
+					<a
+						href="{{ data.permalink }}"
+						title="{{ data.post_title }}"
+						itemprop="url"
+					>
+						{{{ data._highlightResult.post_title.value }}}
+					</a>
+				</span>
+				<div class="card-text entry-content">
+					{{{ data._snippetResult.content.value }}}
 				</div>
+
 			</div>
-			<div class="ais-clearfix"></div>
+
+			<!-- TODO: need tags -->
+			<!-- <footer class="entry-footer">
+			</footer> -->
+
 		</article>
 	</script>
 
@@ -83,8 +89,8 @@
 					},
 					searchParameters: {
 						facetingAfterDistinct: true,
-			highlightPreTag: '__ais-highlight__',
-			highlightPostTag: '__/ais-highlight__'
+						// highlightPreTag: '__ais-highlight__',
+						// highlightPostTag: '__/ais-highlight__'
 					}
 				});
 
@@ -110,31 +116,16 @@
 					instantsearch.widgets.hits({
 						container: '#algolia-hits',
 						hitsPerPage: 10,
+						transformData: {
+							item: function(hit) {
+								console.log(hit)
+								return hit
+							},
+						},
 						templates: {
 							empty: 'No results were found for "<strong>{{query}}</strong>".',
-							item: wp.template('instantsearch-hit')
+							item: wp.template('instantsearch-hit'),
 						},
-						transformData: {
-							item: function (hit) {
-
-								function replace_highlights_recursive (item) {
-								  if( item instanceof Object && item.hasOwnProperty('value')) {
-									  item.value = _.escape(item.value);
-									  item.value = item.value.replace(/__ais-highlight__/g, '<em>').replace(/__\/ais-highlight__/g, '</em>');
-								  } else {
-									  for (var key in item) {
-										  item[key] = replace_highlights_recursive(item[key]);
-									  }
-								  }
-								  return item;
-								}
-
-								hit._highlightResult = replace_highlights_recursive(hit._highlightResult);
-								hit._snippetResult = replace_highlights_recursive(hit._snippetResult);
-
-								return hit;
-							}
-						}
 					})
 				);
 
@@ -172,28 +163,15 @@
 				);
 
 				/* Tags refinement widget */
-				search.addWidget(
-					instantsearch.widgets.refinementList({
-						container: '#facet-tags',
-						attributeName: 'taxonomies.post_tag',
-						operator: 'and',
-						limit: 15,
-						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
-						templates: {
-							header: '<h3 class="widgettitle">Tags</h3>'
-						}
-					})
-				);
-
-				/* Users refinement widget */
 				// search.addWidget(
-				// 	instantsearch.widgets.menu({
-				// 		container: '#facet-users',
-				// 		attributeName: 'post_author.display_name',
+				// 	instantsearch.widgets.refinementList({
+				// 		container: '#facet-tags',
+				// 		attributeName: 'taxonomies.post_tag',
+				// 		operator: 'and',
+				// 		limit: 15,
 				// 		sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
-				// 		limit: 10,
 				// 		templates: {
-				// 			header: '<h3 class="widgettitle">Authors</h3>'
+				// 			header: '<h3 class="widgettitle">Tags</h3>'
 				// 		}
 				// 	})
 				// );
