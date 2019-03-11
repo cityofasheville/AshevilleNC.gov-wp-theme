@@ -28,7 +28,6 @@ get_header();
 			<div class="card-columns">
 			<?php
 
-
 			while ( have_posts() ) {
 				the_post();
 				get_template_part(
