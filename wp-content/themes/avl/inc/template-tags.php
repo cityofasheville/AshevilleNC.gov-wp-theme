@@ -8,6 +8,11 @@
  */
 
 function avl_content_pagination() {
+	// 846 results - 71 pages - works for wordpress default - cat
+	// with instantsearch - 100 results for cat, pagination is fine - 10 pages
+	// with algolia on backend -- 9 pages in pagination, 100 results, 12 results per page, ends at result 72
+	// is it the number of results per page?
+
 	global $wp_query;
 	$big = 999999999;
 	$ppp = get_query_var('posts_per_page');
@@ -22,6 +27,7 @@ function avl_content_pagination() {
 		'next_text'	=> 'Next&nbsp;<span class="icon icon-chevron-right"></span>',
 		'type'		=> 'list'
 	);
+
 
 	if ($links = paginate_links( $args )) {
 		$links = str_replace("<ul class='page-numbers'>", "<ul class='pagination'>", $links);

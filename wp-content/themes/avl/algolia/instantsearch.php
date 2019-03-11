@@ -55,6 +55,9 @@
 					>
 						{{{ data._highlightResult.post_title.value }}}
 					</a>
+					<div class="card-subtitle m-2 accessible-text-muted small entry-meta">
+						{{{ data.post_date_formatted }}}
+					</div>
 				</span>
 				<div class="card-text entry-content">
 					{{{ data._snippetResult.content.value }}}
