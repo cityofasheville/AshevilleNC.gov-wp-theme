@@ -64,6 +64,8 @@ class AVL_Filter_Post_Taxonomy_Widget extends WP_Widget {
 	public function widget($args, $instance) {
 		extract($args);
 
+		// echo var_dump($args);
+
 		$tax_slug = array(
 			'avl_department'	=> 'department',
 			'avl_service_type'	=> 'service-type',

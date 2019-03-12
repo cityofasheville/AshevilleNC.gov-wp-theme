@@ -37,6 +37,9 @@ function avl_remove_bloat() {
 	remove_action( 'wp_head', 'rsd_link' );
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 	remove_action( 'wp_head', 'wp_generator' );
+	// https://orbitingweb.com/blog/remove-unnecessary-tags-wp-head/
+	remove_action('wp_head', 'feed_links_extra', 3 );  //removes comments feed.
+	remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 }
 add_action( 'init', 'avl_remove_bloat' );
 
@@ -196,6 +199,17 @@ function avl_widgets_init() {
 		'before_title'  => '<div class="widget-title">',
 		'after_title'   => '</div>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Search Sidebar', 'avl' ),
+		'id'            => 'sidebar-search',
+		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<div class="widget-title">',
+		'after_title'   => '</div>',
+	) );
+
 }
 add_action( 'widgets_init', 'avl_widgets_init' );
 

@@ -11,11 +11,14 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+<!-- Output of language_attributes is lang="[language]" -->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<!-- Above always outputs UTF-8 -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Performance hit, but makes IE browsers render using Edge engine -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<!-- <link rel="profile" href="https://gmpg.org/xfn/11"> -->
 	<?php wp_head(); ?>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-16340971-17"></script>
 	<script>
@@ -25,6 +28,7 @@
 		gtag('config', 'UA-16340971-17');
 	</script>
 </head>
+
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
