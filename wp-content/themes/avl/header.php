@@ -60,6 +60,7 @@
 				</button>
 				<div id="toggle-container" class="collapse navbar-collapse justify-content-end">
 					<?php
+					// https://developer.wordpress.org/reference/functions/wp_nav_menu/
 					wp_nav_menu(array(
 						'depth'			=> 2,
 						'theme_location'	=> 'primary',
@@ -82,9 +83,9 @@
 		</nav>
 
 		<div class="content">
-
+			<!-- TODO: REMOVE AFTER DECOMMISSION OLD SITE -->
 			<div class="mr-2 col-sm-12 text-center text-avl-blue" id="sub-nav-beta-msg"><span class="icon icon-self-timer2 icon-1x icon-avl-green mr-2"></span>This website is under construction.  Please <a href="#feedback-button">tell us what's missing</a>!  You can still <a href="#old-search-button">search</a> or <a href="https://ashevillenc.gov" target="_blank" rel="noopener noreferrer">visit</a> the old site.</div>
-
+			<!-- TODO: BETTER TRANSLATION WITH AWS -->
 			<div id="translate-parent" class="d-flex">
 				<div id="google-translate" class="p-0 ml-auto"></div>
 			</div>
@@ -92,6 +93,7 @@
 
 		<?php
 			if ( is_front_page() && is_home() ) {
+			// Display search with background image if it's the home page
 		?>
 		<div id="splash" class="site-branding jumbotron jumbotron-fluid bg-transparent mb-0">
 			<div class="container">
@@ -117,8 +119,6 @@
 			if ( $post->post_parent == 0 ) {
 				$parent_id = $post->ID;
 			} else {
-				//$parents = get_post_ancestors( $post->ID );
-				//$parent_id = end($parents);
 				$ancestors = $post->ancestors;
 				$parent_id = end( $ancestors );
 			}
