@@ -18,6 +18,10 @@
 	</header>
 	<div class="entry-content">
 		<?php
+		if (strlen(the_content() == 0)) {
+			echo '<p>We\'re still working on the content for this page.  In the meantime, please <a href="#old-search-button">search</a> or <a href="https://ashevillenc.gov" target="_blank" rel="noopener noreferrer">visit</a> the old site.</p>';
+		}
+
 		the_content( sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
