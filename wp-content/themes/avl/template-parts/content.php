@@ -19,7 +19,7 @@
 	?>
 	<div class="card-body">
 		<?php
-			if ('avl_department_page' === get_post_type()) {
+			if ('avl_department_page' === get_post_type() && get_post()->post_parent === 0) {
 				the_title( '<span class="card-title entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', ' Department</a></span>' );
 			} else {
 				the_title( '<span class="card-title entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></span>' );
@@ -37,7 +37,7 @@
 		</div>
 		<p class="card-text entry-content"><?php echo get_the_excerpt(); ?></p>
 	</div>
-	<?php if ( 'avl_department_page' !== get_post_type() ) : ?>
+	<?php if ( 'avl_department_page' !== get_post_type() && 'page' !== get_post_type() ) : ?>
 		<div class="card-footer entry-footer">
 			<?php avl_entry_footer(); ?>
 		</div>
