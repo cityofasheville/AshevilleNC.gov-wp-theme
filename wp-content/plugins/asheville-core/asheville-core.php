@@ -243,13 +243,11 @@ function avl_pre_get_posts( $query ) {
 		return;
 	}
 
-	/*
 	if ( is_category('news') ) {
 		$query->set( 'category_name', 'featured' );
-		$query->set( 'posts_per_page', 5 );
+		$query->set( 'posts_per_page', 17 );
 		return;
 	}
-	*/
 
 	if ( is_post_type_archive('avl_service') ) {
 		$query->set( 'order', 'ASC' );
