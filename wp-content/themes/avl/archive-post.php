@@ -13,6 +13,9 @@ get_header();
 	<header class="page-header">
 		<h1 class="page-title">City Source</h1>
 		<?php
+
+		// echo var_dump($wp_query);
+
 		if ( get_query_var( 'avl_department' ) ) {
 			$term = get_term_by( 'slug', get_query_var( 'avl_department' ), 'avl_department' );
 			echo '<div class="h3">Department: '. $term->name .'</div>';
@@ -22,6 +25,7 @@ get_header();
 			the_archive_title( '<div class="h3">', '</div>' );
 			the_archive_description( '<div class="archive-description">', '</div>' );
 		}
+		echo get_sidebar('news');
 		?>
 	</header>
 
@@ -67,7 +71,9 @@ get_header();
 	$exhausted = false;
 	$featured_ids = array();
 
-	if ( (! is_paged() ) && ( $wp_query->post_count > 5 ) ) {
+	$featured_news_showing = (! is_paged() ) && ( $wp_query->post_count > 5 ) && $wp->request === 'news';
+
+	if ( $featured_news_showing ) {
 	?>
 	<div id="fbox-wrap" class="row featured-news">
 		<div class="col-lg-6 pb-4 fbox-main">
@@ -109,6 +115,7 @@ get_header();
 	</div>
 	<?php
 	}
+	// End of featured news showing section
 	?>
 	<div class="row">
 	<div id="primary" class="content-area col-md-12">
@@ -133,8 +140,9 @@ get_header();
 				if ($news_count == 1) {
 					echo '<div class="row d-flex news-title-sidebar mt-5">';
 					// TODO: ADD COLUMN TO DEAL WITH WEIRD SPACING ON SMALLER SCREENS
-					echo '<h2 class="mr-auto">More News</h2>';
-						echo get_sidebar('news');
+					if ( $featured_news_showing ) {
+						echo '<h2 class="mr-auto">More News</h2>';
+					}
 					echo '</div>';
 					echo '<div class="row">';
 				}

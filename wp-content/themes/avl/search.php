@@ -60,7 +60,6 @@ get_header();
 		endif;
 		?>
 
-
 	</div>
 	</section>
 	</div>

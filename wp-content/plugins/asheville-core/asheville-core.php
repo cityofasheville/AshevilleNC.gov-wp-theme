@@ -244,7 +244,7 @@ function avl_pre_get_posts( $query ) {
 	}
 
 	if ( is_category('news') ) {
-		$query->set( 'category_name', 'featured' );
+		// $query->set( 'category_name', 'featured' );
 		$query->set( 'posts_per_page', 17 );
 		return;
 	}

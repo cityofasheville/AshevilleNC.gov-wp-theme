@@ -67,19 +67,19 @@ class AVL_Filter_Post_Taxonomy_Widget extends WP_Widget {
 		// echo var_dump($args);
 
 		$tax_slug = array(
-			'avl_department'	=> 'department',
+			'avl_department'		=> 'department',
 			'avl_service_type'	=> 'service-type',
-			'category'		=> 'category',
+			'category'					=> 'category',
 		);
 
 		if ( empty( $tax_slug[$instance['taxonomy']] ) )
 			return;
 
 		$query_args = array(
-			'taxonomy'	=> $instance['taxonomy'],
+			'taxonomy'		=> $instance['taxonomy'],
 			'hide_empty'	=> false,
-			'parent'		=> 0,
-			'exclude'		=> '1',
+			'parent'			=> 0,
+			'exclude'			=> '1',
 		);
 
 		if ( $terms = get_terms( $query_args ) ) {
@@ -189,7 +189,6 @@ class AVL_Archives_Widget extends WP_Widget {
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
 		$c = ! empty( $instance['count'] ) ? '1' : '0';
-		$d = ! empty( $instance['dropdown'] ) ? '1' : '0';
 
 		echo $args['before_widget'];
 
@@ -197,76 +196,38 @@ class AVL_Archives_Widget extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
-		if ( true ) {
 			$dropdown_id = "{$this->id_base}-dropdown-{$this->number}";
+			$dropdown_args = apply_filters(
+				'widget_archives_dropdown_args',
+				array(
+					'type'            => 'monthly',
+					'format'          => 'option',
+					'show_post_count' => $c,
+				),
+				$instance
+			);
+
+			$label = __( 'Filter by Month' );
 			?>
-		<label class="screen-reader-text visually-hidden" for="<?php echo esc_attr( $dropdown_id ); ?>"><?php echo $title; ?></label>
-		<select
-			class="form-control"
-			id="<?php echo esc_attr( $dropdown_id ); ?>"
-			name="archive-dropdown"
-			onchange='document.location.href=this.options[this.selectedIndex].value;'
-		>
-			<?php
-			$dropdown_args = apply_filters( 'widget_archives_dropdown_args', array(
-				'type'            => 'monthly',
-				'format'          => 'option',
-				'show_post_count' => $c
-			), $instance );
-
-			switch ( $dropdown_args['type'] ) {
-				case 'yearly':
-					$label = __( 'Filter by Year' );
-					break;
-				case 'monthly':
-					$label = __( 'Filter by Month' );
-					break;
-				case 'daily':
-					$label = __( 'Filter by Day' );
-					break;
-				case 'weekly':
-					$label = __( 'Filter by Week' );
-					break;
-				default:
-					$label = __( 'Filter by Post' );
-					break;
-			}
-			?>
-
-			<option value=""><?php echo esc_attr( $label ); ?></option>
-			<?php wp_get_archives( $dropdown_args ); ?>
-
-		</select>
-		<?php } else { ?>
-		<ul class="list-group">
+			<label class="screen-reader-text visually-hidden" for="<?php echo esc_attr( $dropdown_id ); ?>"><?php echo $title; ?></label>
+			<select
+				class="form-control"
+				id="<?php echo esc_attr( $dropdown_id ); ?>"
+				name="archive-dropdown"
+				onchange='document.location.href=this.options[this.selectedIndex].value;'
+			>
+				<option value=""><?php echo esc_attr( $label ); ?></option>
+				<?php wp_get_archives( $dropdown_args ); ?>
+			</select>
 		<?php
-		wp_get_archives(array(
-			'type' => 'monthly',
-			'limit' => 12,
-			'format' => 'custom',
-			'show_post_count' => $c
-		));
-
-		wp_get_archives(array(
-			'type' => 'yearly',
-			'format' => 'custom',
-			'show_post_count' => $c
-		));
-		?>
-		</ul>
-		<?php
-		}
-
-		echo $args['after_widget'];
+			echo $args['after_widget'];
 	}
 
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$new_instance = wp_parse_args( (array) $new_instance, array( 'title' => '', 'count' => 0, 'dropdown' => '') );
+		$new_instance = wp_parse_args( (array) $new_instance, array( 'title' => '', 'count' => 0) );
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['count'] = $new_instance['count'] ? 1 : 0;
-		$instance['dropdown'] = $new_instance['dropdown'] ? 1 : 0;
-
 		return $instance;
 	}
 
@@ -276,8 +237,8 @@ class AVL_Archives_Widget extends WP_Widget {
 		?>
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
 		<p>
-			<input class="checkbox" type="checkbox"<?php checked( $instance['dropdown'] ); ?> id="<?php echo $this->get_field_id('dropdown'); ?>" name="<?php echo $this->get_field_name('dropdown'); ?>" /> <label for="<?php echo $this->get_field_id('dropdown'); ?>"><?php _e('Display as dropdown'); ?></label>
-			<br/>
+			<!-- <input class="checkbox" type="checkbox"<?php checked( $instance['dropdown'] ); ?> id="<?php echo $this->get_field_id('dropdown'); ?>" name="<?php echo $this->get_field_name('dropdown'); ?>" /> <label for="<?php echo $this->get_field_id('dropdown'); ?>"><?php _e('Display as dropdown'); ?></label> -->
+			<!-- <br/> -->
 			<input class="checkbox" type="checkbox"<?php checked( $instance['count'] ); ?> id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" /> <label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('Show post counts'); ?></label>
 		</p>
 		<?php
