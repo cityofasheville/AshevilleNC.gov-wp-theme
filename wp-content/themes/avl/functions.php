@@ -174,7 +174,7 @@ function avl_widgets_init() {
 		'name'          => esc_html__( 'News Sidebar', 'avl' ),
 		'id'            => 'sidebar-news',
 		'description'   => esc_html__( 'Add widgets here.', 'avl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s mb-3 news-widget">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<div class="widget-title">',
 		'after_title'   => '</div>',
