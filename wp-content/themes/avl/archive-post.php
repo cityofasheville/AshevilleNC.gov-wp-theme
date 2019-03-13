@@ -13,9 +13,6 @@ get_header();
 	<header class="page-header">
 		<h1 class="page-title">City Source</h1>
 		<?php
-
-		// echo var_dump($wp_query);
-
 		if ( get_query_var( 'avl_department' ) ) {
 			$term = get_term_by( 'slug', get_query_var( 'avl_department' ), 'avl_department' );
 			echo '<div class="h3">Department: '. $term->name .'</div>';
@@ -72,6 +69,7 @@ get_header();
 	$featured_ids = array();
 
 	$featured_news_showing = (! is_paged() ) && ( $wp_query->post_count > 5 ) && $wp->request === 'news';
+	// If it's not the second/etc page, there are more than 5 posts, and it's at /news
 
 	if ( $featured_news_showing ) {
 	?>
