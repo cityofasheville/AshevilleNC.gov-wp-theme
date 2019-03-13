@@ -8,13 +8,6 @@
  */
 
 get_header();
-/*
-echo get_query_var( 'term' );
-echo get_query_var( 'taxonomy' );
-echo single_cat_title( '', false );
-echo single_term_title();
-
-*/
 
 $term_parent = get_queried_object();
 
