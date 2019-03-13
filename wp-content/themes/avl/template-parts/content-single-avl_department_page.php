@@ -18,7 +18,7 @@
 	</header>
 	<div class="entry-content">
 		<?php
-		if (strlen(the_content() == 0)) {
+		if (strlen(get_the_content() == 0)) {
 			echo '<p>We\'re still working on the content for this page.  In the meantime, please <a href="#old-search-button">search</a> or <a href="https://ashevillenc.gov" target="_blank" rel="noopener noreferrer">visit</a> the old site.</p>';
 		}
 
