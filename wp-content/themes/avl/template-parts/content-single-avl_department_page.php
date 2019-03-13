@@ -19,7 +19,7 @@
 	<div class="entry-content">
 		<?php
 		$content = get_the_content();
-		if (strlen($content) == 0 || is_null($content)) {
+		if (strlen($content) === 0 || is_null($content)) {
 			echo '<p>We\'re still working on the content for this page.  In the meantime, please <a href="#old-search-button">search</a> or <a href="https://ashevillenc.gov" target="_blank" rel="noopener noreferrer">visit</a> the old site.</p>';
 		}
 
