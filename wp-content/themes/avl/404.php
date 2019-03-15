@@ -26,7 +26,7 @@ get_header();
 						?>
 					</div>
 
-				<p class="mx-auto col-lg-10"><span class="icon icon-self-timer2 icon-1x icon-avl-green mr-2"></span>This website is under construction.  If you can't find something or you have run into a bug, please <a href="#feedback-button">tell us</a> so we can fix it!  In the meantime, you can still <a href="#old-search-button">search</a> or <a href="https://ashevillenc.gov" target="_blank" rel="noopener noreferrer">visit</a> the old site.</p>
+				<p class="mx-auto col-lg-10"><span class="icon icon-self-timer2 icon-1x icon-avl-green mr-2"></span>This website is under construction.  If you can't find something or you have run into a bug, please <a href="#feedback-button">tell us</a> so we can fix it!  In the meantime, you can still <a href="#old-search">search</a> or <a href="https://ashevillenc.gov" target="_blank" rel="noopener noreferrer">visit</a> the old site.</p>
 
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->

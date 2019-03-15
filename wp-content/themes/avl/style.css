@@ -591,6 +591,7 @@ footer .feedback-container {
 #addsearch-results {
 	position: relative !important;
 	top: 0 !important;
+	left: 0 !important;
 }
 
 /* Posts */
@@ -616,7 +617,7 @@ figcaption {
 	flex-basis: 0;
 	-ms-flex-positive: 1;
 	flex-grow: 1;
-	/* min-width: 200px; */
+	min-width: 60%;
 	max-width: 100%;
 }
 
@@ -775,12 +776,6 @@ figcaption {
 		position: absolute;
 		left: 0;
 		right: 0;
-	}
-
-	/* Delete this and the text in search.php after we decommission old site */
-
-	#toggle-old-search {
-		padding-bottom: 15em;
 	}
 }
 
