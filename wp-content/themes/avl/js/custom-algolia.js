@@ -154,5 +154,10 @@ jQuery(function () {
 		var controlledListbox = jQuery(item.ariaControlsSelector);
 		controlledListbox.attr('title', 'Search results');
 		item.searchInputEl.setAttribute('aria-controls', controlledListbox.attr('id'))
+		// Also set min width for search results groups
+		var inputWidth = jQuery(item.searchInputEl).css('width').replace('px', '');
+		controlledListbox
+			.children('div')
+			.css('min-width', Math.max(129, inputWidth / 3));
 	})
 });
