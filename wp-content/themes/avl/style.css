@@ -345,7 +345,7 @@ html, body {
 	width: 100%;
 	text-align: left;
 	background-color: rgba(0,0,0,.03);
-	margin: 0 1em;
+	margin: 0 1em 0 0;
 	padding: 0.5em;
 }
 
@@ -706,6 +706,10 @@ figcaption {
 		margin: 0 15px;
 	}
 
+	.department-title {
+		font-size: 2em;
+	}
+
 }
 
 /* Up to large */
@@ -723,15 +727,14 @@ figcaption {
 		border-top: 0.5px solid #e6e6e6;
 		padding: 0.25em 0 0.25em 1em;
 	}
-
-	.department-title {
-		font-size: 2.75em;
-	}
 }
 
 /* Medium and large */
 
 @media (min-width: 768px) {
+	.department-title {
+		font-size: 2.75em;
+	}
 
 	.display-1 {
 		font-size: 5em;
@@ -759,6 +762,10 @@ figcaption {
 	body {
 		position: static !important;
 		/* margin-bottom: 520px; */
+	}
+
+	#department-navbar .navbar-toggler {
+		margin: 0 1em;
 	}
 
 	#colophon {
