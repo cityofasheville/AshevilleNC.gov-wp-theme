@@ -132,8 +132,11 @@
 		?>
 		<div id="splash" class="d-flex flex-column mb-3">
 			<div class="header-background-image" style="<?= $style; ?>"></div>
-			<!-- <div class="my-auto mx-auto entry-title-container">
-			</div> -->
+		</div>
+		<div class="container">
+			<h1 class="department-title">
+				<?php echo apply_filters( 'the_title', get_the_title( $parent_id ) ) ?>
+			</h1>
 		</div>
 		<?php
 			$child_pages = get_children( array(
@@ -144,18 +147,14 @@
 				'order' => 'ASC'
 			) );
 		?>
-		<nav class="nav navbar-expand-lg container" aria-label="Department page navigation">
-			<div class="col-sm-12">
-				<h1 class="department-title">
-					<?php echo apply_filters( 'the_title', get_the_title( $parent_id ) ) ?>
-				</h1>
-			</div>
+		<nav class="navbar-expand-lg" aria-label="Department page navigation" id="department-navbar">
+			<div class="container">
 			<?php
 				if (! empty( $child_pages )) {
 			?>
-			<div class="col-sm-12">
+			<div class="row">
 				<button
-					class="navbar-toggler ml-auto"
+					class="navbar-toggler"
 					type="button"
 					data-toggle="collapse"
 					data-target="#child-pages-nav"
@@ -163,10 +162,11 @@
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-						<span class="dropdown-toggle"></span>
+					Department Pages
+					<span class="dropdown-toggle float-right"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="child-pages-nav">
-					<ul class="navbar-nav ml-auto">
+					<ul class="navbar-nav">
 						<?php
 							echo '<li class="nav-item ' . (($post->ID == $parent_id)?'active':'') .'"><a class="nav-link" href="'. get_permalink( $parent_id ) .'">Home</a></li>';
 
@@ -177,6 +177,7 @@
 					<ul>
 				</div>
 			<?php } ?>
+		</div>
 		</nav>
 		<?php } // end if singular department page
 		?>
