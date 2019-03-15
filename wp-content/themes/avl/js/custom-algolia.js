@@ -128,7 +128,6 @@ jQuery(function () {
 	var initialFooterBottom = footerBox.bottom + window.pageYOffset;
 
 	function onSearchEnter() {
-		console.log('???')
 		var searchResultsBoxHeights = [
 			jQuery('#search-results-0 .aa-dropdown-menu'),
 			jQuery('#search-results-1 .aa-dropdown-menu'),
