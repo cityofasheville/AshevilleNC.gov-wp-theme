@@ -128,6 +128,7 @@ jQuery(function () {
 	var initialFooterBottom = footerBox.bottom + window.pageYOffset;
 
 	function onSearchEnter() {
+		console.log('???')
 		var searchResultsBoxHeights = [
 			jQuery('#search-results-0 .aa-dropdown-menu'),
 			jQuery('#search-results-1 .aa-dropdown-menu'),
@@ -147,13 +148,7 @@ jQuery(function () {
 		jQuery('#colophon').css('top', (initialFooterPos + delta) + 'px')
 	}
 
-	jQuery('.aa-input').keyup(onSearchEnter);
-	jQuery('.aa-input').blur(onSearchEnter);
-	jQuery('.aa-input').click(onSearchEnter);
-	// jQuery('input.addsearch.addsearch-written').keyup(onSearchEnter);
-	// jQuery('input.addsearch.addsearch-written').blur(onSearchEnter);
-	// jQuery('input.addsearch.addsearch-written').click(onSearchEnter);
-
+	jQuery('.algolia-autocomplete').on('DOMSubtreeModified', onSearchEnter);
 
 	/*  Associate the right aria-controls with the right box ids */
 	inputsAndSelectors.forEach(function(item) {
