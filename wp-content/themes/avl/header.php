@@ -132,41 +132,39 @@
 		?>
 		<div id="splash" class="d-flex flex-column mb-3">
 			<div class="header-background-image" style="<?= $style; ?>"></div>
-			<div class="my-auto mx-auto entry-title-container">
-			</div>
-			<?php
-				$child_pages = get_children( array(
-					'post_parent' => $parent_id,
-					'post_type' => 'avl_department_page',
-					'post_status' => 'publish',
-					'orderby' => 'menu_order',
-					'order' => 'ASC'
-				) );
-
-				echo '<nav class="nav navbar-expand-lg" aria-label="Department page navigation"><div class="container"><div class="row">';
-				echo '<h1 class="department-title">' . apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1>';
-
-				if (! empty( $child_pages )) {
-
-					echo '<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#child-pages-nav" aria-controls="child-pages-nav" aria-expanded="false" aria-label="Toggle navigation">';
-						echo '<span class="dropdown-toggle"></span>';
-					echo '</button>';
-
-					echo '<div class="collapse navbar-collapse" id="child-pages-nav"><ul class="navbar-nav ml-auto">';
-					echo '<li class="nav-item ' . (($post->ID == $parent_id)?'active':'') .'"><a class="nav-link" href="'. get_permalink( $parent_id ) .'">Home</a></li>';
-
-					foreach ($child_pages as $page) {
-						echo '<li class="nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="nav-link" href="'. get_permalink( $page ) .'">'. $page->post_title .'</a></li>';
-					}
-
-					echo '<ul></div>';
-				}
-				echo '</div></nav>';
-
-			?>
+			<!-- <div class="my-auto mx-auto entry-title-container">
+			</div> -->
 		</div>
 		<?php
-		}
+			$child_pages = get_children( array(
+				'post_parent' => $parent_id,
+				'post_type' => 'avl_department_page',
+				'post_status' => 'publish',
+				'orderby' => 'menu_order',
+				'order' => 'ASC'
+			) );
+			echo '<nav class="nav navbar-expand-lg container" aria-label="Department page navigation">';
+			echo '<div class="col-sm-12"><h1 class="department-title">' . apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1></div>';
+			if (! empty( $child_pages )) {
+		?>
+			<div class="col-sm-12">
+				<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#child-pages-nav" aria-controls="child-pages-nav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="dropdown-toggle"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="child-pages-nav">
+					<ul class="navbar-nav ml-auto">
+						<?php
+							echo '<li class="nav-item ' . (($post->ID == $parent_id)?'active':'') .'"><a class="nav-link" href="'. get_permalink( $parent_id ) .'">Home</a></li>';
+
+							foreach ($child_pages as $page) {
+								echo '<li class="nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="nav-link" href="'. get_permalink( $page ) .'">'. $page->post_title .'</a></li>';
+							}
+							?>
+					<ul>
+				</div>
+			<?php } ?>
+		</nav>
+		<?php } // end if singular department page
 		?>
 	</header>
 

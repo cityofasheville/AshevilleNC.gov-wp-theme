@@ -739,6 +739,11 @@ figcaption {
 		border-top: 0.5px solid #e6e6e6;
 		padding: 0.5em 0;
 	}
+
+	.department-title {
+		font-size: 2em;
+		text-align: center;
+	}
 }
 
 /* Medium and large */
