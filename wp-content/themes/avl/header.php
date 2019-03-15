@@ -143,12 +143,26 @@
 				'orderby' => 'menu_order',
 				'order' => 'ASC'
 			) );
-			echo '<nav class="nav navbar-expand-lg container" aria-label="Department page navigation">';
-			echo '<div class="col-sm-12"><h1 class="department-title">' . apply_filters( 'the_title', get_the_title( $parent_id ) ) .'</h1></div>';
-			if (! empty( $child_pages )) {
 		?>
+		<nav class="nav navbar-expand-lg container" aria-label="Department page navigation">
 			<div class="col-sm-12">
-				<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#child-pages-nav" aria-controls="child-pages-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<h1 class="department-title">
+					<?php echo apply_filters( 'the_title', get_the_title( $parent_id ) ) ?>
+				</h1>
+			</div>
+			<?php
+				if (! empty( $child_pages )) {
+			?>
+			<div class="col-sm-12">
+				<button
+					class="navbar-toggler ml-auto"
+					type="button"
+					data-toggle="collapse"
+					data-target="#child-pages-nav"
+					aria-controls="child-pages-nav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
 						<span class="dropdown-toggle"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="child-pages-nav">
