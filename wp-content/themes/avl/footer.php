@@ -13,7 +13,6 @@
 <div id="search-results-1"></div>
 </main>
 	<footer id="colophon" class="site-footer bg-avl-blue-75">
-
 		<div class="footer-toggle-bar">
 			<div class="bg-avl-blue">
 				<div class="container feedback-container">
@@ -29,7 +28,7 @@
 						>
 						<span class="icon icon-lamp-bright"></span> Feedback
 					</button>
-					<span class="navbar-text text-white ml-2 mr-auto">
+					<span class="text-white ml-2 mr-auto">
 						We're still working on this page's design and content. How can we make it better?
 					</span>
 				</div>
@@ -46,35 +45,30 @@
 		<div class="footer-toggle-bar" id="old-search">
 			<div class="bg-avl-blue">
 				<div class="container feedback-container">
-					<div class="text-white py-3">
-						<div class="container">
-							<div class="row">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<label class="input-group-text text-white bg-avl-blue"><span class="icomoon icomoon-search mr-2"></span> Search the old site</label>
-								</div>
-								<input type="text" class="addsearch form-control" disabled="disabled" id="addsearch-input" />
+					<div class="text-white row ml-2 mr-2">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<label class="input-group-text text-white bg-avl-blue"><span class="icomoon icomoon-search mr-1"></span> Search the old site</label>
 							</div>
-							<div id="old-search-results"></div>
+							<input type="text" class="addsearch form-control" disabled="disabled" id="addsearch-input" />
 						</div>
-						</div>
-						<script>
-							window.addsearch_settings = {
-								link_target: '_blank',
-								results_box_css_classname: 'addsearch-results',
-							}
-							jQuery('#addsearch-input').on('blur', function() {
-								history.replaceState({}, '', window.location.href.replace(window.location.hash, ''));
-							})
-							jQuery('#addsearch-input').on('keyup', function() {
-								var results = jQuery('#addsearch-results');
-								jQuery('#old-search-results').append(results);
-							})
-						</script>
-						<script id="old-civica-search" src="https://addsearch.com/js/?key=6a1fe1ca3441a659c41360b0529a8baa&amp;categories=0xwww.ashevillenc.gov"></script>
+						<div id="old-search-results"></div>
 					</div>
-
 				</div>
+				<script>
+					window.addsearch_settings = {
+						link_target: '_blank',
+						results_box_css_classname: 'addsearch-results',
+					}
+					jQuery('#addsearch-input').on('blur', function() {
+						history.replaceState({}, '', window.location.href.replace(window.location.hash, ''));
+					})
+					jQuery('#addsearch-input').on('keyup', function() {
+						var results = jQuery('#addsearch-results');
+						jQuery('#old-search-results').append(results);
+					})
+				</script>
+				<script id="old-civica-search" src="https://addsearch.com/js/?key=6a1fe1ca3441a659c41360b0529a8baa&amp;categories=0xwww.ashevillenc.gov"></script>
 			</div>
 		</div>
 
