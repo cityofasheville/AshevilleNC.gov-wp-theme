@@ -126,31 +126,30 @@ jQuery(function () {
 	// TODO: MAKE MAIN LONGER TO COMPENSATE?
 
 	/* Makes footer move down if search results are really long */
-	// var footerBox = document.getElementById('colophon').getBoundingClientRect();
-	// var initialFooterPos = footerBox.top + window.pageYOffset;
-	// var initialFooterBottom = footerBox.bottom + window.pageYOffset;
-	//
-	// function onSearchEnter() {
-	// 	var searchResultsBoxHeights = [
-	// 		jQuery('#search-results-0 .aa-dropdown-menu'),
-	// 		jQuery('#search-results-1 .aa-dropdown-menu'),
-	// 	].map(function(searchBox) {
-	// 		if (searchBox.get().length === 0) {
-	// 			return 0;
-	// 		}
-	// 		return searchBox.get()[0].getBoundingClientRect().bottom + window.pageYOffset;
-	// 	}).sort(function(a, b) {
-	// 		return b - a;
-	// 	})
-	// 	var searchResultsBottom = searchResultsBoxHeights[0];
-	// 	var delta = 0;
-	// 	if (searchResultsBottom > initialFooterBottom) {
-	// 		delta = (searchResultsBottom - initialFooterBottom);
-	// 	}
-	// 	jQuery('#colophon').css('top', (initialFooterPos + delta) + 'px')
-	// }
-	//
-	// jQuery('.algolia-autocomplete').on('DOMSubtreeModified', onSearchEnter);
+	var pageBox = document.getElementById('page').getBoundingClientRect();
+	var initialPageBottom = pageBox.bottom + window.pageYOffset;
+
+	function onSearchEnter() {
+		var searchResultsBoxHeights = [
+			jQuery('#search-results-0 .aa-dropdown-menu'),
+			jQuery('#search-results-1 .aa-dropdown-menu'),
+		].map(function(searchBox) {
+			if (searchBox.get().length === 0) {
+				return 0;
+			}
+			return searchBox.get()[0].getBoundingClientRect().bottom + window.pageYOffset;
+		}).sort(function(a, b) {
+			return b - a;
+		})
+		var searchResultsBottom = searchResultsBoxHeights[0];
+		if (searchResultsBottom > initialPageBottom) {
+			jQuery('#page').css('min-height', searchResultsBottom + 'px');
+		} else {
+			jQuery('#page').css('min-height', initialPageBottom + 'px');
+		}
+	}
+
+	jQuery('.algolia-autocomplete').on('DOMSubtreeModified', onSearchEnter);
 
 	/*  Associate the right aria-controls with the right box ids */
 	inputsAndSelectors.forEach(function(item) {
@@ -162,6 +161,5 @@ jQuery(function () {
 		controlledListbox
 			.children('div')
 			.css('min-width', Math.max(129, inputWidth / 3));
-		// jQuery(item.searchInputEl).after(search)
 	})
 });
