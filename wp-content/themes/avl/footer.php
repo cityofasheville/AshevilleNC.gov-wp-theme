@@ -9,9 +9,9 @@
  * @package Asheville
  */
 ?>
+<div id="search-results-0"></div>
+<div id="search-results-1"></div>
 </main>
-	<div id="search-results-0"></div>
-	<div id="search-results-1"></div>
 	<footer id="colophon" class="site-footer bg-avl-blue-75">
 
 		<div class="footer-toggle-bar">

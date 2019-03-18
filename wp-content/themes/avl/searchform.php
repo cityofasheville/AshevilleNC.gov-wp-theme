@@ -21,7 +21,6 @@
 				aria-autocomplete="list"
 				name="s"
 				value="<?= get_search_query(); ?>"
-				aria-label="Site search"
 			>
 			<div class="input-group-append">
 				<button

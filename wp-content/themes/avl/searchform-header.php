@@ -25,7 +25,6 @@
 				name="s"
 				value="<?= get_search_query(); ?>"
 				placeholder="Search"
-				aria-label="Site search"
 			>
 			<div class="input-group-append">
 				<button
