@@ -815,19 +815,10 @@ figcaption {
 	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show {
 		width: 652px;
 		left: -210px;
-		display: -ms-flexbox;
-		display: flex;
-		-ms-flex-direction: row;
-		flex-direction: row;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
 		margin: -.125rem 0 0;
-	}
-
-	#primary-menu > .dropdown-col-md-6 > .dropdown-menu.show > .nav-item {
-		-ms-flex: 0 0 50%;
-		flex: 0 0 50%;
-		max-width: 50%;
 	}
 
 	.news-title-sidebar .widget {
