@@ -147,9 +147,9 @@ get_header();
 					<div class="col-sm-12 col-md-4">
 						<div class="row">
 							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-facebook icon-5x"></span></a></div>
-							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-twitter icon-5x"></span></a></div>
+							<div class="col-6"><a href="https://twitter.com/CityofAsheville" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-twitter icon-5x"></span></a></div>
 							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-instagram icon-5x"></span></a></div>
-							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-youtube icon-5x"></span></a></div>
+							<div class="col-6"><a href="https://www.youtube.com/user/CityofAsheville" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-youtube icon-5x"></span></a></div>
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-4">
