@@ -321,6 +321,7 @@ html, body {
 	background-position: center; z-index: -1;
 	/* background-attachment: fixed; */
 	background-repeat: no-repeat;
+	border-bottom: 2px solid #607425;
 }
 
 #site-search {
@@ -346,12 +347,11 @@ html, body {
 	word-spacing: 0.15em;
 	letter-spacing: 0.025em;
 	font-size: 2.75em;
-	margin-bottom: 0.15em;
-	/* border-bottom: 1px solid #e6e6e6; */
+	margin-bottom: 0.2em;
 }
 
 #department-navbar {
-	border-bottom: 1px solid #e6e6e6;
+	border-bottom: 4px solid #bdd477;
 }
 
 #department-navbar .navbar-toggler {
@@ -376,7 +376,6 @@ html, body {
 .site-main .entry-header h1 {
 	padding-bottom: 0.125em;
 	margin-bottom: 0.125em;
-	border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Style like an h5, don't use headers for styling */
