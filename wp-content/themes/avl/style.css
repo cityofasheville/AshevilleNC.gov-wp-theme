@@ -559,16 +559,17 @@ footer .feedback-container {
 
 .footer-toggle-button {
 	border-color: #A6BFD5;
+  /* background-color: white; */
 }
 
 .footer-toggle-button:hover,
 .footer-toggle-button:focus {
-	border-color: yellow;
+	border-color: #ffcc00;
 }
 
 .footer-toggle-button:hover .icon-lamp-bright,
 .footer-toggle-button:focus .icon-lamp-bright {
-	color: yellow;
+	color: #ffcc00;
 }
 
 #footer-social .nav-link {
@@ -586,6 +587,12 @@ footer .feedback-container {
 }
 
 /* TEMPORARY - REMOVE AFTER REMOVING ADDSEARCH */
+#old-search .input-group-text {
+  border: 1px solid rgb(255, 255, 255, 0.15);
+  /* background-color: rgb(255, 255, 255, 0.05); */
+  /* border: none; */
+}
+
 #addsearch-results {
 	position: relative !important;
 	top: 0 !important;
@@ -671,19 +678,6 @@ figcaption {
 	border-color: #4077A5;
 	background: #fff !important;
 	padding-bottom: 0 !important;
-}
-
-/* Delete this and the text in footer.php after we decommission old site */
-
-#toggle-old-search label {
-	border: 1px solid #ced4da;
-	color: #555;
-	background-color: rgba(255, 255, 255, .85);
-}
-
-#old-civica-search ~ input {
-	border-top-right-radius: .25rem;
-	border-bottom-right-radius: .25rem;
 }
 
 /* Media Queries */

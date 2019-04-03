@@ -46,9 +46,9 @@
 			<div class="bg-avl-blue">
 				<div class="container feedback-container">
 					<div class="text-white row ml-2 mr-2">
-						<div class="input-group">
+						<div class="input-group input-group-md">
 							<div class="input-group-prepend">
-								<label class="input-group-text text-white bg-avl-blue"><span class="icomoon icomoon-search mr-1"></span> Search the old site</label>
+								<label class="input-group-text text-white bg-avl-blue"><span class="icomoon icomoon-search mr-3"></span> Search the old site</label>
 							</div>
 							<input type="text" class="addsearch form-control" disabled="disabled" id="addsearch-input" />
 						</div>
