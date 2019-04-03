@@ -120,6 +120,14 @@ get_header();
 			</div>
 		</section>
 
+    <section id="projects-initiatives">
+      <div class="container">
+        <a href="/department/communication-public-engagement/projects-and-initiatives/">
+          <span class="icon icon-hammer icon-3x text-avl-green-75 mr-2"></span><h2>City projects and initiatives &rarr;</h2></a>
+        <p>Learn more about changes to city-owned infrastructure like parks as well as programs and studies</p>
+      </div>
+    </section>
+
 		<section class="bg-white py-5">
 			<div class="container">
 				<h2 class="mb-4"><span class="icon icon-calendar icon-3x icon-avl-green-75"></span> Upcoming Events</h2>

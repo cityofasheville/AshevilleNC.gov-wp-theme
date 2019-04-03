@@ -378,6 +378,27 @@ html, body {
 	margin-bottom: 0.125em;
 }
 
+#projects-initiatives {
+  border-top: 4px solid #607425;
+  border-bottom: 4px solid #607425;
+}
+
+#projects-initiatives .container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#projects-initiatives a span, #projects-initiatives a h2 {
+  display: inline-block;
+}
+
+#projects-initiatives a h2 {
+  text-decoration: inherit;
+  color: inherit;
+}
+
 /* Style like an h5, don't use headers for styling */
 .card-title {
 	font-size: 1.25rem;
