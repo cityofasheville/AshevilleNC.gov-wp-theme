@@ -286,3 +286,26 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 */
+
+// function remove_taxonomies_metaboxes() {
+//     // remove_meta_box( 'categorydiv', 'post', 'side' );
+//     remove_meta_box('tagsdiv-post_tag', 'post', 'side');
+//     remove_meta_box( 'avl_departmentdiv', 'post', 'side' );
+//     remove_meta_box('acf-group_5bd22c583c555', 'post', 'normal');
+// }
+
+// add_action( 'add_meta_boxes' , 'remove_taxonomies_metaboxes' );
+
+// function filterCats($listCats){
+// 	global $typenow;    
+// 	if($typenow == 'post'){
+// 	    foreach ($listCats as $k => $oCat) {
+// 	    	unset($listCats[$k]);
+// 	        if( $oCat->term_id == 153){//Sports Category id
+// 	            $listCats[$k] = $oCat;
+// 	        }
+// 	    }
+// 	}
+//  	return $listCats;
+// }
+// add_filter('get_terms','filterCats');
