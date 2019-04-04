@@ -287,6 +287,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 */
 
+
+// Jesse (PRC) - Added this
 // function remove_taxonomies_metaboxes() {
 //     // remove_meta_box( 'categorydiv', 'post', 'side' );
 //     remove_meta_box('tagsdiv-post_tag', 'post', 'side');
