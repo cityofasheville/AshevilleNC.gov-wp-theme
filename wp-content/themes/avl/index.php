@@ -30,42 +30,6 @@ get_header();
 			</div>
 		</section>
 
-		<!--
-		<section class="bg-light py-5">
-			<div class="container">
-				<h2 class="mb-4"><span class="icon icon-traffic-lights icon-3x icon-avl-green"></span> Service Updates</h2>
-				<div class="list-group mb-4">
-					<a href="#" class="list-group-item list-group-item-action list-group-item-warning flex-column align-items-start">
-						<div class="d-flex w-100 justify-content-between">
-							<h3 class="mb-1"><span class="icon icon-bus2 icon-2x"></span> Transit</h3>
-							<small>Last updated 3 days ago</small>
-						</div>
-						<p class="mb-1">The buses are running behind schedule due to inclimant weather.</p>
-					</a>
-					<a href="#" class="list-group-item list-group-item-action list-group-item-success flex-column align-items-start">
-						<div class="d-flex w-100 justify-content-between">
-							<h3 class="mb-1"><span class="icon icon-city icon-2x"></span> City</h3>
-							<small>Last updated 4 days ago</small>
-						</div>
-						<p class="mb-1">City buildings are open for regular business hours..</p>
-					</a>
-					<a href="#" class="list-group-item list-group-item-action list-group-item-success flex-column align-items-start">
-						<div class="d-flex w-100 justify-content-between">
-							<h3 class="mb-1"><span class="icon icon-trash icon-2x"></span> Trash</h3>
-							<small>Last updated 5 days ago</small>
-						</div>
-						<p class="mb-1">Trash and recycling is being picked up on a normal schedule.</p>
-					</a>
-				</div>
-				<div class="row">
-					<div class="col-auto ml-auto">
-						<a href="#" role="button" class="btn btn-outline-dark">View Service Updates <span class="icon icon-chevron-right"></span></a>
-					</div>
-				</div>
-			</div>
-		</section>
-		-->
-
 		<section class="bg-white py-5">
 			<div class="container">
 				<div class="row">
