@@ -30,7 +30,7 @@ get_header();
 			</div>
 		</section>
 
-		<section class="bg-white py-5">
+		<section class="bg-light py-5">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 col-lg-5">
@@ -55,7 +55,7 @@ get_header();
 			</div>
 		</section>
 
-		<section class="bg-light py-5">
+		<section class="bg-white py-5">
 			<div class="container">
 				<h2 class="page-title mb-4"><span class="icon icon-news icon-3x icon-avl-blue"></span> Latest News</h2>
 				<?php
@@ -84,7 +84,7 @@ get_header();
 			</div>
 		</section>
 
-    <section id="projects-initiatives">
+    <section class="bg-light py-5" id="projects-initiatives">
       <div class="container">
         <a href="/department/communication-public-engagement/projects-and-initiatives/">
           <span class="icon icon-hammer icon-3x text-avl-green-75 mr-2"></span><h2>City projects and initiatives &rarr;</h2></a>

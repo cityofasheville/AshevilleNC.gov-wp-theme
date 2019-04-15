@@ -378,11 +378,6 @@ html, body {
 	margin-bottom: 0.125em;
 }
 
-#projects-initiatives {
-  border-top: 4px solid #607425;
-  border-bottom: 4px solid #607425;
-}
-
 #projects-initiatives .container {
   padding-top: 1rem;
   padding-bottom: 1rem;
