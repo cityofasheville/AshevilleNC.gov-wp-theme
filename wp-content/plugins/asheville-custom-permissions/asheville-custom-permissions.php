@@ -11,7 +11,11 @@ License: GPL2
 
 // TODO: See if there's a better way to get this
 function asheville_custom_permissions_get_term_ids($term_array){
+    if(! $term_array):
+        return array();
+    endif;
     $term_ids = array();
+
     foreach($term_array as $term):
         $term_ids[] = $term->term_id;
     endforeach;
