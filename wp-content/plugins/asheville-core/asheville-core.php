@@ -22,6 +22,8 @@ function avl_register_post_types() {
 			'has_archive' => true,
 			'menu_icon' => get_template_directory_uri() .'/img/avl-service.png',
 			'taxonomies' => array( 'avl_service_type' ),
+			'capability_type' => 'avl_service',
+			'map_meta_cap' => true,
 			'supports' => array(
 				'title',
 				'editor',

@@ -20,6 +20,17 @@ function add_avl_department_page_caps() {
   $role->add_cap( 'delete_avl_department_pages' ); 
   $role->add_cap( 'edit_published_avl_department_pages' );   //added
   $role->add_cap( 'delete_published_avl_department_pages' ); //added
+
+
+  $role->add_cap( 'edit_avl_services' ); 
+  $role->add_cap( 'edit_avl_services' ); 
+  $role->add_cap( 'edit_others_avl_services' ); 
+  $role->add_cap( 'publish_avl_services' ); 
+  $role->add_cap( 'read_avl_services' ); 
+  $role->add_cap( 'read_private_avl_services' ); 
+  $role->add_cap( 'delete_avl_services' ); 
+  $role->add_cap( 'edit_published_avl_services' );   //added
+  $role->add_cap( 'delete_published_avl_services' ); //added
 }
 add_action( 'admin_init', 'add_avl_department_page_caps');
 
