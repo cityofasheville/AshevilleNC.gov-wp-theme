@@ -53,6 +53,7 @@ function avl_register_post_types() {
 			'menu_icon' => 'dashicons-building',
 			'taxonomies' => array( 'avl_department' ),
 			'capability_type' => 'avl_department_page',
+			'map_meta_cap' => true,
 			'supports' => array(
 				'title',
 				'editor',

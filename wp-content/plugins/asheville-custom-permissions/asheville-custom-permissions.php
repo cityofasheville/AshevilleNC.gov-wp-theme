@@ -98,8 +98,8 @@ function asheville_custom_permissions_check_per_page_access($user, $post, $check
  *                       [2] Associated object ID
  */
 function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
-
-
+// echo "<pre>";
+// var_dump($GLOBALS['wp_post_types']['avl_department_page']->cap);
     // if(stripos($cap[0], "avl_department_page")):
     // var_dump($cap);
     //     $allcaps[$cap[0]] = true;
