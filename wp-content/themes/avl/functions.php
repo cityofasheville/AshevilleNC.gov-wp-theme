@@ -8,7 +8,7 @@
  */
 
 // Disable the admin bar
-show_admin_bar(false);
+// show_admin_bar(false);
 
 // Hide Pantheon update nag
 remove_action( 'admin_init', '_pantheon_register_upstream_update_notice' );

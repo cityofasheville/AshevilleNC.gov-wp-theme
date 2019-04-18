@@ -30,59 +30,23 @@ get_header();
 			</div>
 		</section>
 
-		<!--
 		<section class="bg-light py-5">
-			<div class="container">
-				<h2 class="mb-4"><span class="icon icon-traffic-lights icon-3x icon-avl-green"></span> Service Updates</h2>
-				<div class="list-group mb-4">
-					<a href="#" class="list-group-item list-group-item-action list-group-item-warning flex-column align-items-start">
-						<div class="d-flex w-100 justify-content-between">
-							<h3 class="mb-1"><span class="icon icon-bus2 icon-2x"></span> Transit</h3>
-							<small>Last updated 3 days ago</small>
-						</div>
-						<p class="mb-1">The buses are running behind schedule due to inclimant weather.</p>
-					</a>
-					<a href="#" class="list-group-item list-group-item-action list-group-item-success flex-column align-items-start">
-						<div class="d-flex w-100 justify-content-between">
-							<h3 class="mb-1"><span class="icon icon-city icon-2x"></span> City</h3>
-							<small>Last updated 4 days ago</small>
-						</div>
-						<p class="mb-1">City buildings are open for regular business hours..</p>
-					</a>
-					<a href="#" class="list-group-item list-group-item-action list-group-item-success flex-column align-items-start">
-						<div class="d-flex w-100 justify-content-between">
-							<h3 class="mb-1"><span class="icon icon-trash icon-2x"></span> Trash</h3>
-							<small>Last updated 5 days ago</small>
-						</div>
-						<p class="mb-1">Trash and recycling is being picked up on a normal schedule.</p>
-					</a>
-				</div>
-				<div class="row">
-					<div class="col-auto ml-auto">
-						<a href="#" role="button" class="btn btn-outline-dark">View Service Updates <span class="icon icon-chevron-right"></span></a>
-					</div>
-				</div>
-			</div>
-		</section>
-		-->
-
-		<section class="bg-white py-5">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 col-lg-5">
 						<h2><span class="icon icon-warning icon-3x icon-avl-blue"></span> Receive Alerts</h2>
-						<p>If you live, work, travel through or have family/friends in the City of Asheville, sign up to receive up-to-date information on emergency and non-emergency events. Receive alerts via email, phone calls, voice or text messages. Decide what types of information you would like to receive, and unsubscribe at any time!</p>
+						<p>Sign up to receive up-to-date information on emergency and non-emergency events via email, phone calls, voice or text messages. Decide what types of information you would like to receive, and unsubscribe at any time.</p>
 						<a href="https://member.everbridge.net/index/453003085611892#/login" target="_blank" role="button" class="btn btn-outline-info float-right mb-4">Learn More at AVL Alert <span class="icon icon-chevron-right"></span></a>
 					</div>
 					<div class="col-sm-12 col-lg-7">
 						<h2><span class="icon icon-smartphone-warning icon-3x icon-avl-blue"></span> Report Issues</h2>
-						<p>Use The Asheville App to let us know about common issues such as:</p>
+						<p>Use The Asheville App to let city workers know about common issues such as:</p>
 						<ul>
-							<li>Abandoned Vehicles, injured or deceased animals, hazardous waste</li>
+              <li>Potholes, sidewalk hazards or accessibility issues, street lights, street sign damage, street sign requests</li>
+							<li>Abandoned vehicles, injured or deceased animals, hazardous waste</li>
 							<li>Overgrown lots, brush collection requests, graffiti</li>
-							<li>Fire hydrant leaks, water leaks, stormwater/draining issues</li>
-							<li>Potholes, sidewalk hazards or accessibility issues, street lights, street sign damage, street sign requests</li>
-							<li>Planning &amp; zoning, code, or short term rental violations</li>
+							<li>Fire hydrant leaks, water leaks, stormwater or draining issues</li>
+							<li>Planning and zoning, code, or short term rental violations</li>
 							<li>Trash collection, litter, trees and right of way</li>
 						</ul>
 						<a href="https://iframe.publicstuff.com/#?client_id=819" target="_blank" role="button" class="btn btn-outline-info float-right mb-4">Use The Asheville App <span class="icon icon-chevron-right"></span></a>
@@ -91,7 +55,7 @@ get_header();
 			</div>
 		</section>
 
-		<section class="bg-light py-5">
+		<section class="bg-white py-5">
 			<div class="container">
 				<h2 class="page-title mb-4"><span class="icon icon-news icon-3x icon-avl-blue"></span> Latest News</h2>
 				<?php
@@ -120,7 +84,7 @@ get_header();
 			</div>
 		</section>
 
-    <section id="projects-initiatives">
+    <section class="bg-light py-5" id="projects-initiatives">
       <div class="container">
         <a href="/department/communication-public-engagement/projects-and-initiatives/">
           <span class="icon icon-hammer icon-3x text-avl-green-75 mr-2"></span><h2>City projects and initiatives &rarr;</h2></a>

@@ -378,11 +378,6 @@ html, body {
 	margin-bottom: 0.125em;
 }
 
-#projects-initiatives {
-  border-top: 4px solid #607425;
-  border-bottom: 4px solid #607425;
-}
-
 #projects-initiatives .container {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -458,6 +453,13 @@ a.text-primary {
 .entry-content a, p a, .card-subtitle a {
 	text-decoration: underline;
 }
+
+img.alignright { float: right; margin: 0 0 1em 1em; }
+img.alignleft { float: left; margin: 0 1em 1em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 
 .search-button {
 	position: absolute;
