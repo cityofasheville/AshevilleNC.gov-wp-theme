@@ -45,6 +45,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "user_role",
+                "operator": "==",
+                "value": "administrator"
             }
         ],
         [
@@ -52,6 +57,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "avl_department_page"
+            },
+            {
+                "param": "user_role",
+                "operator": "==",
+                "value": "administrator"
             }
         ],
         [
@@ -59,6 +69,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "avl_service"
+            },
+            {
+                "param": "user_role",
+                "operator": "==",
+                "value": "administrator"
             }
         ]
     ],
@@ -70,5 +85,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1554418578
+    "modified": 1555625669
 }

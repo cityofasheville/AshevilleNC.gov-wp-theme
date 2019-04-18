@@ -9,6 +9,20 @@ Author URI: https://www.prcapps.com
 License: GPL2
 */
 
+function add_avl_department_page_caps() {
+  $role = get_role( 'administrator' );
+  $role->add_cap( 'edit_avl_department_pages' ); 
+  $role->add_cap( 'edit_avl_department_pages' ); 
+  $role->add_cap( 'edit_others_avl_department_pages' ); 
+  $role->add_cap( 'publish_avl_department_pages' ); 
+  $role->add_cap( 'read_avl_department_pages' ); 
+  $role->add_cap( 'read_private_avl_department_pages' ); 
+  $role->add_cap( 'delete_avl_department_pages' ); 
+  $role->add_cap( 'edit_published_avl_department_pages' );   //added
+  $role->add_cap( 'delete_published_avl_department_pages' ); //added
+}
+add_action( 'admin_init', 'add_avl_department_page_caps');
+
 // TODO: See if there's a better way to get this
 function asheville_custom_permissions_get_term_ids($term_array){
     if(! $term_array):
