@@ -117,7 +117,7 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
 
     // END TESTING
 
-    if (! in_array($args[0], array('publish_avl_department_pages', 'edit_avl_department_pages', 'edit_avl_department_page', 'edit_others_avl_department_pages')) ):
+    if (! in_array($cap[0], array('publish_avl_department_pages', 'edit_avl_department_pages', 'edit_avl_department_page', 'edit_others_avl_department_pages')) ):
     // if (! in_array($args[0], array('publish_posts', 'edit_posts', 'edit_post', 'edit_others_posts')) ):
         return $allcaps;
     endif;
