@@ -67,6 +67,11 @@ function asheville_custom_permissions_check_department_access($user, $post, $che
     $user_access_to_cats = array();
 
     $user_editor_cats = get_field('department_editor', $user);
+
+    // TODO: REVIEW THIS
+    if(isset($user_editor_cats[0]->errors) ):
+        return true;
+    endif;
     $user_editor_cat_ids = asheville_custom_permissions_get_term_ids($user_editor_cats);
 
     $user_access_to_cats = array_merge($user_access_to_cats, $user_editor_cat_ids);
@@ -75,6 +80,12 @@ function asheville_custom_permissions_check_department_access($user, $post, $che
         // If it's not publish mode, we also check the content contributors
 
         $user_content_contributor_cats = get_field('department_content_contributor', $user);
+
+        // TODO: REVIEW THIS
+        if(isset($user_content_contributor_cats[0]->errors) ):
+            return true;
+        endif;
+
         $user_content_contributor_cat_ids = asheville_custom_permissions_get_term_ids($user_content_contributor_cats);
 
         $user_access_to_cats = array_merge($user_access_to_cats, $user_content_contributor_cat_ids);
@@ -125,7 +136,12 @@ function asheville_custom_permissions_check_per_page_access($user, $post, $check
  *                       [2] Associated object ID
  */
 function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
-    // var_dump($cap[0]);
+    if(! $cap):
+        return $allcaps;
+    endif;
+    var_dump($cap[0]);
+        $allcaps[$cap[0]] = true;
+            return $allcaps;
     // Bail on $_POST for now
     if(isset($_POST)):
         if(isset($_POST['post_type']) && $_POST['post_type'] == 'avl_department_page'):
@@ -240,7 +256,7 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
 
     // return $allcaps;
 }
-add_filter( 'user_has_cap', 'asheville_custom_permissions_cap_filter', 10, 3 );
+add_filter( 'user_has_cap', 'asheville_custom_permissions_cap_filter', 100, 3 );
 
 
 
