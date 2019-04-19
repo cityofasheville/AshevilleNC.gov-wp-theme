@@ -42,7 +42,9 @@ function asheville_custom_permissions_get_term_ids($term_array){
     $term_ids = array();
 
     foreach($term_array as $term):
-        $term_ids[] = $term->term_id;
+        if(isset($term->term_id)):
+            $term_ids[] = $term->term_id;
+        endif;
     endforeach;
     return $term_ids;
 }
@@ -123,27 +125,41 @@ function asheville_custom_permissions_check_per_page_access($user, $post, $check
  *                       [2] Associated object ID
  */
 function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
-// echo "<pre>";
-// var_dump($GLOBALS['wp_post_types']['avl_department_page']->cap);
-    // if(stripos($cap[0], "avl_department_page")):
-    // var_dump($cap);
-    //     $allcaps[$cap[0]] = true;
-    //     return $allcaps;
-    // endif;
+    // var_dump($cap[0]);
+    // Bail on $_POST for now
+    if(isset($_POST)):
+        if(isset($_POST['post_type']) && $_POST['post_type'] == 'avl_department_page'):
+            $allcaps[$cap[0]] = true;
+            return $allcaps;
+        endif;
+    endif;
+
 
     $user = wp_get_current_user();
-
 
     if(in_array('administrator', $user->roles)):
         $allcaps[$cap[0]] = true;
         return $allcaps;
     endif;
 
+    if(in_array('newseditor', $user->roles)):
+        if (in_array($cap[0], array('assign_avl_department_term')) ):
+            $allcaps[$cap[0]] = true;
+            return $allcaps;
+        endif;
+    endif;
+
+        
 
     // END TESTING
+    // To create new depts, add this:  , 'edit_avl_department_term',
+    if (! in_array($cap[0], array('unfiltered_html', 'edit_posts', 'edit_avl_department_term', 'assign_avl_department_term', 'publish_avl_department_pages', 'edit_avl_department_pages', 'edit_avl_department_page', 'edit_others_avl_department_pages')) ):
+        return $allcaps;
+    endif;
 
-    if (! in_array($cap[0], array('publish_avl_department_pages', 'edit_avl_department_pages', 'edit_avl_department_page', 'edit_others_avl_department_pages')) ):
-    // if (! in_array($args[0], array('publish_posts', 'edit_posts', 'edit_post', 'edit_others_posts')) ):
+    // Category override
+    if (in_array($cap[0], array('assign_avl_department_term', 'edit_avl_department_term')) ):
+        $allcaps[$cap[0]] = true;
         return $allcaps;
     endif;
 
@@ -225,3 +241,57 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
     // return $allcaps;
 }
 add_filter( 'user_has_cap', 'asheville_custom_permissions_cap_filter', 10, 3 );
+
+
+
+function asheville_custom_permissions_list_terms_exclusions( $exclusions, $args ) {
+    global $pagenow;
+
+    if (! in_array($pagenow,array('post.php','post-new.php')) ):
+        return $exclusions;
+    endif;
+
+    // Post type check
+    $post_type = false;
+    if(isset($_GET['post'])):
+        $post_id = $_GET['post'];    
+        $post = get_post($post_id);
+        $post_type = $post->post_type;
+    elseif(isset($_GET['post_type'])):
+        $post_type = $_GET['post_type'];
+    else:
+        $post_type = 'post';
+    endif;
+
+    if(! in_array($post_type, array('avl_department_page') ) ):
+        return $exclusions;
+    endif;
+
+    // User role check
+    $user = wp_get_current_user();
+
+    if(in_array('administrator', $user->roles)):
+        return $exclusions;
+    endif;
+   
+    $user_access_to_cats = array();
+
+    $user_editor_cats = get_field('department_editor', $user);
+    $user_editor_cat_ids = asheville_custom_permissions_get_term_ids($user_editor_cats);
+
+    $user_access_to_cats = array_merge($user_access_to_cats, $user_editor_cat_ids);
+
+    $user_content_contributor_cats = get_field('department_content_contributor', $user);
+    $user_content_contributor_cat_ids = asheville_custom_permissions_get_term_ids($user_content_contributor_cats);
+
+    $user_access_to_cats = array_merge($user_access_to_cats, $user_content_contributor_cat_ids);
+
+    $user_access_to_cats_str = "'".implode("', '", $user_access_to_cats)."'";
+
+    if (in_array($pagenow,array('post.php','post-new.php')) ) {
+        $exclusions = " {$exclusions} AND t.term_id IN ({$user_access_to_cats_str})";
+    }
+    return $exclusions;
+}
+// add_filter('list_terms_exclusions', 'asheville_custom_permissions_list_terms_exclusions', 10, 2);
+
