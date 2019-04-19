@@ -136,16 +136,30 @@ function asheville_custom_permissions_check_per_page_access($user, $post, $check
  *                       [2] Associated object ID
  */
 function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
-    if(! $cap):
-        return $allcaps;
-    endif;
-    var_dump($cap[0]);
-        $allcaps[$cap[0]] = true;
-            return $allcaps;
+    // TODO: LOAD USER OFF ID
+    $user = wp_get_current_user();
+    // var_dump($user->caps);
+    // var_dump($user->roles);
+
+    // if(stripos($args[0], 'avl_service')):
+    //     foreach($cap as $a_cap):
+    //         $allcaps[$a_cap] = false;
+    //     endforeach;
+    //     return $allcaps;
+    // endif;
+
+    
+    // if(! $cap):
+    //     return $allcaps;
+    // endif;
+    // var_dump($cap[0]);
     // Bail on $_POST for now
     if(isset($_POST)):
         if(isset($_POST['post_type']) && $_POST['post_type'] == 'avl_department_page'):
-            $allcaps[$cap[0]] = true;
+            // var_dump($allcaps);
+            foreach($cap as $a_cap):
+                $allcaps[$a_cap] = true;
+            endforeach;
             return $allcaps;
         endif;
     endif;
@@ -165,11 +179,24 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
         endif;
     endif;
 
+     
+ 
+    if(in_array('department_content_approver', $user->roles)):
+        // var_dump($args[0]);
+        if (in_array($args[0], array('edit_published_posts')) ):
+             $allcaps[$args[0]] = true;
+            return $allcaps;
+           
+        endif;
+        // var_dump($args[0]);
+        // $allcaps[$args[0]] = true;
+        // return $allcaps;
+    endif;
         
 
     // END TESTING
     // To create new depts, add this:  , 'edit_avl_department_term',
-    if (! in_array($cap[0], array('unfiltered_html', 'edit_posts', 'edit_avl_department_term', 'assign_avl_department_term', 'publish_avl_department_pages', 'edit_avl_department_pages', 'edit_avl_department_page', 'edit_others_avl_department_pages')) ):
+    if (! in_array($cap[0], array('edit_post', 'unfiltered_html', 'edit_posts', 'assign_avl_department_term', 'publish_avl_department_pages', 'edit_avl_department_pages', 'edit_avl_department_page', 'edit_others_avl_department_pages')) ):
         return $allcaps;
     endif;
 
@@ -179,7 +206,7 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
         return $allcaps;
     endif;
 
-    if(isset($_GET['action']) && $_GET['action'] == 'edit'):
+    if(isset($_GET['action']) && $_GET['action'] == 'edit' && isset($_GET['post'])):
         $post_id = $_GET['post'];
     elseif(isset($args[2])):
         $post_id = $args[2];
@@ -190,14 +217,20 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
 
     $post = get_post($post_id);
 
-    // Post type checks?
-    if(! in_array($post->post_type, array('avl_department_page') ) ):
+    if(! $post):
         return $allcaps;
     endif;
 
-    $user = wp_get_current_user();
-    // var_dump($user->caps);
-    // var_dump($user->roles);
+    if($post->post_type == 'revision'):
+        $post = get_post($post->post_parent);
+    endif;
+
+
+    // Post type checks?
+    if(! in_array($post->post_type, array('avl_department_page', 'revision') ) ):
+        return $allcaps;
+    endif;
+
 
     $check_publish = false;
     if(in_array($args[0], array('publish_avl_department_pages') ) ):
@@ -256,7 +289,7 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
 
     // return $allcaps;
 }
-add_filter( 'user_has_cap', 'asheville_custom_permissions_cap_filter', 100, 3 );
+add_filter( 'user_has_cap', 'asheville_custom_permissions_cap_filter', 10, 3 );
 
 
 
@@ -309,5 +342,5 @@ function asheville_custom_permissions_list_terms_exclusions( $exclusions, $args 
     }
     return $exclusions;
 }
-// add_filter('list_terms_exclusions', 'asheville_custom_permissions_list_terms_exclusions', 10, 2);
+add_filter('list_terms_exclusions', 'asheville_custom_permissions_list_terms_exclusions', 10, 2);
 
