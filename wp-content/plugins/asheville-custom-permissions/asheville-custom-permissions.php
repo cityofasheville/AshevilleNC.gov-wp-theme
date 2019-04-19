@@ -225,7 +225,6 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
         $post = get_post($post->post_parent);
     endif;
 
-
     // Post type checks?
     if(! in_array($post->post_type, array('avl_department_page', 'revision') ) ):
         return $allcaps;
