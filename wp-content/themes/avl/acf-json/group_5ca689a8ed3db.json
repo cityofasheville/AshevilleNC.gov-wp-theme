@@ -45,28 +45,6 @@
             "return_format": "object",
             "multiple": 0,
             "allow_null": 0
-        },
-        {
-            "key": "field_5cba324047be5",
-            "label": "TEST",
-            "name": "test_prc",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "avl_department",
-            "field_type": "multi_select",
-            "allow_null": 0,
-            "add_term": 0,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "object",
-            "multiple": 0
         }
     ],
     "location": [
@@ -86,5 +64,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1555706457
+    "modified": 1555969766
 }

@@ -15,7 +15,10 @@
                 "class": "",
                 "id": ""
             },
-            "role": "",
+            "role": [
+                "department_content_contributor",
+                "department_content_approver"
+            ],
             "allow_null": 0,
             "multiple": 1,
             "return_format": "object"
@@ -33,7 +36,10 @@
                 "class": "",
                 "id": ""
             },
-            "role": "",
+            "role": [
+                "department_content_contributor",
+                "department_content_approver"
+            ],
             "allow_null": 0,
             "multiple": 1,
             "return_format": "object"
@@ -70,5 +76,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1555969667
+    "modified": 1555969820
 }
