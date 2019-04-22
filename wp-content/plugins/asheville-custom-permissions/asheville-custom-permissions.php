@@ -192,6 +192,11 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
         // $allcaps[$args[0]] = true;
         // return $allcaps;
     endif;
+
+    // If there's no capability here, just bail
+    if(! isset($cap[0])):
+        return $allcaps;
+    endif;
         
 
     // END TESTING
