@@ -9,6 +9,7 @@ Author URI: https://www.prcapps.com
 License: GPL2
 */
 
+// Since we updated the CPTS for departments and services, let's give administrators access
 function add_avl_department_page_caps() {
   $role = get_role( 'administrator' );
   $role->add_cap( 'edit_avl_department_pages' ); 
@@ -34,7 +35,7 @@ function add_avl_department_page_caps() {
 }
 add_action( 'admin_init', 'add_avl_department_page_caps');
 
-// TODO: See if there's a better way to get this
+// TODO: See if there's a more efficient way to get this
 function asheville_custom_permissions_get_term_ids($term_array){
     if(! $term_array):
         return array();
@@ -143,22 +144,8 @@ function asheville_custom_permissions_check_per_page_access($user, $post, $check
 function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
     // TODO: LOAD USER OFF ID
     $user = wp_get_current_user();
-    // var_dump($user->caps);
-    // var_dump($user->roles);
 
-    // if(stripos($args[0], 'avl_service')):
-    //     foreach($cap as $a_cap):
-    //         $allcaps[$a_cap] = false;
-    //     endforeach;
-    //     return $allcaps;
-    // endif;
-
-    
-    // if(! $cap):
-    //     return $allcaps;
-    // endif;
-    // var_dump($cap[0]);
-    // Bail on $_POST for now
+    // Bail on $_POST for now, but not for content contributors 
     if(! in_array('department_content_contributor', $user->roles)):
         if(isset($_POST)):
             if(isset($_POST['post_type']) && $_POST['post_type'] == 'avl_department_page'):
@@ -179,12 +166,13 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
         return $allcaps;
     endif;
         
-
+    // Let administrators have access
     if(in_array('administrator', $user->roles)):
         $allcaps[$cap[0]] = true;
         return $allcaps;
     endif;
 
+    // Give News Editors access to all department terms, but not create
     if(in_array('newseditor', $user->roles)):
         if (in_array($cap[0], array('assign_avl_department_term')) ):
             $allcaps[$cap[0]] = true;
@@ -192,47 +180,36 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
         endif;
     endif;
 
-     
- 
+     // Due to revisionary, we need some adjustments for content approvers 
     if(in_array('department_content_approver', $user->roles)):
-        // var_dump($args[0]);
         if (in_array($args[0], array('edit_published_posts')) ):
              $allcaps[$args[0]] = true;
             return $allcaps;
            
         endif;
-        // var_dump($args[0]);
-        // $allcaps[$args[0]] = true;
-        // return $allcaps;
     endif;
 
+     // Due to revisionary, we need some adjustments for content contributors 
     if(in_array('department_content_contributor', $user->roles)):
-        // var_dump($args[0]);
-        // var_dump($cap);
         if (in_array($cap[0], array('edit_posts', 'edit_pages', 'edit_avl_services', 'edit_tribe_events', 'edit_tribe_venues', 'edit_tribe_organizers')) ):
              $allcaps[$args[0]] = false;
             return $allcaps;
            
         endif;
-        // var_dump($args[0]);
-        // $allcaps[$args[0]] = true;
-        // return $allcaps;
     endif;
 
-   
-
-    // END TESTING
     // To create new depts, add this:  , 'edit_avl_department_term',
     if (! in_array($cap[0], array('edit_post', 'unfiltered_html', 'edit_posts', 'assign_avl_department_term', 'publish_avl_department_pages', 'edit_avl_department_pages', 'edit_avl_department_page', 'edit_others_avl_department_pages')) ):
         return $allcaps;
     endif;
 
-    // Category override
+    // Override to allow users to assign department terms - these are filtered using the list_terms_exclusions hook
     if (in_array($cap[0], array('assign_avl_department_term', 'edit_avl_department_term')) ):
         $allcaps[$cap[0]] = true;
         return $allcaps;
     endif;
 
+    // Determine the active post id - either from the argument or the URL
     if(isset($_GET['action']) && $_GET['action'] == 'edit' && isset($_GET['post'])):
         $post_id = $_GET['post'];
     elseif(isset($args[2])):
@@ -242,22 +219,23 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
         return $allcaps;
     endif;
 
-    $post = get_post($post_id);
+    $post = get_post($post_id); // Load the post in question
 
-    if(! $post):
+    if(! $post):    // If it's not a post, we're done
         return $allcaps;
     endif;
 
-    if($post->post_type == 'revision'):
+    // If the post is a revision, we do access control based on the parent. 
+    if($post->post_type == 'revision'): 
         $post = get_post($post->post_parent);
     endif;
 
-    // Post type checks?
+    // Make sure we're dealing with either a department page or revision
     if(! in_array($post->post_type, array('avl_department_page', 'revision') ) ):
         return $allcaps;
     endif;
 
-
+    // Determine if we're considering publish access
     $check_publish = false;
     if(in_array($args[0], array('publish_avl_department_pages') ) ):
         $check_publish = true;
@@ -272,6 +250,7 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
     // var_dump("PAGE");
     // var_dump($user_has_page_access);
 
+    // If they have department or page level access, provide the capability
     if($user_has_department_access || $user_has_page_access):
         $allcaps[$cap[0]] = true;
     else:
@@ -318,7 +297,8 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
 add_filter( 'user_has_cap', 'asheville_custom_permissions_cap_filter', 10, 3 );
 
 
-
+// The hook filters the "Department" list so that editors can only assign Departments they
+// are able to access to new pages.
 function asheville_custom_permissions_list_terms_exclusions( $exclusions, $args ) {
     global $pagenow;
 
