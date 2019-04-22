@@ -172,6 +172,12 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
 
     $user = wp_get_current_user();
 
+     // If there's no capability here, just bail
+    if(! isset($cap[0])):
+        return $allcaps;
+    endif;
+        
+
     if(in_array('administrator', $user->roles)):
         $allcaps[$cap[0]] = true;
         return $allcaps;
@@ -198,11 +204,20 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
         // return $allcaps;
     endif;
 
-    // If there's no capability here, just bail
-    if(! isset($cap[0])):
-        return $allcaps;
+    if(in_array('department_content_contributor', $user->roles)):
+        // var_dump($args[0]);
+        // var_dump($cap);
+        if (in_array($cap[0], array('edit_posts', 'edit_pages', 'edit_avl_services', 'edit_tribe_events', 'edit_tribe_venues', 'edit_tribe_organizers')) ):
+             $allcaps[$args[0]] = false;
+            return $allcaps;
+           
+        endif;
+        // var_dump($args[0]);
+        // $allcaps[$args[0]] = true;
+        // return $allcaps;
     endif;
-        
+
+   
 
     // END TESTING
     // To create new depts, add this:  , 'edit_avl_department_term',
