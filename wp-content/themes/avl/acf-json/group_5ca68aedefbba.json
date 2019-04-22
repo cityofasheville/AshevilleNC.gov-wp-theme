@@ -50,21 +50,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "page"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
                 "value": "avl_department_page"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "avl_service"
             }
         ]
     ],
@@ -76,5 +62,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1555971599
+    "modified": 1555971850
 }
