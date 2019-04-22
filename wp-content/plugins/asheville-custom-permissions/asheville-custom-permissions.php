@@ -61,6 +61,11 @@ function asheville_custom_permissions_get_user_ids($user_array){
 }
 
 function asheville_custom_permissions_check_department_access($user, $post, $check_publish){
+    // Web content manager first
+    if(in_array('web_content_manager', $user->roles)):
+       return true;
+    endif;
+
     $page_cats = wp_get_object_terms( $post->ID, 'avl_department');
     $page_cat_ids = asheville_custom_permissions_get_term_ids($page_cats);
 
