@@ -159,13 +159,15 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
     // endif;
     // var_dump($cap[0]);
     // Bail on $_POST for now
-    if(isset($_POST)):
-        if(isset($_POST['post_type']) && $_POST['post_type'] == 'avl_department_page'):
-            // var_dump($allcaps);
-            foreach($cap as $a_cap):
-                $allcaps[$a_cap] = true;
-            endforeach;
-            return $allcaps;
+    if(! in_array('department_content_contributor', $user->roles)):
+        if(isset($_POST)):
+            if(isset($_POST['post_type']) && $_POST['post_type'] == 'avl_department_page'):
+                // var_dump($allcaps);
+                foreach($cap as $a_cap):
+                    $allcaps[$a_cap] = true;
+                endforeach;
+                return $allcaps;
+            endif;
         endif;
     endif;
 
