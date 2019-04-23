@@ -520,8 +520,7 @@ a.text-primary:hover,
 }
 
 /* Post text should not overflow, but tables should scroll */
-
-.entry-content a {
+.entry-content p > a {
 	/* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -531,10 +530,10 @@ a.text-primary:hover,
   /* Instead use this non-standard one: */
   word-break: break-word;
   /* Adds a hyphen where the word breaks, if supported (No Blink) */
-  -ms-hyphens: auto;
+  /* -ms-hyphens: auto;
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
-  hyphens: auto;
+  hyphens: auto; */
 }
 
 .entry-content .table-responsive > * {
