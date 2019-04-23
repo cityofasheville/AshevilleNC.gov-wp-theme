@@ -352,6 +352,7 @@ html, body {
 
 #department-navbar {
 	border-bottom: 4px solid #bdd477;
+  white-space: nowrap;
 }
 
 #department-navbar .navbar-toggler {
@@ -364,6 +365,10 @@ html, body {
 
 #department-navbar .nav-item {
   text-overflow: ellipsis;
+}
+
+#department-navbar .first-layer-nav {
+  flex-wrap: wrap;
 }
 
 #department-navbar .first-layer-nav > .nav-item {
