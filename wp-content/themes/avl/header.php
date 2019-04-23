@@ -171,7 +171,27 @@
 							echo '<li class="nav-item ' . (($post->ID == $parent_id)?'active':'') .'"><a class="nav-link" href="'. get_permalink( $parent_id ) .'">Home</a></li>';
 
 							foreach ($child_pages as $page) {
-								echo '<li class="nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="nav-link" href="'. get_permalink( $page ) .'">'. $page->post_title .'</a></li>';
+          			$grandchild_pages = get_children( array(
+          				'post_parent' => $page->ID,
+          				'post_type' => 'avl_department_page',
+          				'post_status' => 'publish',
+          				'orderby' => 'menu_order',
+          				'order' => 'ASC'
+          			));
+                if (empty( $grandchild_pages )) {
+  								echo '<li class="nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="nav-link" href="'. get_permalink( $page ) .'">'. $page->post_title .'</a></li>';
+                } else {
+  								echo '<li class="nav-item dropdown-col-md-6 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown nav-item '. (($post->ID == $page->ID)?'active':'') .'" >';
+
+                  // TODO: ASSIGN ID AND FIGURE OUT ARIA-LABELLEDBY FOR UL - SEE TOP NAV
+                  echo '<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link">' . $page->post_title . '</a>';
+                  echo '<ul class="dropdown-menu" role="menu">';
+    							foreach ($grandchild_pages as $grandchild_page) {
+    								echo '<li class="menu-item nav-item '. (($post->ID == $grandchild_page->ID)?'active':'') .'" ><a class="dropdown-item" href="'. get_permalink( $grandchild_page ) .'">'. $grandchild_page->post_title .'</a></li>';
+                  }
+                  echo '</ul>';
+                  echo '</li>';
+                }
 							}
 							?>
 					<ul>
