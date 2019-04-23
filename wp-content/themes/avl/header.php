@@ -166,7 +166,7 @@
 					<span class="dropdown-toggle float-right"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="child-pages-nav">
-					<ul class="navbar-nav">
+					<ul class="navbar-nav first-layer-nav">
 						<?php
 							echo '<li class="nav-item ' . (($post->ID == $parent_id)?'active':'') .'"><a class="nav-link" href="'. get_permalink( $parent_id ) .'">Home</a></li>';
 
