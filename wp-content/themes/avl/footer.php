@@ -16,21 +16,23 @@
 		<div class="footer-toggle-bar">
 			<div class="bg-avl-blue">
 				<div class="container feedback-container">
-					<button
-						id="feedback-button"
-						class="navbar-toggler text-white ml-2 mr-auto footer-toggle-button"
-						type="button"
-						data-toggle="collapse"
-						data-target="#toggle-feedback"
-						aria-controls="toggle-feedback"
-						aria-expanded="false"
-						aria-label="Open feedback form"
+          <div class="ml-2">
+  					<button
+  						id="feedback-button"
+  						class="navbar-toggler text-white mr-auto footer-toggle-button"
+  						type="button"
+  						data-toggle="collapse"
+  						data-target="#toggle-feedback"
+  						aria-controls="toggle-feedback"
+  						aria-expanded="false"
+  						aria-label="Open feedback form"
 						>
-						<span class="icon icon-lamp-bright"></span> Feedback
-					</button>
-					<span class="text-white ml-2 mr-auto">
-						We're still working on this page's design and content. How can we make it better?
-					</span>
+  						<span class="icon icon-lamp-bright"></span> Feedback
+  					</button>
+  					<span class="text-white ml-2 mr-auto">
+  						We're still working on this page's design and content. How can we make it better?
+  					</span>
+          </div>
 				</div>
 			</div>
 			<div class="collapse" id="toggle-feedback">
