@@ -55,7 +55,7 @@
                 "value": "edit"
             },
             {
-                "param": "user_role",
+                "param": "current_user_role",
                 "operator": "==",
                 "value": "administrator"
             }
@@ -69,5 +69,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1555970132
+    "modified": 1556032336
 }
