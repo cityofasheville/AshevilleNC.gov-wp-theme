@@ -38,7 +38,7 @@
 
 	<div class="col-md-4">
 		<?php
-		if ( have_rows('connect_info') || have_rows('connect_social') ) {
+		if ( have_rows('connect_info') || have_rows('connect_social') || have_rows('links') ) {
 			echo '<div class="card entry-meta mb-3">';
 			echo '<h3 class="card-header">Connect</h3>';
 
@@ -64,6 +64,19 @@
 					the_row();
 
 					echo '<a href="'. get_sub_field('link') .'" target="_blank" class="card-link"><span class="icomoon icomoon-'. get_sub_field('network') .' icon-2x"></span></a>';
+				}
+
+				echo '</div>';
+			}
+
+			if ( have_rows('links') ) {
+				echo '<div class="card-body">';
+				echo '<h6>Additional Links</h6>';
+
+				while ( have_rows('links') ) {
+					the_row();
+
+					echo '<a href="'. get_sub_field('link') .'" target="_blank" class="card-link">' . get_sub_field('link_title') . '</a>';
 				}
 
 				echo '</div>';
