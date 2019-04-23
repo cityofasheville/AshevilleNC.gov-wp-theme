@@ -367,6 +367,11 @@ html, body {
   text-overflow: ellipsis;
 }
 
+#department-navbar .menu-item a {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 #department-navbar .first-layer-nav {
   flex-wrap: wrap;
 }
@@ -854,6 +859,13 @@ figcaption {
     -moz-columns: 2;
 		margin: -.125rem 0 0;
 	}
+
+  #department-navbar .dropdown-menu.show {
+    max-width: 700px;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+  }
 
 	.news-title-sidebar .widget {
 		max-width: 25%;
