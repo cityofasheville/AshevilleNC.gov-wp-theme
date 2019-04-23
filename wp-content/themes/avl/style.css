@@ -317,7 +317,7 @@ html, body {
 	width: 100%;
 	height: inherit;
 	display: table-cell;
-	position: absolute;
+	/* position: absolute; */
 	background-position: center; z-index: -1;
 	/* background-attachment: fixed; */
 	background-repeat: no-repeat;
