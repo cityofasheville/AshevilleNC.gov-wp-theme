@@ -186,6 +186,8 @@
                   // TODO: ASSIGN ID AND FIGURE OUT ARIA-LABELLEDBY FOR UL - SEE TOP NAV
                   echo '<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link">' . $page->post_title . '</a>';
                   echo '<ul class="dropdown-menu" role="menu">';
+
+  								echo '<li class="menu-item nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="dropdown-item" href="'. get_permalink( $page ) .'">'. $page->post_title .' Home</a></li>';
     							foreach ($grandchild_pages as $grandchild_page) {
     								echo '<li class="menu-item nav-item '. (($post->ID == $grandchild_page->ID)?'active':'') .'" ><a class="dropdown-item" href="'. get_permalink( $grandchild_page ) .'">'. $grandchild_page->post_title .'</a></li>';
                   }
