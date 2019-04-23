@@ -615,9 +615,8 @@ footer .feedback-container {
   /* border: none; */
 }
 
-/* This basically only affects anyone developing on the site but it's really annoying */
 #wpadminbar.mobile {
-  display: none;
+  position: fixed;
 }
 
 #addsearch-results {
