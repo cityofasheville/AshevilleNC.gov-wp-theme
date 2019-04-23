@@ -182,9 +182,15 @@
   								echo '<li class="nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="nav-link" href="'. get_permalink( $page ) .'">'. $page->post_title .'</a></li>';
                 } else {
   								echo '<li class="nav-item dropdown-col-md-6 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown nav-item '. (($post->ID == $page->ID)?'active':'') .'" >';
-
                   echo '<a href="#" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="dept-menu-item-dropdown-' . $page->ID . '">' . $page->post_title . '</a>';
-                  echo '<ul class="dropdown-menu" role="menu" aria-labelledby="dept-menu-item-dropdown-' . $page->ID . '">';
+
+                  $grandchild_count = count($grandchild_pages);
+                  $post_class = '';
+                  if ($grandchild_count > 7) {
+                    $post_class = 'many-children';
+                  }
+
+                  echo '<ul class="dropdown-menu ' . $post_class . '" role="menu" aria-labelledby="dept-menu-item-dropdown-' . $page->ID . '">';
 
   								echo '<li class="menu-item nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="dropdown-item" href="'. get_permalink( $page ) .'">'. $page->post_title .' Home</a></li>';
     							foreach ($grandchild_pages as $grandchild_page) {
