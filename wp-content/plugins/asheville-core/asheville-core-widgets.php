@@ -135,7 +135,7 @@ class AVL_Post_Services_Widget extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array(
 			'classname' => 'widget_avl_post_services',
-			'description' => 'Displays any related Services to the Post'
+			'description' => 'Displays any services related to the post'
 		);
 
 		parent::__construct('avl_post_services_widget', 'Asheville Post to Services', $widget_ops);
@@ -148,13 +148,13 @@ class AVL_Post_Services_Widget extends WP_Widget {
 		if ( $services ) {
 			global $post;
 			echo $before_widget;
-			echo $before_title .'Related Services'. $after_title;
+			echo $before_title .'Related City Services'. $after_title;
 
 			foreach ($services as $post) {
 				// override the global $post object
 				setup_postdata($post);
 
-				echo '<div class="mb-3">';
+				echo '<div class="mt-3 mb-3">';
 				get_template_part( 'template-parts/content', get_post_type() );
 				echo '</div>';
 			}
