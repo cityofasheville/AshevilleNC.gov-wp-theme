@@ -183,9 +183,8 @@
                 } else {
   								echo '<li class="nav-item dropdown-col-md-6 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown nav-item '. (($post->ID == $page->ID)?'active':'') .'" >';
 
-                  // TODO: ASSIGN ID AND FIGURE OUT ARIA-LABELLEDBY FOR UL - SEE TOP NAV
-                  echo '<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link">' . $page->post_title . '</a>';
-                  echo '<ul class="dropdown-menu" role="menu">';
+                  echo '<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="dept-menu-item-dropdown-' . $page->ID . '">' . $page->post_title . '</a>';
+                  echo '<ul class="dropdown-menu" role="menu" aria-labelledby="dept-menu-item-dropdown-' . $page->ID . '">';
 
   								echo '<li class="menu-item nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="dropdown-item" href="'. get_permalink( $page ) .'">'. $page->post_title .' Home</a></li>';
     							foreach ($grandchild_pages as $grandchild_page) {
