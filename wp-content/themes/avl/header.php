@@ -162,8 +162,7 @@
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					Department Pages
-					<span class="dropdown-toggle float-right"></span>
+					<span class="navbar-toggler-icon float-right text-white"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="child-pages-nav">
 					<ul class="navbar-nav first-layer-nav">
@@ -181,7 +180,7 @@
                 if (empty( $grandchild_pages )) {
   								echo '<li class="nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="nav-link" href="'. get_permalink( $page ) .'">'. $page->post_title .'</a></li>';
                 } else {
-  								echo '<li class="nav-item dropdown-col-md-6 menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown nav-item '. (($post->ID == $page->ID)?'active':'') .'" >';
+  								echo '<li class="nav-item dropdown-col-md-6 dropdown nav-item '. (($post->ID == $page->ID)?'active':'') .'" >';
                   echo '<a href="#" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="dept-menu-item-dropdown-' . $page->ID . '">' . $page->post_title . '</a>';
 
                   $grandchild_count = count($grandchild_pages);
