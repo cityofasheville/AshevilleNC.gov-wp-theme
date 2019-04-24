@@ -724,6 +724,11 @@ figcaption {
 	padding-bottom: 0 !important;
 }
 
+/* Styles for inline sheets plugin */
+.display-none {
+  display: none;
+}
+
 /* Media Queries */
 
 /* Extra Small + Small */

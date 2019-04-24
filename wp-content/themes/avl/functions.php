@@ -291,7 +291,7 @@ function titled_links ($html) {
 
   $replace_these = array();
 
-  foreach ($ths as $index=>$th) {
+  foreach ($ths as $index => $th) {
     $th_val = $th->nodeValue;
     if (strpos($th_val, 'Link_Title') !== false) {
       $title_key = strstr($th_val, '_Link_Title', true);
@@ -306,6 +306,31 @@ function titled_links ($html) {
         $replace_these[$title_key] = array();
       }
       $replace_these[$title_key]['link_index'] = $index;
+
+      $th->setAttribute('class', 'display-none');
+    }
+  }
+
+  $tbody = $dom->getElementsByTagName('tbody')->item(0);
+  $trs = $tbody->childNodes;
+  foreach ($trs as $index => $tr) {
+    $tds = $tr->childNodes;
+    foreach ($replace_these as $title_key => $replacement_values) {
+      $link_value = $tds[$replacement_values['link_index']]->nodeValue;
+      $tds[$replacement_values['link_index']]->setAttribute('class', 'display-none');
+      if (strlen($link_value) > 0) {
+        $newLinkNode = $dom->createElement('a');
+        $newLinkNode->setAttribute('href', $link_value);
+        $newLinkNode->setAttribute('target', '_blank');
+        $newLinkNode->setAttribute('rel', 'noopener noreferrer');
+        $newLinkNode->nodeValue = $tds[$replacement_values['title_index']]->nodeValue;
+
+        $tds[$replacement_values['title_index']]->replaceChild(
+          $newLinkNode,
+          $tds[$replacement_values['title_index']]->firstChild
+        );
+      }
+
     }
   }
 
