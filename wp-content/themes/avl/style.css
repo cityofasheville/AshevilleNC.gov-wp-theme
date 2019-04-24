@@ -737,12 +737,25 @@ figcaption {
 }
 
 /* Styles for inline sheets plugin */
+
 .dataTable .display-none {
   display: none;
 }
 
+.dataTable th {
+  font-size: 1.25em;
+}
+
+.dataTable th:hover {
+  color: #006dcc;
+}
+
 .dataTable th, .dataTable td {
   width: unset !important;
+}
+
+.dataTable tr.even {
+  background-color: #f2f2f2;
 }
 
 /* Media Queries */
