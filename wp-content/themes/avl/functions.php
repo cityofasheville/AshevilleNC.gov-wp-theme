@@ -293,6 +293,7 @@ function titled_links ($html) {
 
   foreach ($ths as $index => $th) {
     $th_val = $th->nodeValue;
+    echo $th_val;
     if (strpos($th_val, 'Link_Title') !== false) {
       $title_key = strstr($th_val, '_Link_Title', true);
       if (!array_key_exists($title_key, $replace_these)) {
@@ -307,6 +308,7 @@ function titled_links ($html) {
       }
       $replace_these[$title_key]['link_index'] = $index;
 
+      echo $th->getAttribute('class');
       $th->setAttribute('class', 'display-none');
     }
   }
