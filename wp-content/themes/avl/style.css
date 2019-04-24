@@ -737,8 +737,12 @@ figcaption {
 }
 
 /* Styles for inline sheets plugin */
-.display-none {
+.dataTable .display-none {
   display: none;
+}
+
+.dataTable th, .dataTable td {
+  width: unset !important;
 }
 
 /* Media Queries */
