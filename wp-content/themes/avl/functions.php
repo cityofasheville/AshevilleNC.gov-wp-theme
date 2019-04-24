@@ -287,15 +287,25 @@ function titled_links ($html) {
   // Return column that has bla for title, values are <a href="bla_link">bla_link_title</a>
   $dom = new DOMDocument;
   $dom->loadHTML($html);
-  $trs = $dom->getElementsByTagName('th');
+  $ths = $dom->getElementsByTagName('th');
 
-  foreach ($trs as $tr) {
-    $tr_val = $tr->nodeValue;
-    echo $tr_val;
-    if (strpos($tr_val, 'Link_Title') !== false) {
-      $tr->setAttribute('style', 'background-color:red;');
-    } elseif (strpos($tr_val, 'Link') !== false) {
-      $tr->setAttribute('style', 'background-color:blue;');
+  $replace_these = array();
+
+  foreach ($ths as $index=>$th) {
+    $th_val = $th->nodeValue;
+    if (strpos($th_val, 'Link_Title') !== false) {
+      $title_key = strstr($th_val, '_Link_Title', true);
+      if (!array_key_exists($title_key, $replace_these)) {
+        $replace_these[$title_key] = array();
+      }
+      $replace_these[$title_key]['title_index'] = $index;
+      $th->nodeValue = $title_key;
+    } elseif (strpos($th_val, 'Link') !== false) {
+      $title_key = strstr($th_val, '_Link', true);
+      if (!array_key_exists($title_key, $replace_these)) {
+        $replace_these[$title_key] = array();
+      }
+      $replace_these[$title_key]['link_index'] = $index;
     }
   }
 
