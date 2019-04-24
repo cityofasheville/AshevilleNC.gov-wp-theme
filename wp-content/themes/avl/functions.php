@@ -278,6 +278,32 @@ require get_template_directory() .'/inc/class-wp-bootstrap-navwalker.php';
  */
 require get_template_directory() .'/inc/class-wp-bootstrap-cardwalker.php';
 
+
+/*
+  Make link and link_title column into one
+*/
+function titled_links ($html) {
+  // Find all values in bla_link column, all values in bla_link_title column
+  // Return column that has bla for title, values are <a href="bla_link">bla_link_title</a>
+  $dom = new DOMDocument;
+  $dom->loadHTML($html);
+  $trs = $dom->getElementsByTagName('th');
+
+  foreach ($trs as $tr) {
+    $tr_val = $tr->nodeValue;
+    echo $tr_val;
+    if (strpos($tr_val, 'Link_Title') !== false) {
+      $tr->setAttribute('style', 'background-color:red;');
+    } elseif (strpos($tr_val, 'Link') !== false) {
+      $tr->setAttribute('style', 'background-color:blue;');
+    }
+  }
+
+  $html = $dom->saveHTML();
+  return $html;
+}
+add_filter('gdoc_table_html', 'titled_links');
+
 /**
  * Load Jetpack compatibility file.
  */
@@ -297,7 +323,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // add_action( 'add_meta_boxes' , 'remove_taxonomies_metaboxes' );
 
 // function filterCats($listCats){
-// 	global $typenow;    
+// 	global $typenow;
 // 	if($typenow == 'post'){
 // 	    foreach ($listCats as $k => $oCat) {
 // 	    	unset($listCats[$k]);
