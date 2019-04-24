@@ -278,6 +278,66 @@ require get_template_directory() .'/inc/class-wp-bootstrap-navwalker.php';
  */
 require get_template_directory() .'/inc/class-wp-bootstrap-cardwalker.php';
 
+
+/*
+  Make link and link_title column into one
+*/
+function titled_links ($html) {
+  // Find all values in bla_link column, all values in bla_link_title column
+  // Return column that has bla for title, values are <a href="bla_link">bla_link_title</a>
+  $dom = new DOMDocument;
+  $dom->loadHTML($html);
+  $ths = $dom->getElementsByTagName('th');
+
+  $replace_these = array();
+
+  foreach ($ths as $index => $th) {
+    $th_val = $th->nodeValue;
+    if (strpos($th_val, 'Link_Title') !== false) {
+      $title_key = strstr($th_val, '_Link_Title', true);
+      if (!array_key_exists($title_key, $replace_these)) {
+        $replace_these[$title_key] = array();
+      }
+      $replace_these[$title_key]['title_index'] = $index;
+      $th->nodeValue = $title_key;
+    } elseif (strpos($th_val, 'Link') !== false) {
+      $title_key = strstr($th_val, '_Link', true);
+      if (!array_key_exists($title_key, $replace_these)) {
+        $replace_these[$title_key] = array();
+      }
+      $replace_these[$title_key]['link_index'] = $index;
+      $th->setAttribute('class', 'display-none');
+    }
+  }
+
+  $tbody = $dom->getElementsByTagName('tbody')->item(0);
+  $trs = $tbody->childNodes;
+  foreach ($trs as $index => $tr) {
+    $tds = $tr->childNodes;
+    foreach ($replace_these as $title_key => $replacement_values) {
+      $link_value = $tds[$replacement_values['link_index']]->nodeValue;
+      $tds[$replacement_values['link_index']]->setAttribute('class', 'display-none');
+      if (strlen($link_value) > 0) {
+        $newLinkNode = $dom->createElement('a');
+        $newLinkNode->setAttribute('href', $link_value);
+        $newLinkNode->setAttribute('target', '_blank');
+        $newLinkNode->setAttribute('rel', 'noopener noreferrer');
+        $newLinkNode->nodeValue = $tds[$replacement_values['title_index']]->nodeValue;
+
+        $tds[$replacement_values['title_index']]->replaceChild(
+          $newLinkNode,
+          $tds[$replacement_values['title_index']]->firstChild
+        );
+      }
+
+    }
+  }
+
+  $html = $dom->saveHTML();
+  return $html;
+}
+add_filter('gdoc_table_html', 'titled_links');
+
 /**
  * Load Jetpack compatibility file.
  */
@@ -297,7 +357,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // add_action( 'add_meta_boxes' , 'remove_taxonomies_metaboxes' );
 
 // function filterCats($listCats){
-// 	global $typenow;    
+// 	global $typenow;
 // 	if($typenow == 'post'){
 // 	    foreach ($listCats as $k => $oCat) {
 // 	    	unset($listCats[$k]);
