@@ -346,6 +346,9 @@ add_filter('algolia_post_images_sizes', function($sizes) {
     return $sizes;
 });
 
+// TODO: filter out events?  or just unselect by default?
+// TODO: get tags from backend-- could we use a filter here to grab the card footer? and pre-render html?
+
 /**
  * Load Jetpack compatibility file.
  */
