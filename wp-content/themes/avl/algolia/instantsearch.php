@@ -14,7 +14,6 @@
 				<section class="ais-facets" id="facet-post-types"></section>
 				<section class="ais-facets" id="facet-categories"></section>
 				<section class="ais-facets" id="facet-tags"></section>
-				<!-- <section class="ais-facets" id="facet-users"></section> -->
 			</aside>
 
 
@@ -38,14 +37,16 @@
 	<script type="text/html" id="tmpl-instantsearch-hit">
 		<article id="post-{{ data.post_id }}" class="card h-100 format-standard has-thumbnail">
 			<div class="ais-hits--content entry-header">
-
 			</div>
-
-			<!-- <# if ( data.images.thumbnail ) { #>
+			<# if ( data.images.medium ) { #>
 				<a href="{{ data.permalink }}" title="{{ data.post_title }}" class="post-thumbnail flex-shrink-0">
-					<img src="{{ data.images.thumbnail.url }}" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" />
+					<img src="{{ data.images.medium.url }}" class="card-img-top h-auto wp-post-image" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" sizes="(max-width: 450px) 100vw, 450px" />
 				</a>
-			<# } #> -->
+			<# } else if ( data.images.thumbnail ) { #>
+				<a href="{{ data.permalink }}" title="{{ data.post_title }}" class="post-thumbnail flex-shrink-0">
+					<img src="{{ data.images.thumbnail.url }}" class="card-img-top h-auto wp-post-image" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" sizes="(max-width: 450px) 100vw, 450px" />
+				</a>
+			<# } #>
 			<div class="card-body">
 				<span class="card-title entry-title">
 					<a
@@ -121,8 +122,7 @@
 						hitsPerPage: 10,
 						transformData: {
 							item: function(hit) {
-								console.log(hit)
-								return hit
+								return hit;
 							},
 						},
 						templates: {

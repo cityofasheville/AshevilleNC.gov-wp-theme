@@ -338,6 +338,14 @@ function titled_links ($html) {
 }
 add_filter('gdoc_table_html', 'titled_links');
 
+
+
+// OTHER ALGOLIA FILTERS:  https://community.algolia.com/wordpress/filters.html
+add_filter('algolia_post_images_sizes', function($sizes) {
+    $sizes[] = 'medium';
+    return $sizes;
+});
+
 /**
  * Load Jetpack compatibility file.
  */
