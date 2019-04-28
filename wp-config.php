@@ -133,21 +133,6 @@ $table_prefix = 'wp_';
  * language support.
  */
 
-
-/**
- * For developers: WordPress debugging mode.
- *
- * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- *
- * You may want to examine $_ENV['PANTHEON_ENVIRONMENT'] to set this to be
- * "true" in dev, but false in test and live.
- */
-if ( ! defined( 'WP_DEBUG' ) ) {
-    define('WP_DEBUG', true);
-}
-
 // From https://pantheon.io/docs/http-to-https/ - MM
 if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
   // Redirect to https://$primary_domain in the Live environment
