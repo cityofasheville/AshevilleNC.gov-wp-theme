@@ -56,9 +56,11 @@
 					>
 						{{{ data._highlightResult.post_title.value }}}
 					</a>
+  			<# if ( data.post_type === 'post' ) { #>
 					<div class="card-subtitle m-2 accessible-text-muted small entry-meta">
 						Posted on {{{ data.post_date_formatted }}}
 					</div>
+  			<# } #>
 				</span>
 				<div class="card-text entry-content">
 					{{{ data._snippetResult.content.value }}}
@@ -128,6 +130,7 @@
 						hitsPerPage: 12,
 						transformData: {
 							item: function(hit) {
+                console.log(hit);
 								return hit;
 							},
 						},

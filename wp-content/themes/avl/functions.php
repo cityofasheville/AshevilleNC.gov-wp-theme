@@ -349,11 +349,16 @@ add_filter('algolia_post_images_sizes', function($sizes) {
 });
 
 // filter out tribe events
-function filter_tribe_events( array $blacklist ) {
-    $blacklist[] = 'tribe_events';
-    return $blacklist;
+function mb_algolia_searchable_post_types(array $post_types) {
+    $pos = array_search('tribe_events', $post_types);
+
+    if ($pos !== false) {
+        unset($post_types[$pos]);
+    }
+
+    return $post_types;
 }
-add_filter( 'algolia_post_types_blacklist', 'filter_tribe_events' );
+add_filter( 'algolia_searchable_post_types', 'mb_algolia_searchable_post_types' );
 
 // TODO: get tags from backend-- could we use a filter here to grab the card footer? and pre-render html?
 
