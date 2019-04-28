@@ -67,9 +67,15 @@
 			</div>
 
 			<!-- TODO: need tags -->
-			<!-- <footer class="entry-footer">
-			</footer> -->
-
+			<# if ( data.post_type !== 'avl_department_page' && data.post_type !== 'page' ) { #>
+  			<footer class="card-footer entry-footer">
+    			<# if ( data.post_type === 'post' ) { #>
+            <a class="badge badge-primary bg-avl-blue" href="/news">News</a>
+    			<# } else { #>
+            <a class="badge badge-primary bg-avl-blue" href="/{{ data.post_type_label.toLowerCase() }}">{{{ data.post_type_label}}}</a>
+    			<# } #>
+  			</footer>
+			<# } #>
 		</article>
 	</script>
 
@@ -149,10 +155,11 @@
 						templates: {
 							header: '<span class="widgettitle h4">Filter Results</span>',
               item: function(properties) {
-                // TODO: make posts news
-                console.log(properties)
                 var checked = properties.isRefined ? 'checked' : '';
                 var label = properties.name + ' (' + properties.count + ')';
+                if (properties.name === 'Posts') {
+                  var label = 'News (' + properties.count + ')';
+                }
                 return '<input class="mr-2" type="radio" ' + checked + '/>' + label;
               }
 						},
