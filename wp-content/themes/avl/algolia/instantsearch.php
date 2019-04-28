@@ -163,7 +163,7 @@
                 if (properties.name === 'Posts') {
                   var label = 'News (' + properties.count + ')';
                 }
-                return '<input class="mr-2" type="radio" ' + checked + '/>' + label;
+                return '<input class="mr-2 mt-2" type="radio" ' + checked + '/>' + label;
               }
 						},
 					})
