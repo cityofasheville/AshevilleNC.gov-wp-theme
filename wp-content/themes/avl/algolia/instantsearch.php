@@ -128,12 +128,12 @@
 					instantsearch.widgets.hits({
 						container: '#algolia-hits',
 						hitsPerPage: 12,
-						transformData: {
-							item: function(hit) {
-                console.log(hit);
-								return hit;
-							},
-						},
+						// transformData: {
+						// 	item: function(hit) {
+            //     console.log(hit);
+						// 		return hit;
+						// 	},
+						// },
 						templates: {
 							empty: 'No results were found for "<strong>{{query}}</strong>".',
 							item: wp.template('instantsearch-hit'),
