@@ -12,8 +12,8 @@
 
 			<aside id="ais-facets" class="col-md-2 col-sm-12">
 				<section class="ais-facets" id="facet-post-types"></section>
-				<section class="ais-facets" id="facet-categories"></section>
-				<section class="ais-facets" id="facet-tags"></section>
+				<!-- <section class="ais-facets" id="facet-categories"></section>
+				<section class="ais-facets" id="facet-tags"></section> -->
 			</aside>
 
 
@@ -57,7 +57,7 @@
 						{{{ data._highlightResult.post_title.value }}}
 					</a>
 					<div class="card-subtitle m-2 accessible-text-muted small entry-meta">
-						{{{ data.post_date_formatted }}}
+						Posted on {{{ data.post_date_formatted }}}
 					</div>
 				</span>
 				<div class="card-text entry-content">
@@ -119,7 +119,7 @@
 				search.addWidget(
 					instantsearch.widgets.hits({
 						container: '#algolia-hits',
-						hitsPerPage: 10,
+						hitsPerPage: 12,
 						transformData: {
 							item: function(hit) {
 								return hit;
@@ -144,40 +144,20 @@
 					instantsearch.widgets.menu({
 						container: '#facet-post-types',
 						attributeName: 'post_type_label',
-						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
+						sortBy: ['count:desc', 'name:asc'],
 						limit: 10,
 						templates: {
-							header: '<h3 class="widgettitle">Post Type</h3>'
+							header: '<span class="widgettitle h4">Filter Results</span>',
+              item: function(properties) {
+                // TODO: make posts news
+                console.log(properties)
+                var checked = properties.isRefined ? 'checked' : '';
+                var label = properties.name + ' (' + properties.count + ')';
+                return '<input class="mr-2" type="radio" ' + checked + '/>' + label;
+              }
 						},
 					})
 				);
-
-				/* Categories refinement widget */
-				search.addWidget(
-					instantsearch.widgets.hierarchicalMenu({
-						container: '#facet-categories',
-						separator: ' > ',
-						sortBy: ['count'],
-						attributes: ['taxonomies_hierarchical.category.lvl0', 'taxonomies_hierarchical.category.lvl1', 'taxonomies_hierarchical.category.lvl2'],
-						templates: {
-							header: '<h3 class="widgettitle">Categories</h3>'
-						}
-					})
-				);
-
-				/* Tags refinement widget */
-				// search.addWidget(
-				// 	instantsearch.widgets.refinementList({
-				// 		container: '#facet-tags',
-				// 		attributeName: 'taxonomies.post_tag',
-				// 		operator: 'and',
-				// 		limit: 15,
-				// 		sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
-				// 		templates: {
-				// 			header: '<h3 class="widgettitle">Tags</h3>'
-				// 		}
-				// 	})
-				// );
 
 				/* Start */
 				search.start();

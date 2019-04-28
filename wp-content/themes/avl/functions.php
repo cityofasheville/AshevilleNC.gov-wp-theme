@@ -339,14 +339,22 @@ function titled_links ($html) {
 add_filter('gdoc_table_html', 'titled_links');
 
 
+// Algolia filters
+// See also:  https://community.algolia.com/wordpress/filters.html
 
-// OTHER ALGOLIA FILTERS:  https://community.algolia.com/wordpress/filters.html
+// add medium image sizes so that they aren't goofy and small
 add_filter('algolia_post_images_sizes', function($sizes) {
     $sizes[] = 'medium';
     return $sizes;
 });
 
-// TODO: filter out events?  or just unselect by default?
+// filter out tribe events
+function filter_tribe_events( array $blacklist ) {
+    $blacklist[] = 'tribe_events';
+    return $blacklist;
+}
+add_filter( 'algolia_post_types_blacklist', 'filter_tribe_events' );
+
 // TODO: get tags from backend-- could we use a filter here to grab the card footer? and pre-render html?
 
 /**
