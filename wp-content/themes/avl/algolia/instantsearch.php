@@ -68,16 +68,13 @@
 
 			</div>
 
-			<!-- TODO: need tags -->
-			<# if ( data.post_type !== 'avl_department_page' && data.post_type !== 'page' ) { #>
-  			<footer class="card-footer entry-footer">
-    			<# if ( data.post_type === 'post' ) { #>
-            <a class="badge badge-primary bg-avl-blue" href="/news">News</a>
-    			<# } else { #>
-            <a class="badge badge-primary bg-avl-blue" href="/{{ data.post_type_label.toLowerCase() }}">{{{ data.post_type_label}}}</a>
-    			<# } #>
-  			</footer>
-			<# } #>
+			<footer class="card-footer entry-footer category-only">
+  			<# if ( data.post_type === 'post' ) { #>
+          <a class="badge badge-primary bg-avl-blue" href="/news">News</a>
+  			<# } else { #>
+          <a class="badge badge-primary bg-avl-blue" href="/{{ data.post_type_label.toLowerCase() }}">{{{ data.post_type_label}}}</a>
+  			<# } #>
+			</footer>
 		</article>
 	</script>
 
@@ -128,12 +125,12 @@
 					instantsearch.widgets.hits({
 						container: '#algolia-hits',
 						hitsPerPage: 12,
-						// transformData: {
-						// 	item: function(hit) {
-            //     console.log(hit);
-						// 		return hit;
-						// 	},
-						// },
+						transformData: {
+							item: function(hit) {
+                console.log(hit);
+								return hit;
+							},
+						},
 						templates: {
 							empty: 'No results were found for "<strong>{{query}}</strong>".',
 							item: wp.template('instantsearch-hit'),
@@ -156,7 +153,7 @@
 						sortBy: ['count:desc', 'name:asc'],
 						limit: 10,
 						templates: {
-							header: '<span class="widgettitle h4">Filter Results</span>',
+							header: '<span class="widgettitle h4 mb-2">Filter Results</span>',
               item: function(properties) {
                 var checked = properties.isRefined ? 'checked' : '';
                 var label = properties.name + ' (' + properties.count + ')';
