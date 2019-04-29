@@ -182,6 +182,11 @@ html, body {
 	flex: 1;
 }
 
+/* To allow for tables */
+.site-main {
+  overflow-x: scroll;
+}
+
 /* Header */
 
 /* TEMPORARY FOR BETA */
@@ -786,6 +791,10 @@ figcaption {
 }
 
 /* Styles for inline sheets plugin */
+
+/* .dataTable {
+  overflow-x: scroll;
+} */
 
 .dataTable .display-none {
   display: none;

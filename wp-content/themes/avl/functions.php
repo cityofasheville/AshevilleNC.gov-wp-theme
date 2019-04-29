@@ -360,8 +360,6 @@ function mb_algolia_searchable_post_types(array $post_types) {
 }
 add_filter( 'algolia_searchable_post_types', 'mb_algolia_searchable_post_types' );
 
-// TODO: get tags from backend-- could we use a filter here to grab the card footer? and pre-render html?
-
 /**
  * Load Jetpack compatibility file.
  */
