@@ -424,6 +424,7 @@ html, body {
   padding-bottom: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  white-space: nowrap;
 }
 
 #projects-initiatives a span, #projects-initiatives a h2 {
@@ -433,6 +434,10 @@ html, body {
 #projects-initiatives a h2 {
   text-decoration: inherit;
   color: inherit;
+}
+
+#projects-initiatives a h2, #projects-initiatives p {
+  white-space: normal;
 }
 
 /* Style like an h5, don't use headers for styling */

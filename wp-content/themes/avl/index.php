@@ -146,9 +146,9 @@ get_header();
 						<p>For the past few months, we've been working closely with content creators, City colleagues, and the public to rewrite service information and to design features that better meet your needs.</p>
 						<div class="progress" style="height: 40px;">
 							<div class="progress-bar bg-avl-blue-35" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">Alpha<span class="icon icon-check"></span></div>
-							<div class="progress-bar bg-avl-blue-75" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Beta<span class="icon icon-game"></span></div>
-							<div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Launch</div>
-							<div class="progress-bar bg-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Migration</div>
+							<div class="progress-bar bg-avl-blue-75" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Beta<span class="icon icon-check"></span></div>
+							<div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Launch<span class="icon icon-game"></span></div>
+							<div class="progress-bar bg-dark" role="progressbar" style="width: 25%; white-space: normal;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Content Migration</div>
 						</div>
 					</div>
 				</div>
