@@ -4,40 +4,33 @@
 		<div class="row">
 			<header class="page-header mb-3 col-sm-12">
 				<h1 class="page-title">
-					<?php
-					printf( esc_html__( 'Search Results for: %s', 'avl' ), '<span>' . get_search_query() . '</span>' );
-					?>
+          <h1>Search Results</h1>
 				</h1>
 			</header>
 
-			<aside id="ais-facets" class="col-md-2 col-sm-12">
-				<section class="ais-facets" id="facet-post-types"></section>
-				<!-- <section class="ais-facets" id="facet-categories"></section>
-				<section class="ais-facets" id="facet-tags"></section> -->
-			</aside>
+			<!-- <aside id="ais-facets" class="col-md-2 col-sm-12">
+			</aside> -->
 
-
-			<section id="primary" class="content-area col-md-10 col-sm-12">
-
+			<section id="primary" class="content-area col-sm-12">
 				<div id="ais-main" class="site-main">
 					<div id="algolia-search-box">
 						<div id="algolia-stats"></div>
 						<svg class="search-icon" width="25" height="25" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M24.828 31.657a16.76 16.76 0 0 1-7.992 2.015C7.538 33.672 0 26.134 0 16.836 0 7.538 7.538 0 16.836 0c9.298 0 16.836 7.538 16.836 16.836 0 3.22-.905 6.23-2.475 8.79.288.18.56.395.81.645l5.985 5.986A4.54 4.54 0 0 1 38 38.673a4.535 4.535 0 0 1-6.417-.007l-5.986-5.986a4.545 4.545 0 0 1-.77-1.023zm-7.992-4.046c5.95 0 10.775-4.823 10.775-10.774 0-5.95-4.823-10.775-10.774-10.775-5.95 0-10.775 4.825-10.775 10.776 0 5.95 4.825 10.775 10.776 10.775z" fill-rule="evenodd"></path></svg>
 					</div>
+
+  				<section class="ais-facets" id="facet-post-types"></section>
+
 					<div id="algolia-hits" class="card-columns">
 					</div>
 					<div id="algolia-pagination"></div>
 				</div>
 			</section>
 
-
 		</div>
 	</div>
 
 	<script type="text/html" id="tmpl-instantsearch-hit">
 		<article id="post-{{ data.post_id }}" class="card h-100 format-standard has-thumbnail">
-			<div class="ais-hits--content entry-header">
-			</div>
 			<# if ( data.images.medium ) { #>
 				<a href="{{ data.permalink }}" title="{{ data.post_title }}" class="post-thumbnail flex-shrink-0">
 					<img src="{{ data.images.medium.url }}" class="card-img-top h-auto wp-post-image" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" sizes="(max-width: 450px) 100vw, 450px" />
@@ -53,6 +46,7 @@
 						href="{{ data.permalink }}"
 						title="{{ data.post_title }}"
 						itemprop="url"
+            style="color: {{ data.color }};"
 					>
 						{{{ data._highlightResult.post_title.value }}}
 					</a>
@@ -68,11 +62,11 @@
 
 			</div>
 
-			<footer class="card-footer entry-footer category-only">
+			<footer class="search-footer" style="background-color: {{ data.color }}">
   			<# if ( data.post_type === 'post' ) { #>
-          <a class="badge badge-primary bg-avl-blue" href="/news">News</a>
+          <a href="/news">News</a>
   			<# } else { #>
-          <a class="badge badge-primary bg-avl-blue" href="/{{ data.post_type_label.toLowerCase() }}">{{{ data.post_type_label}}}</a>
+          <a href="/{{ data.post_type_label.toLowerCase() }}">{{{ data.post_type_label}}}</a>
   			<# } #>
 			</footer>
 		</article>
@@ -80,6 +74,26 @@
 
 
 	<script type="text/javascript">
+    var colorScheme = [
+      '#004987',
+      '#607425',
+      '#4077A5',
+      '#cc6600',
+    ];
+
+    var categories = [
+      'Posts',
+      'Department Pages',
+      'Services',
+      'Pages'
+    ];
+
+    var catColors = {};
+
+    categories.forEach(function(cat, i) {
+      catColors[cat] = colorScheme[i];
+    })
+
 		jQuery(function() {
 			if(jQuery('#algolia-search-box').length > 0) {
 
@@ -127,7 +141,7 @@
 						hitsPerPage: 12,
 						transformData: {
 							item: function(hit) {
-                console.log(hit);
+                hit.color = catColors[hit.post_type_label];
 								return hit;
 							},
 						},
@@ -160,7 +174,7 @@
                 if (properties.name === 'Posts') {
                   var label = 'News (' + properties.count + ')';
                 }
-                return '<input class="mr-2 mt-2" type="radio" ' + checked + '/>' + label;
+                return '<button class="text-white filter-button" style="background-color: ' + catColors[properties.name] + '" type="button" ' + checked + '>' + label + '</button>';
               }
 						},
 					})
