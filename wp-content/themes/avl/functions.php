@@ -292,16 +292,20 @@ function titled_links ($html) {
   $replace_these = array();
 
   foreach ($ths as $index => $th) {
-    $th_val = $th->nodeValue;
-    if (strpos($th_val, 'Link_Title') !== false) {
-      $title_key = strstr($th_val, '_Link_Title', true);
+    $th_val = strtolower($th->nodeValue);
+
+    if (strpos($th_val, '_link_title') !== false) {
+      $title_key = strstr($th_val, '_link_title', true);
+
       if (!array_key_exists($title_key, $replace_these)) {
         $replace_these[$title_key] = array();
       }
       $replace_these[$title_key]['title_index'] = $index;
-      $th->nodeValue = $title_key;
-    } elseif (strpos($th_val, 'Link') !== false) {
-      $title_key = strstr($th_val, '_Link', true);
+      // Set the column header to be the part that comes before _Link_Title
+      $th->nodeValue = ucwords(str_replace('_', ' ', $title_key));
+
+    } elseif (strpos($th_val, '_link') !== false) {
+      $title_key = strstr($th_val, '_link', true);
       if (!array_key_exists($title_key, $replace_these)) {
         $replace_these[$title_key] = array();
       }
@@ -312,23 +316,32 @@ function titled_links ($html) {
 
   $tbody = $dom->getElementsByTagName('tbody')->item(0);
   $trs = $tbody->childNodes;
+  // For each row in the table body
   foreach ($trs as $index => $tr) {
     $tds = $tr->childNodes;
+    // For each set of "replace these" items for which there is either a title or link value
     foreach ($replace_these as $title_key => $replacement_values) {
       $link_value = $tds[$replacement_values['link_index']]->nodeValue;
-      $tds[$replacement_values['link_index']]->setAttribute('class', 'display-none');
-      if (strlen($link_value) > 0) {
-        $newLinkNode = $dom->createElement('a');
-        $newLinkNode->setAttribute('href', $link_value);
-        $newLinkNode->setAttribute('target', '_blank');
-        $newLinkNode->setAttribute('rel', 'noopener noreferrer');
-        $newLinkNode->nodeValue = $tds[$replacement_values['title_index']]->nodeValue;
+      $title_value = $tds[$replacement_values['title_index']]->nodeValue;
 
-        $tds[$replacement_values['title_index']]->replaceChild(
-          $newLinkNode,
-          $tds[$replacement_values['title_index']]->firstChild
-        );
+      // Set the link column to not display at all
+      $tds[$replacement_values['link_index']]->setAttribute('class', 'display-none');
+      $newLinkNode = $dom->createElement('a');
+      $newLinkNode->setAttribute('href', $link_value);
+      $newLinkNode->setAttribute('target', '_blank');
+      $newLinkNode->setAttribute('rel', 'noopener noreferrer');
+
+      if (strlen($title_value) > 0) {
+        $newLinkNode->nodeValue = $title_value;
+      } else {
+        // If there isn't a title
+        $newLinkNode->nodeValue = $link_value;
       }
+
+      $tds[$replacement_values['title_index']]->replaceChild(
+        $newLinkNode,
+        $tds[$replacement_values['title_index']]->firstChild
+      );
 
     }
   }
