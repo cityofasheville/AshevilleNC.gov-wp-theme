@@ -226,18 +226,20 @@ add_action( 'widgets_init', 'avl_widgets_init' );
 // 	}
 // }
 // add_filter( 'clean_url', 'advanced_asyc_scripts', 11, 1 );
-function aty_js_async_attr($tag){
+function add_js_async_attr($tag){
   // if(true == strpos($tag, 'algolia' ) || true == strpos($tag, 'jquery' )) {
   //   return $tag;
   // }
   // return str_replace( ' src', ' async="async" defer src', $tag );
-
-  if(true == strpos($tag, 'dataTables' ) || true == strpos($tag, 'datatables' ) || true == strpos($tag, '.css' )) {
-    return str_replace( ' src', ' async="async" defer src', $tag );
+  $scripts_to_include = array('dataTables', 'datatables', 'pdfmake', 'gvizcharts');
+  foreach($scripts_to_include as $include_script){
+    if(true == strpos($tag, $include_script )) {
+      return str_replace( ' src', ' async="async" src', $tag );
+    }
   }
   return $tag;
 }
-add_filter( 'script_loader_tag', 'aty_js_async_attr', 10 );
+add_filter( 'script_loader_tag', 'add_js_async_attr', 10 );
 
 
 function avl_scripts() {
