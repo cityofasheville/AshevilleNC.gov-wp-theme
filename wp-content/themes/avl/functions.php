@@ -232,7 +232,7 @@ function aty_js_async_attr($tag){
   // }
   // return str_replace( ' src', ' async="async" defer src', $tag );
 
-  if(true == strpos($tag, 'dataTables' ) || true == strpos($tag, 'datatables' )) {
+  if(true == strpos($tag, 'dataTables' ) || true == strpos($tag, 'datatables' ) || true == strpos($tag, '.css' )) {
     return str_replace( ' src', ' async="async" defer src', $tag );
   }
   return $tag;
