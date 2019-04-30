@@ -18,7 +18,7 @@
 						<svg class="search-icon" width="25" height="25" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M24.828 31.657a16.76 16.76 0 0 1-7.992 2.015C7.538 33.672 0 26.134 0 16.836 0 7.538 7.538 0 16.836 0c9.298 0 16.836 7.538 16.836 16.836 0 3.22-.905 6.23-2.475 8.79.288.18.56.395.81.645l5.985 5.986A4.54 4.54 0 0 1 38 38.673a4.535 4.535 0 0 1-6.417-.007l-5.986-5.986a4.545 4.545 0 0 1-.77-1.023zm-7.992-4.046c5.95 0 10.775-4.823 10.775-10.774 0-5.95-4.823-10.775-10.774-10.775-5.95 0-10.775 4.825-10.775 10.776 0 5.95 4.825 10.775 10.776 10.775z" fill-rule="evenodd"></path></svg>
 					</div>
 
-  				<section class="ais-facets" id="facet-post-types"></section>
+  				<div class="ais-facets" id="facet-post-types"></div>
 
 					<div id="algolia-hits" class="card-columns">
 					</div>
@@ -167,18 +167,45 @@
 						sortBy: ['count:desc', 'name:asc'],
 						limit: 10,
 						templates: {
-							header: '<span class="widgettitle h4 mb-2">Filter Results</span>',
+							header: '<span class="widgettitle h6 mb-2">Filter Results</span>',
               item: function(properties) {
                 var checked = properties.isRefined ? 'checked' : '';
                 var label = properties.name + ' (' + properties.count + ')';
                 if (properties.name === 'Posts') {
                   var label = 'News (' + properties.count + ')';
                 }
-                return '<button class="text-white filter-button" style="background-color: ' + catColors[properties.name] + '" type="button" ' + checked + '>' + label + '</button>';
+                return '<button class="filter-button" style="background-color: ' + catColors[properties.name] + '">' + label + '</button>';
+                // return '<span class="filter-button" style="color: ' + catColors[properties.name] + ';"><input type="radio" ' + checked + ' style="background-color: ' + catColors[properties.name] + ';"/>' + label + '</span>';
               }
 						},
 					})
 				);
+
+        // var dropdownMenu = instantsearch.connectors.connectMenu(function(renderParams, isFirstRendering) {
+        //   if (isFirstRendering) {
+        //     $('#facet-post-types').append(`
+        //       <h1>Filter Results</h1>
+        //       <select id="filter-by-post-type"></select>
+        //     `);
+        //
+        //     const refine = renderParams.refine;
+        //     $(document.body).find('#filter-by-post-type').on('change', ({target}) => {
+        //       refine(target.value);
+        //     });
+        //
+        //     const items = renderParams.items;
+        //     const optionsHTML = items.map(function({value, isRefined, label, count}) {
+        //       return `<option value="${value}" ${isRefined ? 'selected' : ''}>
+        //         ${label} (${count})
+        //       </option>`
+        //     });
+        //   }
+        // });
+        // search.addWidget(
+        //   dropdownMenu({
+        //     attribute: 'post_type_label'
+        //   })
+        // );
 
 				/* Start */
 				search.start();

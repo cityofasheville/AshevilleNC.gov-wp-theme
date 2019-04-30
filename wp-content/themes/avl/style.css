@@ -652,11 +652,20 @@ a.text-primary:hover,
 
 #facet-post-types .ais-menu--list {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.filter-button {
+#facet-post-types .filter-button {
   border-radius: 6px;
-  /* width: 100%; */
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: 2px solid white;
+  color: #f2f2f2;
+}
+
+#facet-post-types .ais-menu--item__active button {
+  font-weight: 600;
+  border: 2px solid transparent;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -865,6 +874,26 @@ figcaption {
 		font-size: 2em;
 	}
 
+  /* Algolia instantsearch */
+  #facet-post-types .ais-menu--item {
+    flex-grow: 1;
+  }
+  #facet-post-types .filter-button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 575px) and (max-width: 975px) {
+  #ais-main .card-columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 1.25rem;
+    -moz-column-gap: 1.25rem;
+    column-gap: 1.25rem;
+    orphans: 1;
+    widows: 1;
+  }
 }
 
 /* Up to large */
