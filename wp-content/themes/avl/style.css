@@ -642,6 +642,10 @@ a.text-primary:hover,
 }
 
 /* Search page */
+#ais-main {
+  padding: 0 !important;
+}
+
 #content #algolia-search-box input {
   border-bottom: 2px solid #004987;
 }
@@ -666,6 +670,10 @@ a.text-primary:hover,
 #facet-post-types .ais-menu--item__active button {
   font-weight: 600;
   border: 2px solid transparent;
+}
+
+#algolia-hits .post-thumnail {
+  max-width: 100%;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -883,7 +891,7 @@ figcaption {
   }
 }
 
-@media (min-width: 575px) and (max-width: 975px) {
+@media (min-width: 575px) and (max-width: 992px) {
   #ais-main .card-columns {
     -webkit-column-count: 2;
     -moz-column-count: 2;
