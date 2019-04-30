@@ -227,12 +227,15 @@ add_action( 'widgets_init', 'avl_widgets_init' );
 // }
 // add_filter( 'clean_url', 'advanced_asyc_scripts', 11, 1 );
 function aty_js_async_attr($tag){
+  // if(true == strpos($tag, 'algolia' ) || true == strpos($tag, 'jquery' )) {
+  //   return $tag;
+  // }
+  // return str_replace( ' src', ' async="async" defer src', $tag );
 
-  if(true == strpos($tag, 'algolia' ) || true == strpos($tag, 'jquery' )) {
-    return $tag;
+  if(true == strpos($tag, 'dataTables' ) || true == strpos($tag, 'datatables' )) {
+    return str_replace( ' src', ' async="async" defer src', $tag );
   }
-      # Async the scripts included above
-  return str_replace( ' src', ' async="async" defer src', $tag );
+  return $tag;
 }
 add_filter( 'script_loader_tag', 'aty_js_async_attr', 10 );
 
