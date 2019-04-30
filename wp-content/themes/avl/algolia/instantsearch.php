@@ -73,7 +73,7 @@
 	</script>
 
 
-	<script type="text/javascript">
+	<script defer type="text/javascript">
     var colorScheme = [
       '#004987',
       '#607425',
