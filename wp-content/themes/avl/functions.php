@@ -228,18 +228,11 @@ add_action( 'widgets_init', 'avl_widgets_init' );
 // add_filter( 'clean_url', 'advanced_asyc_scripts', 11, 1 );
 function aty_js_async_attr($tag){
 
-    # Add defer or async attribute to these scripts
-    // $scripts_to_include = array('js.stripe.com', 'devicepx-jetpack.js');
-    //
-    // foreach($scripts_to_include as $include_script){
-    //     if(true == strpos($tag, $include_script ))
-    //     # Async the scripts included above
-    // }
+  if(true == strpos($tag, 'algolia' ) || true == strpos($tag, 'jquery' )) {
+    return $tag;
+  }
+      # Async the scripts included above
   return str_replace( ' src', ' async="async" defer src', $tag );
-
-    // # Return original tag for all scripts not included
-    // return $tag;
-
 }
 add_filter( 'script_loader_tag', 'aty_js_async_attr', 10 );
 

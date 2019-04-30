@@ -1,4 +1,4 @@
-jQuery(function () {
+jQuery(document).ready(function () {
 	/* init Algolia client */
 	var client = algoliasearch(algolia.application_id, algolia.search_api_key);
 	// This is the admin API key, which should be kept secret
