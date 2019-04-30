@@ -1,9 +1,9 @@
 {
-    "key": "group_5ca68aedefbba",
-    "title": "Per-Page Access Control: Department Pages",
+    "key": "group_5cc8b4c700e0b",
+    "title": "Per-Page Access Control: Pages",
     "fields": [
         {
-            "key": "field_5ca68af4a2876",
+            "key": "field_5cc8b4c7d7dbe",
             "label": "Page Editors",
             "name": "page_editors",
             "type": "user",
@@ -16,28 +16,6 @@
                 "id": ""
             },
             "role": [
-                "department_content_contributor",
-                "department_content_approver"
-            ],
-            "allow_null": 0,
-            "multiple": 1,
-            "return_format": "object"
-        },
-        {
-            "key": "field_5ca68b1aa2877",
-            "label": "Page Content Contributors",
-            "name": "page_content_contributors",
-            "type": "user",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "role": [
-                "department_content_contributor",
                 "department_content_approver"
             ],
             "allow_null": 0,
@@ -50,7 +28,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "avl_department_page"
+                "value": "page"
             },
             {
                 "param": "current_user_role",
@@ -67,5 +45,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1556657401
+    "modified": 1556657442
 }

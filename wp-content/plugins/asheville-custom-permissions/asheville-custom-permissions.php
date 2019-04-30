@@ -142,9 +142,11 @@ function asheville_custom_permissions_check_per_page_access($user, $post, $check
  *                       [2] Associated object ID
  */
 function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
-    // TODO: LOAD USER OFF ID
-    $user = wp_get_current_user();
-
+    if(isset($args[1]) && $args[1]):
+        $user = get_user_by('ID', $args[1]);
+    else:
+        $user = wp_get_current_user();
+    endif;
     // Bail on $_POST for now, but not for content contributors 
     if(! in_array('department_content_contributor', $user->roles)):
         if(isset($_POST)):
@@ -157,6 +159,19 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
             endif;
         endif;
     endif;
+
+    if(in_array('department_content_approver', $user->roles)):
+        if(isset($_POST)):
+            if(isset($_POST['post_type']) && $_POST['post_type'] == 'page'):
+                foreach($cap as $a_cap):
+                    $allcaps[$a_cap] = true;
+                endforeach;
+                return $allcaps;
+            endif;
+        endif;
+    endif;
+
+
 
 
     $user = wp_get_current_user();
@@ -199,7 +214,11 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
     endif;
 
     // To create new depts, add this:  , 'edit_avl_department_term',
-    if (! in_array($cap[0], array('edit_post', 'unfiltered_html', 'edit_posts', 'assign_avl_department_term', 'publish_avl_department_pages', 'edit_avl_department_pages', 'edit_avl_department_page', 'edit_others_avl_department_pages')) ):
+    if (! in_array($cap[0], array('edit_post', 'unfiltered_html', 'edit_posts', 'assign_avl_department_term', 'publish_avl_department_pages', 'edit_avl_department_pages', 'edit_avl_department_page', 'edit_others_avl_department_pages',
+
+        // Adding Pages
+        'edit_page', 'edit_pages', 'edit_others_pages'
+    )) ):
         return $allcaps;
     endif;
 
@@ -231,7 +250,7 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
     endif;
 
     // Make sure we're dealing with either a department page or revision
-    if(! in_array($post->post_type, array('avl_department_page', 'revision') ) ):
+    if(! in_array($post->post_type, array('avl_department_page', 'revision', 'page') ) ):
         return $allcaps;
     endif;
 
@@ -323,7 +342,11 @@ function asheville_custom_permissions_list_terms_exclusions( $exclusions, $args 
     endif;
 
     // User role check
-    $user = wp_get_current_user();
+    if(isset($args[1]) && $args[1]):
+        $user = get_user_by('ID', $args[1]);
+    else:
+        $user = wp_get_current_user();
+    endif;
 
     if(in_array('administrator', $user->roles)):
         return $exclusions;
@@ -331,15 +354,20 @@ function asheville_custom_permissions_list_terms_exclusions( $exclusions, $args 
    
     $user_access_to_cats = array();
 
-    $user_editor_cats = get_field('department_editor', $user);
-    $user_editor_cat_ids = asheville_custom_permissions_get_term_ids($user_editor_cats);
+    // $user_editor_cats = get_field('department_editor', $user);
+    // $user_editor_cat_ids = asheville_custom_permissions_get_term_ids($user_editor_cats);
+    $user_editor_cat_ids = get_user_meta($user->ID, 'department_editor', true);
 
-    $user_access_to_cats = array_merge($user_access_to_cats, $user_editor_cat_ids);
+    if($user_editor_cat_ids):
+        $user_access_to_cats = array_merge($user_access_to_cats, $user_editor_cat_ids);
+    endif;
+    // $user_content_contributor_cats = get_field('department_content_contributor', $user);
+    // $user_content_contributor_cat_ids = asheville_custom_permissions_get_term_ids($user_content_contributor_cats);
+    $user_content_contributor_cat_ids = get_user_meta($user->ID, 'department_content_contributor', true);
 
-    $user_content_contributor_cats = get_field('department_content_contributor', $user);
-    $user_content_contributor_cat_ids = asheville_custom_permissions_get_term_ids($user_content_contributor_cats);
-
-    $user_access_to_cats = array_merge($user_access_to_cats, $user_content_contributor_cat_ids);
+    if($user_content_contributor_cat_ids):
+        $user_access_to_cats = array_merge($user_access_to_cats, $user_content_contributor_cat_ids);
+    endif;
 
     $user_access_to_cats_str = "'".implode("', '", $user_access_to_cats)."'";
 
