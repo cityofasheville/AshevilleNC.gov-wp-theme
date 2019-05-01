@@ -11,27 +11,35 @@ License: GPL2
 
 // Since we updated the CPTS for departments and services, let's give administrators access
 function add_avl_department_page_caps() {
-  $role = get_role( 'administrator' );
-  $role->add_cap( 'edit_avl_department_pages' ); 
-  $role->add_cap( 'edit_avl_department_pages' ); 
-  $role->add_cap( 'edit_others_avl_department_pages' ); 
-  $role->add_cap( 'publish_avl_department_pages' ); 
-  $role->add_cap( 'read_avl_department_pages' ); 
-  $role->add_cap( 'read_private_avl_department_pages' ); 
-  $role->add_cap( 'delete_avl_department_pages' ); 
-  $role->add_cap( 'edit_published_avl_department_pages' );   //added
-  $role->add_cap( 'delete_published_avl_department_pages' ); //added
+    // Create a custom capability for create pages
+    // This is necessary to provide a distinction between editing existing
+    // pages and creating new ones.
+    $page_type = get_post_type_object('page');
+    $page_type->cap->create_posts = 'create_page';
+    map_meta_cap( 'create_page', 1); 
+
+    $role = get_role( 'administrator' );
+    $role->add_cap( 'create_page' ); 
+    $role->add_cap( 'edit_avl_department_pages' ); 
+    $role->add_cap( 'edit_avl_department_pages' ); 
+    $role->add_cap( 'edit_others_avl_department_pages' ); 
+    $role->add_cap( 'publish_avl_department_pages' ); 
+    $role->add_cap( 'read_avl_department_pages' ); 
+    $role->add_cap( 'read_private_avl_department_pages' ); 
+    $role->add_cap( 'delete_avl_department_pages' ); 
+    $role->add_cap( 'edit_published_avl_department_pages' );   //added
+    $role->add_cap( 'delete_published_avl_department_pages' ); //added
 
 
-  $role->add_cap( 'edit_avl_services' ); 
-  $role->add_cap( 'edit_avl_services' ); 
-  $role->add_cap( 'edit_others_avl_services' ); 
-  $role->add_cap( 'publish_avl_services' ); 
-  $role->add_cap( 'read_avl_services' ); 
-  $role->add_cap( 'read_private_avl_services' ); 
-  $role->add_cap( 'delete_avl_services' ); 
-  $role->add_cap( 'edit_published_avl_services' );   //added
-  $role->add_cap( 'delete_published_avl_services' ); //added
+    $role->add_cap( 'edit_avl_services' ); 
+    $role->add_cap( 'edit_avl_services' ); 
+    $role->add_cap( 'edit_others_avl_services' ); 
+    $role->add_cap( 'publish_avl_services' ); 
+    $role->add_cap( 'read_avl_services' ); 
+    $role->add_cap( 'read_private_avl_services' ); 
+    $role->add_cap( 'delete_avl_services' ); 
+    $role->add_cap( 'edit_published_avl_services' );   //added
+    $role->add_cap( 'delete_published_avl_services' ); //added
 }
 add_action( 'admin_init', 'add_avl_department_page_caps');
 
@@ -158,6 +166,12 @@ function asheville_custom_permissions_cap_filter( $allcaps, $cap, $args ) {
                 return $allcaps;
             endif;
         endif;
+    endif;
+
+    if(in_array('department_content_approver', $user->roles) || in_array('web_content_manager', $user->roles)):
+        // Remove the "Add new page" submenu
+        global $submenu;
+        $submenu['edit.php?post_type=page'][10] = false;
     endif;
 
     if(in_array('department_content_approver', $user->roles)):
