@@ -216,21 +216,7 @@ add_action( 'widgets_init', 'avl_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-// function advanced_asyc_scripts($url) {
-// 	if ( strpos( $url, '') === false ) {
-// 		return $url;
-// 	} else if ( is_admin() ) {
-// 		return str_replace( '', '', $url );
-// 	} else {
-// 		return str_replace( '', '', $url )."' async defer='defer";
-// 	}
-// }
-// add_filter( 'clean_url', 'advanced_asyc_scripts', 11, 1 );
 function add_js_async_attr($tag){
-  // if(true == strpos($tag, 'algolia' ) || true == strpos($tag, 'jquery' )) {
-  //   return $tag;
-  // }
-  // return str_replace( ' src', ' async="async" defer src', $tag );
   $scripts_to_include = array('dataTables', 'datatables', 'pdfmake', 'gvizcharts');
   foreach($scripts_to_include as $include_script){
     if(true == strpos($tag, $include_script )) {
