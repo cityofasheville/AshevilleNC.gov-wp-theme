@@ -217,7 +217,7 @@ add_action( 'widgets_init', 'avl_widgets_init' );
  * Enqueue scripts and styles.
  */
 function add_js_async_attr($tag){
-  $scripts_to_include = array('dataTables', 'datatables', 'pdfmake', 'gvizcharts', 'twitter');
+  $scripts_to_include = array('pdfmake', 'gvizcharts', 'google-translate');
   foreach($scripts_to_include as $include_script){
     if(true == strpos($tag, $include_script )) {
       return str_replace( ' src', ' async="async" src', $tag );

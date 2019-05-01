@@ -15,7 +15,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<!-- Above always outputs UTF-8 -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 	<!-- Performance hit, but makes IE browsers render using Edge engine -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- <link rel="profile" href="https://gmpg.org/xfn/11"> -->
