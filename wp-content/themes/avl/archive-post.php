@@ -136,7 +136,7 @@ get_header();
 
 				// If it's the first "more news" item, then show the title of the section
 				if ($news_count == 1) {
-					echo '<div class="row d-flex news-title-sidebar mt-5">';
+					echo '<div class="d-flex news-title-sidebar mt-5">';
 					// TODO: ADD COLUMN TO DEAL WITH WEIRD SPACING ON SMALLER SCREENS
 					if ( $featured_news_showing ) {
 						echo '<h2 class="mr-auto">More News</h2>';
