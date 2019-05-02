@@ -217,7 +217,7 @@ add_action( 'widgets_init', 'avl_widgets_init' );
  * Enqueue scripts and styles.
  */
 function add_js_async_attr($tag){
-  $scripts_to_include = array('pdfmake', 'google-translate');
+  $scripts_to_include = array('pdfmake', 'google-translate', 'annotatedtimeline');
   foreach($scripts_to_include as $include_script){
     if(true == strpos($tag, $include_script )) {
       return str_replace( ' src', ' async="async" src', $tag );
@@ -357,19 +357,15 @@ function titled_links ($html) {
       $newLinkNode->setAttribute('href', $link_value);
       $newLinkNode->setAttribute('target', '_blank');
       $newLinkNode->setAttribute('rel', 'noopener noreferrer');
+      $newLinkNode->nodeValue = $title_value;
 
-      if (strlen($title_value) > 0) {
-        $newLinkNode->nodeValue = $title_value;
-      } else {
+      if (strlen($title_value) === 0) {
         // If there isn't a title
         $newLinkNode->nodeValue = $link_value;
       }
 
-      $tds[$replacement_values['title_index']]->replaceChild(
-        $newLinkNode,
-        $tds[$replacement_values['title_index']]->firstChild
-      );
-
+    $tds[$replacement_values['title_index']]->nodeValue = '';
+    $tds[$replacement_values['title_index']]->appendChild($newLinkNode);
     }
   }
 
