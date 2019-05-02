@@ -36,7 +36,7 @@
 				</div>
 			</div>
 			<div class="collapse" id="toggle-feedback">
-				<div class="text-white bg-secondary py-3">
+				<div class="text-white bg-avl-blue py-3">
 					<div class="container">
 						<?= do_shortcode('[ninja_form id=1]'); ?>
 					</div>

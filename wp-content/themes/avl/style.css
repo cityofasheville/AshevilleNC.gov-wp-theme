@@ -106,6 +106,12 @@ html, body {
 	color: #E1E2A6;
 }
 
+.alert-info {
+  color: black;
+  background-color:  #eef3f7;
+  border: 1px solid transparent;
+}
+
 /* General */
 
 .badge + .badge {
@@ -727,6 +733,21 @@ footer .feedback-container {
 #colophon img.footer-city-logo {
 	/* Maybe this will fix the eiffel tower issue on IE */
 	max-height: 3em;
+}
+
+.ninja-forms-field.btn.nf-element {
+	background-color: #4077A5;
+  color: white;
+  border: 1px solid #4077A5;
+}
+
+
+.ninja-forms-field.btn.nf-element:hover,
+.ninja-forms-field.btn.nf-element:focus,
+.ninja-forms-field.btn.nf-element:active {
+  background-color:  #4785b8;
+  border: 1px solid  #c8daea;
+  box-shadow: unset;
 }
 
 /* TEMPORARY - REMOVE AFTER REMOVING ADDSEARCH */
