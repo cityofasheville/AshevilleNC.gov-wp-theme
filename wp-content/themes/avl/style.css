@@ -189,7 +189,11 @@ html, body {
 }
 
 /* To allow for tables */
-.site-main {
+/* .site-main {
+  overflow-x: visible;
+} */
+
+.dataTables_wrapper {
   overflow-x: scroll;
 }
 
