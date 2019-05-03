@@ -792,7 +792,6 @@ figcaption {
 	-ms-flex-positive: 1;
 	flex-grow: 1;
 	/* Min width for narrow desktop screens header search dropdown */
-	min-width: 129px;
 	max-width: 100%;
 }
 

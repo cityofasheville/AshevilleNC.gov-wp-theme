@@ -155,11 +155,19 @@ jQuery(function () {
 	inputsAndSelectors.forEach(function(item) {
 		var controlledListbox = jQuery(item.ariaControlsSelector);
 		controlledListbox.attr('title', 'Search results');
-		item.searchInputEl.setAttribute('aria-controls', controlledListbox.attr('id'))
+    var inputEl = jQuery(item.searchInputEl);
+		inputEl.attr('aria-controls', controlledListbox.attr('id'));
 		// Also set min width for search results groups
-		var inputWidth = jQuery(item.searchInputEl).css('width').replace('px', '');
-		controlledListbox
-			.children('div')
-			.css('min-width', Math.max(129,inputWidth / 3));
+		var inputWidth = inputEl.css('width').replace('px', '');
+    var isHeader = inputEl.attr('id').indexOf('header') >= 0;
+    if (isHeader) {
+  		controlledListbox
+  			.children('div')
+  			.css('min-width', inputWidth * 0.75);
+    } else {
+  		controlledListbox
+  			.children('div')
+  			.css('min-width', inputWidth * 0.4);
+    }
 	})
 });
