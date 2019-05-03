@@ -130,6 +130,7 @@ jQuery(function () {
 	var initialPageBottom = pageBox.bottom + window.pageYOffset;
 
 	function onSearchEnter() {
+    console.log('on search enter fire')
 		var searchResultsBoxHeights = [
 			jQuery('#search-results-0 .aa-dropdown-menu'),
 			jQuery('#search-results-1 .aa-dropdown-menu'),
@@ -149,7 +150,9 @@ jQuery(function () {
 		}
 	}
 
-	jQuery('.algolia-autocomplete').on('DOMSubtreeModified', onSearchEnter);
+  jQuery(document).ready(function() {
+  	jQuery('.algolia-autocomplete').on('DOMSubtreeModified', onSearchEnter);
+  })
 
 	/*  Associate the right aria-controls with the right box ids */
 	inputsAndSelectors.forEach(function(item) {
