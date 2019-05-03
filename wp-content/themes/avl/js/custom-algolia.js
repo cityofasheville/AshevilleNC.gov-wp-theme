@@ -122,21 +122,35 @@ jQuery(function () {
 		});
 	});
 
-
-	// TODO: MAKE MAIN LONGER TO COMPENSATE?
+  function debounce(func, wait, immediate) {
+    var timeout;
+    return function executedFunction() {
+      var context = this;
+      var args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
 
 	/* Makes footer move down if search results are really long */
 	var pageBox = document.getElementById('page').getBoundingClientRect();
 	var initialPageBottom = pageBox.bottom + window.pageYOffset;
 
-	function onSearchEnter(thing) {
+	var onSearchEnter = debounce(function(thing) {
     var searchResultsBottom = this.getBoundingClientRect().bottom + window.pageYOffset;
+    console.log(pageBox, initialPageBottom, searchResultsBottom)
 		if (searchResultsBottom > initialPageBottom) {
 			jQuery('#page').css('min-height', searchResultsBottom + 'px');
 		} else {
 			jQuery('#page').css('min-height', initialPageBottom + 'px');
 		}
-	}
+	}, 250);
 
   jQuery(document).ready(function() {
   	jQuery('.algolia-autocomplete').on('DOMSubtreeModified', onSearchEnter);
