@@ -30,7 +30,7 @@
   						<span class="icon icon-lamp-bright"></span> Feedback
   					</button>
   					<span class="text-white ml-2 mr-auto">
-  						We're still working on this page's design and content. How can we make it better?
+  						We're still working on this website's design and content. How can we make it better?
   					</span>
           </div>
 				</div>

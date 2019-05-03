@@ -160,6 +160,6 @@ jQuery(function () {
 		var inputWidth = jQuery(item.searchInputEl).css('width').replace('px', '');
 		controlledListbox
 			.children('div')
-			.css('min-width', Math.max(129, inputWidth / 3));
+			.css('min-width', Math.max(129,inputWidth / 3));
 	})
 });

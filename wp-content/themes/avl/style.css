@@ -178,20 +178,17 @@ html, body {
 
 
 #page {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
 }
 
 #content {
-	min-height: 60vh;
+	min-height: 30vh;
 	flex: 1;
 }
-
-/* To allow for tables */
-/* .site-main {
-  overflow-x: visible;
-} */
 
 .dataTables_wrapper {
   overflow-x: scroll;
