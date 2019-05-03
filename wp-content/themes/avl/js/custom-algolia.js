@@ -129,20 +129,8 @@ jQuery(function () {
 	var pageBox = document.getElementById('page').getBoundingClientRect();
 	var initialPageBottom = pageBox.bottom + window.pageYOffset;
 
-	function onSearchEnter() {
-    console.log('on search enter fire')
-		var searchResultsBoxHeights = [
-			jQuery('#search-results-0 .aa-dropdown-menu'),
-			jQuery('#search-results-1 .aa-dropdown-menu'),
-		].map(function(searchBox) {
-			if (searchBox.get().length === 0) {
-				return 0;
-			}
-			return searchBox.get()[0].getBoundingClientRect().bottom + window.pageYOffset;
-		}).sort(function(a, b) {
-			return b - a;
-		})
-		var searchResultsBottom = searchResultsBoxHeights[0];
+	function onSearchEnter(thing) {
+    var searchResultsBottom = this.getBoundingClientRect().bottom + window.pageYOffset;
 		if (searchResultsBottom > initialPageBottom) {
 			jQuery('#page').css('min-height', searchResultsBottom + 'px');
 		} else {
