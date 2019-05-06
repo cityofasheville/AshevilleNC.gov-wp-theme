@@ -146,10 +146,9 @@ jQuery(function () {
   	var onSearchEnter = debounce(function(thing) {
       var searchResultsBottom = this.getBoundingClientRect().bottom + window.pageYOffset;
   		if (searchResultsBottom > initialPageBottom) {
-        console.log(pageBox, initialPageBottom, searchResultsBottom)
   			jQuery('#page').css('min-height', searchResultsBottom + 'px');
   		} else {
-  			jQuery('#page').css('min-height', initialPageBottom + 'px');
+  			jQuery('#page').css('min-height', 'unset');
   		}
   	}, 250);
   	jQuery('.algolia-autocomplete').on('DOMSubtreeModified', onSearchEnter);

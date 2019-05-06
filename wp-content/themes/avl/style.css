@@ -187,7 +187,7 @@ html, body {
 
 #content {
 	min-height: 30vh;
-	flex: 1;
+	flex: 1 1 auto;
 }
 
 .dataTables_wrapper {
