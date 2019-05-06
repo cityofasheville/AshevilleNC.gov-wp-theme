@@ -145,8 +145,8 @@ jQuery(function () {
   	var initialPageBottom = pageBox.height;
   	var onSearchEnter = debounce(function(thing) {
       var searchResultsBottom = this.getBoundingClientRect().bottom + window.pageYOffset;
-      // console.log(pageBox, initialPageBottom, searchResultsBottom)
   		if (searchResultsBottom > initialPageBottom) {
+        console.log(pageBox, initialPageBottom, searchResultsBottom)
   			jQuery('#page').css('min-height', searchResultsBottom + 'px');
   		} else {
   			jQuery('#page').css('min-height', initialPageBottom + 'px');
