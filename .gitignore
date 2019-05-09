@@ -63,3 +63,7 @@ Thumbs.db
 # SASS #
 ##########
 .sass-cache
+
+# local development environment specific files #
+################################################
+htdocs/
