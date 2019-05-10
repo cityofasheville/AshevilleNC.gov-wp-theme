@@ -14,3 +14,5 @@
     terminus backup:create avlbeta.live --element=files
     terminus backup:get avlbeta.live --element=files
 1. Change permissions of uploads directory - `chmod -R 755 uploads`
+
+Sync Pantheon and GitHub: https://pantheon.io/docs/guides/collaborative-development/
