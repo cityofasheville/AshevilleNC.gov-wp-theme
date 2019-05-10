@@ -124,8 +124,8 @@ get_header();
 							<div class="col-6"><a href="https://www.youtube.com/user/CityofAsheville" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-youtube icon-5x"></span></a></div>
 						</div>
 					</div>
-					<div class="col-sm-12 col-md-4">
-						<a class="twitter-timeline" data-height="400" href="https://twitter.com/CityofAsheville" tabindex="-1">Tweets by CityofAsheville</a>
+					<div class="col-sm-12 col-md-4" id="twitter-container">
+						<a class="twitter-timeline" data-tweet-limit="4" href="https://twitter.com/CityofAsheville">Latest from CityofAsheville</a>
 					</div>
 				</div>
 			</div>
