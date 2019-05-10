@@ -281,6 +281,7 @@ function avl_exclude_script( $excludes ) {
     $excludes[] = 'algolia-search';
     $excludes[] = 'algolia-autocomplete';
     $excludes[] = 'algolia-autocomplete-noconflict';
+    $excludes[] = 'algolia-instantsearch';
     $excludes[] = 'custom-algolia-js';
 
     return $excludes;
