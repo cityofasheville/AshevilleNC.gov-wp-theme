@@ -63,7 +63,7 @@
 			</div>
 
 			<footer class="search-footer" style="background-color: {{ data.color }}">
-        <a href="/{{ data.post_type_label.toLowerCase() }}">{{{ data.permalink.split('/').slice(3, -2).join(' | ').split('-').join(' ') }}}</a>
+        <a href="/{{ data.permalink.split('/').slice(3, -2).join('/') }}">{{{ data.permalink.split('/').slice(3, -2).join(' | ').split('-').join(' ') }}}</a>
 
   			<!-- <# if ( data.post_type === 'post' ) { #>
           <a href="/news">News</a>
