@@ -278,6 +278,7 @@ add_filter( 'sbp_exclude_defer_scripts', 'avl_exclude_script' );
 
 function avl_exclude_script( $excludes ) {
     $excludes[] = 'google-ajax-api';
+    $excludes[] = 'jquery-core';
     $excludes[] = 'algolia-search';
     $excludes[] = 'algolia-autocomplete';
     $excludes[] = 'algolia-autocomplete-noconflict';
