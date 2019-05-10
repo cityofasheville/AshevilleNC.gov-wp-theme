@@ -274,7 +274,7 @@ function avl_scripts() {
 	wp_deregister_script( 'wp-embed' );
 }
 add_action( 'wp_enqueue_scripts', 'avl_scripts' );
-add_filter( 'sbp_exclude_defer_scripts', 'theme_name_exclude_script' );
+add_filter( 'sbp_exclude_defer_scripts', 'avl_exclude_script' );
 
 function avl_exclude_script( $excludes ) {
     $excludes[] = 'google-ajax-api';
