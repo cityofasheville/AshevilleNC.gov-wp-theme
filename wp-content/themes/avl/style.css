@@ -641,12 +641,13 @@ a.text-primary:hover,
 .search-footer {
   color: white;
   font-size: 0.85rem;
+  padding: 0.25rem;
 }
 
 .search-footer a {
   color: inherit;
-  padding: 0.5rem;
   width: 100%;
+  text-transform: capitalize;
 }
 
 /* Search page */
@@ -679,6 +680,14 @@ a.text-primary:hover,
   font-weight: 600;
   border: 2px solid transparent;
 }
+
+/* .search-card-header {
+  font-size: 0.85rem;
+  padding: 0.5rem;
+  width: 100%;
+  color: gray;
+  text-transform: capitalize;
+} */
 
 #algolia-hits .post-thumnail {
   max-width: 100%;
