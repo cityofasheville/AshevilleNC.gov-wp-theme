@@ -1,3 +1,23 @@
+var colorScheme = [
+  '#004987',
+  '#607425',
+  '#4077A5',
+  '#cc6600',
+];
+
+var categories = [
+  'Posts',
+  'Department Pages',
+  'Services',
+  'Pages'
+];
+
+var catColors = {};
+
+categories.forEach(function(cat, i) {
+  catColors[cat] = colorScheme[i];
+})
+
 jQuery(function () {
 	/* init Algolia client */
 	var client = algoliasearch(algolia.application_id, algolia.search_api_key);
@@ -23,16 +43,17 @@ jQuery(function () {
 				}
 			),
 			templates: {
-				header: function () {
-					return wp.template('autocomplete-header')({
-						label: _.escape(config['label'])
-					});
-				},
+				// header: function () {
+				// 	return wp.template('autocomplete-header')({
+				// 		label: _.escape(config['label'])
+				// 	});
+				// },
 				suggestion: function (hit) {
 					if(hit.escaped === true) {
 						return suggestion_template(hit);
 					}
 					hit.escaped = true;
+          hit.color = catColors[hit.post_type_label];
 
 					for (var key in hit._highlightResult) {
 						/* We do not deal with arrays. */

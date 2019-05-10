@@ -779,6 +779,14 @@ figcaption {
 
 /* Algolia Search */
 
+/* .aa-suggestion:nth-child(2n) {
+  background-color: #f2f2f2;
+} */
+
+.aa-suggestion {
+  border-top: 1px solid #f2f2f2;
+}
+
 .aa-dropdown-menu {
 	font-family: inherit;
 	display: -ms-flexbox !important;
