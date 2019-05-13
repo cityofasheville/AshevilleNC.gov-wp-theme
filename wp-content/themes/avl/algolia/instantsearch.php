@@ -1,6 +1,6 @@
 <?php get_header(); ?>
   <!-- Copied from plugins/search-by-algolia.../templates/instantsearch -->
-	<div id="ais-wrapper" class="container-fluid">
+	<div id="ais-wrapper" class="container">
 		<div class="row">
 			<header class="page-header mb-3 col">
 				<h1 class="page-title">
