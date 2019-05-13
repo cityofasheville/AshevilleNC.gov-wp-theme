@@ -288,6 +288,32 @@ function avl_exclude_script( $excludes ) {
     return $excludes;
 }
 
+// Move JavaScript to the Footer
+
+function remove_head_scripts() {
+    remove_action('wp_head', 'wp_print_scripts');
+    remove_action('wp_head', 'wp_print_head_scripts', 9);
+    remove_action('wp_head', 'wp_enqueue_scripts', 1);
+
+    add_action('wp_footer', 'wp_print_scripts', 11);
+    add_action('wp_footer', 'wp_enqueue_scripts', 11);
+    add_action('wp_footer', 'wp_print_head_scripts', 11);
+}
+add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );
+
+add_action('wp_head','search_by_algolia_instant_relevant_results_scripts');
+
+function search_by_algolia_instant_relevant_results_scripts() {
+    wp_register_script('anglio-search', plugins_url('js/angliosearch/angliosearch.jquery.js', 'search_by_algolia_instant_relevant_results'));
+    wp_enqueue_script('anglio-search');
+    wp_register_script('algolia-instantsearch', plugins_url('js/instantsearch/instantsearch.js', 'search_by_algolia_instant_relevant_results'));
+    wp_enqueue_script('algolia-instant');
+    wp_register_script('algolia-autocomplete', plugins_url('js/autocomplete/autocomplete.js', 'search_by_algolia_instant_relevant_results'));
+    wp_enqueue_script('algolia-autocomplete');
+    wp_register_script('algolia-autocomplete-noconflict', plugins_url( 'js/autocomplete-noconflict.js', 'search_by_algolia_instant_relevant_results'));
+    wp_enqueue_script('algolia-autocomplete-noconflict');
+}
+
 /**
  * Implement the Custom Header feature.
  */
