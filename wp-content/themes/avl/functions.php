@@ -57,7 +57,7 @@ if ( ! function_exists( 'avl_setup' ) ) :
 	 * Note that this function is hooked into the after_setup_theme hook, which
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
-	 */
+ 	 */
 	function avl_setup() {
 		/*
 		 * Make theme available for translation.
@@ -274,55 +274,25 @@ function avl_scripts() {
 	wp_deregister_script( 'wp-embed' );
 }
 add_action( 'wp_enqueue_scripts', 'avl_scripts' );
-add_filter( 'sbp_exclude_defer_scripts', 'avl_exclude_script' );
 
-function avl_exclude_script( $excludes ) {
-    $excludes[] = 'google-ajax-api';
-    $excludes[] = 'jquery-core';
-    $excludes[] = 'algolia-search';
-    $excludes[] = 'algolia-autocomplete';
-    $excludes[] = 'algolia-autocomplete-noconflict';
-    $excludes[] = 'algolia-instantsearch';
-    $excludes[] = 'custom-algolia-js';
-    $excludes[] = 'nf-front-end-deps';
-    $excludes[] = 'nf-front-end';
-    return $excludes;
-}
 
 // Move JavaScript to the Footer
-
-function remove_head_scripts() {
-    remove_action('wp_head', 'wp_print_scripts');
-    remove_action('wp_head', 'wp_print_head_scripts', 11);
-    remove_action('wp_head', 'wp_enqueue_scripts', 10);
-
-    add_action('wp_footer', 'wp_print_scripts', 11);
-    add_action('wp_footer', 'wp_enqueue_scripts', 11);
-    add_action('wp_footer', 'wp_print_head_scripts', 11);
-}
-add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );
 
 add_action('wp_head','exclude_footer_scripts');
 
 function exclude_footer_scripts() {
-    wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', array(), null, false);
-    wp_enqueue_script('backbone', 'https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js', array(), null, false);
-
-    wp_enqueue_script('nf-front-end-deps', plugins_url( 'ninja-forms/assets/js/min/front-end-deps.js', 'ninja-forms'), array(), null, true);
-
-    wp_enqueue_script('nf-front-end', plugins_url( 'ninja-forms/assets/js/min/front-end.js', 'ninja-forms'), array(), null, true);
-
-
-    wp_enqueue_script('algolio-search', plugins_url('search_by_algolia_instant_relevant_results/js/algoliasearch/algoliasearch.jquery.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
-
-    wp_enqueue_script('algolia-instantsearch', plugins_url('search_by_algolia_instant_relevant_results/js/instantsearch/instantsearch.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
-
-    wp_enqueue_script('algolia-autocomplete', plugins_url('search_by_algolia_instant_relevant_results/js/autocomplete/autocomplete.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
-
-    wp_enqueue_script('algolia-autocomplete-noconflict', plugins_url( 'search_by_algolia_instant_relevant_results/js/autocomplete-noconflict.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
-
-
-
+    wp_enqueue_script('algolio-search', plugins_url('search-by-algolia-instant-relevant-results/js/algoliasearch/algoliasearch.jquery.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+    wp_enqueue_script('algolia-instantsearch', plugins_url('search-by-algolia-instant-relevant-results/js/instantsearch/instantsearch.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+    wp_enqueue_script('algolia-autocomplete', plugins_url('search-by-algolia-instant-relevant-results/js/autocomplete/autocomplete.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+    wp_enqueue_script('algolia-autocomplete-noconflict', plugins_url( 'search-by-algolia-instant-relevant-results/js/autocomplete-noconflict.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+    if ( is_front_page() && is_home() ) {
+        wp_deregister_script('jquery-datatables');
+        wp_deregister_script('datatables-buttons');
+        wp_deregister_script('datatables-select');
+        wp_deregister_script('datatables-fixedheader');
+        wp_deregister_script('datatables-fixedcolumns');
+        wp_deregister_script('datatables-responsive');
+    }
 }
 
 /**
