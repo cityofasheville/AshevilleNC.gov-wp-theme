@@ -272,15 +272,7 @@ function avl_scripts() {
 
 	// Prevent wp-embed.min.js from loading
 	wp_deregister_script( 'wp-embed' );
-}
-add_action( 'wp_enqueue_scripts', 'avl_scripts' );
 
-
-// Move JavaScript to the Footer
-
-add_action('wp_head','exclude_footer_scripts');
-
-function exclude_footer_scripts() {
     wp_enqueue_script('algolio-search', plugins_url('search-by-algolia-instant-relevant-results/js/algoliasearch/algoliasearch.jquery.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
     wp_enqueue_script('algolia-instantsearch', plugins_url('search-by-algolia-instant-relevant-results/js/instantsearch/instantsearch.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
     wp_enqueue_script('algolia-autocomplete', plugins_url('search-by-algolia-instant-relevant-results/js/autocomplete/autocomplete.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
@@ -294,6 +286,9 @@ function exclude_footer_scripts() {
         wp_deregister_script('datatables-responsive');
     }
 }
+add_action( 'wp_enqueue_scripts', 'avl_scripts' );
+
+
 
 /**
  * Implement the Custom Header feature.
