@@ -1,17 +1,16 @@
 <?php get_header(); ?>
   <!-- Copied from plugins/search-by-algolia.../templates/instantsearch -->
-	<div id="ais-wrapper" class="container">
+	<div id="ais-wrapper" class="container-fluid">
 		<div class="row">
-			<header class="page-header mb-3 col-sm-12">
+			<header class="page-header mb-3 col">
 				<h1 class="page-title">
-          <h1>Search Results</h1>
+          Search Results
 				</h1>
 			</header>
+    </div>
+    <div class="row">
 
-			<!-- <aside id="ais-facets" class="col-md-2 col-sm-12">
-			</aside> -->
-
-			<section id="primary" class="content-area col-sm-12">
+			<section id="primary" class="content-area col">
 				<div id="ais-main" class="site-main">
 					<div id="algolia-search-box">
 						<div id="algolia-stats"></div>

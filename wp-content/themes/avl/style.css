@@ -651,8 +651,13 @@ a.text-primary:hover,
 }
 
 /* Search page */
-#ais-main {
-  padding: 0 !important;
+#ais-wrapper {
+  display: block !important;
+}
+
+.ais-hits--item {
+  border-bottom: 0px solid transparent !important;
+  padding-bottom: unset !important;
 }
 
 #content #algolia-search-box input {
