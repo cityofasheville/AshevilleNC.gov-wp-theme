@@ -284,7 +284,8 @@ function avl_exclude_script( $excludes ) {
     $excludes[] = 'algolia-autocomplete-noconflict';
     $excludes[] = 'algolia-instantsearch';
     $excludes[] = 'custom-algolia-js';
-
+    $excludes[] = 'nf-front-end-deps';
+    $excludes[] = 'nf-front-end';
     return $excludes;
 }
 
@@ -292,8 +293,8 @@ function avl_exclude_script( $excludes ) {
 
 function remove_head_scripts() {
     remove_action('wp_head', 'wp_print_scripts');
-    remove_action('wp_head', 'wp_print_head_scripts', 9);
-    remove_action('wp_head', 'wp_enqueue_scripts', 1);
+    remove_action('wp_head', 'wp_print_head_scripts', 11);
+    remove_action('wp_head', 'wp_enqueue_scripts', 10);
 
     add_action('wp_footer', 'wp_print_scripts', 11);
     add_action('wp_footer', 'wp_enqueue_scripts', 11);
@@ -301,17 +302,27 @@ function remove_head_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );
 
-add_action('wp_head','search_by_algolia_instant_relevant_results_scripts');
+add_action('wp_head','exclude_footer_scripts');
 
-function search_by_algolia_instant_relevant_results_scripts() {
-    wp_register_script('anglio-search', plugins_url('js/angliosearch/angliosearch.jquery.js', 'search_by_algolia_instant_relevant_results'));
-    wp_enqueue_script('anglio-search');
-    wp_register_script('algolia-instantsearch', plugins_url('js/instantsearch/instantsearch.js', 'search_by_algolia_instant_relevant_results'));
-    wp_enqueue_script('algolia-instant');
-    wp_register_script('algolia-autocomplete', plugins_url('js/autocomplete/autocomplete.js', 'search_by_algolia_instant_relevant_results'));
-    wp_enqueue_script('algolia-autocomplete');
-    wp_register_script('algolia-autocomplete-noconflict', plugins_url( 'js/autocomplete-noconflict.js', 'search_by_algolia_instant_relevant_results'));
-    wp_enqueue_script('algolia-autocomplete-noconflict');
+function exclude_footer_scripts() {
+    wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', array(), null, false);
+    wp_enqueue_script('backbone', 'https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js', array(), null, false);
+
+    wp_enqueue_script('nf-front-end-deps', plugins_url( 'ninja-forms/assets/js/min/front-end-deps.js', 'ninja-forms'), array(), null, true);
+
+    wp_enqueue_script('nf-front-end', plugins_url( 'ninja-forms/assets/js/min/front-end.js', 'ninja-forms'), array(), null, true);
+
+
+    wp_enqueue_script('algolio-search', plugins_url('search_by_algolia_instant_relevant_results/js/algoliasearch/algoliasearch.jquery.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+
+    wp_enqueue_script('algolia-instantsearch', plugins_url('search_by_algolia_instant_relevant_results/js/instantsearch/instantsearch.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+
+    wp_enqueue_script('algolia-autocomplete', plugins_url('search_by_algolia_instant_relevant_results/js/autocomplete/autocomplete.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+
+    wp_enqueue_script('algolia-autocomplete-noconflict', plugins_url( 'search_by_algolia_instant_relevant_results/js/autocomplete-noconflict.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+
+
+
 }
 
 /**
