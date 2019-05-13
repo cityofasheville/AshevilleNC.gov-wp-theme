@@ -54,7 +54,7 @@ jQuery(function () {
 					}
 					hit.escaped = true;
           hit.color = catColors[hit.post_type_label];
-          hit.permalink = '/' + hit.permalink.split('/').slice(3, -1).join('/');
+          hit.domainlessPermalink = '/' + hit.permalink.split('/').slice(3, -1).join('/');
 
 					for (var key in hit._highlightResult) {
 						/* We do not deal with arrays. */

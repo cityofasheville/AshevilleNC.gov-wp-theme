@@ -5,12 +5,12 @@
 </script> -->
 
 <script type="text/html" id="tmpl-autocomplete-post-suggestion">
-	<a class="suggestion-link" href="{{ data.permalink }}" title="{{ data.post_title }}">
+	<a class="suggestion-link" href="{{ data.domainlessPermalink }}" title="{{ data.post_title }}">
 		<# if ( data.images.thumbnail ) { #>
 			<img class="suggestion-post-thumbnail" src="{{ data.images.thumbnail.url }}" alt="{{ data.post_title }}">
 		<# } #>
 		<div class="suggestion-post-attributes mt-2 mb-2">
-			<span class="text-capitalize badge suggestion-post-title" style="color: {{data.color}}">{{{ data.permalink.split('/').slice(3, -2).join(' | ').split('-').join(' ') }}} | {{{ data._highlightResult.post_title.value }}}</span>
+			<span class="text-capitalize badge suggestion-post-title" style="color: {{data.color}}">{{{ data.domainlessPermalink.split('/').slice(1, -1).join(' | ').split('-').join(' ') }}} | {{{ data._highlightResult.post_title.value }}}</span>
 			<# if ( data._snippetResult['content'] ) { #>
 				<span class="suggestion-post-content">{{{ data._snippetResult['content'].value }}}</span>
 			<# } #>

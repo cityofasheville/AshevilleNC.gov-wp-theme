@@ -31,18 +31,18 @@
 	<script type="text/html" id="tmpl-instantsearch-hit">
 		<article id="post-{{ data.post_id }}" class="card h-100 format-standard has-thumbnail">
 			<# if ( data.images.medium ) { #>
-				<a href="{{ data.permalink }}" title="{{ data.post_title }}" class="post-thumbnail flex-shrink-0">
+				<a href="{{ data.domainlessPermalink }}" title="{{ data.post_title }}" class="post-thumbnail flex-shrink-0">
 					<img src="{{ data.images.medium.url }}" class="card-img-top h-auto wp-post-image" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" sizes="(max-width: 450px) 100vw, 450px" />
 				</a>
 			<# } else if ( data.images.thumbnail ) { #>
-				<a href="{{ data.permalink }}" title="{{ data.post_title }}" class="post-thumbnail flex-shrink-0">
+				<a href="{{ data.domainlessPermalink }}" title="{{ data.post_title }}" class="post-thumbnail flex-shrink-0">
 					<img src="{{ data.images.thumbnail.url }}" class="card-img-top h-auto wp-post-image" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" sizes="(max-width: 450px) 100vw, 450px" />
 				</a>
 			<# } #>
 			<div class="card-body">
 				<span class="card-title entry-title">
 					<a
-						href="{{ data.permalink }}"
+						href="{{ data.domainlessPermalink }}"
 						title="{{ data.post_title }}"
 						itemprop="url"
             style="color: {{ data.color }};"
@@ -62,7 +62,7 @@
 			</div>
 
 			<footer class="search-footer" style="background-color: {{ data.color }}">
-        <a href="/{{ data.permalink.split('/').slice(3, -2).join('/') }}">{{{ data.permalink.split('/').slice(3, -2).join(' | ').split('-').join(' ') }}}</a>
+        <a href="/{{ data.domainlessPermalink.split('/').slice(1, -1).join('/') }}">{{{ data.domainlessPermalink.split('/').slice(1, -1).join(' | ').split('-').join(' ') }}}</a>
 
   			<!-- <# if ( data.post_type === 'post' ) { #>
           <a href="/news">News</a>
@@ -143,7 +143,7 @@
 						transformData: {
 							item: function(hit) {
                 hit.color = catColors[hit.post_type_label];
-                hit.permalink = '/' + hit.permalink.split('/').slice(3, -1).join('/')
+                hit.domainlessPermalink = '/' + hit.permalink.split('/').slice(3, -1).join('/')
 								return hit;
 							},
 						},
