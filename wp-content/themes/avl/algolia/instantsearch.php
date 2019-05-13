@@ -143,6 +143,7 @@
 						transformData: {
 							item: function(hit) {
                 hit.color = catColors[hit.post_type_label];
+                hit.permalink = '/' + hit.permalink.split('/').slice(3, -1).join('/')
 								return hit;
 							},
 						},
