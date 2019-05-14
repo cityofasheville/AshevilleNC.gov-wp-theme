@@ -1,0 +1,50 @@
+{
+    "key": "group_5bd22c583c555",
+    "title": "Post to Services",
+    "fields": [
+        {
+            "key": "field_5bd22c9c7fc6f",
+            "label": "Services",
+            "name": "services",
+            "type": "relationship",
+            "instructions": "Select any Services that are related to this Post",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "avl_service"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1554418010
+}

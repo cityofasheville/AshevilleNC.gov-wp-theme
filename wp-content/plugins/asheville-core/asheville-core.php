@@ -22,6 +22,8 @@ function avl_register_post_types() {
 			'has_archive' => true,
 			'menu_icon' => get_template_directory_uri() .'/img/avl-service.png',
 			'taxonomies' => array( 'avl_service_type' ),
+			'capability_type' => 'avl_service',
+			'map_meta_cap' => true,
 			'supports' => array(
 				'title',
 				'editor',
@@ -52,6 +54,8 @@ function avl_register_post_types() {
 			'hierarchical' => true,
 			'menu_icon' => 'dashicons-building',
 			'taxonomies' => array( 'avl_department' ),
+			'capability_type' => 'avl_department_page',
+			'map_meta_cap' => true,
 			'supports' => array(
 				'title',
 				'editor',
@@ -82,6 +86,12 @@ function avl_register_taxonomies() {
 			'hierarchical' => true,
 			'show_admin_column' => true,
 			'update_count_callback' => '_update_post_term_count',
+			'capabilities' => array(
+				'manage_terms' => 'manage_avl_service_types',
+				'edit_terms' => 'edit_avl_service_types',
+				'delete_terms' => 'delete_avl_service_types',
+				'assign_terms' => 'assign_avl_service_types',
+			),
 			'rewrite' => array(
 				'slug' => 'services',
 				'hierarchical' => true,
@@ -99,6 +109,12 @@ function avl_register_taxonomies() {
 			'hierarchical' => true,
 			'show_admin_column' => true,
 			'update_count_callback' => '_update_post_term_count',
+			'capabilities' => array(
+				'manage_terms' => 'manage_avl_department_term',
+				'edit_terms' => 'edit_avl_department_term',
+				'delete_terms' => 'delete_avl_department_term',
+				'assign_terms' => 'assign_avl_department_term',
+			),
 			'rewrite' => array(
 				'slug' => 'departments',
 				'hierarchical' => true,
