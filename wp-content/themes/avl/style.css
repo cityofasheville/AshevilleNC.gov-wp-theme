@@ -25,6 +25,7 @@ html, body {
 	overflow-x: hidden;
 	-webkit-overflow-scrolling: touch;
 	scroll-behavior: smooth;
+  top: 0px !important;
 }
 
 /* City Colors */
