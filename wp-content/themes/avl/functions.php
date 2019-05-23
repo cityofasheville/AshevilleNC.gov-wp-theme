@@ -411,6 +411,29 @@ function mb_algolia_searchable_post_types(array $post_types) {
 }
 add_filter( 'algolia_searchable_post_types', 'mb_algolia_searchable_post_types' );
 
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+function wp_trim_excerpt_except_links($text) { // Fakes an excerpt if needed
+    global $post;
+    if ( '' == $text ) {
+        $text = get_the_content('');
+        $text = apply_filters('the_content', $text);
+        $text = str_replace('\]\]\>', ']]&gt;', $text);
+        $text = strip_tags($text, '<a>');
+        $excerpt_length = 55;
+        $words = explode(' ', $text, $excerpt_length + 1);
+        if (count($words)> $excerpt_length) {
+            array_pop($words);
+            array_push($words, '[...]');
+            $text = implode(' ', $words);
+        }
+    }
+    return $text;
+}
+add_filter('get_the_excerpt', 'wp_trim_excerpt_except_links');
+
+
+
+
 /**
  * Load Jetpack compatibility file.
  */
