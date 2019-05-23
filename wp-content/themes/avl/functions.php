@@ -57,7 +57,7 @@ if ( ! function_exists( 'avl_setup' ) ) :
 	 * Note that this function is hooked into the after_setup_theme hook, which
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
-	 */
+ 	 */
 	function avl_setup() {
 		/*
 		 * Make theme available for translation.
@@ -272,20 +272,23 @@ function avl_scripts() {
 
 	// Prevent wp-embed.min.js from loading
 	wp_deregister_script( 'wp-embed' );
+
+    wp_enqueue_script('algolio-search', plugins_url('search-by-algolia-instant-relevant-results/js/algoliasearch/algoliasearch.jquery.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+    wp_enqueue_script('algolia-instantsearch', plugins_url('search-by-algolia-instant-relevant-results/js/instantsearch/instantsearch.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+    wp_enqueue_script('algolia-autocomplete', plugins_url('search-by-algolia-instant-relevant-results/js/autocomplete/autocomplete.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+    wp_enqueue_script('algolia-autocomplete-noconflict', plugins_url( 'search-by-algolia-instant-relevant-results/js/autocomplete-noconflict.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+    if ( is_front_page() && is_home() ) {
+        wp_deregister_script('jquery-datatables');
+        wp_deregister_script('datatables-buttons');
+        wp_deregister_script('datatables-select');
+        wp_deregister_script('datatables-fixedheader');
+        wp_deregister_script('datatables-fixedcolumns');
+        wp_deregister_script('datatables-responsive');
+    }
 }
 add_action( 'wp_enqueue_scripts', 'avl_scripts' );
-add_filter( 'sbp_exclude_defer_scripts', 'avl_exclude_script' );
 
-function avl_exclude_script( $excludes ) {
-    $excludes[] = 'google-ajax-api';
-    $excludes[] = 'algolia-search';
-    $excludes[] = 'algolia-autocomplete';
-    $excludes[] = 'algolia-autocomplete-noconflict';
-    $excludes[] = 'algolia-instantsearch';
-    $excludes[] = 'custom-algolia-js';
 
-    return $excludes;
-}
 
 /**
  * Implement the Custom Header feature.
@@ -408,6 +411,29 @@ function mb_algolia_searchable_post_types(array $post_types) {
 }
 add_filter( 'algolia_searchable_post_types', 'mb_algolia_searchable_post_types' );
 
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+function wp_trim_excerpt_except_links($text) { // Fakes an excerpt if needed
+    global $post;
+    if ( '' == $text ) {
+        $text = get_the_content('');
+        $text = apply_filters('the_content', $text);
+        $text = str_replace('\]\]\>', ']]&gt;', $text);
+        $text = strip_tags($text, '<a>');
+        $excerpt_length = 55;
+        $words = explode(' ', $text, $excerpt_length + 1);
+        if (count($words)> $excerpt_length) {
+            array_pop($words);
+            array_push($words, '[...]');
+            $text = implode(' ', $words);
+        }
+    }
+    return $text;
+}
+add_filter('get_the_excerpt', 'wp_trim_excerpt_except_links');
+
+
+
+
 /**
  * Load Jetpack compatibility file.
  */
@@ -417,6 +443,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 */
 
+
+// Jesse (PRC) - Added this
 // function remove_taxonomies_metaboxes() {
 //     // remove_meta_box( 'categorydiv', 'post', 'side' );
 //     remove_meta_box('tagsdiv-post_tag', 'post', 'side');

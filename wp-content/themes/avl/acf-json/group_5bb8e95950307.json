@@ -86,7 +86,11 @@
                     "name": "link",
                     "type": "url",
                     "instructions": "",
+<<<<<<< HEAD
                     "required": 1,
+=======
+                    "required": 0,
+>>>>>>> remotes/origin/prc-changes
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -102,7 +106,7 @@
                     "name": "link_title",
                     "type": "text",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -204,5 +208,9 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
+<<<<<<< HEAD
     "modified": 1556052831
+=======
+    "modified": 1556052331
+>>>>>>> remotes/origin/prc-changes
 }

@@ -1,5 +1,7 @@
 # CoA WordPress Theme
 
+Visit [beta.ashevillenc.gov](https://beta.ashevillenc.gov) to see the City of Asheville's new website!
+
 ## How did we make this theme?
 This repository represents a fraction of the work we have put in to create our new website.  The other steps have included:
 1. Looking at websites for cities all over the world and deciding that we don't want to make people learn about the entire structure of government just to pay their water bill

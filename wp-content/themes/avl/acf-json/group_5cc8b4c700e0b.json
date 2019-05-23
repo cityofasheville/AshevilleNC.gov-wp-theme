@@ -1,0 +1,49 @@
+{
+    "key": "group_5cc8b4c700e0b",
+    "title": "Per-Page Access Control: Pages",
+    "fields": [
+        {
+            "key": "field_5cc8b4c7d7dbe",
+            "label": "Page Editors",
+            "name": "page_editors",
+            "type": "user",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "role": [
+                "department_content_approver"
+            ],
+            "allow_null": 0,
+            "multiple": 1,
+            "return_format": "object"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            },
+            {
+                "param": "current_user_role",
+                "operator": "==",
+                "value": "administrator"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1556657442
+}

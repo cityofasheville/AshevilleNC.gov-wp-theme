@@ -25,6 +25,7 @@ html, body {
 	overflow-x: hidden;
 	-webkit-overflow-scrolling: touch;
 	scroll-behavior: smooth;
+  top: 0px !important;
 }
 
 /* City Colors */
@@ -651,8 +652,13 @@ a.text-primary:hover,
 }
 
 /* Search page */
-#ais-main {
-  padding: 0 !important;
+#ais-wrapper {
+  display: block !important;
+}
+
+.ais-hits--item {
+  border-bottom: 0px solid transparent !important;
+  padding-bottom: unset !important;
 }
 
 #content #algolia-search-box input {
