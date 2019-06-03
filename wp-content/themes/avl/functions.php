@@ -248,6 +248,7 @@ function avl_scripts() {
 	wp_enqueue_script( 'popper-js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js', array('jquery', 'popper-js'), null, true );
 	wp_enqueue_script( 'custom-algolia-js', get_template_directory_uri() . '/js/custom-algolia.js', array('jquery'), '1.0', true );
+	wp_enqueue_script( 'moment-js', get_template_directory_uri() . '/js/moment.js', array('jquery'), null, true );
 	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0', true );
 	wp_enqueue_script( 'google-translate-js', 'https://translate.google.com/translate_a/element.js?cb=initGoogleTranslateElement', array('custom-js'), null, true );
 
@@ -432,7 +433,25 @@ function wp_trim_excerpt_except_links($text) { // Fakes an excerpt if needed
 add_filter('get_the_excerpt', 'wp_trim_excerpt_except_links');
 
 
+// from https://gist.github.com/cliffordp/a473ccda4308acb9ac66499de5407c9b
+// PRC ADDED LIST SEARCH LOGIC 6/2019
 
+function custom_calendar_js(){
+	// If tribe-events.js hasn't been setup, do nothing
+	if ( ! wp_script_is( 'tribe-events-calendar-script' ) ) {
+		return;
+	}
+	print "
+		<script type='text/javascript'>
+			jQuery( document ).ready( function( $ ) {
+ 				PRC.calendarFunctionality();
+			});
+		</script>
+	";
+}
+
+add_action('wp_footer', 'custom_calendar_js', 100);
+// END PRC ADDED LIST SEARCH LOGIC 6/2019
 
 /**
  * Load Jetpack compatibility file.

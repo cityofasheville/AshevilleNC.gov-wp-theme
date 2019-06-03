@@ -1098,3 +1098,12 @@ figcaption {
 		font-size: 6em;
 	}
 }
+
+/*PRC*/
+.avl-search-indicator{
+	display: none;
+}
+
+.avl-search-indicator.avl-search-indicator--active{
+	display: block;
+}
