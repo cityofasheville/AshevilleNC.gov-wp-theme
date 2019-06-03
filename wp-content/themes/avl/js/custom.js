@@ -45,6 +45,8 @@ PRC.calendarFunctionality = function(){
 			if(!islist){
 				window.location = '/events/?' + tribe_ev.state.url_params + '&eventDisplay=list';
 			}
+		}else{
+			window.location = '/events/?' + tribe_ev.state.url_params + '&eventDisplay=month';
 		}
 	});
 
