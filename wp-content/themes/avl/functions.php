@@ -453,6 +453,21 @@ function custom_calendar_js(){
 add_action('wp_footer', 'custom_calendar_js', 100);
 // END PRC ADDED LIST SEARCH LOGIC 6/2019
 
+// PRC ADDED ACF OPTIONS PAGE 6/2019
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' => 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+	));
+	
+}
+
+add_image_size( 'banner-large', 2000, 1000);
+add_image_size( 'banner-medium', 1500, 750);
+add_image_size( 'banner-small', 1000, 500);
+add_image_size( 'banner-xsmall', 750, 375);
+
 /**
  * Load Jetpack compatibility file.
  */

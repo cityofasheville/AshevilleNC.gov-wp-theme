@@ -1107,3 +1107,24 @@ figcaption {
 .avl-search-indicator.avl-search-indicator--active{
 	display: block;
 }
+
+.site-branding.jumbotron{
+	position: relative;
+}
+
+.site-branding.jumbotron .background{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+@media(min-width: 1025px){
+	.site-branding.jumbotron .background{
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-mox-transform: translateY(-50%);
+	}
+}
+

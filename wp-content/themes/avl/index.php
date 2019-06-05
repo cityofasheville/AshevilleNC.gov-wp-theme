@@ -125,7 +125,7 @@ get_header();
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-4" id="twitter-container">
-						<a class="twitter-timeline" data-tweet-limit="4" href="https://twitter.com/CityofAsheville">Latest from CityofAsheville</a>
+						<a class="twitter-timeline" data-height="384" href="https://twitter.com/CityofAsheville">Latest from CityofAsheville</a>
 					</div>
 				</div>
 			</div>
