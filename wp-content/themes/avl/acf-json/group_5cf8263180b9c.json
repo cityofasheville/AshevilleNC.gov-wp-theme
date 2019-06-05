@@ -1,0 +1,48 @@
+{
+    "key": "group_5cf8263180b9c",
+    "title": "Global Theme Options",
+    "fields": [
+        {
+            "key": "field_5cf826397b222",
+            "label": "Hero Banner",
+            "name": "hero_banner",
+            "type": "image",
+            "instructions": "Hero banner on the homepage (typically Asheville's skyline).",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1559766865
+}
