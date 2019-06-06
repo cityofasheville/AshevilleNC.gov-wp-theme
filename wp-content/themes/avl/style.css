@@ -937,7 +937,7 @@ figcaption {
 	height: 100%;
 }
 
-@media(min-width: 1025px){
+@media(min-width: 1200px){
 	.site-branding.jumbotron .background{
 		transform: translateY(-50%);
 		-webkit-transform: translateY(-50%);
