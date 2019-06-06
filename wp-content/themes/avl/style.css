@@ -21,11 +21,14 @@ html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0 auto;
+  top: 0px !important;
+}
+
+body {
 	overflow-y: scroll;
 	overflow-x: hidden;
 	-webkit-overflow-scrolling: touch;
 	scroll-behavior: smooth;
-  top: 0px !important;
 }
 
 /* City Colors */
@@ -991,7 +994,7 @@ figcaption {
 	.social-tile--facebook,
 	.social-tile--twitter{
 		margin-top: 2rem;
-	}  
+	}
 }
 
 @media (min-width: 575px) and (max-width: 992px) {
@@ -1156,5 +1159,3 @@ figcaption {
 		font-size: 6em;
 	}
 }
-
-
