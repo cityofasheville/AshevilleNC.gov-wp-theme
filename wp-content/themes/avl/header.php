@@ -100,6 +100,12 @@
 			// JESSE @ PRC ADDED 6/2019
 				$jumbotron_image = get_field('hero_banner', 'options');
 
+				if(get_field('hero_banner', 'options')):
+					$jumbotron_id = $jumbotron_image['ID'];
+				else:
+					$jumbotron_id = 198;
+				endif;
+
 				$hero_srcset = wp_get_attachment_image_srcset($jumbotron_image['ID'], array(2000, 1000, 1500, 750, 1000, 500, 750, 375), wp_get_attachment_metadata($jumbotron_image['ID']));
 				// var_dump($jumbotron_image['sizes']);
 			?>

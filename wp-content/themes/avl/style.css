@@ -127,15 +127,20 @@ html, body {
 	display: none;
 }
 
+#twitter-container{
+	max-height: 350px;
+	overflow: scroll;
+}
+
 .twitter-timeline-rendered {
   border-radius: 6px !important;
 	border: 1px solid #e6e6e6 !important;
 }
 
 .open-city-hall, .twitter-timeline {
-	height: -webkit-calc(100% - 2rem) !important;
+/*	height: -webkit-calc(100% - 2rem) !important;
 	height:    -moz-calc(100% - 2rem) !important;
-	height:         calc(100% - 2rem) !important;
+	height:         calc(100% - 2rem) !important;*/
 	margin-bottom: 2rem !important;
 	min-height: 13rem !important;
 }
@@ -155,7 +160,7 @@ html, body {
 	display: block;
 	position: relative;
 	padding-top: 100%;
-	margin-bottom: 2rem;
+	/*margin-bottom: 2rem;*/
 	background-color: #4077A5;
 }
 
@@ -898,6 +903,49 @@ figcaption {
   background-color: #f2f2f2;
 }
 
+/*PRC*/
+.avl-search-indicator{
+	display: none;
+}
+
+.avl-search-indicator.avl-search-indicator--active{
+	display: block;
+}
+
+.site-branding.jumbotron{
+	position: relative;
+}
+
+.site-branding.jumbotron .background{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+.social-tile--instagram,
+.social-tile--youtube{
+	margin-top: 2rem;
+}
+
+.engage-tiles{
+	align-items: stretch;
+}
+
+.engage-tile--open-city-hall a{
+	height: 100%;
+}
+
+@media(min-width: 1200px){
+	.site-branding.jumbotron .background{
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-mox-transform: translateY(-50%);
+	}
+}
+
+
 /* Media Queries */
 
 /* Extra Small + Small */
@@ -934,6 +982,16 @@ figcaption {
   #facet-post-types .filter-button {
     width: 100%;
   }
+	.social-tile--instagram,
+	.social-tile--youtube
+	{
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+	.social-tile--facebook,
+	.social-tile--twitter{
+		margin-top: 2rem;
+	}  
 }
 
 @media (min-width: 575px) and (max-width: 992px) {
@@ -1099,32 +1157,4 @@ figcaption {
 	}
 }
 
-/*PRC*/
-.avl-search-indicator{
-	display: none;
-}
-
-.avl-search-indicator.avl-search-indicator--active{
-	display: block;
-}
-
-.site-branding.jumbotron{
-	position: relative;
-}
-
-.site-branding.jumbotron .background{
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	min-width: 100%;
-	min-height: 100%;
-}
-
-@media(min-width: 1025px){
-	.site-branding.jumbotron .background{
-		transform: translateY(-50%);
-		-webkit-transform: translateY(-50%);
-		-mox-transform: translateY(-50%);
-	}
-}
 
