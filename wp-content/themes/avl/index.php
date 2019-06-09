@@ -106,8 +106,8 @@ get_header();
 		<section class="bg-light py-5">
 			<div class="container">
 				<h2 class="mb-4"><span class="icon icon-bubbles2 icon-3x icon-avl-blue"></span> Engage</h2>
-				<div class="row">
-					<div class="col-sm-12 col-md-4">
+				<div class="row engage-tiles">
+					<div class="col-sm-12 col-md-4 engage-tile engage-tile--open-city-hall">
 						<a href="https://www.opentownhall.com/portals/239/forum_home?noembed=1" target="_blank" rel="noopener noreferrer" class="open-city-hall d-block bg-avl-green-75 rounded shadow">
 							<div class="row h-100">
 								<span class="text-white text-center h3 my-auto mx-auto w-100">Open City Hall</span>
@@ -116,12 +116,33 @@ get_header();
 							</div>
 						</a>
 					</div>
-					<div class="col-sm-12 col-md-4">
+					<div class="col-sm-12 col-md-4 social-tiles">
 						<div class="row">
-							<div class="col-6"><a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-facebook icon-5x"></span></a></div>
-							<div class="col-6"><a href="https://twitter.com/CityofAsheville" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-twitter icon-5x"></span></a></div>
-							<div class="col-6"><a href="https://www.instagram.com/explore/locations/1017488608/city-of-asheville/" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-instagram icon-5x"></span></a></div>
-							<div class="col-6"><a href="https://www.youtube.com/user/CityofAsheville" target="_blank" class="social-network shadow rounded"><span class="icomoon icomoon-youtube icon-5x"></span></a></div>
+							<div class="col-6 social-tile social-tile--facebook">
+								<a href="https://www.facebook.com/CityofAsheville/" target="_blank" class="social-network shadow rounded">
+								<span class="icomoon icomoon-facebook icon-5x">
+								</span>
+								</a>
+							</div>
+							<div class="col-6 social-tile social-tile--twitter">
+								<a href="https://twitter.com/CityofAsheville" target="_blank" class="social-network shadow rounded">
+									<span class="icomoon icomoon-twitter icon-5x">
+										
+									</span>
+								</a>
+							</div>
+							<div class="col-6 social-tile social-tile--instagram">
+								<a href="https://www.instagram.com/explore/locations/1017488608/city-of-asheville/" target="_blank" class="social-network shadow rounded">
+									<span class="icomoon icomoon-instagram icon-5x">
+									</span>
+								</a>
+							</div>
+							<div class="col-6 social-tile social-tile--youtube">
+								<a href="https://www.youtube.com/user/CityofAsheville" target="_blank" class="social-network shadow rounded">
+									<span class="icomoon icomoon-youtube icon-5x">
+									</span>
+								</a>
+							</div>
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-4" id="twitter-container">

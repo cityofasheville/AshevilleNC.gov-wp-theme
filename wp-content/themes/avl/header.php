@@ -96,6 +96,27 @@
 			// Display search with background image if it's the home page
 		?>
 		<div id="splash" class="site-branding jumbotron jumbotron-fluid bg-transparent mb-0">
+			<?php
+			// JESSE @ PRC ADDED 6/2019
+				$jumbotron_image = get_field('hero_banner', 'options');
+
+				if(get_field('hero_banner', 'options')):
+					$jumbotron_id = $jumbotron_image['ID'];
+				else:
+					$jumbotron_id = 198;
+				endif;
+
+				$hero_srcset = wp_get_attachment_image_srcset($jumbotron_image['ID'], array(2000, 1000, 1500, 750, 1000, 500, 750, 375), wp_get_attachment_metadata($jumbotron_image['ID']));
+				// var_dump($jumbotron_image['sizes']);
+			?>
+			<div class="background">
+				<img
+					srcset="<?php echo $hero_srcset; ?>"
+					src="<?php echo $jumbotron_image['sizes']['banner-large']; ?>"
+					alt="<?php echo $jumbotron_image['alt']; ?>"
+				/>
+			</div>
+
 			<div class="container">
 			<?php
 				$avl_description = get_bloginfo( 'description', 'display' );
@@ -189,7 +210,7 @@
                     $post_class = 'many-children';
                   }
 
-                  echo '<ul class="dropdown-menu ' . $post_class . '" role="menu" aria-labelledby="dept-menu-item-dropdown-' . $page->ID . '">';
+                  echo '<ul class="dropdown-menu dropdown-menu-right ' . $post_class . '" role="menu" aria-labelledby="dept-menu-item-dropdown-' . $page->ID . '">';
 
   								echo '<li class="menu-item nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="dropdown-item" href="'. get_permalink( $page ) .'">'. $page->post_title .' Home</a></li>';
     							foreach ($grandchild_pages as $grandchild_page) {
