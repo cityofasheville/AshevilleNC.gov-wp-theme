@@ -76,5 +76,17 @@ PRC.calendarFunctionality = function(){
 			jQuery('.date-title').html(search_title);
 		}
 	});
-}
+};
+
+PRC.enhanceDataTableDates = function(){
+	jQuery(document).ready(function() {
+	    jQuery.fn.dataTable.moment( 'M/D/YYYY' );
+	    jQuery.fn.dataTable.moment( 'MM/DD/YYYY' );
+	    jQuery.fn.dataTable.moment( 'MM/D/YYYY' );
+	    jQuery.fn.dataTable.moment( 'M/DD/YYYY' ); 
+	} );
+};
+
+// Execute the above function
+PRC.enhanceDataTableDates();
 
