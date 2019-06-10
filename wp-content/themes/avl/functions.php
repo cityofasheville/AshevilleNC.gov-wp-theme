@@ -249,6 +249,11 @@ function avl_scripts() {
 	wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js', array('jquery', 'popper-js'), null, true );
 	wp_enqueue_script( 'custom-algolia-js', get_template_directory_uri() . '/js/custom-algolia.js', array('jquery'), '1.0', true );
 	wp_enqueue_script( 'moment-js', get_template_directory_uri() . '/js/moment.js', array('jquery'), null, true );
+	
+    // PRC - 06.2019
+    // Load the datatabes date plugin, which works with moment JS to parse dates on inlined Google Sheets 
+	wp_enqueue_script( 'datatable-dates','//cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js', array(),  null, true );
+
 	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0', true );
 	wp_enqueue_script( 'google-translate-js', 'https://translate.google.com/translate_a/element.js?cb=initGoogleTranslateElement', array('custom-js'), null, true );
 
