@@ -157,7 +157,8 @@ jQuery(document).ready( function($) {
 
 	var RvyHideElements = function() {
 		var ediv = 'div.edit-post-sidebar ';
-		if ( $(ediv + 'select.editor-post-author__select:visible,' + ediv + 'div.components-base-control__field input[type="checkbox"]:visible').length ) {
+
+		if ( $(ediv + 'div.edit-post-post-visibility,' + ediv + 'select.editor-post-author__select:visible,' + ediv + 'div.components-base-control__field input[type="checkbox"]:visible,' + ediv + 'button.editor-post-switch-to-draft,' + ediv + 'button.editor-post-trash').length ) {
 			$(ediv + 'select.editor-post-author__select').parent().hide();
 			$(ediv + 'div.components-base-control__field input[type="checkbox"]').parent().hide();
 			$(ediv + 'div.edit-post-post-visibility').hide();
@@ -165,8 +166,12 @@ jQuery(document).ready( function($) {
 			$(ediv + 'div.components-panel div.components-panel__body').not(':first').hide();
 			$(ediv + 'button.editor-post-switch-to-draft').hide();
 		}
+		
+		if ( $(ediv + 'div.components-panel > div:not(.edit-post-post-status):visible').length ) {
+			$(ediv + 'div.components-panel > div:not(.edit-post-post-status)').hide();
+		}
 	}
-	var RvyHideInterval = setInterval(RvyHideElements, 200);
+	var RvyHideInterval = setInterval(RvyHideElements, 50);
 
 	/*
 	// If Publish button is clicked, current post status will be set to [user's next/max status progression]

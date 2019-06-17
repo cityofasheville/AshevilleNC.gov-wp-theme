@@ -68,6 +68,8 @@ class Revisionary_REST {
 				}
 			}
 		}
+		
+		return $rest_response;
 	}  // end function pre_dispatch
 
 	function get_id_element( $path, $position_from_right = 0 ) {
@@ -105,8 +107,8 @@ class Revisionary_REST {
 		if ( $types = get_post_types( array( 'rest_base' => $rest_base ) ) ) {
 			$post_type = reset( $types );
 			return $post_type;
-		} elseif( post_type_exists( $post_type ) ) {
-			return $post_type;
+		} elseif( post_type_exists( $rest_base ) ) {
+			return $rest_base;
 		} else {
 			return false;
 		}

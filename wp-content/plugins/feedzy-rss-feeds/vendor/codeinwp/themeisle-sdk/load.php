@@ -11,10 +11,10 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	return;
 }
 // Current SDK version and path.
-$themeisle_sdk_version = '3.0.0';
+$themeisle_sdk_version = '3.0.8';
 $themeisle_sdk_path    = dirname( __FILE__ );
 
 global $themeisle_sdk_max_version;

@@ -49,7 +49,7 @@ class RevisionaryAdminHardway {
 	
 				foreach ( $post_types as $post_type )
 					$query = str_replace("{$p}post_type = '$post_type'", "( {$p}post_type = '$post_type' OR ( {$p}post_type = 'revision' AND ( {$p}post_status = 'pending' OR {$p}post_status = 'future' ) AND {$p}post_parent IN ( SELECT ID from $wpdb->posts WHERE post_type = '$post_type' ) ) )", $query);
-	
+
 			} elseif ( strpos($query, "GROUP BY $wpdb->posts.post_status") && strpos($query, "ELECT $wpdb->posts.post_status," ) ) {
 				
 				// also post-process the scoped equivalent 
@@ -59,7 +59,7 @@ class RevisionaryAdminHardway {
 				}
 					
 			// edit pages / posts listing items
-			} elseif ( strpos($query, 'ELECT') ) {	
+			} elseif ( strpos($query, 'ELECT') ) {
 				// include pending/scheduled revs in All, Pending or Scheduled list
 				$status_clause = '';
 				if ( strpos($query, ".post_status = 'pending'") || empty($_GET['post_status']) || ( 'all' == $_GET['post_status'] ) )
@@ -74,7 +74,7 @@ class RevisionaryAdminHardway {
 					$query = str_replace("$wpdb->posts.post_type = '$post_type' AND 1=2", "1=2", $query );
 					$query = str_replace("$wpdb->posts.post_type = '$post_type'", "( $wpdb->posts.post_type = '$post_type' OR ( $wpdb->posts.post_type = 'revision' AND $wpdb->posts.post_parent IN ( SELECT ID from $wpdb->posts WHERE post_type = '$post_type' ) ) AND ( $status_clause ) )", $query);
 				}
-
+				
                	// work around Event Calendar Pro conflict
 				if ( strpos( $query, "eventStart.meta_value as EventStartDate" ) ) {
 					$query = str_replace( 
