@@ -15,13 +15,10 @@ class WF_CustomerImpExpCsv_Exporter {
         $export_limit = !empty($_POST['limit']) ? intval($_POST['limit']) : 999999999;
         $export_offset = !empty($_POST['offset']) ? intval($_POST['offset']) : 0;
         $csv_columns = include( 'data/data-wf-post-columns.php' );
-
         $user_columns_name = !empty($_POST['columns_name']) ? $_POST['columns_name'] : $csv_columns;
         $export_columns = !empty($_POST['columns']) ? $_POST['columns'] : array();
-
         $export_user_roles = !empty($_POST['user_roles']) ? $_POST['user_roles'] : array();
         $delimiter = !empty($_POST['delimiter']) ? $_POST['delimiter'] : ',';
-
 
         $wpdb->hide_errors();
         @set_time_limit(0);
@@ -36,8 +33,6 @@ class WF_CustomerImpExpCsv_Exporter {
         header('Expires: 0');
 
         $fp = fopen('php://output', 'w');
-
-
 
         $args = array(
             'fields' => 'ID', // exclude standard wp_users fields from get_users query -> get Only ID##
@@ -57,9 +52,6 @@ class WF_CustomerImpExpCsv_Exporter {
             if (!$export_columns || in_array($column, $export_columns))
                 $row[] = $temp_head;
         }
-
-
-
 
         $row = array_map('WF_CustomerImpExpCsv_Exporter::wrap_column', $row);
         fwrite($fp, implode($delimiter, $row) . "\n");
@@ -105,10 +97,8 @@ class WF_CustomerImpExpCsv_Exporter {
      */
     public static function get_customers_csv_row($id, $export_columns, $csv_columns) {
         $user = get_user_by('id', $id);
-
         $customer_data = array();
         foreach ($csv_columns as $key) {
-
             $customer_data[$key] = !empty($user->{$key}) ? maybe_serialize($user->{$key}) : '';
         }
         $user_roles = (!empty($user->roles)) ? $user->roles : array();

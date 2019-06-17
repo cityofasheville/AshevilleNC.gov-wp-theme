@@ -151,3 +151,6 @@
 }
 .wt-userimport-rating-link{color:yellow;}
 .review-and-deactivate{color: #aa0073;}
+#v_offset.input-text{width: 400px;padding: 6px}
+#v_limit.input-text{width: 400px;padding: 6px}
+#v_user_roles{width: 400px}
