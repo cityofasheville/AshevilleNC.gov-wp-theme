@@ -144,12 +144,19 @@
 				$parent_id = end( $ancestors );
 			}
 
-			if ($thumbnail_id = get_post_thumbnail_id( $parent_id )) {
+			// PRC MODIFIED 6.2019 TO ALLOW SINGLE OVERRIDE
+			if(has_post_thumbnail()):
+				$thumbnail_id = get_post_thumbnail_id();
 				$image_data = wp_get_attachment_image_src( $thumbnail_id, 'full' );
 				$style = "background-image: url('". $image_data[0] ."');";
-			} else {
-				$style = '';
-			}
+			else:
+				if ($thumbnail_id = get_post_thumbnail_id( $parent_id )) {
+					$image_data = wp_get_attachment_image_src( $thumbnail_id, 'full' );
+					$style = "background-image: url('". $image_data[0] ."');";
+				} else {
+					$style = '';
+				}
+			endif;
 		?>
 		<div id="splash" class="d-flex flex-column mb-3">
 			<div class="header-background-image" style="<?= $style; ?>"></div>
