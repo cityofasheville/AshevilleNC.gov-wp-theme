@@ -311,7 +311,14 @@ function rvy_do_revision_restore( $revision_id, $actual_revision_status = '' ) {
 		$revision_date = $revision->post_date;
 		$revision_date_gmt = $revision->post_date_gmt;
 
-		wp_restore_post_revision( $revision_id, array( 'post_content', 'post_title', 'post_date', 'post_date_gmt', 'post_modified', 'post_modified_gmt' ) );
+		$fields = array( 'post_content', 'post_title', 'post_modified', 'post_modified_gmt' );
+		
+		if (rvy_get_option('scheduled_revision_update_post_date')) {
+			$fields []= 'post_date';
+			$fields []= 'post_date_gmt';
+		}
+		
+		wp_restore_post_revision( $revision_id, $fields );
 
 		// @todo: why do revision post_date, post_date_gmt get changed?
 		$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_date = %s, post_date_gmt = %s WHERE post_type='revision' AND ID = %d", $revision_date, $revision_date_gmt, $revision->ID ) );

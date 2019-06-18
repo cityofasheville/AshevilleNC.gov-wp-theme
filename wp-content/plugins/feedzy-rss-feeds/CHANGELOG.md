@@ -1,4 +1,34 @@
 
+ ### v3.3.7 - 2019-06-15 
+ **Changes:** 
+ * Fix: Not working in the block editor
+* Feat: Referral URL can now include the URL of the item as a parameter
+* Fix: Image size on mobile was overflowing the viewport
+* Fix: Shortcode builder icon not visible in classic editor
+* Fix: Widget options not visible in theme customizer
+ 
+ ### v3.3.6 - 2019-05-03 
+ **Changes:** 
+ * Add filter to disable DB caching
+* Fix issue with HTML tags not closed when feed has no items
+* Fix issue with CSS file being loaded everywhere
+* Tested up to WP 5.2
+ 
+ ### v3.3.5 - 2019-02-24 
+ **Changes:** 
+ * Tested with WP 5.1
+* Fix issue with single feeds that have errors
+ 
+ ### v3.3.4 - 2019-02-08 
+ **Changes:** 
+ * Multifeed shows an error and no content if even one feed has an error
+ 
+ ### v3.3.3 - 2019-01-31 
+ **Changes:** 
+ * Customize error message when no items in the feed
+* Outgoing links should have rel=noopener
+* Fixed fatal error in Feedzy_Rss_Feeds_Admin_Abstract::feedzy_retrieve_image
+ 
  ### v3.3.2 - 2018-12-22 
  **Changes:** 
  * Option to handle HTTP images in the shortcode

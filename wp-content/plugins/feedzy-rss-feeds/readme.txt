@@ -3,7 +3,7 @@ Contributors: themeisle,codeinwp,hardeepasrani,contactashish13
 Tags: RSS feed, autoblogging, autoblog, rss aggregator, feed to post 
 Requires at least: 3.7
 Requires PHP: 5.3
-Tested up to: 5.0
+Tested up to: 5.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -73,7 +73,7 @@ By activating this plugin, your cover image will be inserted into your RSS feeds
 
 ## TECHNICAL NOTES:
 
-FEEDZY RSS Feeds supports any additional library and takes up minimal space in your cache/CSS to ensure high performance. This ensures compatibility with any hosting provider that supports WordPress, but if for any reason it doesn’t work for yours feel free to [contact us](http://themeisle.com/contact/).
+FEEDZY RSS Feeds supports any additional library and takes up minimal space in your cache/CSS to ensure high performance. This ensures compatibility with any hosting provider that supports WordPress, but if for any reason it doesn’t work for yours feel free to [create a new support topic](https://wordpress.org/support/plugin/feedzy-rss-feeds/#new-post).
 
 **Please ask for help or report bugs if anything goes wrong. It is the best way to make the community benefit!**
 
@@ -160,6 +160,8 @@ Become a translator and send me your translation! [Contact-me](http://themeisle.
 
 
 
+
+
 = Is it responsive friendly? =
 
 Yes it is.
@@ -199,7 +201,7 @@ You have to check first if your feed is valid. Please test it here: https://vali
 [http://docs.themeisle.com/article/545-how-to-remove-plugin-css](http://docs.themeisle.com/article/545-how-to-remove-plugin-css)
 
 = How to remove links =
-[http://docs.themeisle.com/article/541-how-to-remove-links](http://docs.themeisle.com/article/541-how-to-remove-links)
+[https://docs.themeisle.com/article/1049-how-to-remove-links-in-feedzy](https://docs.themeisle.com/article/1049-how-to-remove-links-in-feedzy)
 
 = How to add a read more link =
 [http://docs.themeisle.com/article/544-how-to-add-a-read-more-link](http://docs.themeisle.com/article/544-how-to-add-a-read-more-link)
@@ -390,6 +392,36 @@ You have to check first if your feed is valid. Please test it here: https://vali
  = In Feedzy how do I... = 
  [https://docs.themeisle.com/article/942-in-feedzy-how-do-i](https://docs.themeisle.com/article/942-in-feedzy-how-do-i) 
 
+ = How to import iTunes audio feed = 
+ [https://docs.themeisle.com/article/1041-how-to-import-itunes-audio-feed](https://docs.themeisle.com/article/1041-how-to-import-itunes-audio-feed) 
+
+ = Feedzy RSS Feeds Documentation = 
+ [https://docs.themeisle.com/article/658-feedzy-rss-feeds](https://docs.themeisle.com/article/658-feedzy-rss-feeds) 
+
+ = How to check whether the RSS feed is valid or not in Feedzy = 
+ [https://docs.themeisle.com/article/716-feedzy-how-to-check-whether-the-rss-feed-is-valid-or-not](https://docs.themeisle.com/article/716-feedzy-how-to-check-whether-the-rss-feed-is-valid-or-not) 
+
+ = How to change thumbs size and aspect ratio Feedzy = 
+ [https://docs.themeisle.com/article/551-how-to-change-thumbs-size-and-aspect-ratio](https://docs.themeisle.com/article/551-how-to-change-thumbs-size-and-aspect-ratio) 
+
+ = How to use proxy settings in Feedzy = 
+ [https://docs.themeisle.com/article/714-how-to-use-proxy-settings-in-feezy](https://docs.themeisle.com/article/714-how-to-use-proxy-settings-in-feezy) 
+
+ = How to decode item title = 
+ [https://docs.themeisle.com/article/548-how-to-decode-item-title-with](https://docs.themeisle.com/article/548-how-to-decode-item-title-with) 
+
+ = How to add affiliate referrals to feed URLs in Feedzy = 
+ [https://docs.themeisle.com/article/715-feedzy-how-to-add-affiliate-referrals-to-feed-urls](https://docs.themeisle.com/article/715-feedzy-how-to-add-affiliate-referrals-to-feed-urls) 
+
+ = How to add rel="nofollow" to feed links = 
+ [https://docs.themeisle.com/article/839-how-to-add-rel-nofollow-to-feed-links](https://docs.themeisle.com/article/839-how-to-add-rel-nofollow-to-feed-links) 
+
+ = How to import iTunes audio feed = 
+ [https://docs.themeisle.com/article/1041-import-itunes-audio-feed](https://docs.themeisle.com/article/1041-import-itunes-audio-feed) 
+
+ = How to link featured image to original post in Slider Revolution = 
+ [https://docs.themeisle.com/article/1069-how-to-link-featured-image-to-original-post-in-slider-revolution](https://docs.themeisle.com/article/1069-how-to-link-featured-image-to-original-post-in-slider-revolution) 
+
  == Screenshots ==
 
 1. Simple example
@@ -399,6 +431,41 @@ You have to check first if your feed is valid. Please test it here: https://vali
 
 
 == Changelog ==
+= 3.3.7 - 2019-06-15  = 
+
+* Fix: Not working in the block editor
+* Feat: Referral URL can now include the URL of the item as a parameter
+* Fix: Image size on mobile was overflowing the viewport
+* Fix: Shortcode builder icon not visible in classic editor
+* Fix: Widget options not visible in theme customizer
+
+
+= 3.3.6 - 2019-05-03  = 
+
+* Add filter to disable DB caching
+* Fix issue with HTML tags not closed when feed has no items
+* Fix issue with CSS file being loaded everywhere
+* Tested up to WP 5.2
+
+
+= 3.3.5 - 2019-02-24  = 
+
+* Tested with WP 5.1
+* Fix issue with single feeds that have errors
+
+
+= 3.3.4 - 2019-02-08  = 
+
+* Multifeed shows an error and no content if even one feed has an error
+
+
+= 3.3.3 - 2019-01-31  = 
+
+* Customize error message when no items in the feed
+* Outgoing links should have rel=noopener
+* Fixed fatal error in Feedzy_Rss_Feeds_Admin_Abstract::feedzy_retrieve_image
+
+
 = 3.3.2 - 2018-12-22  = 
 
 * Option to handle HTTP images in the shortcode

@@ -5,9 +5,8 @@
  * @package Yoast\YoastSEO\Formatters
  */
 
-namespace Yoast\YoastSEO\Formatters;
+namespace Yoast\WP\Free\Formatters;
 
-use Yoast\YoastSEO\Models\Indexable;
 
 /**
  * Formats the term meta to indexable format.
@@ -15,7 +14,7 @@ use Yoast\YoastSEO\Models\Indexable;
 class Indexable_Term_Formatter {
 
 	/**
-	 * The current term id.
+	 * The current term ID.
 	 *
 	 * @var int
 	 */

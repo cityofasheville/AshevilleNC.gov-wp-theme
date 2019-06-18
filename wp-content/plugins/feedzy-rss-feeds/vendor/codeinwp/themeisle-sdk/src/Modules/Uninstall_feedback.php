@@ -127,6 +127,12 @@ class Uninstall_Feedback extends Abstract_Module {
 	 * Loads the additional resources
 	 */
 	function load_resources() {
+		$screen = get_current_screen();
+
+		if ( ! $screen || ! in_array( $screen->id, array( 'theme-install', 'plugins' ) ) ) {
+			return;
+		}
+
 		add_thickbox();
 
 		$id = $this->product->get_key() . '_deactivate';
@@ -203,20 +209,19 @@ class Uninstall_Feedback extends Abstract_Module {
 			body.<?php echo $suffix; ?> .<?php echo $key; ?>-container #<?php echo $key; ?>-info-disclosure-content {
 				display: none;
 			}
-
 			body.<?php echo $suffix; ?> .<?php echo $key; ?>-container.<?php echo $key; ?>-container-disc-open #<?php echo $key; ?>-info-disclosure-content {
 				display: block;
-				margin-top: 80px;
+				position:absolute;
+				bottom: 100px;
 			}
 
 			body.<?php echo $suffix; ?> .<?php echo $key; ?>-container.<?php echo $key; ?>-container-disc-open #<?php echo $key; ?>-info-disclosure {
-				top: -150px;
+				top: -130px;
 			}
 
 			body.<?php echo $suffix; ?> .<?php echo $key; ?>-container.<?php echo $key; ?>-container-disc-open {
-				height: 570px !important;
+				height: 590px !important;
 			}
-
 			body.<?php echo $suffix; ?> .<?php echo $key; ?>-container #<?php echo $key; ?>-info-disclosure {
 				position: absolute;
 				top: -50px;

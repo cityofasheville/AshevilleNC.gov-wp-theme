@@ -301,6 +301,8 @@ class Revisionary
 			$post_id = $this->rest->post_id;
 		} elseif ( ! empty( $_POST['post_ID'] ) ) {
 			$post_id = $_POST['post_ID'];
+		} else {
+			$post_id = rvy_detect_post_id();
 		} 
 		
 		if ( empty( $post_id ) ) {
@@ -329,6 +331,8 @@ class Revisionary
 			$post_type = $this->rest->post_type;
 		} elseif ( ! empty( $_POST['post_type'] ) ) {
 			$post_type = $_POST['post_type'];
+		} else {
+			$post_type = rvy_detect_post_type();
 		} 
 			
 		if ( ! empty( $post_type ) ) {
@@ -420,7 +424,7 @@ class Revisionary
 		
 		if ( $this->doing_rest ) {
 			// prevent alteration of published post, while allowing save operation to complete
-			$data = array_intersect_key( (array) $published_post, array_fill_keys( array( 'ID', 'post_name', 'post_status', 'post_parent', 'post_author' ), true ) );
+			$data = array_intersect_key( (array) $published_post, array_fill_keys( array( 'ID', 'post_type', 'post_name', 'post_status', 'post_parent', 'post_author' ), true ) );
 		} else {
 			$args = compact( 'revision_id', 'published_post', 'object_type' );
 			if ( ! empty( $_REQUEST['prev_cc_user'] ) ) {
@@ -587,6 +591,12 @@ class Revisionary
 			$postType = 'page';
 		}
 		
+		if ( $post_type_obj = get_post_type_object( $postType ) ) {
+			if ( empty( $post_type_obj->show_in_rest ) ) {
+				return false;
+			}
+		}
+
 		$conditions = array();
 
 		/**

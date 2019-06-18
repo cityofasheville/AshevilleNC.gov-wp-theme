@@ -92,7 +92,7 @@ class RevisionaryAdmin
 
 		// low-level filtering for miscellaneous admin operations which are not well supported by the WP API
 		$hardway_uris = array(
-		'p-admin/index.php',		'p-admin/revision.php',			'admin.php?page=rvy-revisions',
+		'p-admin/index.php',		'p-admin/revision.php',		'admin.php?page=rvy-revisions',
 		'p-admin/post.php', 		'p-admin/post-new.php', 		'p-admin/page.php', 		'p-admin/page-new.php', 
 		'p-admin/link-manager.php', 'p-admin/edit.php', 			'p-admin/edit-pages.php', 	'p-admin/edit-comments.php', 
 		'p-admin/categories.php', 	'p-admin/link-category.php', 	'p-admin/edit-link-categories.php', 'p-admin/upload.php',
@@ -311,8 +311,9 @@ class RevisionaryAdmin
 		}
 
 		$caption = __( 'Send to Approval Queue', 'revisionary' );
+		$checked = (apply_filters('revisionary_default_pending_revision', false, $post )) ? "checked='checked'" : '';
 		
-		echo "<div style='margin: 0.5em'><label for='rvy_save_as_pending_rev'><input type='checkbox' style='width: 1em; min-width: 1em; text-align: right;' name='rvy_save_as_pending_rev' value='1' id='rvy_save_as_pending_rev' /> $caption</label></div>";
+		echo "<div style='margin: 0.5em'><label for='rvy_save_as_pending_rev'><input type='checkbox' style='width: 1em; min-width: 1em; text-align: right;' name='rvy_save_as_pending_rev' value='1' $checked id='rvy_save_as_pending_rev' /> $caption</label></div>";
 	}
 	
 	function act_log_revision_save() {
