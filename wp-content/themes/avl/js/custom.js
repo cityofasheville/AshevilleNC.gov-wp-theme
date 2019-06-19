@@ -10,6 +10,19 @@ function initGoogleTranslateElement() {
 	);
 }
 
+function assignDropdownDirection() {
+  if (window.innerWidth < 992) {
+    return;
+  }
+  jQuery('#department-navbar .first-layer-nav .nav-item.dropdown').each(function(toggle) {
+    var pastMidPoint = this.getBoundingClientRect().left > window.innerWidth / 2;
+    if (pastMidPoint) {
+      jQuery(this).find('ul.dropdown-menu').addClass('dropdown-menu-right')
+    }
+  })
+}
+assignDropdownDirection()
+
 PRC = {};
 
 PRC.getUrlVars = function(){
@@ -31,7 +44,7 @@ PRC.calendarFunctionality = function(){
 
 	// trigger when filters are set up
 	jQuery( tribe_ev.events ).on( 'tribe_ev_collectParams', function() {
-		
+
 		// regex param to determine if search happened
 		issearch = tribe_ev.state.url_params.match(/tribe\-bar\-search/g);
 
@@ -39,7 +52,7 @@ PRC.calendarFunctionality = function(){
 		islist = tribe_ev.state.url_params.match(/tribe\_event\_display\=list/g);
 
 		// console.log('tribe', tribe_ev);
-		
+
 		if ( issearch ) {
 			// If not in list mode, switch, otherwise ignore
 			if(!islist){
@@ -63,7 +76,7 @@ PRC.calendarFunctionality = function(){
 		if(islist){
 			// grab search title (can change depending on content)
 			var search_title = jQuery('.tribe-events-page-title').html();
-			
+
 			// make lowercase
 			search_title = search_title.replace('Events', 'events').replace('Upcoming', 'upcoming');
 
@@ -83,10 +96,9 @@ PRC.enhanceDataTableDates = function(){
 	    jQuery.fn.dataTable.moment( 'M/D/YYYY' );
 	    jQuery.fn.dataTable.moment( 'MM/DD/YYYY' );
 	    jQuery.fn.dataTable.moment( 'MM/D/YYYY' );
-	    jQuery.fn.dataTable.moment( 'M/DD/YYYY' ); 
+	    jQuery.fn.dataTable.moment( 'M/DD/YYYY' );
 	} );
 };
 
 // Execute the above function
 PRC.enhanceDataTableDates();
-

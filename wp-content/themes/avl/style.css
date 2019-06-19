@@ -695,14 +695,6 @@ a.text-primary:hover,
   border: 2px solid transparent;
 }
 
-/* .search-card-header {
-  font-size: 0.85rem;
-  padding: 0.5rem;
-  width: 100%;
-  color: gray;
-  text-transform: capitalize;
-} */
-
 #algolia-hits .post-thumnail {
   max-width: 100%;
 }
@@ -733,7 +725,6 @@ footer .feedback-container {
 
 .footer-toggle-button {
 	border-color: #A6BFD5;
-  /* background-color: white; */
 }
 
 .footer-toggle-button:hover,
@@ -801,10 +792,6 @@ figcaption {
 }
 
 /* Algolia Search */
-
-/* .aa-suggestion:nth-child(2n) {
-  background-color: #f2f2f2;
-} */
 
 .aa-suggestion {
   border-top: 1px solid #f2f2f2;
@@ -881,10 +868,6 @@ figcaption {
 }
 
 /* Styles for inline sheets plugin */
-
-/* .dataTable {
-  overflow-x: scroll;
-} */
 
 .dataTable .display-none {
   display: none;
@@ -1038,7 +1021,6 @@ figcaption {
   #department-navbar .dropdown-menu {
     padding: 0 1rem;
     border: 0px solid transparent;
-    /* list-style: disc; */
   }
 
   #department-navbar .dropdown-item {
@@ -1143,12 +1125,6 @@ figcaption {
 
 	.news-title-sidebar .widget {
 		max-width: 25%;
-	}
-
-	/* Sticky footer */
-
-	body {
-		/* margin-bottom: 370px; */
 	}
 }
 
