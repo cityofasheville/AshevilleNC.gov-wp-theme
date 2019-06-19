@@ -217,7 +217,7 @@
                     $post_class = 'many-children';
                   }
 
-                  echo '<ul class="dropdown-menu dropdown-menu-right ' . $post_class . '" role="menu" aria-labelledby="dept-menu-item-dropdown-' . $page->ID . '">';
+                  echo '<ul class="dropdown-menu ' . $post_class . '" role="menu" aria-labelledby="dept-menu-item-dropdown-' . $page->ID . '">';
 
   								echo '<li class="menu-item nav-item '. (($post->ID == $page->ID)?'active':'') .'" ><a class="dropdown-item" href="'. get_permalink( $page ) .'">'. $page->post_title .' Home</a></li>';
     							foreach ($grandchild_pages as $grandchild_page) {
@@ -228,7 +228,7 @@
                 }
 							}
 							?>
-					<ul>
+					</ul>
 				</div>
 			<?php } ?>
 		</div>

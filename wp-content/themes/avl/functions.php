@@ -249,9 +249,9 @@ function avl_scripts() {
 	wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js', array('jquery', 'popper-js'), null, true );
 	wp_enqueue_script( 'custom-algolia-js', get_template_directory_uri() . '/js/custom-algolia.js', array('jquery'), '1.0', true );
 	wp_enqueue_script( 'moment-js', get_template_directory_uri() . '/js/moment.js', array('jquery'), null, true );
-	
+
     // PRC - 06.2019
-    // Load the datatabes date plugin, which works with moment JS to parse dates on inlined Google Sheets 
+    // Load the datatabes date plugin, which works with moment JS to parse dates on inlined Google Sheets
 	wp_enqueue_script( 'datatable-dates','//cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js', array(),  null, true );
 
 	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0', true );
@@ -283,14 +283,14 @@ function avl_scripts() {
     wp_enqueue_script('algolia-instantsearch', plugins_url('search-by-algolia-instant-relevant-results/js/instantsearch/instantsearch.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
     wp_enqueue_script('algolia-autocomplete', plugins_url('search-by-algolia-instant-relevant-results/js/autocomplete/autocomplete.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
     wp_enqueue_script('algolia-autocomplete-noconflict', plugins_url( 'search-by-algolia-instant-relevant-results/js/autocomplete-noconflict.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
-    if ( is_front_page() && is_home() ) {
-        wp_deregister_script('jquery-datatables');
-        wp_deregister_script('datatables-buttons');
-        wp_deregister_script('datatables-select');
-        wp_deregister_script('datatables-fixedheader');
-        wp_deregister_script('datatables-fixedcolumns');
-        wp_deregister_script('datatables-responsive');
-    }
+    // if ( is_front_page() && is_home() ) {
+    //     wp_deregister_script('jquery-datatables');
+    //     wp_deregister_script('datatables-buttons');
+    //     wp_deregister_script('datatables-select');
+    //     wp_deregister_script('datatables-fixedheader');
+    //     wp_deregister_script('datatables-fixedcolumns');
+    //     wp_deregister_script('datatables-responsive');
+    // }
 }
 add_action( 'wp_enqueue_scripts', 'avl_scripts' );
 
@@ -460,12 +460,12 @@ add_action('wp_footer', 'custom_calendar_js', 100);
 
 // PRC ADDED ACF OPTIONS PAGE 6/2019
 if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page(array(
 		'page_title' => 'Theme General Settings',
 		'menu_title'	=> 'Theme Settings',
 	));
-	
+
 }
 
 add_image_size( 'banner-large', 2000, 1000);

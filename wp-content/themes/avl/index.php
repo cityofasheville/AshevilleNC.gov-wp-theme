@@ -108,7 +108,7 @@ get_header();
 				<h2 class="mb-4"><span class="icon icon-bubbles2 icon-3x icon-avl-blue"></span> Engage</h2>
 				<div class="row engage-tiles">
 					<div class="col-sm-12 col-md-4 engage-tile engage-tile--open-city-hall">
-						<a href="https://www.opentownhall.com/portals/239/forum_home?noembed=1" target="_blank" rel="noopener noreferrer" class="open-city-hall d-block bg-avl-green-75 rounded shadow">
+						<a href="https://opentownhall.com/p/239" target="_blank" rel="noopener noreferrer" class="open-city-hall d-block bg-avl-green-75 rounded shadow">
 							<div class="row h-100">
 								<span class="text-white text-center h3 my-auto mx-auto w-100">Open City Hall</span>
 								<?= wp_get_attachment_image( 109, 'full', false, array('class' => 'mx-auto my-auto w-28') ); ?>
@@ -127,7 +127,7 @@ get_header();
 							<div class="col-6 social-tile social-tile--twitter">
 								<a href="https://twitter.com/CityofAsheville" target="_blank" class="social-network shadow rounded">
 									<span class="icomoon icomoon-twitter icon-5x">
-										
+
 									</span>
 								</a>
 							</div>
