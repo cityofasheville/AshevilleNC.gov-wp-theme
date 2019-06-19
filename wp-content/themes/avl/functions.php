@@ -267,7 +267,8 @@ function avl_scripts() {
 	wp_enqueue_style( 'lindua-style', get_template_directory_uri() . '/css/lindua.css', array(), null );
 	wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . '/css/icomoon.css', array(), null );
 	wp_enqueue_style( 'bootstrap-style', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css', array(), null );
-	wp_enqueue_style( 'avl-style', get_stylesheet_uri() . '', array( 'bootstrap-style', 'lindua-style', 'icomoon-style', 'algolia-autocomplete' ), null );
+
+	wp_enqueue_style( 'avl-style', get_stylesheet_uri() . '', array( 'bootstrap-style', 'lindua-style', 'icomoon-style', 'algolia-autocomplete' ), filemtime( get_stylesheet_directory() . '/style.css') );
 
 	//wp_enqueue_script( 'avl-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	//wp_enqueue_script( 'avl-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -279,18 +280,19 @@ function avl_scripts() {
 	// Prevent wp-embed.min.js from loading
 	wp_deregister_script( 'wp-embed' );
 
-    wp_enqueue_script('algolio-search', plugins_url('search-by-algolia-instant-relevant-results/js/algoliasearch/algoliasearch.jquery.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
-    wp_enqueue_script('algolia-instantsearch', plugins_url('search-by-algolia-instant-relevant-results/js/instantsearch/instantsearch.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
-    wp_enqueue_script('algolia-autocomplete', plugins_url('search-by-algolia-instant-relevant-results/js/autocomplete/autocomplete.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
-    wp_enqueue_script('algolia-autocomplete-noconflict', plugins_url( 'search-by-algolia-instant-relevant-results/js/autocomplete-noconflict.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
-    // if ( is_front_page() && is_home() ) {
-    //     wp_deregister_script('jquery-datatables');
-    //     wp_deregister_script('datatables-buttons');
-    //     wp_deregister_script('datatables-select');
-    //     wp_deregister_script('datatables-fixedheader');
-    //     wp_deregister_script('datatables-fixedcolumns');
-    //     wp_deregister_script('datatables-responsive');
-    // }
+  // IS THIS A TYPO THAT IS CAUSING PROBLEMS?
+  wp_enqueue_script('algolio-search', plugins_url('search-by-algolia-instant-relevant-results/js/algoliasearch/algoliasearch.jquery.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+  wp_enqueue_script('algolia-instantsearch', plugins_url('search-by-algolia-instant-relevant-results/js/instantsearch/instantsearch.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+  wp_enqueue_script('algolia-autocomplete', plugins_url('search-by-algolia-instant-relevant-results/js/autocomplete/autocomplete.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+  wp_enqueue_script('algolia-autocomplete-noconflict', plugins_url( 'search-by-algolia-instant-relevant-results/js/autocomplete-noconflict.js', 'search_by_algolia_instant_relevant_results'), array(), null, true);
+  // if ( is_front_page() && is_home() ) {
+  //     wp_deregister_script('jquery-datatables');
+  //     wp_deregister_script('datatables-buttons');
+  //     wp_deregister_script('datatables-select');
+  //     wp_deregister_script('datatables-fixedheader');
+  //     wp_deregister_script('datatables-fixedcolumns');
+  //     wp_deregister_script('datatables-responsive');
+  // }
 }
 add_action( 'wp_enqueue_scripts', 'avl_scripts' );
 
