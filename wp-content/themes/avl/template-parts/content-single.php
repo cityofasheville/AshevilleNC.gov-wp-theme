@@ -29,27 +29,52 @@
 
 	<?php avl_post_thumbnail(); ?>
 
-	<div class="entry-content">
+  <div class="row">
 		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'avl' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
+    if ( 'avl_service' === get_post_type() ) :
+      echo '<div class="entry-content col-md-9">';
+    else :
+      echo '<div class="entry-content">';
+    endif;
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'avl' ),
-			'after'  => '</div>',
-		) );
-		?>
-	</div>
+  		the_content( sprintf(
+  			wp_kses(
+  				/* translators: %s: Name of current post. Only visible to screen readers */
+  				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'avl' ),
+  				array(
+  					'span' => array(
+  						'class' => array(),
+  					),
+  				)
+  			),
+  			get_the_title()
+  		) );
+
+  		wp_link_pages( array(
+  			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'avl' ),
+  			'after'  => '</div>',
+  		) );
+
+  		?>
+  	</div>
+
+    <?php
+    if ( 'avl_service' === get_post_type() ) :
+    	?>
+      <div class="col-md-3">
+        <div class="card entry-meta mb-3">
+          <div class="h3 card-header">Questions?</div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="h6">General Support</div>
+              828-251-1122
+            </li>
+          </ul>
+        </div>
+      </div>
+    <?php endif; ?>
+
+  </div>
 
 	<footer class="entry-footer"><?php avl_entry_footer(); ?></footer>
 </article>
