@@ -67,12 +67,10 @@ class NF_Abstracts_ModelFactory
 
         $this->_object = $this->_form = new NF_Database_Models_Form( $this->_db, $id );
 
-        if(WPN_Helper::use_cache()) {
-            $form_cache = WPN_Helper::get_nf_cache( $id );
+        $form_cache = WPN_Helper::get_nf_cache( $id );
 
-            if( $form_cache && isset ( $form_cache[ 'settings' ] ) ){
-                $this->_object->update_settings( $form_cache[ 'settings' ] );
-            }
+        if( $form_cache && isset ( $form_cache[ 'settings' ] ) ){
+            $this->_object->update_settings( $form_cache[ 'settings' ] );
         }
 
         return $this;
@@ -232,12 +230,7 @@ class NF_Abstracts_ModelFactory
 
         if( $where || $fresh || ! $this->_fields ){
 
-            // @TODO: Remove the second half of this IF block and replace it with a required update check.
-            if(WPN_Helper::use_cache() || 1 == $form_id) {
-                $form_cache = WPN_Helper::get_nf_cache( $form_id );
-            } else {
-                $form_cache = false;
-            }
+            $form_cache = WPN_Helper::get_nf_cache( $form_id );
 
             if( ! $form_cache ) {
                 $model_shell = new NF_Database_Models_Field($this->_db, 0);

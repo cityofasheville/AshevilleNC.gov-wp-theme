@@ -41,15 +41,15 @@ return apply_filters( 'ninja_forms_field_type_sections', array(
 
     /*
     |--------------------------------------------------------------------------
-    | Pricing Fields (Deprecated)
+    | Pricing Fields
     |--------------------------------------------------------------------------
     */
 
-    // 'pricing' => array(
-    //     'id' => 'pricing',
-    //     'nicename' => __( 'Pricing Fields', 'ninja-forms' ),
-    //     'fieldTypes' => array(),
-    // ),
+    'pricing' => array(
+        'id' => 'pricing',
+        'nicename' => __( 'Pricing Fields', 'ninja-forms' ),
+        'fieldTypes' => array(),
+    ),
 
     /*
     |--------------------------------------------------------------------------

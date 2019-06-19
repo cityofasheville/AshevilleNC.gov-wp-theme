@@ -14,4 +14,8 @@ return apply_filters( 'ninja_forms_dashboard_menu_items', array(
         'slug' => 'apps',
         'niceName' => __( 'Apps & Integrations', 'ninja-forms' ),
     ),
+    'memberships' => array(
+        'slug' => 'memberships',
+        'niceName' => __( 'Memberships', 'ninja-forms' ),
+    )
 ));

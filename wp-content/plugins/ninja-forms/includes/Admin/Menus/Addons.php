@@ -14,26 +14,11 @@ final class NF_Admin_Menus_Addons extends NF_Abstracts_Submenu
         if ( ! apply_filters( 'ninja_forms_disable_marketing', $disable_marketing ) ) {
             parent::__construct();
         }
-
-        add_action( 'admin_init', array( $this, 'nf_upgrade_redirect' ) );
-    }
-
-    /**
-     * If we have required updates, unregister the menu item
-     */
-    public function nf_upgrade_redirect() {
-        global $pagenow;
-            
-        if( "1" == get_option( 'ninja_forms_needs_updates' ) ) {
-            remove_submenu_page( $this->parent_slug, $this->menu_slug );
-        }
     }
 
     public function get_page_title()
     {
-        $title = '<span style="color:#84cc1e">' . __( 'Add-Ons', 'ninja-forms' ) . '</span>'; 
-
-        return $title;
+        return __( 'Add-Ons', 'ninja-forms' );
     }
 
     public function get_capability()

@@ -207,7 +207,7 @@ final class NF_Actions_Email extends NF_Abstracts_Action
     {
         $attachments = array();
 
-        if( isset( $settings[ 'attach_csv' ] ) && 1 == $settings[ 'attach_csv' ] ){
+        if( 1 == $settings[ 'attach_csv' ] ){
             $attachments[] = $this->_create_csv( $data[ 'fields' ] );
         }
 

@@ -120,13 +120,6 @@ class NF_Abstracts_Model
      */
     protected $_cache = TRUE;
 
-    /**
-     * A Flag for testing whether or not we've completed stage 1 of our db.
-     * 
-     * @var boolean
-     */
-    private $db_stage_1_complete = TRUE;
-
     //-----------------------------------------------------
     // Public Methods
     //-----------------------------------------------------
@@ -258,26 +251,22 @@ class NF_Abstracts_Model
                 $this->_settings[ 'label' ] = $field[ 'label' ];
                 $this->_settings[ 'key' ] = $field[ 'key' ];
                 $this->_settings[ 'type' ] = $field[ 'type' ];
-                $this->_settings[ 'field_label' ] = $field[ 'label' ];
-                $this->_settings[ 'field_key' ] = $field[ 'key' ];
             }
         }
 
         if( ! $this->_settings ) {
-            if( WPN_Helper::use_cache() ) {
-                $form_cache = WPN_Helper::get_nf_cache( $this->_parent_id );
-                if ($form_cache) {
+            $form_cache = WPN_Helper::get_nf_cache( $this->_parent_id );
+            if ($form_cache) {
 
-                    if ('field' == $this->_type) {
+                if ('field' == $this->_type) {
 
-                        if (isset($form_cache['fields'])) {
+                    if (isset($form_cache['fields'])) {
 
-                            foreach ($form_cache['fields'] as $object) {
-                                if ($this->_id != $object['id']) continue;
+                        foreach ($form_cache['fields'] as $object) {
+                            if ($this->_id != $object['id']) continue;
 
-                                $this->update_settings($object['settings']);
-                                break;
-                            }
+                            $this->update_settings($object['settings']);
+                            break;
                         }
                     }
                 }
@@ -480,48 +469,8 @@ class NF_Abstracts_Model
             $results[] = $object = new $class( $this->_db, $id, $parent_id );
         }
 
-        if( ! WPN_Helper::use_cache() ) {
-            $results = $this->get_object_settings($results);
-        }
         // Return an array of objects
         return $results;
-    }
-
-    public function get_object_settings($obj_array ) {
-        global $wpdb;
-        $id_array = array();
-        $generic_object_array = array();
-        foreach($obj_array as $obj) {
-            $id_array[] = $obj->get_id();
-            $generic_object_array[$obj->get_id()] = $obj;
-        }
-        
-        if( 0 < count($id_array) ) {
-            $obj_query = "SELECT `id`, `" . implode( '`, `', $this->_columns) . "` FROM {$this->_table_name} WHERE id IN (" . implode(',', $id_array) . ")";
-
-
-            $table_data = $wpdb->get_results($obj_query, ARRAY_A);
-
-            foreach($table_data as $data_item) {
-                foreach($data_item as $label => $val ) {
-                    $generic_object_array[$data_item['id']]->_settings[$label] = maybe_unserialize( $val );
-                }
-            }
-        
-            $meta_query = "SELECT * FROM {$this->_meta_table_name} WHERE parent_id IN (" . implode(',', $id_array) . ")";
-
-            $meta_data = $wpdb->get_results($meta_query, ARRAY_A);
-
-            foreach($meta_data as $meta) {
-
-                // if( ! isset($generic_object_array[$meta['parent_id']]->_settings[$meta['meta_key']])) {
-                    $generic_object_array[$meta['parent_id']]->_settings[$meta['meta_key']] = maybe_unserialize( $meta['meta_value'] );
-                // }
-            }
-        }
-        $obj_array = array_values($generic_object_array);
-
-        return $obj_array;
     }
 
     /*
@@ -533,22 +482,6 @@ class NF_Abstracts_Model
      */
     public function save()
     {
-
-        /**
-         * Check to see if we've completed stage 1 of our db update.
-         */
-
-        $sql = "SHOW COLUMNS FROM {$this->_db->prefix}nf3_fields LIKE 'field_key'";
-        $results = $this->_db->get_results( $sql );
-        /**
-         * If we don't have the field_key column, we need to remove our new columns.
-         *
-         * Also, set our db stage 1 tracker to false.
-         */
-        if ( empty ( $results ) ) {
-            $this->db_stage_1_complete = false;
-        }
-
         $data = array ( 'updated_at' => current_time( 'mysql' ));
 
         // If the ID is not set, assign an ID
@@ -711,11 +644,11 @@ class NF_Abstracts_Model
         if( $meta_row ){
 
         	$update_values = array(
-                'value' => $value,
+		        'value' => $value
 	        );
 
         	// for forms we need to update the meta_key and meta_value columns
-        	if( 'form' == $this->_type || $this->db_stage_1_complete ) {
+        	if( 'form' == $this->_type ) {
         		$update_values[ 'meta_key' ] = $key;
         		$update_values[ 'meta_value' ] = $value;
 	        }
@@ -738,7 +671,7 @@ class NF_Abstracts_Model
 	        );
 
 	        // for forms we need to update the meta_key and meta_value columns
-        	if( 'form' == $this->_type || $this->db_stage_1_complete ) {
+        	if( 'form' == $this->_type ) {
         		$insert_values[ 'meta_key' ] = $key;
         		$insert_values[ 'meta_value' ] = $value;
 	        }
@@ -869,6 +802,7 @@ class NF_Abstracts_Model
         }
 
         return "SELECT DISTINCT $this->_table_name.id FROM $this->_table_name $join_statement $where_statement";
+
     }
 
 
